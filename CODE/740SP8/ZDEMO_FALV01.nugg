@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="ZDEMO_FALV01">
+ <PROG NAME="ZDEMO_FALV01" VARCL="X" SUBC="1" APPL="*" RSTAT="K" RMAND="001" RLOAD="E" FIXPT="X" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Simple Full Screen Call" LENGTH="34 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV standard fast call
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv01.
+
+data: sflight type standard table of sflight.
+
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;FALV creation with only table passed
+  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV01&apos;.
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+</nugget>

@@ -1,0 +1,691 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="ZCL_FALV_COLUMN">
+ <CLAS CLSNAME="ZCL_FALV_COLUMN" VERSION="1" LANGU="E" DESCRIPT="FALV column" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <attribute CLSNAME="ZCL_FALV_COLUMN" CMPNAME="FALV" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_FALV" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV_COLUMN" CMPNAME="FIELDNAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_S_FCAT-FIELDNAME" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="CHANGE_SETTING" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="CHANGE_SETTING" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ANY"/>
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="CHANGE_SETTING" SCONAME="IV_SETTING" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="STRING"/>
+   <source>method change_setting.
+    falv-&gt;get_frontend_fieldcatalog( importing et_fieldcatalog = falv-&gt;fcat ).
+    assign falv-&gt;fcat[ fieldname = fieldname ] to field-symbol(&lt;fcat&gt;).
+    if sy-subrc eq 0.
+      data(fcat_field) = |&lt;fcat&gt;-{ iv_setting }|.
+      assign (fcat_field) to field-symbol(&lt;field&gt;).
+      if sy-subrc eq 0.
+        &lt;field&gt; = iv_value.
+      endif.
+      falv-&gt;set_frontend_fieldcatalog( it_fieldcatalog = falv-&gt;fcat ).
+    endif.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="T" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="CONSTRUCTOR" SCONAME="IV_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_FCAT-FIELDNAME"/>
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="CONSTRUCTOR" SCONAME="IO_FALV" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="ZCL_FALV"/>
+   <source>method constructor.
+    fieldname = iv_fieldname.
+    falv = io_falv.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_AUTO_VALUE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="51 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_AUTO_VALUE" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_AUTO"/>
+   <source>method set_auto_value.
+    change_setting( iv_value = iv_value iv_setting = &apos;AUTO_VALUE&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_CFIELDNAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_CFIELDNAME" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_CFNAME"/>
+   <source>method set_cfieldname.
+    change_setting( iv_value = iv_value iv_setting = &apos;CFIELDNAME&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_CHECKBOX" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="19 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_CHECKBOX" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_CHECKB"/>
+   <source>method set_checkbox.
+    change_setting( iv_value = iv_value iv_setting = &apos;CHECKBOX&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_CHECKTABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="52 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_CHECKTABLE" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="TABNAME"/>
+   <source>method set_checktable.
+    change_setting( iv_value = iv_value iv_setting = &apos;CHECKTABLE&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COLDDICTXT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="90 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COLDDICTXT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_DDICT"/>
+   <source>method set_colddictxt.
+    change_setting( iv_value = iv_value iv_setting = &apos;COLDDICTXT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COLOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="27 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COLOR" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_EMPHSZ"/>
+   <source>method set_color.
+    set_emphasize( iv_value = iv_value ).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COLTEXT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="86 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COLTEXT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_TXTCOL"/>
+   <source>method set_coltext.
+    change_setting( iv_value = iv_value iv_setting = &apos;COLTEXT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COL_ID" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="49 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COL_ID" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_COLID"/>
+   <source>method set_col_id.
+    change_setting( iv_value = iv_value iv_setting = &apos;COL_ID&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COL_OPT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="64 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COL_OPT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_COLOPT"/>
+   <source>method set_col_opt.
+    change_setting( iv_value = iv_value iv_setting = &apos;COL_OPT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COL_POS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_COL_POS" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_COLPOS"/>
+   <source>method set_col_pos.
+    change_setting( iv_value = iv_value iv_setting = &apos;COL_POS&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_CONVEXIT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="34 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_CONVEXIT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CONVEXIT"/>
+   <source>method set_convexit.
+    change_setting( iv_value = iv_value iv_setting = &apos;CONVEXIT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_CURRENCY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_CURRENCY" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_CURR"/>
+   <source>method set_currency.
+    change_setting( iv_value = iv_value iv_setting = &apos;CURRENCY&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DATATYPE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="38 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DATATYPE" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="DATATYPE_D"/>
+   <source>method set_datatype.
+    change_setting( iv_value = iv_value iv_setting = &apos;DATATYPE&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DD_OUTLEN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="84 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DD_OUTLEN" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_DDLEN"/>
+   <source>method set_dd_outlen.
+    change_setting( iv_value = iv_value iv_setting = &apos;DD_OUTLEN&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DD_ROLL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="100 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DD_ROLL" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ROLLNAME"/>
+   <source>method set_dd_roll.
+    change_setting( iv_value = iv_value iv_setting = &apos;DD_ROLL&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DECFLOAT_STYLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="67 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DECFLOAT_STYLE" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="OUTPUTSTYLE"/>
+   <source>method set_decfloat_style.
+    change_setting( iv_value = iv_value iv_setting = &apos;DECFLOAT_STYLE&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DECIMALS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="85 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DECIMALS" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="DECIMALS"/>
+   <source>method set_decimals.
+    change_setting( iv_value = iv_value iv_setting = &apos;DECIMALS&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DECIMALS_O" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="82 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DECIMALS_O" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_DECMLS"/>
+   <source>method set_decimals_o.
+    change_setting( iv_value = iv_value iv_setting = &apos;DECIMALS_O&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DECMLFIELD" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="83 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DECMLFIELD" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_DFNAME"/>
+   <source>method set_decmlfield.
+    change_setting( iv_value = iv_value iv_setting = &apos;DECMLFIELD&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DFIELDNAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="48 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DFIELDNAME" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVCDBGFN"/>
+   <source>method set_dfieldname.
+    change_setting( iv_value = iv_value iv_setting = &apos;DFIELDNAME&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DOMNAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="45 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DOMNAME" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="DOMNAME"/>
+   <source>method set_domname.
+    change_setting( iv_value = iv_value iv_setting = &apos;DOMNAME&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DO_SUM" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="29 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DO_SUM" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_DOSUM"/>
+   <source>method set_do_sum.
+    change_setting( iv_value = iv_value iv_setting = &apos;DO_SUM&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DRAGDROPID" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="101 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DRAGDROPID" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_DDID"/>
+   <source>method set_dragdropid.
+    change_setting( iv_value = iv_value iv_setting = &apos;DRAGDROPID&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DRDN_ALIAS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="66 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DRDN_ALIAS" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR01"/>
+   <source>method set_drdn_alias.
+    change_setting( iv_value = iv_value iv_setting = &apos;DRDN_ALIAS&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DRDN_FIELD" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="61 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DRDN_FIELD" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_FNAME"/>
+   <source>method set_drdn_field.
+    change_setting( iv_value = iv_value iv_setting = &apos;DRDN_FIELD&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DRDN_HNDL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="60 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_DRDN_HNDL" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_drdn_hndl.
+    change_setting( iv_value = iv_value iv_setting = &apos;DRDN_HNDL&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_EDIT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="93 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_EDIT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_EDIT"/>
+   <source>method set_edit.
+    change_setting( iv_value = iv_value iv_setting = &apos;EDIT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_EDITABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method set_editable.
+    change_setting( iv_value = abap_true iv_setting = &apos;EDIT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_EDIT_MASK" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="25 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_EDIT_MASK" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_EDTMSK"/>
+   <source>method set_edit_mask.
+    change_setting( iv_value = iv_value iv_setting = &apos;EDIT_MASK&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_EMPHASIZE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="26 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_EMPHASIZE" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_EMPHSZ"/>
+   <source>method set_emphasize.
+    change_setting( iv_value = iv_value iv_setting = &apos;EMPHASIZE&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_EXPONENT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_EXPONENT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_EXPONT"/>
+   <source>method set_exponent.
+    change_setting( iv_value = iv_value iv_setting = &apos;EXPONENT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_F4AVAILABL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="50 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_F4AVAILABL" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="DDF4AVAIL"/>
+   <source>method set_f4availabl.
+    change_setting( iv_value = iv_value iv_setting = &apos;F4AVAILABL&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_FIELDNAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_FIELDNAME" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_FNAME"/>
+   <source>method set_fieldname.
+    change_setting( iv_value = iv_value iv_setting = &apos;FIELDNAME&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_FIX_COLUMN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="28 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_FIX_COLUMN" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_FIXCOL"/>
+   <source>method set_fix_column.
+    change_setting( iv_value = iv_value iv_setting = &apos;FIX_COLUMN&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_GET_STYLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="109 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_GET_STYLE" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR01"/>
+   <source>method set_get_style.
+    change_setting( iv_value = iv_value iv_setting = &apos;GET_STYLE&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_HIER_CPOS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="97 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_HIER_CPOS" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVCHCOLPOS"/>
+   <source>method set_hier_cpos.
+    change_setting( iv_value = iv_value iv_setting = &apos;HIER_CPOS&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_HIER_LEVEL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="43 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_HIER_LEVEL" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_HIERL"/>
+   <source>method set_hier_level.
+    change_setting( iv_value = iv_value iv_setting = &apos;HIER_LEVEL&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_HOTSPOT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="47 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_HOTSPOT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_HOTSPT"/>
+   <source>method set_hotspot.
+    change_setting( iv_value = iv_value iv_setting = &apos;HOTSPOT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_HREF_HNDL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="55 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_HREF_HNDL" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_href_hndl.
+    change_setting( iv_value = iv_value iv_setting = &apos;HREF_HNDL&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_H_COL_KEY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="98 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_H_COL_KEY" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="TV_ITMNAME"/>
+   <source>method set_h_col_key.
+    change_setting( iv_value = iv_value iv_setting = &apos;H_COL_KEY&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_H_FTYPE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="63 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_H_FTYPE" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_FTYPE"/>
+   <source>method set_h_ftype.
+    change_setting( iv_value = iv_value iv_setting = &apos;H_FTYPE&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_H_SELECT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="99 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_H_SELECT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_SELECT"/>
+   <source>method set_h_select.
+    change_setting( iv_value = iv_value iv_setting = &apos;H_SELECT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_ICON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="17 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_ICON" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_ICON"/>
+   <source>method set_icon.
+    change_setting( iv_value = iv_value iv_setting = &apos;ICON&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_IFIELDNAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_IFIELDNAME" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_FNAME"/>
+   <source>method set_ifieldname.
+    change_setting( iv_value = iv_value iv_setting = &apos;IFIELDNAME&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_CFIEL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="104 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_CFIEL" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_indx_cfiel.
+    change_setting( iv_value = iv_value iv_setting = &apos;INDX_CFIEL&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_DECML" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="108 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_DECML" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_indx_decml.
+    change_setting( iv_value = iv_value iv_setting = &apos;INDX_DECML&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_FIELD" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="103 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_FIELD" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_indx_field.
+    change_setting( iv_value = iv_value iv_setting = &apos;INDX_FIELD&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_IFIEL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="106 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_IFIEL" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_indx_ifiel.
+    change_setting( iv_value = iv_value iv_setting = &apos;INDX_IFIEL&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_QFIEL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="105 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_QFIEL" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_indx_qfiel.
+    change_setting( iv_value = iv_value iv_setting = &apos;INDX_QFIEL&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_ROUND" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="107 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INDX_ROUND" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_indx_round.
+    change_setting( iv_value = iv_value iv_setting = &apos;INDX_ROUND&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INTLEN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="40 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INTLEN" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INTLEN"/>
+   <source>method set_intlen.
+    change_setting( iv_value = iv_value iv_setting = &apos;INTLEN&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INTTYPE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="39 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_INTTYPE" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INTTYPE"/>
+   <source>method set_inttype.
+    change_setting( iv_value = iv_value iv_setting = &apos;INTTYPE&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_JUST" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="20 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_JUST" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_JUST"/>
+   <source>method set_just.
+    change_setting( iv_value = iv_value iv_setting = &apos;JUST&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_KEY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="15 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_KEY" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_KEY"/>
+   <source>method set_key.
+    change_setting( iv_value = iv_value iv_setting = &apos;KEY&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_KEY_SEL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="16 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_KEY_SEL" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_KEYSEL"/>
+   <source>method set_key_sel.
+    change_setting( iv_value = iv_value iv_setting = &apos;KEY_SEL&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_LOWERCASE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="41 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_LOWERCASE" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LOWERCASE"/>
+   <source>method set_lowercase.
+    change_setting( iv_value = iv_value iv_setting = &apos;LOWERCASE&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_LZERO" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="21 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_LZERO" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_LZERO"/>
+   <source>method set_lzero.
+    change_setting( iv_value = iv_value iv_setting = &apos;LZERO&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_MAC" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="102 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_MAC" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR01"/>
+   <source>method set_mac.
+    change_setting( iv_value = iv_value iv_setting = &apos;MAC&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_MARK" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="110 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_MARK" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR01"/>
+   <source>method set_mark.
+    change_setting( iv_value = iv_value iv_setting = &apos;MARK&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_CONVEXT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="24 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_CONVEXT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_NOCONV"/>
+   <source>method set_no_convext.
+    change_setting( iv_value = iv_value iv_setting = &apos;NO_CONVEXT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_INIT_CH" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="65 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_INIT_CH" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR01"/>
+   <source>method set_no_init_ch.
+    change_setting( iv_value = iv_value iv_setting = &apos;NO_INIT_CH&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_MERGING" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="62 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_MERGING" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR01"/>
+   <source>method set_no_merging.
+    change_setting( iv_value = iv_value iv_setting = &apos;NO_MERGING&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_OUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="31 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_OUT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_NOOUT"/>
+   <source>method set_no_out.
+    change_setting( iv_value = iv_value iv_setting = &apos;NO_OUT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_SIGN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="22 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_SIGN" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_NOSIGN"/>
+   <source>method set_no_sign.
+    change_setting( iv_value = iv_value iv_setting = &apos;NO_SIGN&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_SUM" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="30 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_SUM" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_NOSUM"/>
+   <source>method set_no_sum.
+    change_setting( iv_value = iv_value iv_setting = &apos;NO_SUM&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_ZERO" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="23 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_NO_ZERO" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_NOZERO"/>
+   <source>method set_no_zero.
+    change_setting( iv_value = iv_value iv_setting = &apos;NO_ZERO&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_OUTPUTLEN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="33 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_OUTPUTLEN" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_OUTLEN"/>
+   <source>method set_outputlen.
+    change_setting( iv_value = iv_value iv_setting = &apos;OUTPUTLEN&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER0" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="68 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER0" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR30"/>
+   <source>method set_parameter0.
+    change_setting( iv_value = iv_value iv_setting = &apos;PARAMETER0&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER1" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="69 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER1" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR30"/>
+   <source>method set_parameter1.
+    change_setting( iv_value = iv_value iv_setting = &apos;PARAMETER1&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER2" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="70 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER2" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR30"/>
+   <source>method set_parameter2.
+    change_setting( iv_value = iv_value iv_setting = &apos;PARAMETER2&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER3" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="71 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER3" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR30"/>
+   <source>method set_parameter3.
+    change_setting( iv_value = iv_value iv_setting = &apos;PARAMETER3&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER4" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="72 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER4" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR30"/>
+   <source>method set_parameter4.
+    change_setting( iv_value = iv_value iv_setting = &apos;PARAMETER4&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER5" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="73 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER5" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_parameter5.
+    change_setting( iv_value = iv_value iv_setting = &apos;PARAMETER5&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER6" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="74 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER6" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_parameter6.
+    change_setting( iv_value = iv_value iv_setting = &apos;PARAMETER6&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER7" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="75 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER7" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_parameter7.
+    change_setting( iv_value = iv_value iv_setting = &apos;PARAMETER7&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER8" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="76 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER8" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_parameter8.
+    change_setting( iv_value = iv_value iv_setting = &apos;PARAMETER8&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER9" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="77 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_PARAMETER9" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="INT4"/>
+   <source>method set_parameter9.
+    change_setting( iv_value = iv_value iv_setting = &apos;PARAMETER9&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_QFIELDNAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_QFIELDNAME" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_QFNAME"/>
+   <source>method set_qfieldname.
+    change_setting( iv_value = iv_value iv_setting = &apos;QFIELDNAME&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_QUANTITY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_QUANTITY" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_QUAN"/>
+   <source>method set_quantity.
+    change_setting( iv_value = iv_value iv_setting = &apos;QUANTITY&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_READONLY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method set_readonly.
+    change_setting( iv_value = abap_false iv_setting = &apos;EDIT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_REF_FIELD" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="78 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_REF_FIELD" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_RFNAME"/>
+   <source>method set_ref_field.
+    change_setting( iv_value = iv_value iv_setting = &apos;REF_FIELD&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_REF_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="79 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_REF_TABLE" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_RTNAME"/>
+   <source>method set_ref_table.
+    change_setting( iv_value = iv_value iv_setting = &apos;REF_TABLE&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_REPREP" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="44 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_REPREP" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_CRPRP"/>
+   <source>method set_reprep.
+    change_setting( iv_value = iv_value iv_setting = &apos;REPREP&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_REPTEXT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="42 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_REPTEXT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="REPTEXT"/>
+   <source>method set_reptext.
+    change_setting( iv_value = iv_value iv_setting = &apos;REPTEXT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_ROLLNAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="37 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_ROLLNAME" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_ROLL"/>
+   <source>method set_rollname.
+    change_setting( iv_value = iv_value iv_setting = &apos;ROLLNAME&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_ROUND" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_ROUND" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_ROUND"/>
+   <source>method set_round.
+    change_setting( iv_value = iv_value iv_setting = &apos;ROUND&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_ROUNDFIELD" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="81 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_ROUNDFIELD" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_RNDFN"/>
+   <source>method set_roundfield.
+    change_setting( iv_value = iv_value iv_setting = &apos;ROUNDFIELD&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_ROW_POS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_ROW_POS" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_ROWPOS"/>
+   <source>method set_row_pos.
+    change_setting( iv_value = iv_value iv_setting = &apos;ROW_POS&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SCRTEXT_L" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="87 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SCRTEXT_L" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="SCRTEXT_L"/>
+   <source>method set_scrtext_l.
+    change_setting( iv_value = iv_value iv_setting = &apos;SCRTEXT_L&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SCRTEXT_M" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="88 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SCRTEXT_M" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="SCRTEXT_M"/>
+   <source>method set_scrtext_m.
+    change_setting( iv_value = iv_value iv_setting = &apos;SCRTEXT_M&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SCRTEXT_S" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="89 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SCRTEXT_S" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="SCRTEXT_S"/>
+   <source>method set_scrtext_s.
+    change_setting( iv_value = iv_value iv_setting = &apos;SCRTEXT_S&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SELDDICTXT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="91 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SELDDICTXT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_DDICT"/>
+   <source>method set_selddictxt.
+    change_setting( iv_value = iv_value iv_setting = &apos;SELDDICTXT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SELTEXT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="35 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SELTEXT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_TXT"/>
+   <source>method set_seltext.
+    change_setting( iv_value = iv_value iv_setting = &apos;SELTEXT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SP_GROUP" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="46 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SP_GROUP" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_SPGRP"/>
+   <source>method set_sp_group.
+    change_setting( iv_value = iv_value iv_setting = &apos;SP_GROUP&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_STYLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="56 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_STYLE" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_STYLE"/>
+   <source>method set_style.
+    change_setting( iv_value = iv_value iv_setting = &apos;STYLE&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_STYLE2" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="57 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_STYLE2" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_STYLE"/>
+   <source>method set_style2.
+    change_setting( iv_value = iv_value iv_setting = &apos;STYLE2&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_STYLE3" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="58 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_STYLE3" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_STYLE"/>
+   <source>method set_style3.
+    change_setting( iv_value = iv_value iv_setting = &apos;STYLE3&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_STYLE4" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="59 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_STYLE4" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_STYLE"/>
+   <source>method set_style4.
+    change_setting( iv_value = iv_value iv_setting = &apos;STYLE4&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SYMBOL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="18 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_SYMBOL" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_SYMBOL"/>
+   <source>method set_symbol.
+    change_setting( iv_value = iv_value iv_setting = &apos;SYMBOL&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TABNAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TABNAME" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_TNAME"/>
+   <source>method set_tabname.
+    change_setting( iv_value = iv_value iv_setting = &apos;TABNAME&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TECH" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="32 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TECH" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_TECH"/>
+   <source>method set_tech.
+    change_setting( iv_value = iv_value iv_setting = &apos;TECH&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TECH_COL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="94 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TECH_COL" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_TCOL"/>
+   <source>method set_tech_col.
+    change_setting( iv_value = iv_value iv_setting = &apos;TECH_COL&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TECH_COMP" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="96 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TECH_COMP" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_TCOMP"/>
+   <source>method set_tech_comp.
+    change_setting( iv_value = iv_value iv_setting = &apos;TECH_COMP&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TECH_FORM" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="95 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TECH_FORM" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_TFORM"/>
+   <source>method set_tech_form.
+    change_setting( iv_value = iv_value iv_setting = &apos;TECH_FORM&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TIPDDICTXT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="92 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TIPDDICTXT" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_DDICT"/>
+   <source>method set_tipddictxt.
+    change_setting( iv_value = iv_value iv_setting = &apos;TIPDDICTXT&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TOOLTIP" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="36 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TOOLTIP" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_TIP"/>
+   <source>method set_tooltip.
+    change_setting( iv_value = iv_value iv_setting = &apos;TOOLTIP&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TXT_FIELD" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="80 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_TXT_FIELD" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_FNAME"/>
+   <source>method set_txt_field.
+    change_setting( iv_value = iv_value iv_setting = &apos;TXT_FIELD&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_VALEXI" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="53 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_VALEXI" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="VALEXI"/>
+   <source>method set_valexi.
+    change_setting( iv_value = iv_value iv_setting = &apos;VALEXI&apos;).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_WEB_FIELD" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="54 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_COLUMN" CMPNAME="SET_WEB_FIELD" SCONAME="IV_VALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_FNAME"/>
+   <source>method set_web_field.
+    change_setting( iv_value = iv_value iv_setting = &apos;WEB_FIELD&apos;).
+  endmethod.</source>
+  </method>
+ </CLAS>
+</nugget>

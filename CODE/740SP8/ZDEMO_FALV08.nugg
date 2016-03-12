@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="ZDEMO_FALV08">
+ <PROG NAME="ZDEMO_FALV08" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Mass Replace Function" LENGTH="32 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV with mass replace function
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv08.
+
+data: sflight type standard table of sflight.
+
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;FALV creation with only table passed
+  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV08&apos;.
+
+  &quot;set whole grid editable
+  falv-&gt;layout-&gt;set_edit( abap_true ).
+  falv-&gt;set_editable( iv_modify = abap_true ).
+
+  &quot;show default grid toolbar
+  falv-&gt;layout-&gt;set_no_toolbar( abap_false ).
+
+  &quot;Add mass replace function to grid toolbar (can be also added to GUI STATUS as well )
+  falv-&gt;add_button(
+    exporting
+      iv_function  = falv-&gt;fc_mass_replace
+       iv_icon      = icon_replace
+*      iv_quickinfo =
+*      iv_butn_type =
+*      iv_disabled  =
+       iv_text      = &apos;Mass replace&apos;
+*      iv_checked   =
+  ).
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+</nugget>

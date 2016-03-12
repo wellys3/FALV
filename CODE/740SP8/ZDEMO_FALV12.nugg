@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="ZDEMO_FALV12">
+ <PROG NAME="ZDEMO_FALV12" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Error Log" LENGTH="20 "/>
+    <textElement ID="S" KEY="P_EMBEED" ENTRY="        Embeeded Error Log" LENGTH="26 "/>
+    <textElement ID="S" KEY="P_NOTEMB" ENTRY="        Popup Error Log" LENGTH="23 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV with error log
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv12.
+
+data: sflight type standard table of sflight.
+
+
+parameters: p_embeed radiobutton group gr1 default &apos;X&apos;,
+            p_notemb radiobutton group gr1.
+
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;FALV creation with only table passed
+
+  if p_embeed eq abap_true.
+   data(falv) = zcl_falv=&gt;create( exporting i_applog_embedded = abap_true  changing ct_table = sflight ).
+  else.
+   falv = zcl_falv=&gt;create( changing ct_table = sflight ).
+  endif.
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV12&apos;.
+
+    &quot;set whole grid editable
+   falv-&gt;layout-&gt;set_edit( abap_true ).
+    &quot;Change grid to edit mode
+  falv-&gt;set_editable( iv_modify = abap_true ).
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+</nugget>

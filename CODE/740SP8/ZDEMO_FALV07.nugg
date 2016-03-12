@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="ZDEMO_FALV07">
+ <PROG NAME="ZDEMO_FALV07" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Full Screen Columns" LENGTH="30 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV full screen with fieldcatalog update
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+
+report zdemo_falv07.
+
+data: sflight type standard table of sflight.
+
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;FALV creation with only table passed
+  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV07&apos;.
+
+
+  &quot;Changing some of field catalog settings
+  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_hotspot( abap_true ).
+  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_color( &apos;C700&apos; ).
+
+  falv-&gt;column( &apos;PLANETYPE&apos; )-&gt;set_color( &apos;C300&apos; ).
+  falv-&gt;column( &apos;PLANETYPE&apos; )-&gt;set_no_merging( abap_true ).
+
+  falv-&gt;column( &apos;PAYMENTSUM&apos; )-&gt;set_no_zero( abap_true ).
+
+  &quot;or
+
+  data(price) = falv-&gt;column( &apos;PRICE&apos; ).
+  price-&gt;set_no_out( abap_true ).
+  data(occup) = falv-&gt;column( &apos;SEATSOCC&apos; ).
+  occup-&gt;set_no_zero( abap_true ).
+  occup-&gt;set_no_merging( abap_true  ).
+
+
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+</nugget>

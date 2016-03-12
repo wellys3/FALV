@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="ZDEMO_FALV06">
+ <PROG NAME="ZDEMO_FALV06" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Full Screen Layout" LENGTH="29 "/>
+    <textElement ID="S" KEY="P_USEMAR" ENTRY="        Use Mark Field?" LENGTH="23 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV full screen with layout changes
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv06.
+
+types: begin of t_sflight,
+         mark type bcselect.
+        include type sflight.
+types: end of t_sflight.
+
+data: sflight type standard table of t_sflight.
+
+
+parameter: p_usemar as checkbox.
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;FALV creation with only table passed
+  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV06&apos;.
+
+  &quot;All layout settings have set method in layout object of FALV
+  &quot;it can be udated before output or during runtime of program
+  falv-&gt;layout-&gt;set_zebra( abap_true  ).
+  falv-&gt;layout-&gt;set_no_merging( abap_true ).
+
+  &quot;additionally there is a attribute mark field which when is set
+  &quot;then fcat for it is changed so it&apos;s checkbox field and
+  &quot;when you&apos;ll use standard select all/deselect all functions then
+  &quot;it will check/uncheck checkbox instead of selecting/deselecting rows
+  if p_usemar eq abap_true.
+    falv-&gt;set_mark_field( &apos;MARK&apos; ).
+  endif.
+
+  &quot;user Layout option save changed to user-specific only
+  falv-&gt;layout_save = &apos;U&apos;.
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+</nugget>

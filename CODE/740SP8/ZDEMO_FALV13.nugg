@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="ZDEMO_FALV13">
+ <PROG NAME="ZDEMO_FALV13" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Mix Demo" LENGTH="14 "/>
+   </language>
+  </textPool>
+  <dynpros>
+   <dynpro PROG="ZDEMO_FALV13" DNUM="0100" FNUM="0100" BZMX="0 " BZBR="0 " MILI="192 " MICO="37 " MALI="0 " MACO="0 " NOLI="200 " NOCO="255 " VALP="0 " CUAN="G" SPRA="E" DTEXT="Demo FALV">
+    <dynprofield FNAM="CC_MAIN" DIDX="00C8" FLG1="00" FLG2="30" FLG3="00" FILL="U" FMB1="30" FMB2="00" LENG="FF" LINE="01" COLN="02" LANF="00" LBLK="00" LREP="00" AUTH="101" AGLT="0A" ADEZ="0A"/>
+    <dynprofield FNAM="OK_CODE" DIDX="0000" FLG1="80" FLG2="10" FLG3="00" FMB1="00" FMB2="00" LENG="14" LINE="FF" COLN="01" LTYP="O" LANF="00" LBLK="00" LREP="00" TYPE="CHAR" AGLT="00" ADEZ="00" STXT="____________________"/>
+    <dynproflowsource>PROCESS BEFORE OUTPUT.
+ module pbo.
+
+PROCESS AFTER INPUT.
+ module pai.</dynproflowsource>
+   </dynpro>
+  </dynpros>
+  <source>&quot;! This is demo for FALV Mix Demo. It contains many features, many FALVs in one program
+&quot;! and a usage of a own screen with own container and FALV
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv13.
+
+types: begin of t_sflight.
+       include type sflight.
+types: style type lvc_t_styl,
+       end of t_sflight.
+
+data: sflight type standard table of t_sflight.
+select * up to 100 rows into corresponding fields of table @sflight
+  from sflight.
+
+class lcl_test definition inheriting from zcl_falv.
+  public section.
+
+  protected section.
+    methods evt_at_set_title redefinition.
+  private section.
+
+endclass.
+
+class lcl_test implementation.
+
+  method evt_at_set_title.
+
+  endmethod.
+
+endclass.
+
+data: falv_screen type ref to lcl_test.
+data: ok_code type sy-ucomm.
+
+
+start-of-selection.
+  &quot;creation of falv with local redefinition
+  data falv_redef type ref to lcl_test.
+  falv_redef ?= lcl_test=&gt;create( exporting i_applog_embedded = abap_false  i_popup = abap_true
+                              i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
+                              changing ct_table = sflight    ) .
+
+  falv_redef-&gt;add_button(
+    exporting
+      iv_function  = &apos;F111&apos;
+      iv_icon      = icon_refresh
+      iv_butn_type = zcl_falv=&gt;button_normal
+  ).
+  falv_redef-&gt;delete_button( zcl_falv=&gt;mc_fc_detail ).
+  falv_redef-&gt;display( ).
+  &quot;creation of standard falv
+  data(falv_stand) = zcl_falv=&gt;create( exporting i_applog_embedded = abap_true changing ct_table = sflight   ).
+
+  falv_stand-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = falv_stand-&gt;gui_status-&gt;b_15
+      iv_text                = &apos;F15&apos;
+      iv_icon                = icon_refresh
+      iv_qinfo               = &apos;Test d&apos;
+      iv_allowed             = abap_true
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+*   message id sy-msgid type sy-msgty number sy-msgno
+*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  endif.
+    falv_stand-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = falv_stand-&gt;gui_status-&gt;b_16
+      iv_text                = &apos;F16&apos;
+      iv_icon                = icon_refresh
+      iv_qinfo               = &apos;Test d&apos;
+      iv_allowed             = abap_true
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+*   message id sy-msgid type sy-msgty number sy-msgno
+*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  endif.
+
+    falv_stand-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = falv_stand-&gt;gui_status-&gt;b_17
+      iv_text                = &apos;F17&apos;
+      iv_icon                = icon_refresh
+      iv_qinfo               = &apos;Test d&apos;
+      iv_allowed             = abap_true
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+*   message id sy-msgid type sy-msgty number sy-msgno
+*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  endif.
+
+      falv_stand-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = falv_stand-&gt;gui_status-&gt;b_18
+      iv_text                = &apos;F18&apos;
+      iv_icon                = icon_refresh
+      iv_qinfo               = &apos;Test d&apos;
+      iv_allowed             = abap_true
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+*   message id sy-msgid type sy-msgty number sy-msgno
+*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  endif.
+
+      falv_stand-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = falv_stand-&gt;gui_status-&gt;b_19
+      iv_text                = &apos;F19&apos;
+      iv_icon                = icon_refresh
+      iv_qinfo               = &apos;Test d&apos;
+      iv_allowed             = abap_true
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+*   message id sy-msgid type sy-msgty number sy-msgno
+*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  endif.
+
+      falv_stand-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = falv_stand-&gt;gui_status-&gt;b_13
+      iv_text                = &apos;F13&apos;
+      iv_icon                = icon_refresh
+      iv_qinfo               = &apos;Test d&apos;
+      iv_allowed             = abap_true
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+*   message id sy-msgid type sy-msgty number sy-msgno
+*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  endif.
+
+    falv_stand-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = falv_stand-&gt;gui_status-&gt;b_14
+      iv_text                = &apos;F14&apos;
+      iv_icon                = icon_refresh
+      iv_qinfo               = &apos;Test d&apos;
+      iv_allowed             = abap_true
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+*   message id sy-msgid type sy-msgty number sy-msgno
+*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  endif.
+
+
+  falv_stand-&gt;display( ).
+
+ &quot;copy of standard falv + some changes of descriptions
+  data(falv_stand_copy) = falv_stand-&gt;create_by_copy(  ).
+  falv_stand_copy-&gt;column( &apos;CARRID&apos; )-&gt;set_scrtext_l( &apos;test&apos; ).
+  falv_stand_copy-&gt;column( &apos;CARRID&apos; )-&gt;set_scrtext_m( &apos;test&apos; ).
+  falv_stand_copy-&gt;column( &apos;CARRID&apos; )-&gt;set_scrtext_s( &apos;test&apos; ).
+  falv_stand_copy-&gt;column( &apos;CARRID&apos; )-&gt;set_reptext( &apos;test&apos; ).
+  falv_stand_copy-&gt;variant-report = sy-repid.
+  falv_stand_copy-&gt;layout_save = &apos;X&apos;.
+  falv_stand_copy-&gt;layout-&gt;set_zebra( abap_true  ).
+  falv_stand_copy-&gt;display( ).
+
+  &quot;copy of falv with own local redefinitions
+  data(falv_redef_copy) = falv_redef-&gt;create_by_copy(  ).
+  falv_redef_copy-&gt;display( ).
+
+  falv_stand-&gt;display( ).
+
+  falv_stand_copy-&gt;display( ).
+
+  falv_redef_copy-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_edit( abap_true ).
+  falv_redef_copy-&gt;layout-&gt;set_edit( abap_true ).
+  falv_redef_copy-&gt;set_editable( ).
+  falv_redef_copy-&gt;layout-&gt;set_stylefname( &apos;STYLE&apos; ).
+  falv_redef_copy-&gt;set_cell_disabled(
+    exporting
+      iv_fieldname = &apos;SEATSMAX&apos;
+      iv_row       = 1
+  ).
+  falv_redef_copy-&gt;add_button(
+    exporting
+      iv_function  = zcl_falv=&gt;fc_mass_replace
+      iv_icon      = icon_replace
+  ).
+  falv_redef_copy-&gt;refresh_table_display( ).
+  falv_redef_copy-&gt;display( ).
+
+  falv_stand-&gt;display( ).
+
+  falv_redef_copy-&gt;display( ).
+
+  call screen 100.
+*&amp;---------------------------------------------------------------------*
+*&amp;      Module  PBO  OUTPUT
+*&amp;---------------------------------------------------------------------*
+*       text
+*----------------------------------------------------------------------*
+module pbo output.
+  set pf-status &apos;DYNAMIC_STATUS_PART&apos; of program &apos;SAPLZFALV&apos;.
+  if falv_screen is initial.
+    falv_screen ?= lcl_test=&gt;create( exporting
+      i_parent = new cl_gui_custom_container( container_name = &apos;CC_MAIN&apos; )
+      i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
+      changing ct_table = sflight    ) .
+    falv_screen-&gt;column( &apos;CARRID&apos; )-&gt;set_reptext( &apos;test&apos; ).
+    falv_screen-&gt;display( ).
+  endif.
+endmodule.
+
+module pai input.
+  falv_screen-&gt;pai(
+    exporting
+      iv_dynnr = sy-dynnr
+    changing
+      c_ucomm  = ok_code
+  ).
+
+endmodule.</source>
+ </PROG>
+</nugget>
