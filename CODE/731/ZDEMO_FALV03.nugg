@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="ZDEMO_FALV01.NUGG">
+ <PROG NAME="ZDEMO_FALV03" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Full Screen GUI Status Dynamic Partly" LENGTH="48 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV full screen with partly dynamic GUI STATUS
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+REPORT zdemo_falv03.
+
+DATA: sflight TYPE STANDARD TABLE OF sflight.
+
+*----------------------------------------------------------------------*
+*       CLASS lcl_test DEFINITION
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+CLASS lcl_test DEFINITION INHERITING FROM zcl_falv.
+  PUBLIC SECTION.
+
+  PROTECTED SECTION.
+    &quot;redefinition of event handler
+    METHODS evt_user_command REDEFINITION.
+  PRIVATE SECTION.
+
+ENDCLASS.                    &quot;lcl_test DEFINITION
+
+*----------------------------------------------------------------------*
+*       CLASS lcl_test IMPLEMENTATION
+*----------------------------------------------------------------------*
+*
+*----------------------------------------------------------------------*
+CLASS lcl_test IMPLEMENTATION.
+
+  METHOD evt_user_command.
+    CASE e_ucomm.
+      WHEN zcl_falv_dynamic_status=&gt;b_01.
+        CALL FUNCTION &apos;POPUP_DISPLAY_MESSAGE&apos;
+          EXPORTING
+            titel = &apos;Popup&apos;   &quot; Title
+            msgid = &apos;00&apos;
+            msgty = &apos;S&apos;
+            msgno = &apos;001&apos;
+            msgv1 = &apos;Button 1 clicked&apos;.
+      WHEN zcl_falv_dynamic_status=&gt;b_02.
+        CALL FUNCTION &apos;POPUP_DISPLAY_MESSAGE&apos;
+          EXPORTING
+            titel = &apos;Popup&apos;   &quot; Title
+            msgid = &apos;00&apos;
+            msgty = &apos;S&apos;
+            msgno = &apos;001&apos;
+            msgv1 = &apos;Button 2 clicked&apos;.
+    ENDCASE.
+  ENDMETHOD.                    &quot;evt_user_command
+ENDCLASS.                    &quot;lcl_test IMPLEMENTATION
+
+START-OF-SELECTION.
+
+
+  SELECT * UP TO 100 ROWS
+*Begin SMD
+*  into corresponding fields of table @sflight
+INTO CORRESPONDING FIELDS OF TABLE sflight
+*End SMD
+  FROM sflight.
+
+  &quot;creation of falv with local redefinition
+  DATA falv TYPE REF TO lcl_test.
+*Begin SMD
+*  falv ?= lcl_test=&gt;create( exporting  i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
+*                              changing ct_table = sflight    ) .
+  DATA: lo_falv TYPE REF TO zcl_falv.
+  lcl_test=&gt;create( EXPORTING  i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
+                              CHANGING ct_table = sflight  rv_falv = lo_falv  ) .
+  falv ?= lo_falv.
+*End SMD
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV03&apos;.
+
+  &quot;Add button into GUI status at for function F01 (in partial dynamic GUI Status we can have up to 19 buttons)
+  falv-&gt;gui_status-&gt;add_button(
+    EXPORTING
+      iv_button              = zcl_falv_dynamic_status=&gt;b_01
+      iv_text                = &apos;POPUP 01&apos;
+      iv_icon                = icon_abc
+*      iv_qinfo               =
+*      iv_allowed             = ABAP_TRUE
+    EXCEPTIONS
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      OTHERS                 = 4
+  ).
+  IF sy-subrc &lt;&gt; 0.
+  ENDIF.
+
+  &quot;Add button into GUI status at for function F02
+  falv-&gt;gui_status-&gt;add_button(
+    EXPORTING
+      iv_button              = zcl_falv_dynamic_status=&gt;b_02
+      iv_text                = &apos;POPUP 02&apos;
+      iv_icon                = icon_address
+*      iv_qinfo               =
+*      iv_allowed             = ABAP_TRUE
+    EXCEPTIONS
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      OTHERS                 = 4
+  ).
+  IF sy-subrc &lt;&gt; 0.
+  ENDIF.
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+</nugget>

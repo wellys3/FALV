@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="1">
+ <PROG NAME="ZDEMO_FALV14" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Popup" LENGTH="16 "/>
+    <textElement ID="S" KEY="P_COLEND" ENTRY="        End column" LENGTH="18 "/>
+    <textElement ID="S" KEY="P_COLST" ENTRY="        Start column" LENGTH="20 "/>
+    <textElement ID="S" KEY="P_DEFAU" ENTRY="        Default size" LENGTH="20 "/>
+    <textElement ID="S" KEY="P_ROWEND" ENTRY="        End row" LENGTH="15 "/>
+    <textElement ID="S" KEY="P_ROWST" ENTRY="        Start row" LENGTH="17 "/>
+    <textElement ID="S" KEY="P_SET" ENTRY="        Customized size" LENGTH="23 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV standard fast call of pppup
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+REPORT zdemo_falv14.
+
+DATA: sflight TYPE STANDARD TABLE OF sflight.
+
+
+PARAMETERS: p_defau  RADIOBUTTON GROUP gr1 DEFAULT &apos;X&apos;,
+            p_set    RADIOBUTTON GROUP gr1,
+            p_rowst  TYPE i,
+            p_rowend TYPE i,
+            p_colst  TYPE i,
+            p_colend TYPE i.
+
+START-OF-SELECTION.
+
+
+  SELECT * UP TO 100 ROWS
+*Begin SMD
+*  INTO CORRESPONDING FIELDS OF TABLE @sflight
+  INTO CORRESPONDING FIELDS OF TABLE sflight
+*End SMD
+  FROM sflight.
+
+  &quot;FALV creation with only table passed
+*Begin SMD
+*  data(falv) = zcl_falv=&gt;create( exporting i_popup = abap_true changing ct_table = sflight ).
+  DATA: falv TYPE REF TO zcl_falv.
+  zcl_falv=&gt;create( EXPORTING i_popup = abap_true CHANGING ct_table = sflight rv_falv = falv ).
+*End SMD
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV14&apos;.
+
+  IF p_defau EQ abap_true.
+    &quot;Display popup with default size
+    falv-&gt;display( ).
+  ELSE.
+    &quot;display popup with customized size
+    falv-&gt;display(
+        iv_start_row    = p_rowst
+        iv_start_column = p_colst
+        iv_end_row      = p_rowend
+        iv_end_column   = p_colend
+    ).
+  ENDIF.</source>
+ </PROG>
+</nugget>

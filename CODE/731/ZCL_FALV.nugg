@@ -1,0 +1,1465 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nugget name="Z">
+ <CLAS CLSNAME="ZCL_FALV" VERSION="1" LANGU="E" DESCRIPT="Fast ALV" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " ZSAPLINK_PLUGIN_MAJOR_VERSION="0 " ZSAPLINK_PLUGIN_MINOR_VERSION="1 " ZSAPLINK_PLUGIN_BUILD_VERSION="0 " ZSAPLINK_PLUGIN_INFO1="ZSAPLINK_CLASS is part of the main ZSAPLINK project --&gt; This plugin found there instead of ZSAPLINK_PLUGINS projects" ZSAPLINK_PLUGIN_INFO2="SAPLINK homepage: https://www.assembla.com/spaces/saplink/wiki" ZSAPLINK_PLUGIN_INFO3="Download from https://www.assembla.com/code/saplink/subversion/nodes" ZSAPLINK_PLUGIN_INFO4="and navigate to:  trunk -&gt; core -&gt; ZSAPLINK -&gt; CLAS -&gt; ZSAPLINK_CLASS.slnk" REFCLSNAME="CL_GUI_ALV_GRID">
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_COLUMN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " TYPTYPE="3" TYPE="ZCL_FALV_COLUMN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <friends CLSNAME="ZCL_FALV" REFCLSNAME="ZCL_FALV_LAYOUT" FRIENDTYPE="0" VERSION="1" STATE="1"/>
+  <implementing CLSNAME="ZCL_FALV" REFCLSNAME="IF_OS_CLONE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
+  <events CLSNAME="ZCL_FALV" CMPNAME="AT_SET_PF_STATUS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " EVTDECLTYP="0" BCEVTCAT="00"/>
+  <events CLSNAME="ZCL_FALV" CMPNAME="AT_SET_TITLE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="2 " EVTDECLTYP="0" BCEVTCAT="00"/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <typeUsage CLSNAME="ZCL_FALV" TYPEGROUP="ABAP" VERSION="1" TPUTYPE="0" IMPLICIT="X"/>
+  <forwardDeclaration>ABAP</forwardDeclaration>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="APPLICATION_LOG_EMBEDDED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUILT_IN_SCREEN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_CHECKBOX" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="25 " ATTDECLTYP="2" ATTVALUE="&apos;5&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="22 " ATTDECLTYP="2" ATTVALUE="&apos;2&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU_DEFAULT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="21 " ATTDECLTYP="2" ATTVALUE="&apos;1&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU_ENTRY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="26 " ATTDECLTYP="2" ATTVALUE="&apos;6&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_NORMAL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="20 " ATTDECLTYP="2" ATTVALUE="&apos;0&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_RADIOBUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="24 " ATTDECLTYP="2" ATTVALUE="&apos;4&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_SEPARATOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="23 " ATTDECLTYP="2" ATTVALUE="&apos;3&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="CC_NAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;CC_GRID&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR30" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="COLUMNS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="9 " SRCCOLUMN1="4 " SRCROW2="9 " SRCCOLUMN2="67 " TYPESRC_LENG="65 " TYPESRC="columns TYPE SORTED TABLE OF t_column WITH UNIQUE KEY table_line
+"/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="C_FSCR_REPID" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="&apos;SAPLZFALV&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-REPID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="C_SCREEN_FULL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTVALUE="&apos;0100&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="C_SCREEN_POPUP" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="2" ATTVALUE="&apos;0200&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="EXCLUDE_FUNCTIONS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="31 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="UI_FUNCTIONS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FCAT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="32 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_T_FCAT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_BACK" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " ATTDECLTYP="2" ATTVALUE="&apos;BACK&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_CANCEL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " ATTDECLTYP="2" ATTVALUE="&apos;CANCEL&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_EXIT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " ATTDECLTYP="2" ATTVALUE="&apos;EXIT&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_FIND" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " ATTDECLTYP="2" ATTVALUE="&apos;FIND&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_FIND_NEXT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="15 " ATTDECLTYP="2" ATTVALUE="&apos;FINDNEXT&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_FIRST_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="16 " ATTDECLTYP="2" ATTVALUE="&apos;PGHOME&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_LAST_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="17 " ATTDECLTYP="2" ATTVALUE="&apos;PGEND&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_MASS_REPLACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " ATTDECLTYP="2" ATTVALUE="&apos;MASS_REPL&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_NEXT_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="19 " ATTDECLTYP="2" ATTVALUE="&apos;PGDOWN&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_PREVIOUS_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="18 " ATTDECLTYP="2" ATTVALUE="&apos;PGUP&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_PRINT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " ATTDECLTYP="2" ATTVALUE="&apos;PRINT&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_SAVE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " ATTDECLTYP="2" ATTVALUE="&apos;&amp;DATA_SAVE&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_UP" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " ATTDECLTYP="2" ATTVALUE="&apos;UP&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FILTER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="34 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_T_FILT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="GUI_STATUS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="37 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_FALV_DYNAMIC_STATUS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="LAYOUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="36 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_FALV_LAYOUT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="LAYOUT_SAVE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="30 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR01" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="LVC_LAYOUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="35 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_S_LAYO" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="MAIN_CONTAINER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="27 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="OUTTAB" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="39 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="DATA" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="RESULT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SCREEN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="38 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SORT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="33 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_T_SORT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLIT_CONTAINER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="28 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_SPLITTER_CONTAINER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SUBCLASS_TYPE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_ABAP_TYPEDESCR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V1" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="40 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V2" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="41 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V3" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="42 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V4" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="43 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V5" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="44 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TOOLBAR_ADDED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TTB_BUTTON" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TOOLBAR_DELETED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TTB_BUTTON" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TOOLBAR_DISABLED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TTB_BUTTON" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="VARIANT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="29 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="DISVARIANT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <inheritance CLSNAME="ZCL_FALV" REFCLSNAME="CL_GUI_ALV_GRID" VERSION="1" STATE="1">
+   <redefinition CLSNAME="ZCL_FALV" REFCLSNAME="CL_GUI_ALV_GRID" VERSION="1" MTDNAME="SET_FRONTEND_FIELDCATALOG" EXPOSURE="2"/>
+   <redefinition CLSNAME="ZCL_FALV" REFCLSNAME="CL_GUI_ALV_GRID" VERSION="1" MTDNAME="SET_FRONTEND_LAYOUT" EXPOSURE="2"/>
+  </inheritance>
+  <interfaceMethod CLSNAME="ZCL_FALV" CPDNAME="IF_OS_CLONE~CLONE">
+   <source>METHOD if_os_clone~clone.
+    SYSTEM-CALL OBJMGR CLONE me TO result.
+  ENDMETHOD.                    &quot;if_os_clone~clone</source>
+  </interfaceMethod>
+  <method CLSNAME="ZCL_FALV" CMPNAME="ADD_BUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="ADD_BUTTON" SCONAME="IV_FUNCTION" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="UI_FUNC"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="ADD_BUTTON" SCONAME="IV_ICON" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ICON_D" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="ADD_BUTTON" SCONAME="IV_QUICKINFO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ICONQUICK" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="ADD_BUTTON" SCONAME="IV_BUTN_TYPE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="TB_BTYPE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="ADD_BUTTON" SCONAME="IV_DISABLED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="ADD_BUTTON" SCONAME="IV_TEXT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="6 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="TEXT40" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="ADD_BUTTON" SCONAME="IV_CHECKED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="7 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL" PAROPTIONL="X"/>
+   <source>METHOD add_button.
+*Begin SMD
+*    if not line_exists( toolbar_added[ function = iv_function ] ).
+*      insert value #( function = iv_function
+*                      icon = conv #( iv_icon )
+*                      quickinfo = iv_quickinfo
+*                      butn_type = iv_butn_type
+*                      disabled = iv_disabled
+*                      text = iv_text
+*                      checked = iv_checked
+*                        ) into table toolbar_added .
+    FIELD-SYMBOLS: &lt;toolbar_added&gt; LIKE LINE OF toolbar_added.
+    DATA: ls_toolbar_added LIKE LINE OF toolbar_added.
+    READ TABLE toolbar_added ASSIGNING &lt;toolbar_added&gt; WITH KEY function = iv_function.
+    IF sy-subrc NE 0.
+      CLEAR: ls_toolbar_added.
+      ls_toolbar_added-function = iv_function.
+      ls_toolbar_added-icon = iv_icon.
+      ls_toolbar_added-quickinfo = iv_quickinfo.
+      ls_toolbar_added-butn_type = iv_butn_type.
+      ls_toolbar_added-disabled = iv_disabled.
+      ls_toolbar_added-text = iv_text.
+      ls_toolbar_added-checked = iv_checked.
+      INSERT ls_toolbar_added INTO TABLE toolbar_added.
+*End SMD
+      DELETE toolbar_deleted WHERE function = iv_function.
+      me-&gt;refresh_toolbar( ).
+    ENDIF.
+
+  ENDMETHOD.                    &quot;add_button</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="BUILD_COLUMNS" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD build_columns.
+*Begin SMD
+*    loop at fcat assigning field-symbol(&lt;fcat&gt;).
+*      data(column) = new zcl_falv_column( iv_fieldname = &lt;fcat&gt;-fieldname io_falv = me ).
+    FIELD-SYMBOLS: &lt;fcat&gt; LIKE LINE OF fcat.
+    DATA: column TYPE REF TO zcl_falv_column.
+    LOOP AT fcat ASSIGNING &lt;fcat&gt;.
+      CREATE OBJECT column
+        EXPORTING
+          iv_fieldname = &lt;fcat&gt;-fieldname
+          io_falv      = me.
+*End SMD
+      INSERT column INTO TABLE columns.
+    ENDLOOP.
+  ENDMETHOD.                    &quot;build_columns</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="COLUMN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="COLUMN" SCONAME="IV_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_FCAT-FIELDNAME"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="COLUMN" SCONAME="RV_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_FALV_COLUMN"/>
+   <source>METHOD column.
+*Begin SMD
+*  TRY.
+
+*        rv_column = columns[  table_line-&gt;fieldname = iv_fieldname ].
+*    CATCH cx_sy_itab_line_not_found.
+
+*  ENDTRY.
+    READ TABLE columns INTO rv_column WITH KEY table_line-&gt;fieldname = iv_fieldname.
+*Begin SMD
+  ENDMETHOD.                    &quot;column</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="0" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_SHELLSTYLE" VERSION="1" LANGU="E" DESCRIPT="Control Style" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="I" PARVALUE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_LIFETIME" VERSION="1" LANGU="E" DESCRIPT="Lifetime" CMPTYPE="1" MTDTYPE="2" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="I" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_PARENT" VERSION="1" LANGU="E" DESCRIPT="Parent Container" CMPTYPE="1" MTDTYPE="2" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_APPL_EVENTS" VERSION="1" LANGU="E" DESCRIPT="Register Events as Application Events" CMPTYPE="1" MTDTYPE="2" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR01" PARVALUE="SPACE"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_PARENTDBG" VERSION="1" LANGU="E" DESCRIPT="Internal, Do not Use" CMPTYPE="1" MTDTYPE="2" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_APPLOGPARENT" VERSION="1" LANGU="E" DESCRIPT="Container for Application Log" CMPTYPE="1" MTDTYPE="2" EDITORDER="6 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_GRAPHICSPARENT" VERSION="1" LANGU="E" DESCRIPT="Container for Graphics" CMPTYPE="1" MTDTYPE="2" EDITORDER="7 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_NAME" VERSION="1" LANGU="E" DESCRIPT="Name" CMPTYPE="1" MTDTYPE="2" EDITORDER="8 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="STRING" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_FCAT_COMPLETE" VERSION="1" LANGU="E" DESCRIPT="Boolean Variable (X=True, Space=False)" CMPTYPE="1" MTDTYPE="2" EDITORDER="9 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="SAP_BOOL" PARVALUE="SPACE"/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="ERROR_CNTL_CREATE" VERSION="1" LANGU="E" DESCRIPT="Error Creating Control" MTDTYPE="2" EDITORDER="1 "/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="ERROR_CNTL_INIT" VERSION="1" LANGU="E" DESCRIPT="Error While Initializing Control" MTDTYPE="2" EDITORDER="2 "/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="ERROR_CNTL_LINK" VERSION="1" LANGU="E" DESCRIPT="Error While Linking Control" MTDTYPE="2" EDITORDER="3 "/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="ERROR_DP_CREATE" VERSION="1" LANGU="E" DESCRIPT="Error While Creating DataProvider Control" MTDTYPE="2" EDITORDER="4 "/>
+   <source>METHOD constructor.
+    super-&gt;constructor(
+      EXPORTING
+        i_shellstyle      = i_shellstyle    &quot; Control Style
+        i_lifetime        = i_lifetime    &quot; Lifetime
+        i_parent          = i_parent    &quot; Parent Container
+        i_appl_events     = i_appl_events    &quot; Register Events as Application Events
+        i_parentdbg       = i_parentdbg    &quot; Internal, Do not Use
+        i_applogparent    = i_applogparent    &quot; Container for Application Log
+        i_graphicsparent  = i_graphicsparent    &quot; Container for Graphics
+        i_name            = i_name    &quot; Name
+        i_fcat_complete   = i_fcat_complete  &quot; Boolean Variable (X=True, Space=False)
+      EXCEPTIONS
+        error_cntl_create = 1
+        error_cntl_init   = 2
+        error_cntl_link   = 3
+        error_dp_create   = 4
+        OTHERS            = 5
+    ).
+    IF sy-subrc &lt;&gt; 0.
+      CASE sy-subrc.
+        WHEN 1.
+          RAISE error_cntl_create.
+        WHEN 2.
+          RAISE error_cntl_init.
+        WHEN 3.
+          RAISE error_cntl_link.
+        WHEN 4.
+          RAISE error_dp_create.
+      ENDCASE.
+    ENDIF.
+  ENDMETHOD.                    &quot;constructor</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="CREATE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE" SCONAME="I_PARENT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE" SCONAME="I_APPLOGPARENT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE" SCONAME="I_POPUP" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL" PARVALUE="ABAP_FALSE"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE" SCONAME="I_APPLOG_EMBEDDED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL" PARVALUE="ABAP_FALSE"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE" SCONAME="I_SUBCLASS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="3" TYPE="CL_ABAP_TYPEDESCR" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE" SCONAME="CT_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="6 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="STANDARD TABLE"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE" SCONAME="RV_FALV" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="7 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="3" TYPE="ZCL_FALV"/>
+   <source>METHOD create.
+    DATA: built_in_screen TYPE abap_bool.
+    DATA: custom_container TYPE REF TO cl_gui_custom_container.
+    DATA: parent TYPE REF TO cl_gui_container.
+    DATA: applog TYPE REF TO cl_gui_container.
+*Begin SMD En fondo 10/03/2016
+    DATA: or_doc  TYPE REF TO cl_gui_docking_container.
+*End SMD En fondo 10/03/2016
+*Begin SMD
+    DATA: lv_dynnr TYPE sydynnr.
+    IF i_popup = abap_true.
+      lv_dynnr = c_screen_popup.
+    ELSE.
+      lv_dynnr = c_screen_full.
+    ENDIF.
+    DATA split_container TYPE REF TO cl_gui_splitter_container.
+*End SMD
+*Begin SMD En fondo 10/03/2016
+    IF cl_gui_alv_grid=&gt;offline( ) IS INITIAL.
+*End SMD En fondo 10/03/2016
+      &quot;We need to call full screen ALV as container was not passed
+      IF i_parent IS INITIAL.
+
+        built_in_screen = abap_true.
+        TRY.
+            CREATE OBJECT custom_container
+              EXPORTING
+                container_name          = cc_name
+*Begin SMD
+*              dynnr                   = switch #( i_popup when abap_true then c_screen_popup
+*                                                          when abap_false then c_screen_full )
+                dynnr                   = lv_dynnr
+*End SMD
+                repid                   = c_fscr_repid
+                no_autodef_progid_dynnr = abap_true.
+
+            IF i_applog_embedded EQ abap_true.
+              &quot; Create split container, log at bottom, grid at top.
+              &quot;Log hidden as default, will appear when error will be thrown.
+*Begin SMD
+*            data(split_container) = new cl_gui_splitter_container(
+*                link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
+*                                                 when abap_false then c_screen_full )
+*                link_repid              = c_fscr_repid
+*                 parent                  = custom_container
+*                 rows                    = 2
+*                 columns                 = 1
+*            ).
+
+              CREATE OBJECT split_container
+                EXPORTING
+                  link_dynnr = lv_dynnr
+                  link_repid = c_fscr_repid
+                  parent     = custom_container
+                  rows       = 2
+                  columns    = 1.
+*End SMD
+              parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
+              applog = split_container-&gt;get_container( row = 2 column    = 1 ).
+            ELSE.
+              parent ?= custom_container.
+            ENDIF.
+          CATCH cx_root.
+            &quot;Something is wrong...
+        ENDTRY.
+      ELSE.
+
+        applog ?= i_applogparent.
+        IF applog IS INITIAL AND i_applog_embedded EQ abap_true.
+          custom_container ?= i_parent.
+*Begin SMD
+*      split_container = new cl_gui_splitter_container(
+*           parent                  = custom_container
+*           ROWS                    = 2
+*           COLUMNS                 = 1
+*      ).
+          CREATE OBJECT split_container
+            EXPORTING
+              parent  = custom_container
+              rows    = 2
+              columns = 1.
+*End SMD
+          parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
+          applog = split_container-&gt;get_container( row = 2 column    = 1 ).
+        ELSE.
+          parent ?= i_parent.
+          custom_container ?= i_parent.
+        ENDIF.
+
+      ENDIF.
+*Begin SMD En fondo 10/03/2016
+    ENDIF.
+*End SMD En fondo 10/03/2016
+    IF i_subclass IS NOT INITIAL.
+      DATA: subclass TYPE REF TO object.
+*Begin SMD
+*    data(sublcass_abs_name) = i_subclass-&gt;absolute_name.
+      DATA: sublcass_abs_name TYPE abap_abstypename.
+      sublcass_abs_name = i_subclass-&gt;absolute_name.
+*End SMD
+*        data(subclass_type) = cl_abap_classdescr=&gt;describe_by_name( p_name = i_subclass ).
+*Begin SMD En fondo 10/03/2016
+      IF cl_gui_alv_grid=&gt;offline( ) IS INITIAL.
+*End SMD En fondo 10/03/2016
+        CREATE OBJECT subclass TYPE (sublcass_abs_name)
+          EXPORTING
+            i_parent       = parent
+            i_applogparent = applog.
+*Begin SMD En fondo 10/03/2016
+      ELSE.
+        CREATE OBJECT subclass TYPE (sublcass_abs_name)
+          EXPORTING
+            i_parent = or_doc.
+      ENDIF.
+*End SMD En fondo 10/03/2016
+      rv_falv ?= subclass.
+      rv_falv-&gt;subclass_type = i_subclass.
+    ELSE.
+*Begin SMD En fondo 10/03/2016
+      IF cl_gui_alv_grid=&gt;offline( ) IS INITIAL.
+*End SMD En fondo 10/03/2016
+        CREATE OBJECT rv_falv
+          EXPORTING
+            i_parent       = parent
+            i_applogparent = applog.
+*Begin SMD En fondo 10/03/2016
+      ELSE.
+        CREATE OBJECT rv_falv
+          EXPORTING
+            i_parent = or_doc.
+      ENDIF.
+*End SMD En fondo 10/03/2016
+    ENDIF.
+    SET HANDLER rv_falv-&gt;evt_after_refresh FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_after_user_command FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_before_ucommand_internal FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_before_user_command FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_button_click_falv FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_data_changed FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_data_changed_internal FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_data_changed_finished FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_double_click FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_hotspot_click FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_menu_button FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_onf1 FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_onf4 FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_subtotal_text FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_toolbar_internal FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_toolbar FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_user_command FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_user_command_internal FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_at_set_pf_status FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_at_set_title FOR rv_falv.
+
+
+    rv_falv-&gt;set_output_table( CHANGING ct_table = ct_table ).
+    rv_falv-&gt;fcat = rv_falv-&gt;lvc_fcat_from_itab( it_table = ct_table ).
+    rv_falv-&gt;set_frontend_fieldcatalog( it_fieldcatalog = rv_falv-&gt;fcat ).
+    rv_falv-&gt;application_log_embedded = i_applog_embedded.
+    rv_falv-&gt;built_in_screen = built_in_screen.
+    rv_falv-&gt;build_columns( ).
+*Begin SMD
+*  rv_falv-&gt;layout = new zcl_falv_layout( rv_falv ).
+*  rv_falv-&gt;gui_status = new zcl_falv_dynamic_status( ).
+*  rv_falv-&gt;screen = switch #( i_popup WHEN abap_true THEN c_screen_popup
+*                                      WHEN abap_false THEN c_screen_full ).
+
+
+    DATA: lo_layout TYPE REF TO zcl_falv_layout.
+    CREATE OBJECT lo_layout
+      EXPORTING
+        io_falv = rv_falv.
+    rv_falv-&gt;layout = lo_layout.
+    DATA: lo_gui_status TYPE REF TO zcl_falv_dynamic_status.
+    CREATE OBJECT lo_gui_status.
+    rv_falv-&gt;gui_status = lo_gui_status.
+    rv_falv-&gt;screen = lv_dynnr.
+*End SMD
+
+    IF built_in_screen EQ abap_true AND rv_falv-&gt;screen EQ c_screen_full.
+      &quot;default in full screen
+      rv_falv-&gt;layout-&gt;set_no_toolbar( abap_true ).
+    ENDIF.
+    rv_falv-&gt;main_container ?= custom_container.
+    rv_falv-&gt;split_container = split_container.
+    rv_falv-&gt;variant-report = sy-repid.
+    IF split_container IS NOT INITIAL.
+      rv_falv-&gt;hide_applog( ).
+    ENDIF.
+*Begin SMD
+*    Default initializations
+    rv_falv-&gt;layout_save = &apos;A&apos;.
+    rv_falv-&gt;variant-report = sy-cprog. &quot;This value should be informed as sy-repid when calling ZFALV
+    rv_falv-&gt;variant-username = sy-uname.
+    rv_falv-&gt;variant-handle = &apos;0001&apos;.
+*End SMD
+  ENDMETHOD.                    &quot;create</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="CREATE_BY_COPY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE_BY_COPY" SCONAME="I_PARENT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE_BY_COPY" SCONAME="I_APPLOGPARENT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE_BY_COPY" SCONAME="I_POPUP" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL" PARVALUE="ABAP_FALSE"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE_BY_COPY" SCONAME="RV_FALV" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_FALV"/>
+   <source>METHOD create_by_copy.
+    DATA: built_in_screen TYPE abap_bool.
+*Begin SMD
+    DATA: lv_dynnr TYPE sydynnr.
+    IF i_popup = abap_true.
+      lv_dynnr = c_screen_popup.
+    ELSE.
+      lv_dynnr = c_screen_full.
+    ENDIF.
+    DATA: custom_container TYPE REF TO cl_gui_custom_container,
+          split_container TYPE REF TO cl_gui_splitter_container.
+*End SMD
+
+    &quot;We need to call full screen ALV as container was not passed
+    IF i_parent IS INITIAL.
+      built_in_screen = abap_true.
+      TRY.
+*Begin SMD
+*        data(custom_container) = new cl_gui_custom_container(
+*            container_name = cc_name
+*            dynnr          = SWITCH #( i_popup WHEN abap_true THEN c_screen_popup
+*                                               WHEN abap_false THEN c_screen_full )
+*            repid          = c_fscr_repid ).
+          CREATE OBJECT custom_container
+            EXPORTING
+              container_name = cc_name
+              dynnr          = lv_dynnr
+              repid          = c_fscr_repid.
+*End SMD
+          IF application_log_embedded EQ abap_true.
+            &quot; Create split container, log at bottom, grid at top.
+            &quot;Log hidden as default, will appear when error will be thrown.
+*Begin SMD
+*          data(split_container) = new cl_gui_splitter_container(
+*              link_dynnr              = SWITCH #( i_popup WHEN abap_true THEN c_screen_popup
+*                                               WHEN abap_false THEN c_screen_full )
+*              link_repid              = c_fscr_repid
+*               parent                  = custom_container
+*               ROWS                    = 2
+*               COLUMNS                 = 1
+*          ).
+            CREATE OBJECT split_container
+              EXPORTING
+                link_dynnr = lv_dynnr
+                link_repid = c_fscr_repid
+                parent     = custom_container
+                rows       = 2
+                columns    = 1.
+*End SMD
+            i_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
+            i_applogparent = split_container-&gt;get_container( row = 2 column    = 1 ).
+          ELSE.
+            i_parent ?= custom_container.
+          ENDIF.
+        CATCH cx_root.
+          &quot;Something is wrong...
+      ENDTRY.
+    ELSE.
+      custom_container ?= i_parent.
+    ENDIF.
+
+    IF me-&gt;subclass_type IS NOT INITIAL.
+      DATA: subclass TYPE REF TO object.
+*Begin SMD
+*    data(sublcass_abs_name) = subclass_type-&gt;absolute_name.
+      DATA: sublcass_abs_name TYPE abap_abstypename.
+      sublcass_abs_name = subclass_type-&gt;absolute_name.
+*End SMD
+      CREATE OBJECT subclass TYPE (sublcass_abs_name)
+        EXPORTING
+          i_parent       = i_parent
+          i_applogparent = i_applogparent.
+
+      rv_falv ?= subclass.
+      rv_falv-&gt;subclass_type = subclass_type.
+    ELSE.
+      CREATE OBJECT rv_falv
+        EXPORTING
+          i_parent       = i_parent
+          i_applogparent = i_applogparent.
+    ENDIF.
+
+    SET HANDLER rv_falv-&gt;evt_after_refresh FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_after_user_command FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_before_ucommand_internal FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_before_user_command FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_button_click_falv FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_data_changed FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_data_changed_internal FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_data_changed_finished FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_double_click FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_hotspot_click FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_menu_button FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_onf1 FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_onf4 FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_subtotal_text FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_toolbar_internal FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_toolbar FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_user_command FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_user_command_internal FOR rv_falv.
+    SET HANDLER rv_falv-&gt;evt_at_set_pf_status FOR rv_falv.
+*Begin SMD
+    SET HANDLER rv_falv-&gt;evt_at_set_pf_status FOR rv_falv.
+*End SMD
+    SET HANDLER rv_falv-&gt;evt_at_set_title FOR rv_falv.
+
+    FIELD-SYMBOLS: &lt;outtab&gt; TYPE STANDARD TABLE.
+    ASSIGN me-&gt;outtab-&gt;* TO &lt;outtab&gt;.
+    rv_falv-&gt;set_output_table( CHANGING ct_table = &lt;outtab&gt; ).
+    rv_falv-&gt;fcat = rv_falv-&gt;lvc_fcat_from_itab( it_table = &lt;outtab&gt; ).
+    rv_falv-&gt;sort = me-&gt;sort.
+    rv_falv-&gt;filter = me-&gt;filter.
+    rv_falv-&gt;set_frontend_fieldcatalog( it_fieldcatalog = me-&gt;fcat ).
+    rv_falv-&gt;application_log_embedded = application_log_embedded.
+    rv_falv-&gt;built_in_screen = built_in_screen.
+    rv_falv-&gt;build_columns( ).
+*Begin SMD
+*  rv_falv-&gt;layout = new zcl_falv_layout( io_falv = rv_falv ).
+    DATA: lo_layout TYPE REF TO zcl_falv_layout.
+    CREATE OBJECT lo_layout
+      EXPORTING
+        io_falv = rv_falv.
+    rv_falv-&gt;layout = lo_layout.
+*End SMD
+    rv_falv-&gt;gui_status ?= me-&gt;gui_status-&gt;if_os_clone~clone( ). &quot;clone object
+    rv_falv-&gt;lvc_layout = me-&gt;lvc_layout.
+    rv_falv-&gt;variant = me-&gt;variant.
+*Begin SMD
+*  rv_falv-&gt;screen = switch #( i_popup WHEN abap_true THEN c_screen_popup
+*                                      WHEN abap_false THEN c_screen_full ).
+    rv_falv-&gt;screen = lv_dynnr.
+*End SMD
+
+    rv_falv-&gt;main_container ?= custom_container.
+    rv_falv-&gt;split_container = split_container.
+    IF split_container IS NOT INITIAL.
+      rv_falv-&gt;hide_applog( ).
+    ENDIF.
+    rv_falv-&gt;title_v1 = me-&gt;title_v1.
+    rv_falv-&gt;title_v2 = me-&gt;title_v2.
+    rv_falv-&gt;title_v3 = me-&gt;title_v3.
+    rv_falv-&gt;title_v4 = me-&gt;title_v4.
+    rv_falv-&gt;exclude_functions = me-&gt;exclude_functions.
+    rv_falv-&gt;toolbar_added = me-&gt;toolbar_added.
+    rv_falv-&gt;toolbar_deleted = me-&gt;toolbar_deleted.
+    rv_falv-&gt;toolbar_disabled = me-&gt;toolbar_disabled.
+  ENDMETHOD.                    &quot;create_by_copy</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="DELETE_BUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="16 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="DELETE_BUTTON" SCONAME="IV_FUNCTION" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="UI_FUNC"/>
+   <source>METHOD delete_button.
+    DELETE toolbar_added WHERE function = iv_function.
+    IF sy-subrc NE 0.
+*Begin SMD
+*      insert value #( function = iv_function ) into table toolbar_deleted.
+      DATA: ls_toolbar_deleted LIKE LINE OF toolbar_deleted.
+      CLEAR: ls_toolbar_deleted.
+      ls_toolbar_deleted-function = iv_function.
+      INSERT ls_toolbar_deleted INTO TABLE toolbar_deleted.
+*End SMD
+      IF sy-subrc NE 0.
+      ENDIF.
+    ENDIF.
+    me-&gt;refresh_toolbar( ).
+  ENDMETHOD.                    &quot;delete_button</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="DISABLE_BUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="DISABLE_BUTTON" SCONAME="IV_FUNCTION" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="UI_FUNC"/>
+   <source>METHOD disable_button.
+*Begin SMD
+*  TRY.
+*      toolbar_added[ function = iv_function ]-disabled = abap_true.
+*    CATCH cx_sy_itab_line_not_found.
+*  ENDTRY.
+*  INSERT value #( function = iv_function ) INTO TABLE toolbar_disabled.
+    FIELD-SYMBOLS: &lt;toolbar_added&gt; LIKE LINE OF toolbar_added.
+    DATA: ls_toolbar_added LIKE LINE OF toolbar_added.
+    LOOP AT toolbar_added ASSIGNING &lt;toolbar_added&gt; WHERE function = iv_function.
+      &lt;toolbar_added&gt;-disabled = abap_true.
+    ENDLOOP.
+    CLEAR: ls_toolbar_added.
+    ls_toolbar_added-function = iv_function.
+    INSERT ls_toolbar_added INTO TABLE toolbar_disabled.
+*End SMD
+    IF sy-subrc NE 0.
+    ENDIF.
+    me-&gt;refresh_toolbar( ).
+  ENDMETHOD.                    &quot;disable_button</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="DISPLAY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="DISPLAY" SCONAME="IV_FORCE_GRID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL" PARVALUE="SPACE"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="DISPLAY" SCONAME="IV_START_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="I" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="DISPLAY" SCONAME="IV_START_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="I" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="DISPLAY" SCONAME="IV_END_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="I" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="DISPLAY" SCONAME="IV_END_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="I" PAROPTIONL="X"/>
+   <source>METHOD display.
+    FIELD-SYMBOLS: &lt;outtab&gt; TYPE STANDARD TABLE.
+    IF built_in_screen EQ abap_true AND iv_force_grid EQ abap_false.
+      IF screen EQ c_screen_popup AND iv_start_row IS INITIAL
+                                  AND iv_start_column IS INITIAL
+                                  AND iv_end_row IS INITIAL
+                                  AND iv_end_column IS INITIAL.
+        iv_start_row = 1.
+        iv_start_column = 1.
+        iv_end_row = 20.
+        iv_end_column = 150.
+      ENDIF.
+      CALL FUNCTION &apos;Z_FALV_DISPLAY&apos;
+        EXPORTING
+          io_falv         = me
+          iv_start_row    = iv_start_row
+          iv_start_column = iv_start_column
+          iv_end_row      = iv_end_row
+          iv_end_column   = iv_end_column.
+      .
+    ELSE.
+      ASSIGN outtab-&gt;* TO &lt;outtab&gt;.
+      me-&gt;set_table_for_first_display(
+        EXPORTING
+*            i_buffer_active               =     &quot; Buffering Active
+*            i_bypassing_buffer            =     &quot; Switch Off Buffer
+*            i_consistency_check           =     &quot; Starting Consistency Check for Interface Error Recognition
+*            i_structure_name              =     &quot; Internal Output Table Structure Name
+          is_variant                     =     variant
+          i_save                        =      layout_save
+*            i_default                     = &apos;X&apos;    &quot; Default Display Variant
+          is_layout                     =      lvc_layout
+*            is_print                      =     &quot; Print Control
+*            it_special_groups            =     &quot; Field Groups
+          it_toolbar_excluding          =     exclude_functions
+*            it_hyperlink                  =     &quot; Hyperlinks
+*            it_alv_graphics               =     &quot; Table of Structure DTC_S_TC
+*            it_except_qinfo               =     &quot; Table for Exception Quickinfo
+*            ir_salv_adapter               =     &quot; Interface ALV Adapter
+        CHANGING
+          it_outtab                     =    &lt;outtab&gt; &quot; Output Table
+          it_fieldcatalog               =     fcat
+          it_sort                       =     sort &quot; Sort Criteria
+          it_filter                     =     filter &quot; Filter Criteria
+        EXCEPTIONS
+          invalid_parameter_combination = 1
+          program_error                 = 2
+          too_many_lines                = 3
+          OTHERS                        = 4
+      ).
+      IF sy-subrc EQ 0.
+        IF split_container IS NOT INITIAL.
+          split_container-&gt;set_focus(
+            EXPORTING
+              control           =     me
+            EXCEPTIONS
+              cntl_error        = 1
+              cntl_system_error = 2
+              OTHERS            = 3
+          ).
+          IF sy-subrc &lt;&gt; 0.
+          ENDIF.
+          me-&gt;hide_applog( ).
+        ELSE.
+          me-&gt;parent-&gt;set_focus(
+            EXPORTING
+              control           =  me
+            EXCEPTIONS
+              cntl_error        = 1
+              cntl_system_error = 2
+              OTHERS            = 3
+          ).
+          IF sy-subrc &lt;&gt; 0.
+          ENDIF.
+        ENDIF.
+        cl_gui_cfw=&gt;flush(
+          EXCEPTIONS
+            cntl_system_error = 1
+            cntl_error        = 2
+            OTHERS            = 3
+        ).
+        IF sy-subrc &lt;&gt; 0.
+        ENDIF.
+        me-&gt;set_visible( abap_true ).
+        me-&gt;parent-&gt;set_visible( abap_true ).
+        me-&gt;main_container-&gt;set_visible( abap_true ).
+        IF me-&gt;split_container IS NOT INITIAL.
+          me-&gt;split_container-&gt;set_visible( abap_true ).
+        ENDIF.
+      ENDIF.
+    ENDIF.
+  ENDMETHOD.                    &quot;display</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="ENABLE_BUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="15 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="ENABLE_BUTTON" SCONAME="IV_FUNCTION" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="UI_FUNC"/>
+   <source>METHOD enable_button.
+*Begin SMD
+*    try.
+*        toolbar_added[ function = iv_function ]-disabled = abap_false.
+*      catch cx_sy_itab_line_not_found.
+*    endtry.
+    FIELD-SYMBOLS: &lt;toolbar_added&gt; LIKE LINE OF toolbar_added.
+    LOOP AT toolbar_added ASSIGNING &lt;toolbar_added&gt; WHERE function = iv_function.
+      &lt;toolbar_added&gt;-disabled = abap_false.
+    ENDLOOP.
+*End SMD
+    DELETE toolbar_disabled WHERE function = iv_function.
+    me-&gt;refresh_toolbar( ).
+  ENDMETHOD.                    &quot;enable_button</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AFTER_REFRESH" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="14 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="AFTER_REFRESH" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD evt_after_refresh.
+  ENDMETHOD.                    &quot;evt_after_refresh</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AFTER_USER_COMMAND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="AFTER_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_AFTER_USER_COMMAND" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_AFTER_USER_COMMAND" SCONAME="E_SAVED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_AFTER_USER_COMMAND" SCONAME="E_NOT_PROCESSED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_after_user_command.
+  ENDMETHOD.                    &quot;evt_after_user_command</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_PF_STATUS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="15 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_PF_STATUS" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD evt_at_set_pf_status.
+  ENDMETHOD.                    &quot;evt_at_set_pf_status</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_TITLE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="21 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_TITLE" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD evt_at_set_title.
+  ENDMETHOD.                    &quot;evt_at_set_title</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_BEFORE_UCOMMAND_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BEFORE_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BEFORE_UCOMMAND_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_before_ucommand_internal.
+    FIELD-SYMBOLS: &lt;outtab&gt; TYPE STANDARD TABLE.
+*Begin SMD
+    FIELD-SYMBOLS: &lt;fcat&gt; LIKE LINE OF fcat,
+                   &lt;line&gt; TYPE any,
+                   &lt;mark&gt; TYPE any.
+*End SMD
+    CASE e_ucomm.
+      WHEN me-&gt;mc_fc_select_all.
+
+        IF layout-&gt;mark_field IS NOT INITIAL. &quot; SMD and
+*Begin SMD
+*        line_exists( fcat[ fieldname = layout-&gt;mark_field CHECKBOX = abap_true ] ).
+          READ TABLE fcat ASSIGNING &lt;fcat&gt; WITH KEY fieldname = layout-&gt;mark_field checkbox = abap_true.
+          IF sy-subrc EQ 0.
+*End SMD
+            ASSIGN outtab-&gt;* TO &lt;outtab&gt;.
+*Begin SMD
+*          LOOP AT &lt;outtab&gt; ASSIGNING field-symbol(&lt;line&gt;).
+            LOOP AT &lt;outtab&gt; ASSIGNING &lt;line&gt;.
+*            ASSIGN COMPONENT layout-&gt;mark_field OF STRUCTURE &lt;line&gt; TO field-symbol(&lt;mark&gt;).
+              ASSIGN COMPONENT layout-&gt;mark_field OF STRUCTURE &lt;line&gt; TO &lt;mark&gt;.
+*End SMD
+              IF sy-subrc EQ 0.
+                &lt;mark&gt; = abap_true.
+              ENDIF.
+            ENDLOOP.
+            me-&gt;soft_refresh( ).
+            set_user_command( i_ucomm = space ).
+*Begin SMD
+          ENDIF.
+*End SMD
+        ENDIF.
+      WHEN me-&gt;mc_fc_deselect_all.
+        IF layout-&gt;mark_field IS NOT INITIAL. &quot;SMD and
+*Begin SMD
+*        line_exists( fcat[ fieldname = layout-&gt;mark_field CHECKBOX = abap_true ] ).
+          READ TABLE fcat ASSIGNING &lt;fcat&gt; WITH KEY fieldname = layout-&gt;mark_field checkbox = abap_true.
+          IF sy-subrc EQ 0.
+*End SMD
+            ASSIGN outtab-&gt;* TO &lt;outtab&gt;.
+            LOOP AT &lt;outtab&gt; ASSIGNING &lt;line&gt;.
+              ASSIGN COMPONENT layout-&gt;mark_field OF STRUCTURE &lt;line&gt; TO &lt;mark&gt;.
+              IF sy-subrc EQ 0.
+                &lt;mark&gt; = abap_false.
+              ENDIF.
+            ENDLOOP.
+            me-&gt;soft_refresh( ).
+            set_user_command( i_ucomm = space ).
+*Begin SMD
+          ENDIF.
+*End SMD
+        ENDIF.
+    ENDCASE.
+  ENDMETHOD.                    &quot;evt_before_ucommand_internal</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_BEFORE_USER_COMMAND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BEFORE_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BEFORE_USER_COMMAND" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_before_user_command.
+  ENDMETHOD.                    &quot;evt_before_user_command</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_BUTTON_CLICK_FALV" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BUTTON_CLICK" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BUTTON_CLICK_FALV" SCONAME="ES_COL_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BUTTON_CLICK_FALV" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_button_click_falv.
+  ENDMETHOD.                    &quot;evt_button_click_falv</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" SCONAME="ER_DATA_CHANGED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" SCONAME="E_ONF4" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" SCONAME="E_ONF4_BEFORE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" SCONAME="E_ONF4_AFTER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_data_changed.
+
+  ENDMETHOD.                    &quot;evt_data_changed</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_FINISHED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED_FINISHED" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_FINISHED" SCONAME="E_MODIFIED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_FINISHED" SCONAME="ET_GOOD_CELLS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_data_changed_finished.
+  ENDMETHOD.                    &quot;evt_data_changed_finished</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="ER_DATA_CHANGED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4_BEFORE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4_AFTER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_data_changed_internal.
+    IF er_data_changed-&gt;mt_protocol IS NOT INITIAL.
+      show_applog( ).
+    ELSE.
+      hide_applog( ).
+    ENDIF.
+  ENDMETHOD.                    &quot;evt_data_changed_internal</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DOUBLE_CLICK" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_double_click.
+  ENDMETHOD.                    &quot;evt_double_click</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_HOTSPOT_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="HOTSPOT_CLICK" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_HOTSPOT_CLICK" SCONAME="E_ROW_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_HOTSPOT_CLICK" SCONAME="E_COLUMN_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_HOTSPOT_CLICK" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_hotspot_click.
+  ENDMETHOD.                    &quot;evt_hotspot_click</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_MENU_BUTTON" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="MENU_BUTTON" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_MENU_BUTTON" SCONAME="E_OBJECT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_MENU_BUTTON" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_menu_button.
+  ENDMETHOD.                    &quot;evt_menu_button</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF1" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONF1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF1" SCONAME="E_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF1" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF1" SCONAME="ER_EVENT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_onf1.
+  ENDMETHOD.                    &quot;evt_onf1</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONF4" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="E_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="E_FIELDVALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="ER_EVENT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="ET_BAD_CELLS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="E_DISPLAY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="6 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_onf4.
+  ENDMETHOD.                    &quot;evt_onf4</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_SUBTOTAL_TEXT" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="SUBTOTAL_TEXT" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_SUBTOTAL_TEXT" SCONAME="ES_SUBTOTTXT_INFO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_SUBTOTAL_TEXT" SCONAME="EP_SUBTOT_LINE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_SUBTOTAL_TEXT" SCONAME="E_EVENT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_subtotal_text.
+  ENDMETHOD.                    &quot;evt_subtotal_text</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR" SCONAME="E_OBJECT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR" SCONAME="E_INTERACTIVE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_toolbar.
+
+  ENDMETHOD.                    &quot;evt_toolbar</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR_INTERNAL" SCONAME="E_OBJECT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR_INTERNAL" SCONAME="E_INTERACTIVE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_toolbar_internal.
+*Begin SMD
+    FIELD-SYMBOLS: &lt;toolbar&gt; LIKE LINE OF e_object-&gt;mt_toolbar,
+                   &lt;tb&gt; LIKE LINE OF toolbar_added.
+    DATA: tabix TYPE sy-tabix.
+*End SMD
+*Begin SMD
+*    loop at toolbar_added assigning field-symbol(&lt;tb&gt;).
+    LOOP AT toolbar_added ASSIGNING &lt;tb&gt;.
+*End SMD
+      INSERT &lt;tb&gt; INTO TABLE e_object-&gt;mt_toolbar[].
+    ENDLOOP.
+    LOOP AT toolbar_disabled ASSIGNING &lt;tb&gt;.
+*Begin SMD
+*      try.
+*          e_object-&gt;mt_toolbar[ function = &lt;tb&gt;-function ]-disabled = abap_true.
+*        catch cx_sy_itab_line_not_found.
+*
+*      endtry.
+      LOOP AT e_object-&gt;mt_toolbar ASSIGNING &lt;toolbar&gt; WHERE function = &lt;tb&gt;-function.
+        &lt;toolbar&gt;-disabled = abap_true.
+      ENDLOOP.
+*End SMD
+    ENDLOOP.
+    LOOP AT toolbar_deleted ASSIGNING &lt;tb&gt;.
+*Begin SMD
+*      data(tabix) = sy-tabix.
+      tabix = sy-tabix.
+*End SMD
+      DELETE e_object-&gt;mt_toolbar WHERE function = &lt;tb&gt;-function.
+      IF sy-subrc NE 0.
+      ENDIF.
+    ENDLOOP.
+
+  ENDMETHOD.                    &quot;evt_toolbar_internal</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_user_command.
+
+  ENDMETHOD.                    &quot;evt_user_command</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_user_command_internal.
+    CASE e_ucomm.
+      WHEN fc_back.
+        LEAVE TO SCREEN 0.
+      WHEN fc_exit.
+        LEAVE TO SCREEN 0.
+      WHEN fc_up.
+        LEAVE TO SCREEN 0.
+      WHEN fc_cancel.
+        LEAVE TO SCREEN 0.
+      WHEN fc_mass_replace.
+        mass_replace( ).
+    ENDCASE.
+  ENDMETHOD.                    &quot;evt_user_command_internal</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EXCLUDE_FUNCTION" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXCLUDE_FUNCTION" SCONAME="IV_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="SY-UCOMM"/>
+   <source>METHOD exclude_function.
+*Begin SMD
+    FIELD-SYMBOLS: &lt;exclude_functions&gt; LIKE LINE OF exclude_functions.
+*    if not line_exists( exclude_functions[ table_line = iv_ucomm ] ).
+    READ TABLE exclude_functions ASSIGNING &lt;exclude_functions&gt; WITH KEY table_line = iv_ucomm.
+    IF sy-subrc NE 0.
+*End SMD
+      INSERT iv_ucomm INTO TABLE exclude_functions.
+    ENDIF.
+  ENDMETHOD.                    &quot;exclude_function</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="HIDE_APPLOG" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD hide_applog.
+    IF split_container IS NOT INITIAL.
+      split_container-&gt;set_row_sash(
+        EXPORTING
+          id                =  1   &quot; Row Splitter Bar ID
+          type              =  split_container-&gt;type_sashvisible   &quot; Attribute
+          value             =  0   &quot; Value
+        EXCEPTIONS
+          cntl_error        = 1
+          cntl_system_error = 2
+          OTHERS            = 3
+      ).
+      IF sy-subrc &lt;&gt; 0.
+      ENDIF.
+      split_container-&gt;set_row_height(
+        EXPORTING
+          id                =   2 &quot; Row ID
+          height            =   0  &quot; Height
+        EXCEPTIONS
+          cntl_error        = 1
+          cntl_system_error = 2
+          OTHERS            = 3
+      ).
+      IF sy-subrc &lt;&gt; 0.
+      ENDIF.
+    ENDIF.
+  ENDMETHOD.                    &quot;hide_applog</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="LVC_FCAT_FROM_ITAB" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="LVC_FCAT_FROM_ITAB" SCONAME="IT_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="1" TYPE="STANDARD TABLE"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="LVC_FCAT_FROM_ITAB" SCONAME="RT_FCAT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_T_FCAT"/>
+   <source>METHOD lvc_fcat_from_itab.
+    DATA: table TYPE REF TO data.
+*Begin SMD
+    FIELD-SYMBOLS: &lt;table&gt; TYPE STANDARD TABLE.
+*End SMD
+    CREATE DATA table LIKE it_table.
+*Begin SMD
+*    assign table-&gt;* to field-symbol(&lt;table&gt;).
+    ASSIGN table-&gt;* TO &lt;table&gt;.
+
+    DATA: salv_table TYPE REF TO cl_salv_table.
+*End SMD
+    TRY.
+        cl_salv_table=&gt;factory( IMPORTING
+*Begin SMD
+*                                r_salv_table   = data(salv_table)
+                                  r_salv_table   = salv_table
+*End SMD
+                                CHANGING
+                                  t_table        = &lt;table&gt;  ).
+        rt_fcat = cl_salv_controller_metadata=&gt;get_lvc_fieldcatalog(
+            r_columns      = salv_table-&gt;get_columns( ) &quot; ALV Filter
+            r_aggregations = salv_table-&gt;get_aggregations( ) &quot; ALV Aggregations
+    ).
+      CATCH cx_root.
+    ENDTRY.
+  ENDMETHOD.                    &quot;lvc_fcat_from_itab</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="MASS_REPLACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="23 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD mass_replace.
+    FIELD-SYMBOLS: &lt;outtab&gt; TYPE STANDARD TABLE.
+    ASSIGN outtab-&gt;* TO &lt;outtab&gt;.
+    IF sy-subrc EQ 0.
+*Begin SMD
+      DATA: lo_grid TYPE REF TO cl_gui_alv_grid.
+      lo_grid ?= me.
+*End SMD
+      CALL FUNCTION &apos;Z_FALV_MASS_REPLACE&apos;
+        EXPORTING
+*Begin SMD
+*          io_grid   = cast cl_gui_alv_grid( me )
+          io_grid   = lo_grid
+*End SMD
+        CHANGING
+          ct_outtab = &lt;outtab&gt;.
+
+    ENDIF.
+  ENDMETHOD.                    &quot;mass_replace</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="PAI" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="PAI" SCONAME="IV_DYNNR" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="SY-DYNNR" PARVALUE="SY-DYNNR"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="PAI" SCONAME="C_UCOMM" VERSION="1" LANGU="E" DESCRIPT="ABAP System Field: PAI-Triggering Function Code" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="SY-UCOMM" PARVALUE="SY-UCOMM"/>
+   <source>METHOD pai.
+    RAISE EVENT user_command EXPORTING e_ucomm = c_ucomm.
+
+    me-&gt;set_function_code(
+       CHANGING
+         c_ucomm = c_ucomm ).
+  ENDMETHOD.                    &quot;pai</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="PBO" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="PBO" SCONAME="IV_DYNNR" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="SY-DYNNR" PARVALUE="SY-DYNNR"/>
+   <source>METHOD pbo.
+
+    gui_status-&gt;show_gui_status( ).
+    RAISE EVENT at_set_pf_status .
+
+    gui_status-&gt;show_title(
+      EXPORTING
+        iv_text1 = title_v1
+        iv_text2 = title_v2
+        iv_text3 = title_v3
+        iv_text4 = title_v4
+        iv_text5 = title_v5
+    ).
+    RAISE EVENT at_set_title.
+
+  ENDMETHOD.                    &quot;pbo</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="REFRESH_TOOLBAR" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD refresh_toolbar.
+    TRY.
+        me-&gt;set_toolbar_interactive(  ).
+      CATCH cx_root.
+        &quot;in case method is called before the display of grid
+        &quot;no need to do anything with that
+    ENDTRY.
+  ENDMETHOD.                    &quot;refresh_toolbar</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_BUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="19 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_BUTTON" SCONAME="IV_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="FIELDNAME"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_BUTTON" SCONAME="IV_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_ROID-ROW_ID"/>
+   <source>METHOD set_cell_button.
+    FIELD-SYMBOLS: &lt;outtab&gt; TYPE STANDARD TABLE,
+                   &lt;styles&gt; TYPE lvc_t_styl.
+*Begin SMD
+    FIELD-SYMBOLS: &lt;row&gt; TYPE any,
+                   &lt;fs_style&gt; LIKE LINE OF &lt;styles&gt;.
+    DATA: ls_style LIKE LINE OF &lt;styles&gt;.
+*End SMD
+    get_frontend_layout( IMPORTING es_layout =  lvc_layout ).
+    CHECK lvc_layout-stylefname IS NOT INITIAL.
+    ASSIGN outtab-&gt;* TO &lt;outtab&gt;.
+    IF sy-subrc EQ 0.
+*Begin SMD
+*      assign &lt;outtab&gt;[ iv_row ] to field-symbol(&lt;row&gt;).
+      READ TABLE &lt;outtab&gt; ASSIGNING &lt;row&gt; INDEX iv_row.
+*End SMD
+      IF sy-subrc EQ 0.
+        ASSIGN COMPONENT lvc_layout-stylefname OF STRUCTURE &lt;row&gt; TO &lt;styles&gt;.
+        IF sy-subrc EQ 0.
+*Begin SMD
+*          try.
+*              &lt;styles&gt;[ fieldname = iv_fieldname ]-style = mc_style_button.
+*            catch cx_sy_itab_line_not_found.
+*              insert value #( fieldname = iv_fieldname style = mc_style_button ) into table &lt;styles&gt;.
+*          endtry.
+          LOOP AT &lt;styles&gt; ASSIGNING &lt;fs_style&gt; WHERE fieldname = iv_fieldname.
+            &lt;fs_style&gt;-style = mc_style_button.
+          ENDLOOP.
+          IF sy-subrc NE 0.
+            CLEAR: ls_style.
+            ls_style-fieldname = iv_fieldname.
+            ls_style-style = mc_style_button.
+            INSERT ls_style INTO TABLE &lt;styles&gt;.
+          ENDIF.
+*End SMD
+        ENDIF.
+      ENDIF.
+    ENDIF.
+  ENDMETHOD.                    &quot;set_cell_button</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_COLOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="22 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_COLOR" SCONAME="IV_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="FIELDNAME"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_COLOR" SCONAME="IV_COLOR" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_COLO"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_COLOR" SCONAME="IV_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_ROID-ROW_ID"/>
+   <source>METHOD set_cell_color.
+    FIELD-SYMBOLS: &lt;outtab&gt; TYPE STANDARD TABLE,
+                   &lt;colors&gt; TYPE lvc_t_scol.
+*Begin SMD
+    FIELD-SYMBOLS: &lt;row&gt; TYPE any,
+                   &lt;fs_color&gt; LIKE LINE OF &lt;colors&gt;.
+    DATA: ls_color LIKE LINE OF &lt;colors&gt;.
+*End SMD
+    get_frontend_layout( IMPORTING es_layout =  lvc_layout ).
+    CHECK lvc_layout-ctab_fname IS NOT INITIAL.
+    ASSIGN outtab-&gt;* TO &lt;outtab&gt;.
+    IF sy-subrc EQ 0.
+*Begin SMD
+*      assign &lt;outtab&gt;[ iv_row ] to field-symbol(&lt;row&gt;).
+      READ TABLE &lt;outtab&gt; ASSIGNING &lt;row&gt; INDEX iv_row.
+*End SMD
+      IF sy-subrc EQ 0.
+        ASSIGN COMPONENT lvc_layout-ctab_fname OF STRUCTURE &lt;row&gt; TO &lt;colors&gt;.
+        IF sy-subrc EQ 0.
+*Begin SMD
+*          try.
+*              &lt;colors&gt;[ fname = iv_fieldname ]-color = iv_color.
+*            catch cx_sy_itab_line_not_found.
+*              insert value #( fname = iv_fieldname color = iv_color ) into table &lt;colors&gt;.
+*          endtry.
+          LOOP AT &lt;colors&gt; ASSIGNING &lt;fs_color&gt; WHERE fname = iv_fieldname.
+            &lt;fs_color&gt;-color = iv_color.
+          ENDLOOP.
+          IF sy-subrc NE 0.
+            CLEAR: ls_color.
+            ls_color-fname = iv_fieldname.
+            ls_color-color = iv_color.
+            INSERT ls_color INTO TABLE &lt;colors&gt;.
+          ENDIF.
+*End SMD
+        ENDIF.
+      ENDIF.
+    ENDIF.
+  ENDMETHOD.                    &quot;set_cell_color</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_DISABLED" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="17 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_DISABLED" SCONAME="IV_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="FIELDNAME"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_DISABLED" SCONAME="IV_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_ROID-ROW_ID"/>
+   <source>METHOD set_cell_disabled.
+    FIELD-SYMBOLS: &lt;outtab&gt; TYPE STANDARD TABLE,
+                   &lt;styles&gt; TYPE lvc_t_styl.
+*Begin SMD
+    FIELD-SYMBOLS: &lt;row&gt; TYPE any,
+                   &lt;fs_style&gt; LIKE LINE OF &lt;styles&gt;.
+    DATA: ls_style LIKE LINE OF &lt;styles&gt;.
+*End SMD
+    get_frontend_layout( IMPORTING es_layout =  lvc_layout ).
+    CHECK lvc_layout-stylefname IS NOT INITIAL.
+    ASSIGN outtab-&gt;* TO &lt;outtab&gt;.
+    IF sy-subrc EQ 0.
+*Begin SMD
+*    ASSIGN &lt;outtab&gt;[ iv_row ] TO field-symbol(&lt;row&gt;).
+      READ TABLE &lt;outtab&gt; ASSIGNING &lt;row&gt; INDEX iv_row.
+*End SMD
+      IF sy-subrc EQ 0.
+        ASSIGN COMPONENT lvc_layout-stylefname OF STRUCTURE &lt;row&gt; TO &lt;styles&gt;.
+        IF sy-subrc EQ 0.
+*Begin SMD
+*          try.
+*              &lt;styles&gt;[ fieldname = iv_fieldname ]-style = mc_style_disabled.
+*            catch cx_sy_itab_line_not_found.
+*              insert value #( fieldname = iv_fieldname style = mc_style_disabled ) into table &lt;styles&gt;.
+*          endtry.
+          LOOP AT &lt;styles&gt; ASSIGNING &lt;fs_style&gt; WHERE fieldname = iv_fieldname.
+            &lt;fs_style&gt;-style = mc_style_disabled.
+          ENDLOOP.
+          IF sy-subrc NE 0.
+            CLEAR: ls_style.
+            ls_style-fieldname = iv_fieldname.
+            ls_style-style = mc_style_disabled.
+            INSERT ls_style INTO TABLE &lt;styles&gt;.
+          ENDIF.
+*End SMD
+        ENDIF.
+      ENDIF.
+    ENDIF.
+  ENDMETHOD.                    &quot;set_cell_disabled</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_ENABLED" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="18 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_ENABLED" SCONAME="IV_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="FIELDNAME"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_ENABLED" SCONAME="IV_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_ROID-ROW_ID"/>
+   <source>METHOD set_cell_enabled.
+    FIELD-SYMBOLS: &lt;outtab&gt; TYPE STANDARD TABLE,
+                   &lt;styles&gt; TYPE lvc_t_styl.
+*Begin SMD
+    FIELD-SYMBOLS: &lt;row&gt; TYPE any,
+                   &lt;fs_style&gt; LIKE LINE OF &lt;styles&gt;.
+    DATA: ls_style LIKE LINE OF &lt;styles&gt;.
+*End SMD
+    get_frontend_layout( IMPORTING es_layout =  lvc_layout ).
+    CHECK lvc_layout-stylefname IS NOT INITIAL.
+    ASSIGN outtab-&gt;* TO &lt;outtab&gt;.
+    IF sy-subrc EQ 0.
+*Begin SMD
+*      assign &lt;outtab&gt;[ iv_row ] to field-symbol(&lt;row&gt;).
+      READ TABLE &lt;outtab&gt; ASSIGNING &lt;row&gt; INDEX iv_row.
+*End SMD
+      IF sy-subrc EQ 0.
+        ASSIGN COMPONENT lvc_layout-stylefname OF STRUCTURE &lt;row&gt; TO &lt;styles&gt;.
+        IF sy-subrc EQ 0.
+*Begin SMD
+*          try.
+*              &lt;styles&gt;[ fieldname = iv_fieldname ]-style = mc_style_enabled.
+*            catch cx_sy_itab_line_not_found.
+*              insert value #( fieldname = iv_fieldname style = mc_style_enabled ) into table &lt;styles&gt;.
+*          endtry.
+          LOOP AT &lt;styles&gt; ASSIGNING &lt;fs_style&gt; WHERE fieldname = iv_fieldname.
+            &lt;fs_style&gt;-style = mc_style_enabled.
+          ENDLOOP.
+          IF sy-subrc NE 0.
+            CLEAR: ls_style.
+            ls_style-fieldname = iv_fieldname.
+            ls_style-style = mc_style_enabled.
+            INSERT ls_style INTO TABLE &lt;styles&gt;.
+          ENDIF.
+*End SMD
+        ENDIF.
+      ENDIF.
+    ENDIF.
+  ENDMETHOD.                    &quot;set_cell_enabled</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_HOTSPOT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="20 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_HOTSPOT" SCONAME="IV_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="FIELDNAME"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_HOTSPOT" SCONAME="IV_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_ROID-ROW_ID"/>
+   <source>METHOD set_cell_hotspot.
+    FIELD-SYMBOLS: &lt;outtab&gt; TYPE STANDARD TABLE,
+                   &lt;styles&gt; TYPE lvc_t_styl.
+*Begin SMD
+    FIELD-SYMBOLS: &lt;row&gt; TYPE any,
+                   &lt;fs_style&gt; LIKE LINE OF &lt;styles&gt;.
+    DATA: ls_style LIKE LINE OF &lt;styles&gt;.
+*End SMD
+    get_frontend_layout( IMPORTING es_layout =  lvc_layout ).
+    CHECK lvc_layout-stylefname IS NOT INITIAL.
+    ASSIGN outtab-&gt;* TO &lt;outtab&gt;.
+    IF sy-subrc EQ 0.
+*Begin SMD
+*      assign &lt;outtab&gt;[ iv_row ] to field-symbol(&lt;row&gt;).
+      READ TABLE &lt;outtab&gt; ASSIGNING &lt;row&gt; INDEX iv_row.
+*End SMD
+      IF sy-subrc EQ 0.
+        ASSIGN COMPONENT lvc_layout-stylefname OF STRUCTURE &lt;row&gt; TO &lt;styles&gt;.
+        IF sy-subrc EQ 0.
+*Begin SMD
+*          try.
+*              &lt;styles&gt;[ fieldname = iv_fieldname ]-style = mc_style_hotspot.
+*            catch cx_sy_itab_line_not_found.
+*              insert value #( fieldname = iv_fieldname style = mc_style_hotspot ) into table &lt;styles&gt;.
+*          endtry.
+          LOOP AT &lt;styles&gt; ASSIGNING &lt;fs_style&gt; WHERE fieldname = iv_fieldname.
+            &lt;fs_style&gt;-style = mc_style_hotspot.
+          ENDLOOP.
+          IF sy-subrc NE 0.
+            CLEAR: ls_style.
+            ls_style-fieldname = iv_fieldname.
+            ls_style-style = mc_style_hotspot.
+            INSERT ls_style INTO TABLE &lt;styles&gt;.
+          ENDIF.
+*End SMD
+        ENDIF.
+      ENDIF.
+    ENDIF.
+  ENDMETHOD.                    &quot;set_cell_hotspot</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_EDITABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_EDITABLE" SCONAME="IV_MODIFY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL" PARVALUE="ABAP_FALSE"/>
+   <source>METHOD set_editable.
+    me-&gt;set_ready_for_input( i_ready_for_input = 1 ).
+    IF iv_modify EQ abap_true.
+      me-&gt;register_edit_event(
+        EXPORTING
+          i_event_id =  me-&gt;mc_evt_modified
+        EXCEPTIONS
+          error      = 1
+          OTHERS     = 2
+      ).
+      IF sy-subrc &lt;&gt; 0.
+*        message id sy-msgid type sy-msgty number sy-msgno
+*                   with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+      ENDIF.
+    ELSE.
+      me-&gt;register_edit_event(
+        EXPORTING
+          i_event_id =  me-&gt;mc_evt_enter
+        EXCEPTIONS
+          error      = 1
+          OTHERS     = 2
+      ).
+      IF sy-subrc &lt;&gt; 0.
+*        message id sy-msgid type sy-msgty number sy-msgno
+*                   with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+      ENDIF.
+    ENDIF.
+  ENDMETHOD.                    &quot;set_editable</source>
+  </method>
+  <method CLSNAME="CL_GUI_ALV_GRID" CMPNAME="SET_FRONTEND_FIELDCATALOG" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD set_frontend_fieldcatalog.
+    fcat = it_fieldcatalog.
+    super-&gt;set_frontend_fieldcatalog( fcat ).
+  ENDMETHOD.                    &quot;set_frontend_fieldcatalog</source>
+  </method>
+  <method CLSNAME="CL_GUI_ALV_GRID" CMPNAME="SET_FRONTEND_LAYOUT" VERSION="0" EXPOSURE="0" STATE="0" EDITORDER="0 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD set_frontend_layout.
+    lvc_layout = is_layout.
+    super-&gt;set_frontend_layout( is_layout ).
+  ENDMETHOD.                    &quot;set_frontend_layout</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_MARK_FIELD" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_MARK_FIELD" SCONAME="IV_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_FCAT-FIELDNAME"/>
+   <source>METHOD set_mark_field.
+*Begin SMD
+    FIELD-SYMBOLS: &lt;fcat&gt; LIKE LINE OF fcat.
+*    if line_exists( fcat[ fieldname = iv_fieldname ] ).
+    READ TABLE fcat ASSIGNING &lt;fcat&gt; WITH KEY fieldname = iv_fieldname.
+    IF sy-subrc EQ 0.
+*End SMD
+      layout-&gt;mark_field = iv_fieldname.
+      CHECK iv_fieldname IS NOT INITIAL.
+      column( iv_fieldname )-&gt;set_checkbox( abap_true ).
+    ENDIF.
+  ENDMETHOD.                    &quot;set_mark_field</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_OUTPUT_TABLE" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_OUTPUT_TABLE" SCONAME="CT_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="STANDARD TABLE"/>
+   <source>METHOD set_output_table.
+    GET REFERENCE OF ct_table INTO outtab.
+  ENDMETHOD.                    &quot;set_output_table</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_PARENT" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_PARENT" SCONAME="IO_PARENT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="OBJECT"/>
+   <source>METHOD set_parent.
+    me-&gt;parent ?= io_parent.
+  ENDMETHOD.                    &quot;set_parent</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_READONLY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD set_readonly.
+    me-&gt;set_ready_for_input( i_ready_for_input = 1 ).
+  ENDMETHOD.                    &quot;set_readonly</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_ROW_COLOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="21 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_ROW_COLOR" SCONAME="IV_COLOR" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CHAR04"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_ROW_COLOR" SCONAME="IV_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_ROID-ROW_ID"/>
+   <source>METHOD set_row_color.
+    FIELD-SYMBOLS: &lt;outtab&gt; TYPE STANDARD TABLE,
+                   &lt;color&gt;  TYPE char04.
+*Begin SMD
+    FIELD-SYMBOLS: &lt;row&gt; TYPE any.
+*End SMD
+    get_frontend_layout( IMPORTING es_layout =  lvc_layout ).
+    CHECK lvc_layout-info_fname IS NOT INITIAL.
+    ASSIGN outtab-&gt;* TO &lt;outtab&gt;.
+    IF sy-subrc EQ 0.
+*Begin SMD
+*      assign &lt;outtab&gt;[ iv_row ] to field-symbol(&lt;row&gt;).
+      READ TABLE &lt;outtab&gt; ASSIGNING &lt;row&gt; INDEX iv_row.
+*End SMD
+      IF sy-subrc EQ 0.
+        ASSIGN COMPONENT lvc_layout-info_fname OF STRUCTURE &lt;row&gt; TO &lt;color&gt;.
+        IF sy-subrc EQ 0.
+          &lt;color&gt; = iv_color.
+        ENDIF.
+      ENDIF.
+    ENDIF.
+  ENDMETHOD.                    &quot;set_row_color</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SHOW_APPLOG" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD show_applog.
+    IF split_container IS NOT INITIAL.
+      split_container-&gt;set_row_sash(
+        EXPORTING
+          id                =  1   &quot; Row Splitter Bar ID
+          type              =  split_container-&gt;type_sashvisible   &quot; Attribute
+          value             =  1   &quot; Value
+        EXCEPTIONS
+          cntl_error        = 1
+          cntl_system_error = 2
+          OTHERS            = 3
+      ).
+      IF sy-subrc &lt;&gt; 0.
+      ENDIF.
+      split_container-&gt;get_row_height(
+        EXPORTING
+          id                =  2   &quot; Row ID
+        IMPORTING
+          result            =  height   &quot; Result Code
+        EXCEPTIONS
+          cntl_error        = 1
+          cntl_system_error = 2
+          OTHERS            = 3
+      ).
+      IF sy-subrc EQ 0 AND height EQ 0.
+        split_container-&gt;set_row_height(
+          EXPORTING
+            id                =   2 &quot; Row ID
+            height            =   15  &quot; Height
+          IMPORTING
+            result           = result
+          EXCEPTIONS
+            cntl_error        = 1
+            cntl_system_error = 2
+            OTHERS            = 3
+        ).
+        IF sy-subrc &lt;&gt; 0.
+        ENDIF.
+      ENDIF.
+    ENDIF.
+  ENDMETHOD.                    &quot;show_applog</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SOFT_REFRESH" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>METHOD soft_refresh.
+*Begin SMD
+    DATA: ls_stable TYPE lvc_s_stbl.
+    CLEAR: ls_stable.
+    ls_stable-row = &apos;X&apos;.
+    ls_stable-col = &apos;X&apos;.
+*End SMD
+    me-&gt;refresh_table_display(
+      EXPORTING
+*Begin SMD
+*        is_stable      =     conv #(&apos;XX&apos;) &quot; With Stable Rows/Columns
+        is_stable      =     ls_stable &quot; With Stable Rows/Columns
+*End SMD
+        i_soft_refresh =     abap_true&quot; Without Sort, Filter, etc.
+      EXCEPTIONS
+        finished       = 1
+        OTHERS         = 2
+    ).
+    IF sy-subrc &lt;&gt; 0.
+*     message id sy-msgid type sy-msgty number sy-msgno
+*                with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    ENDIF.
+  ENDMETHOD.                    &quot;soft_refresh</source>
+  </method>
+ </CLAS>
+</nugget>
