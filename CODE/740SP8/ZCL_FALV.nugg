@@ -2,6 +2,15 @@
 <nugget name="ZCL_FALV">
  <CLAS CLSNAME="ZCL_FALV" VERSION="1" LANGU="E" DESCRIPT="Fast ALV" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_GUI_ALV_GRID">
   <types CLSNAME="ZCL_FALV" CMPNAME="T_COLUMN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " TYPTYPE="3" TYPE="ZCL_FALV_COLUMN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="11 " SRCROW2="15 " SRCCOLUMN2="29 " TYPESRC_LENG="192 " TYPESRC="begin of t_subcl_call,
+             progname type progname,
+             line     type i,
+             column   type i,
+             class    type string,
+           end of t_subcl_call
+"/>
+  <types CLSNAME="ZCL_FALV" CMPNAME="TT_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="16 " SRCCOLUMN1="11 " SRCROW2="16 " SRCCOLUMN2="94 " TYPESRC_LENG="86 " TYPESRC="tt_subcl_call type sorted table of t_subcl_call with unique key progname line column
+"/>
   <friends CLSNAME="ZCL_FALV" REFCLSNAME="ZCL_FALV_LAYOUT" FRIENDTYPE="0" VERSION="1" STATE="1"/>
   <implementing CLSNAME="ZCL_FALV" REFCLSNAME="IF_OS_CLONE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
   <events CLSNAME="ZCL_FALV" CMPNAME="AT_SET_PF_STATUS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " EVTDECLTYP="0" BCEVTCAT="00"/>
@@ -29,6 +38,8 @@
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_FSCR_REPID" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="&apos;SAPLZFALV&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-REPID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_SCREEN_FULL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTVALUE="&apos;0100&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_SCREEN_POPUP" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="2" ATTVALUE="&apos;0200&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="DELAY_CHANGE_SELECTION" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="46 " ATTDECLTYP="0" ATTRDONLY="X" ATTVALUE="20" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="DELAY_MOVE_CURRENT_CELL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="45 " ATTDECLTYP="0" ATTRDONLY="X" ATTVALUE="20" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="EXCLUDE_FUNCTIONS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="31 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="UI_FUNCTIONS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="FCAT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="32 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_T_FCAT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_BACK" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " ATTDECLTYP="2" ATTVALUE="&apos;BACK&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
@@ -100,12 +111,148 @@
 
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="BUILD_COLUMNS" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="BUILD_COLUMNS" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method build_columns.
     loop at fcat assigning field-symbol(&lt;fcat&gt;).
       data(column) = new zcl_falv_column( iv_fieldname = &lt;fcat&gt;-fieldname io_falv = me ).
       insert column into table columns.
     endloop.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="CHECK_IF_CALLED_FROM_SUBCLASS" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="CHECK_IF_CALLED_FROM_SUBCLASS" SCONAME="RO_SUBCLASS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="OBJECT"/>
+   <source>method check_if_called_from_subclass.
+*    types: t_tokens     type table of stokex,
+*           t_statements type table of sstmnt,
+*           t_levels     type table of slevel.
+*
+*    data: callstack      type abap_callstack,
+*          et_callstack   type sys_callst,
+*          src            type table of string,
+*          program        type char255,
+*          tokens         type table of stokes,
+*          owerflow       type table of stokex,
+*          statements     type table of sstmnt,
+*          keywords       type table of char255,
+*          levels         type table of slevel,
+*          overflow(4096).          .
+*
+*    call function &apos;SYSTEM_CALLSTACK&apos;
+**      exporting
+**        max_level    = 0
+*      importing
+*        callstack    = callstack
+*        et_callstack = et_callstack[].    &quot; System Callstack Table
+*
+*
+*    data:
+*      progtab  type table of string,
+*      progline type string,
+*      idx      type sy-tabix,
+*      moff     type i,
+*      counter  type i.
+*
+*    field-symbols &lt;progline&gt; type string.
+*
+*    program = callstack[ 3 ]-mainprogram.
+*    read report program into src.
+*
+*    scan abap-source src
+*              tokens      into tokens
+*              levels      into levels
+*              statements  into statements
+*              &quot;REPLACING   edit_include_tab
+*              include program from program
+*              frame   program from program
+*
+*              &quot;overflow into owerflow
+*              with comments
+**              WITH DECLARATIONS
+**              WITH BLOCKS
+*              with includes.
+*
+**    scan abap-source src tokens into tokens
+**                         statements into statements
+**                         &quot;WITH LIST TOKENIZATION
+**                         with includes
+**                         with comments
+**                         WITH TYPE-POOLS
+**                         PRESERVING IDENTIFIER ESCAPING
+**&quot;                         with declarations
+**                         with analysis.
+*
+*    data(comp) = cl_abap_compiler=&gt;create(
+*                   p_name             =  callstack[ 3 ]-mainprogram
+*                   p_include          =  callstack[ 3 ]-include
+**                 p_includes         =
+**                 p_substitutions    =
+**                 p_only_interface   =
+*                   p_no_package_check = abap_true
+*               ).
+*
+*
+*    comp-&gt;get_single_ref(
+*      exporting
+*        p_full_name       =  &apos;\TY:ZCL_FALV\ME:CREATE&apos;   &quot; Complete Name of Object
+*        p_grade           =  1   &quot; Grade of Use
+*      importing
+*        p_result          =    data(res2) &quot; Where-Used List
+*      exceptions
+*        others            = 5
+*    ).
+*    if sy-subrc &lt;&gt; 0.
+** message id sy-msgid type sy-msgty number sy-msgno
+**            with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+*    endif.
+*
+*
+*    assign src[ callstack[ 3 ]-line ] to field-symbol(&lt;line&gt;).
+*    if &lt;line&gt; is assigned.
+*
+*      data: teststr type string.
+*      data: tokst type abptokens.
+*      loop at src assigning field-symbol(&lt;res&gt;).
+*        if teststr is not initial.
+*          teststr = teststr &amp;&amp; cl_abap_char_utilities=&gt;newline &amp;&amp; &lt;res&gt;.
+*        else.
+*          teststr = &lt;res&gt;.
+*        endif.
+**        do &lt;res&gt;-offset times.
+**          data(current_char) = &lt;res&gt;-offset - sy-index.
+**          if &lt;line&gt;+current_char(1) eq ` `.
+**            exit.
+**          endif.
+**        enddo.
+**
+**        &quot;method call can be done directly from beginning of the line
+**        &quot;so I must check if there is a space in current character or not
+**        &quot;one more time
+**        if &lt;line&gt;+current_char(1) eq ` `.
+**          add 1 to current_char.
+**        endif.
+**        data(size) = &lt;res&gt;-offset - current_char.
+**        data(class) = &lt;line&gt;+current_char(size).
+**
+**        if class ne &apos;ZCL_FALV&apos;.
+**          &quot;inheritance used ?
+**          &quot;try to check if we can use class
+**
+**        endif.
+*
+*      endloop.
+*
+*      cl_abap_parser=&gt;get_tokens(
+*       exporting
+*         source = teststr
+*       importing
+*         tokens =  data(toks)    &quot; Sequence of qualified tokens
+*     ).
+*
+*      data(stack_other) = cl_abap_get_call_stack=&gt;get_call_stack( ).
+*
+*    endif.
+*
+
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="COLUMN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
@@ -119,7 +266,7 @@
     endtry.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="0" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="0" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_SHELLSTYLE" VERSION="1" LANGU="E" DESCRIPT="Control Style" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="I" PARVALUE="0"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_LIFETIME" VERSION="1" LANGU="E" DESCRIPT="Lifetime" CMPTYPE="1" MTDTYPE="2" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="I" PAROPTIONL="X"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_PARENT" VERSION="1" LANGU="E" DESCRIPT="Parent Container" CMPTYPE="1" MTDTYPE="2" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" PAROPTIONL="X"/>
@@ -176,22 +323,38 @@
    <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE" SCONAME="RV_FALV" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="7 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_FALV"/>
    <source>method create.
     data: built_in_screen type abap_bool.
-    data: custom_container type ref to cl_gui_custom_container.
+    data: main_parent type ref to cl_gui_container.
     data: parent type ref to cl_gui_container.
     data: applog type ref to cl_gui_container.
+
+    check_if_called_from_subclass( ).
+
+    if cl_gui_alv_grid=&gt;offline( ) is not initial.
+      &quot;To fool bg call
+      data(docking_parent) = new cl_gui_docking_container( dynnr = switch #( i_popup when abap_true then c_screen_popup
+                                                                                     when abap_false then c_screen_full )
+                                                           repid = c_fscr_repid
+                                                                 ).
+      main_parent ?= docking_parent.
+
+    endif.
 
     &quot;We need to call full screen ALV as container was not passed
     if i_parent is initial.
 
       built_in_screen = abap_true.
       try.
-          create object custom_container
-            exporting
-              container_name          = cc_name
-              dynnr                   = switch #( i_popup when abap_true then c_screen_popup
-                                                          when abap_false then c_screen_full )
-              repid                   = c_fscr_repid
-              no_autodef_progid_dynnr = abap_true.
+
+          if main_parent is initial.
+            data(custom_container) = new cl_gui_custom_container(
+                      container_name = cc_name
+                      dynnr          = switch #( i_popup when abap_true then c_screen_popup
+                                                         when abap_false then c_screen_full )
+                      repid          = c_fscr_repid
+                      no_autodef_progid_dynnr = abap_true
+                      ).
+            main_parent ?= custom_container.
+          endif.
 
           if i_applog_embedded eq abap_true.
             &quot; Create split container, log at bottom, grid at top.
@@ -200,33 +363,41 @@
                 link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
                                                  when abap_false then c_screen_full )
                 link_repid              = c_fscr_repid
-                 parent                  = custom_container
+                 parent                  = main_parent
                  rows                    = 2
                  columns                 = 1
             ).
             parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
             applog = split_container-&gt;get_container( row = 2 column    = 1 ).
           else.
-            parent ?= custom_container.
+            parent ?= main_parent.
           endif.
         catch cx_root.
           &quot;Something is wrong...
       endtry.
     else.
+      if main_parent is not initial.
 
-      applog ?= i_applogparent.
-      if applog is initial and i_applog_embedded eq abap_true.
-        custom_container ?= i_parent.
-        split_container = new cl_gui_splitter_container(
-             parent                  = custom_container
-             rows                    = 2
-             columns                 = 1
-        ).
-        parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
-        applog = split_container-&gt;get_container( row = 2 column    = 1 ).
+        parent ?= main_parent.
+        custom_container ?= parent.
+
       else.
-        parent ?= i_parent.
-        custom_container ?= i_parent.
+
+        applog ?= i_applogparent.
+        if applog is initial and i_applog_embedded eq abap_true.
+          custom_container ?= i_parent.
+          split_container = new cl_gui_splitter_container(
+               parent                  = custom_container
+               rows                    = 2
+               columns                 = 1
+          ).
+          parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
+          applog = split_container-&gt;get_container( row = 2 column    = 1 ).
+        else.
+          parent ?= i_parent.
+          custom_container ?= i_parent.
+        endif.
+
       endif.
 
     endif.
@@ -240,6 +411,9 @@
         i_applogparent = applog.
       rv_falv ?= subclass.
       rv_falv-&gt;subclass_type = i_subclass.
+*    elseif cl_abap_classdescr=&gt;describe_by_object_ref( me )-&gt;absolute_name ne &apos;ZCL_FALV&apos;.
+*
+
     else.
       create object rv_falv
         exporting
@@ -250,7 +424,7 @@
     set handler rv_falv-&gt;evt_after_user_command for rv_falv.
     set handler rv_falv-&gt;evt_before_ucommand_internal for rv_falv.
     set handler rv_falv-&gt;evt_before_user_command for rv_falv.
-    set handler rv_falv-&gt;evt_button_click_falv for rv_falv.
+    set handler rv_falv-&gt;evt_btn_click for rv_falv.
     set handler rv_falv-&gt;evt_data_changed for rv_falv.
     set handler rv_falv-&gt;evt_data_changed_internal for rv_falv.
     set handler rv_falv-&gt;evt_data_changed_finished for rv_falv.
@@ -266,6 +440,44 @@
     set handler rv_falv-&gt;evt_user_command_internal for rv_falv.
     set handler rv_falv-&gt;evt_at_set_pf_status for rv_falv.
     set handler rv_falv-&gt;evt_at_set_title for rv_falv.
+    set handler rv_falv-&gt;evt_top_of_page for rv_falv.
+    set handler rv_falv-&gt;evt_delayed_callback for rv_falv.
+    set handler rv_falv-&gt;evt_delayed_changed_sel_call for rv_falv.
+    set handler rv_falv-&gt;evt_ondrag for rv_falv.
+    set handler rv_falv-&gt;evt_ondrop for rv_falv.
+    set handler rv_falv-&gt;evt_ondropcomplete for rv_falv.
+    set handler rv_falv-&gt;evt_ondropgetflavor for rv_falv.
+    set handler rv_falv-&gt;evt_drop_external_file for rv_falv.
+
+    rv_falv-&gt;set_delay_change_selection(
+      exporting
+        time   =  rv_falv-&gt;delay_change_selection
+      exceptions
+        error  = 1
+        others = 2
+    ).
+    if sy-subrc &lt;&gt; 0.
+    endif.
+
+    rv_falv-&gt;set_delay_move_current_cell(
+      exporting
+       time   = rv_falv-&gt;delay_move_current_cell
+      exceptions
+        error  = 1
+        others = 2
+    ).
+    if sy-subrc &lt;&gt; 0.
+    endif.
+
+*    rv_falv-&gt;register_delayed_event(
+*      exporting
+*        i_event_id =  rv_falv-&gt;mc_evt_delayed_change_select
+*      exceptions
+*        error      = 1
+*        others     = 2
+*    ).
+*    if sy-subrc &lt;&gt; 0.
+*    endif.
 
 
     rv_falv-&gt;set_output_table( changing ct_table = ct_table ).
@@ -285,10 +497,14 @@
     endif.
     rv_falv-&gt;main_container ?= custom_container.
     rv_falv-&gt;split_container = split_container.
-    rv_falv-&gt;variant-report = sy-repid.
+*    rv_falv-&gt;variant-report = sy-repid.
     if split_container is not initial.
       rv_falv-&gt;hide_applog( ).
     endif.
+
+    rv_falv-&gt;layout_save = &apos;A&apos;.
+    rv_falv-&gt;variant-report = sy-cprog.
+    rv_falv-&gt;variant-username = sy-uname.
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="CREATE_BY_COPY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
@@ -298,16 +514,34 @@
    <parameter CLSNAME="ZCL_FALV" CMPNAME="CREATE_BY_COPY" SCONAME="RV_FALV" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="ZCL_FALV"/>
    <source>method create_by_copy.
     data: built_in_screen type abap_bool.
+    data: main_parent type ref to cl_gui_container.
+
+    if cl_gui_alv_grid=&gt;offline( ) is not initial.
+      &quot;To fool bg call
+      data(docking_parent) = new cl_gui_docking_container( dynnr = switch #( i_popup when abap_true then c_screen_popup
+                                                                                     when abap_false then c_screen_full )
+                                                           repid = c_fscr_repid
+                                                                 ).
+
+      main_parent  ?= docking_parent.
+    endif.
+
 
     &quot;We need to call full screen ALV as container was not passed
     if i_parent is initial.
       built_in_screen = abap_true.
       try.
-          data(custom_container) = new cl_gui_custom_container(
-              container_name = cc_name
-              dynnr          = switch #( i_popup when abap_true then c_screen_popup
-                                                 when abap_false then c_screen_full )
-              repid          = c_fscr_repid ).
+          if main_parent is initial.
+            data(custom_container) = new cl_gui_custom_container(
+                      container_name = cc_name
+                      dynnr          = switch #( i_popup when abap_true then c_screen_popup
+                                                         when abap_false then c_screen_full )
+                      repid          = c_fscr_repid
+                      no_autodef_progid_dynnr = abap_true
+                      ).
+            main_parent ?= custom_container.
+
+          endif.
           if application_log_embedded eq abap_true.
             &quot; Create split container, log at bottom, grid at top.
             &quot;Log hidden as default, will appear when error will be thrown.
@@ -315,20 +549,26 @@
                 link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
                                                  when abap_false then c_screen_full )
                 link_repid              = c_fscr_repid
-                 parent                  = custom_container
+                 parent                  = main_parent
                  rows                    = 2
                  columns                 = 1
             ).
             i_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
             i_applogparent = split_container-&gt;get_container( row = 2 column    = 1 ).
           else.
-            i_parent ?= custom_container.
+            i_parent ?= main_parent.
           endif.
         catch cx_root.
           &quot;Something is wrong...
       endtry.
     else.
-      custom_container ?= i_parent.
+
+      if main_parent is initial.
+
+        main_parent ?= i_parent.
+
+      endif.
+
     endif.
 
     if me-&gt;subclass_type is not initial.
@@ -336,7 +576,7 @@
       data(sublcass_abs_name) = subclass_type-&gt;absolute_name.
       create object subclass type (sublcass_abs_name)
        exporting
-        i_parent       = i_parent
+        i_parent       = main_parent
         i_applogparent = i_applogparent.
 
       rv_falv ?= subclass.
@@ -344,7 +584,7 @@
     else.
       create object rv_falv
         exporting
-          i_parent       = i_parent
+          i_parent       = main_parent
           i_applogparent = i_applogparent.
     endif.
 
@@ -352,7 +592,7 @@
     set handler rv_falv-&gt;evt_after_user_command for rv_falv.
     set handler rv_falv-&gt;evt_before_ucommand_internal for rv_falv.
     set handler rv_falv-&gt;evt_before_user_command for rv_falv.
-    set handler rv_falv-&gt;evt_button_click_falv for rv_falv.
+    set handler rv_falv-&gt;evt_btn_click for rv_falv.
     set handler rv_falv-&gt;evt_data_changed for rv_falv.
     set handler rv_falv-&gt;evt_data_changed_internal for rv_falv.
     set handler rv_falv-&gt;evt_data_changed_finished for rv_falv.
@@ -368,6 +608,35 @@
     set handler rv_falv-&gt;evt_user_command_internal for rv_falv.
     set handler rv_falv-&gt;evt_at_set_pf_status for rv_falv.
     set handler rv_falv-&gt;evt_at_set_title for rv_falv.
+    set handler rv_falv-&gt;evt_top_of_page for rv_falv.
+    set handler rv_falv-&gt;evt_delayed_callback for rv_falv.
+    set handler rv_falv-&gt;evt_delayed_changed_sel_call for rv_falv.
+    set handler rv_falv-&gt;evt_ondrag for rv_falv.
+    set handler rv_falv-&gt;evt_ondrop for rv_falv.
+    set handler rv_falv-&gt;evt_ondropcomplete for rv_falv.
+    set handler rv_falv-&gt;evt_ondropgetflavor for rv_falv.
+    set handler rv_falv-&gt;evt_drop_external_file for rv_falv.
+
+    rv_falv-&gt;set_delay_change_selection(
+      exporting
+        time   =  me-&gt;delay_change_selection
+      exceptions
+        error  = 1
+        others = 2
+    ).
+    if sy-subrc &lt;&gt; 0.
+    endif.
+
+    rv_falv-&gt;set_delay_move_current_cell(
+      exporting
+       time   = me-&gt;delay_move_current_cell
+      exceptions
+        error  = 1
+        others = 2
+    ).
+    if sy-subrc &lt;&gt; 0.
+    endif.
+
 
     field-symbols: &lt;outtab&gt; type standard table.
     assign me-&gt;outtab-&gt;* to &lt;outtab&gt;.
@@ -547,15 +816,15 @@
    <source>method evt_after_user_command.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_PF_STATUS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="15 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_PF_STATUS" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_PF_STATUS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="23 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_PF_STATUS" BCMTDCAT="00" BCMTDSYN="0">
    <source>method evt_at_set_pf_status.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_TITLE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="16 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_TITLE" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_TITLE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="24 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_TITLE" BCMTDCAT="00" BCMTDSYN="0">
    <source>method evt_at_set_title.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_BEFORE_UCOMMAND_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BEFORE_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_BEFORE_UCOMMAND_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BEFORE_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BEFORE_UCOMMAND_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <source>method evt_before_ucommand_internal.
     field-symbols: &lt;outtab&gt; type standard table.
@@ -594,10 +863,10 @@
    <source>method evt_before_user_command.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_BUTTON_CLICK_FALV" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BUTTON_CLICK" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BUTTON_CLICK_FALV" SCONAME="ES_COL_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BUTTON_CLICK_FALV" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_button_click_falv.
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_BTN_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BUTTON_CLICK" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BTN_CLICK" SCONAME="ES_COL_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BTN_CLICK" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evt_btn_click.
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
@@ -616,7 +885,7 @@
    <source>method evt_data_changed_finished.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="ER_DATA_CHANGED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4_BEFORE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
@@ -630,12 +899,28 @@
     endif.
   endmethod.</source>
   </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DELAYED_CALLBACK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="16 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DELAYED_CALLBACK" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method evt_delayed_callback.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DELAYED_CHANGED_SEL_CALL" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="17 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DELAYED_CHANGED_SEL_CALLBACK" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method evt_delayed_changed_sel_call.
+
+  endmethod.</source>
+  </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DOUBLE_CLICK" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <source>method evt_double_click.
   endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DROP_EXTERNAL_FILE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="22 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DROP_EXTERNAL_FILES" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DROP_EXTERNAL_FILE" SCONAME="FILES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_drop_external_file.
+
+  ENDMETHOD.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVT_HOTSPOT_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="HOTSPOT_CLICK" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_HOTSPOT_CLICK" SCONAME="E_ROW_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
@@ -649,6 +934,43 @@
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_MENU_BUTTON" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <source>method evt_menu_button.
   endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDRAG" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="19 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDRAG" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDRAG" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDRAG" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDRAG" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDRAG" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_ondrag.
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROP" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="20 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDROP" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROP" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROP" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROP" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROP" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_ondrop.
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPCOMPLETE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="21 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDROPCOMPLETE" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPCOMPLETE" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPCOMPLETE" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPCOMPLETE" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPCOMPLETE" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_ondropcomplete.
+
+  ENDMETHOD.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="18 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDROPGETFLAVOR" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" SCONAME="E_FLAVORS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>METHOD evt_ondropgetflavor.
+
+  ENDMETHOD.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF1" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONF1" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF1" SCONAME="E_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
@@ -681,7 +1003,7 @@
 
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR_INTERNAL" SCONAME="E_OBJECT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR_INTERNAL" SCONAME="E_INTERACTIVE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <source>method evt_toolbar_internal.
@@ -704,13 +1026,20 @@
 
   endmethod.</source>
   </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_TOP_OF_PAGE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="15 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOP_OF_PAGE" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOP_OF_PAGE" SCONAME="E_DYNDOC_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOP_OF_PAGE" SCONAME="TABLE_INDEX" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evt_top_of_page.
+
+  endmethod.</source>
+  </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <source>method evt_user_command.
 
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <source>method evt_user_command_internal.
     case e_ucomm.
@@ -735,7 +1064,7 @@
     endif.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="HIDE_APPLOG" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="HIDE_APPLOG" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method hide_applog.
     if split_container is not initial.
       split_container-&gt;set_row_sash(
@@ -827,7 +1156,7 @@
 
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="REFRESH_TOOLBAR" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="REFRESH_TOOLBAR" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method refresh_toolbar.
     try.
         me-&gt;set_toolbar_interactive(  ).
@@ -1011,13 +1340,13 @@
     endif.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="SET_OUTPUT_TABLE" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_OUTPUT_TABLE" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_OUTPUT_TABLE" SCONAME="CT_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="STANDARD TABLE"/>
    <source>method set_output_table.
     get reference of ct_table into outtab.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="SET_PARENT" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_PARENT" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_PARENT" SCONAME="IO_PARENT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="OBJECT"/>
    <source>method set_parent.
     me-&gt;parent ?= io_parent.
@@ -1048,7 +1377,7 @@
     endif.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="SHOW_APPLOG" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="SHOW_APPLOG" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method show_applog.
     if split_container is not initial.
       split_container-&gt;set_row_sash(
