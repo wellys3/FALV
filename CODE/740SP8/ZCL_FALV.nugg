@@ -420,34 +420,49 @@
           i_parent       = parent
           i_applogparent = applog.
     endif.
-    set handler rv_falv-&gt;evt_after_refresh for rv_falv.
-    set handler rv_falv-&gt;evt_after_user_command for rv_falv.
+    set handler rv_falv-&gt;evf_after_refresh for rv_falv.
+    set handler rv_falv-&gt;evf_after_user_command for rv_falv.
     set handler rv_falv-&gt;evt_before_ucommand_internal for rv_falv.
-    set handler rv_falv-&gt;evt_before_user_command for rv_falv.
-    set handler rv_falv-&gt;evt_btn_click for rv_falv.
-    set handler rv_falv-&gt;evt_data_changed for rv_falv.
+    set handler rv_falv-&gt;evf_before_user_command for rv_falv.
+    set handler rv_falv-&gt;evf_btn_click for rv_falv.
+    set handler rv_falv-&gt;evr_data_changed for rv_falv.
     set handler rv_falv-&gt;evt_data_changed_internal for rv_falv.
-    set handler rv_falv-&gt;evt_data_changed_finished for rv_falv.
-    set handler rv_falv-&gt;evt_double_click for rv_falv.
-    set handler rv_falv-&gt;evt_hotspot_click for rv_falv.
-    set handler rv_falv-&gt;evt_menu_button for rv_falv.
-    set handler rv_falv-&gt;evt_onf1 for rv_falv.
-    set handler rv_falv-&gt;evt_onf4 for rv_falv.
-    set handler rv_falv-&gt;evt_subtotal_text for rv_falv.
+    set handler rv_falv-&gt;evf_data_changed_finished for rv_falv.
+    set handler rv_falv-&gt;evf_double_click for rv_falv.
+    set handler rv_falv-&gt;evf_hotspot_click for rv_falv.
+    set handler rv_falv-&gt;evf_menu_button for rv_falv.
+    set handler rv_falv-&gt;evf_onf1 for rv_falv.
+    set handler rv_falv-&gt;evf_onf4 for rv_falv.
+    set handler rv_falv-&gt;evf_subtotal_text for rv_falv.
     set handler rv_falv-&gt;evt_toolbar_internal for rv_falv.
-    set handler rv_falv-&gt;evt_toolbar for rv_falv.
-    set handler rv_falv-&gt;evt_user_command for rv_falv.
+    set handler rv_falv-&gt;evf_toolbar for rv_falv.
+    set handler rv_falv-&gt;evf_user_command for rv_falv.
     set handler rv_falv-&gt;evt_user_command_internal for rv_falv.
     set handler rv_falv-&gt;evt_at_set_pf_status for rv_falv.
     set handler rv_falv-&gt;evt_at_set_title for rv_falv.
-    set handler rv_falv-&gt;evt_top_of_page for rv_falv.
-    set handler rv_falv-&gt;evt_delayed_callback for rv_falv.
-    set handler rv_falv-&gt;evt_delayed_changed_sel_call for rv_falv.
-    set handler rv_falv-&gt;evt_ondrag for rv_falv.
-    set handler rv_falv-&gt;evt_ondrop for rv_falv.
-    set handler rv_falv-&gt;evt_ondropcomplete for rv_falv.
-    set handler rv_falv-&gt;evt_ondropgetflavor for rv_falv.
-    set handler rv_falv-&gt;evt_drop_external_file for rv_falv.
+    set handler rv_falv-&gt;evf_top_of_page for rv_falv.
+    set handler rv_falv-&gt;evf_delayed_callback for rv_falv.
+    set handler rv_falv-&gt;evf_delayed_changed_sel_call for rv_falv.
+    set handler rv_falv-&gt;evf_ondrag for rv_falv.
+    set handler rv_falv-&gt;evf_ondrop for rv_falv.
+    set handler rv_falv-&gt;evf_ondropcomplete for rv_falv.
+    set handler rv_falv-&gt;evf_ondropgetflavor for rv_falv.
+    set handler rv_falv-&gt;evf_drop_external_file for rv_falv.
+    set handler rv_falv-&gt;evf_toolbar_menubutton_click for rv_falv.
+    set handler rv_falv-&gt;evf_click_col_header for rv_falv.
+    set handler rv_falv-&gt;evf_delayed_move_current_cell for rv_falv.
+    set handler rv_falv-&gt;evf_f1 for rv_falv.
+    set handler rv_falv-&gt;evf_dblclick_row_col for rv_falv.
+    set handler rv_falv-&gt;evf_click_row_col for rv_falv.
+    set handler rv_falv-&gt;evf_toolbar_button_click for rv_falv.
+    set handler rv_falv-&gt;evf_double_click_col_separator for rv_falv.
+    set handler rv_falv-&gt;evf_delayed_change_selection for rv_falv.
+    set handler rv_falv-&gt;evf_context_menu for rv_falv.
+    set handler rv_falv-&gt;evf_total_click_row_col for rv_falv.
+    set handler rv_falv-&gt;evf_context_menu_selected for rv_falv.
+    set handler rv_falv-&gt;evf_toolbar_menu_selected for rv_falv.
+    set handler rv_falv-&gt;evf_request_data for rv_falv.
+
 
     rv_falv-&gt;set_delay_change_selection(
       exporting
@@ -588,35 +603,48 @@
           i_applogparent = i_applogparent.
     endif.
 
-    set handler rv_falv-&gt;evt_after_refresh for rv_falv.
-    set handler rv_falv-&gt;evt_after_user_command for rv_falv.
+    set handler rv_falv-&gt;evf_after_refresh for rv_falv.
+    set handler rv_falv-&gt;evf_after_user_command for rv_falv.
     set handler rv_falv-&gt;evt_before_ucommand_internal for rv_falv.
-    set handler rv_falv-&gt;evt_before_user_command for rv_falv.
-    set handler rv_falv-&gt;evt_btn_click for rv_falv.
-    set handler rv_falv-&gt;evt_data_changed for rv_falv.
+    set handler rv_falv-&gt;evf_before_user_command for rv_falv.
+    set handler rv_falv-&gt;evf_btn_click for rv_falv.
+    set handler rv_falv-&gt;evr_data_changed for rv_falv.
     set handler rv_falv-&gt;evt_data_changed_internal for rv_falv.
-    set handler rv_falv-&gt;evt_data_changed_finished for rv_falv.
-    set handler rv_falv-&gt;evt_double_click for rv_falv.
-    set handler rv_falv-&gt;evt_hotspot_click for rv_falv.
-    set handler rv_falv-&gt;evt_menu_button for rv_falv.
-    set handler rv_falv-&gt;evt_onf1 for rv_falv.
-    set handler rv_falv-&gt;evt_onf4 for rv_falv.
-    set handler rv_falv-&gt;evt_subtotal_text for rv_falv.
+    set handler rv_falv-&gt;evf_data_changed_finished for rv_falv.
+    set handler rv_falv-&gt;evf_double_click for rv_falv.
+    set handler rv_falv-&gt;evf_hotspot_click for rv_falv.
+    set handler rv_falv-&gt;evf_menu_button for rv_falv.
+    set handler rv_falv-&gt;evf_onf1 for rv_falv.
+    set handler rv_falv-&gt;evf_onf4 for rv_falv.
+    set handler rv_falv-&gt;evf_subtotal_text for rv_falv.
     set handler rv_falv-&gt;evt_toolbar_internal for rv_falv.
-    set handler rv_falv-&gt;evt_toolbar for rv_falv.
-    set handler rv_falv-&gt;evt_user_command for rv_falv.
+    set handler rv_falv-&gt;evf_toolbar for rv_falv.
+    set handler rv_falv-&gt;evf_user_command for rv_falv.
     set handler rv_falv-&gt;evt_user_command_internal for rv_falv.
     set handler rv_falv-&gt;evt_at_set_pf_status for rv_falv.
     set handler rv_falv-&gt;evt_at_set_title for rv_falv.
-    set handler rv_falv-&gt;evt_top_of_page for rv_falv.
-    set handler rv_falv-&gt;evt_delayed_callback for rv_falv.
-    set handler rv_falv-&gt;evt_delayed_changed_sel_call for rv_falv.
-    set handler rv_falv-&gt;evt_ondrag for rv_falv.
-    set handler rv_falv-&gt;evt_ondrop for rv_falv.
-    set handler rv_falv-&gt;evt_ondropcomplete for rv_falv.
-    set handler rv_falv-&gt;evt_ondropgetflavor for rv_falv.
-    set handler rv_falv-&gt;evt_drop_external_file for rv_falv.
-
+    set handler rv_falv-&gt;evf_top_of_page for rv_falv.
+    set handler rv_falv-&gt;evf_delayed_callback for rv_falv.
+    set handler rv_falv-&gt;evf_delayed_changed_sel_call for rv_falv.
+    set handler rv_falv-&gt;evf_ondrag for rv_falv.
+    set handler rv_falv-&gt;evf_ondrop for rv_falv.
+    set handler rv_falv-&gt;evf_ondropcomplete for rv_falv.
+    set handler rv_falv-&gt;evf_ondropgetflavor for rv_falv.
+    set handler rv_falv-&gt;evf_drop_external_file for rv_falv.
+    set handler rv_falv-&gt;evf_toolbar_menubutton_click for rv_falv.
+    set handler rv_falv-&gt;evf_click_col_header for rv_falv.
+    set handler rv_falv-&gt;evf_delayed_move_current_cell for rv_falv.
+    set handler rv_falv-&gt;evf_f1 for rv_falv.
+    set handler rv_falv-&gt;evf_dblclick_row_col for rv_falv.
+    set handler rv_falv-&gt;evf_click_row_col for rv_falv.
+    set handler rv_falv-&gt;evf_toolbar_button_click for rv_falv.
+    set handler rv_falv-&gt;evf_double_click_col_separator for rv_falv.
+    set handler rv_falv-&gt;evf_delayed_change_selection for rv_falv.
+    set handler rv_falv-&gt;evf_context_menu for rv_falv.
+    set handler rv_falv-&gt;evf_total_click_row_col for rv_falv.
+    set handler rv_falv-&gt;evf_context_menu_selected for rv_falv.
+    set handler rv_falv-&gt;evf_toolbar_menu_selected for rv_falv.
+    set handler rv_falv-&gt;evf_request_data for rv_falv.
     rv_falv-&gt;set_delay_change_selection(
       exporting
         time   =  me-&gt;delay_change_selection
@@ -805,22 +833,251 @@
     me-&gt;refresh_toolbar( ).
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AFTER_REFRESH" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="14 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="AFTER_REFRESH" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method evt_after_refresh.
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_AFTER_REFRESH" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="14 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="AFTER_REFRESH" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method evf_after_refresh.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AFTER_USER_COMMAND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="AFTER_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_AFTER_USER_COMMAND" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_AFTER_USER_COMMAND" SCONAME="E_SAVED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_AFTER_USER_COMMAND" SCONAME="E_NOT_PROCESSED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_after_user_command.
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_AFTER_USER_COMMAND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="AFTER_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_AFTER_USER_COMMAND" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_AFTER_USER_COMMAND" SCONAME="E_SAVED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_AFTER_USER_COMMAND" SCONAME="E_NOT_PROCESSED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_after_user_command.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_PF_STATUS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="23 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_PF_STATUS" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_BEFORE_USER_COMMAND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BEFORE_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_BEFORE_USER_COMMAND" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_before_user_command.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_BTN_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BUTTON_CLICK" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_BTN_CLICK" SCONAME="ES_COL_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_BTN_CLICK" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_btn_click.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_CLICK_COL_HEADER" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="24 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="CLICK_COL_HEADER" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_CLICK_COL_HEADER" SCONAME="COL_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_click_col_header.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_CLICK_ROW_COL" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="28 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="CLICK_ROW_COL" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_CLICK_ROW_COL" SCONAME="ROW_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_CLICK_ROW_COL" SCONAME="COL_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_click_row_col.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_CONTEXT_MENU" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="32 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="CONTEXT_MENU" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method evf_context_menu.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_CONTEXT_MENU_SELECTED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="34 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="CONTEXT_MENU_SELECTED" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_CONTEXT_MENU_SELECTED" SCONAME="FCODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_context_menu_selected.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_FINISHED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED_FINISHED" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_FINISHED" SCONAME="E_MODIFIED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_FINISHED" SCONAME="ET_GOOD_CELLS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_data_changed_finished.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DBLCLICK_ROW_COL" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="27 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DBLCLICK_ROW_COL" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DBLCLICK_ROW_COL" SCONAME="ROW_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DBLCLICK_ROW_COL" SCONAME="COL_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_dblclick_row_col.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DELAYED_CALLBACK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="16 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DELAYED_CALLBACK" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method evf_delayed_callback.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DELAYED_CHANGED_SEL_CALL" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="17 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DELAYED_CHANGED_SEL_CALLBACK" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method evf_delayed_changed_sel_call.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DELAYED_CHANGE_SELECTION" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="31 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DELAYED_CHANGE_SELECTION" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method evf_delayed_change_selection.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DELAYED_MOVE_CURRENT_CELL" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="25 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DELAYED_MOVE_CURRENT_CELL" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method evf_delayed_move_current_cell.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DOUBLE_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DOUBLE_CLICK" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DOUBLE_CLICK" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DOUBLE_CLICK" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DOUBLE_CLICK" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_double_click.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DOUBLE_CLICK_COL_SEPARATOR" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="30 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DOUBLE_CLICK_COL_SEPARATOR" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DOUBLE_CLICK_COL_SEPARATOR" SCONAME="COL_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_double_click_col_separator.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DROP_EXTERNAL_FILE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="22 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DROP_EXTERNAL_FILES" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DROP_EXTERNAL_FILE" SCONAME="FILES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_drop_external_file.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_F1" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="26 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="F1" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method evf_f1.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_HOTSPOT_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="HOTSPOT_CLICK" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_HOTSPOT_CLICK" SCONAME="E_ROW_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_HOTSPOT_CLICK" SCONAME="E_COLUMN_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_HOTSPOT_CLICK" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_hotspot_click.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_MENU_BUTTON" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="MENU_BUTTON" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_MENU_BUTTON" SCONAME="E_OBJECT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_MENU_BUTTON" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_menu_button.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDRAG" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="19 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDRAG" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDRAG" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDRAG" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDRAG" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDRAG" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_ondrag.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROP" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="20 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDROP" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROP" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROP" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROP" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROP" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_ondrop.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROPCOMPLETE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="21 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDROPCOMPLETE" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROPCOMPLETE" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROPCOMPLETE" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROPCOMPLETE" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROPCOMPLETE" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_ondropcomplete.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROPGETFLAVOR" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="18 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDROPGETFLAVOR" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROPGETFLAVOR" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROPGETFLAVOR" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROPGETFLAVOR" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROPGETFLAVOR" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONDROPGETFLAVOR" SCONAME="E_FLAVORS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_ondropgetflavor.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_ONF1" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONF1" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONF1" SCONAME="E_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONF1" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONF1" SCONAME="ER_EVENT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_onf1.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_ONF4" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONF4" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONF4" SCONAME="E_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONF4" SCONAME="E_FIELDVALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONF4" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONF4" SCONAME="ER_EVENT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONF4" SCONAME="ET_BAD_CELLS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_ONF4" SCONAME="E_DISPLAY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="6 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_onf4.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_REQUEST_DATA" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="36 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="_REQUEST_DATA" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_REQUEST_DATA" SCONAME="FRAGMENTS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_request_data.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_SUBTOTAL_TEXT" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="SUBTOTAL_TEXT" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_SUBTOTAL_TEXT" SCONAME="ES_SUBTOTTXT_INFO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_SUBTOTAL_TEXT" SCONAME="EP_SUBTOT_LINE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_SUBTOTAL_TEXT" SCONAME="E_EVENT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_subtotal_text.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR" SCONAME="E_OBJECT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR" SCONAME="E_INTERACTIVE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_toolbar.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_BUTTON_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="29 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR_BUTTON_CLICK" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_BUTTON_CLICK" SCONAME="FCODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_toolbar_button_click.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_MENUBUTTON_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="23 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR_MENUBUTTON_CLICK" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_MENUBUTTON_CLICK" SCONAME="FCODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_MENUBUTTON_CLICK" SCONAME="MENU_POS_X" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_MENUBUTTON_CLICK" SCONAME="MENU_POS_Y" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_toolbar_menubutton_click.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_MENU_SELECTED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="35 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR_MENU_SELECTED" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_MENU_SELECTED" SCONAME="FCODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_toolbar_menu_selected.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_TOP_OF_PAGE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="15 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOP_OF_PAGE" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOP_OF_PAGE" SCONAME="E_DYNDOC_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOP_OF_PAGE" SCONAME="TABLE_INDEX" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_top_of_page.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_TOTAL_CLICK_ROW_COL" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="33 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOTAL_CLICK_ROW_COL" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOTAL_CLICK_ROW_COL" SCONAME="ROW_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOTAL_CLICK_ROW_COL" SCONAME="COL_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_total_click_row_col.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_USER_COMMAND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_USER_COMMAND" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_user_command.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" SCONAME="ER_DATA_CHANGED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" SCONAME="E_ONF4" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" SCONAME="E_ONF4_BEFORE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" SCONAME="E_ONF4_AFTER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evr_data_changed.
+
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_PF_STATUS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="37 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_PF_STATUS" BCMTDCAT="00" BCMTDSYN="0">
    <source>method evt_at_set_pf_status.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_TITLE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="24 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_TITLE" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_TITLE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="38 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_TITLE" BCMTDCAT="00" BCMTDSYN="0">
    <source>method evt_at_set_title.
   endmethod.</source>
   </method>
@@ -858,33 +1115,6 @@
     endcase.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_BEFORE_USER_COMMAND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BEFORE_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BEFORE_USER_COMMAND" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_before_user_command.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_BTN_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BUTTON_CLICK" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BTN_CLICK" SCONAME="ES_COL_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BTN_CLICK" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_btn_click.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" SCONAME="ER_DATA_CHANGED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" SCONAME="E_ONF4" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" SCONAME="E_ONF4_BEFORE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" SCONAME="E_ONF4_AFTER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_data_changed.
-
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_FINISHED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED_FINISHED" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_FINISHED" SCONAME="E_MODIFIED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_FINISHED" SCONAME="ET_GOOD_CELLS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_data_changed_finished.
-  endmethod.</source>
-  </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="ER_DATA_CHANGED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
@@ -897,110 +1127,6 @@
     else.
       hide_applog( ).
     endif.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DELAYED_CALLBACK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="16 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DELAYED_CALLBACK" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method evt_delayed_callback.
-
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DELAYED_CHANGED_SEL_CALL" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="17 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DELAYED_CHANGED_SEL_CALLBACK" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method evt_delayed_changed_sel_call.
-
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DOUBLE_CLICK" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DOUBLE_CLICK" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_double_click.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DROP_EXTERNAL_FILE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="22 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DROP_EXTERNAL_FILES" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DROP_EXTERNAL_FILE" SCONAME="FILES" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>METHOD evt_drop_external_file.
-
-  ENDMETHOD.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_HOTSPOT_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="HOTSPOT_CLICK" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_HOTSPOT_CLICK" SCONAME="E_ROW_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_HOTSPOT_CLICK" SCONAME="E_COLUMN_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_HOTSPOT_CLICK" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_hotspot_click.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_MENU_BUTTON" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="MENU_BUTTON" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_MENU_BUTTON" SCONAME="E_OBJECT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_MENU_BUTTON" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_menu_button.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDRAG" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="19 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDRAG" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDRAG" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDRAG" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDRAG" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDRAG" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>METHOD evt_ondrag.
-
-  ENDMETHOD.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROP" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="20 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDROP" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROP" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROP" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROP" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROP" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>METHOD evt_ondrop.
-
-  ENDMETHOD.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPCOMPLETE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="21 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDROPCOMPLETE" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPCOMPLETE" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPCOMPLETE" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPCOMPLETE" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPCOMPLETE" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>METHOD evt_ondropcomplete.
-
-  ENDMETHOD.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="18 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONDROPGETFLAVOR" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" SCONAME="E_ROW" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" SCONAME="E_COLUMN" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" SCONAME="E_DRAGDROPOBJ" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONDROPGETFLAVOR" SCONAME="E_FLAVORS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>METHOD evt_ondropgetflavor.
-
-  ENDMETHOD.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF1" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="7 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONF1" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF1" SCONAME="E_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF1" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF1" SCONAME="ER_EVENT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_onf1.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="ONF4" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="E_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="E_FIELDVALUE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="ES_ROW_NO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="ER_EVENT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="ET_BAD_CELLS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_ONF4" SCONAME="E_DISPLAY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="6 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_onf4.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_SUBTOTAL_TEXT" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="SUBTOTAL_TEXT" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_SUBTOTAL_TEXT" SCONAME="ES_SUBTOTTXT_INFO" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_SUBTOTAL_TEXT" SCONAME="EP_SUBTOT_LINE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_SUBTOTAL_TEXT" SCONAME="E_EVENT_DATA" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_subtotal_text.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR" SCONAME="E_OBJECT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR" SCONAME="E_INTERACTIVE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_toolbar.
-
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR" BCMTDCAT="00" BCMTDSYN="0">
@@ -1023,19 +1149,6 @@
       if sy-subrc ne 0.
       endif.
     endloop.
-
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_TOP_OF_PAGE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="15 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOP_OF_PAGE" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOP_OF_PAGE" SCONAME="E_DYNDOC_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOP_OF_PAGE" SCONAME="TABLE_INDEX" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_top_of_page.
-
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_user_command.
 
   endmethod.</source>
   </method>

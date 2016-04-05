@@ -23,14 +23,14 @@ class lcl_test definition inheriting from zcl_falv.
 
   protected section.
     &quot;redefinition of event handler
-    methods evt_hotspot_click redefinition.
+    methods evf_hotspot_click redefinition.
   private section.
 
 endclass.
 
 class lcl_test implementation.
 
-  method evt_hotspot_click.
+  method evf_hotspot_click.
     case e_column_id-fieldname.
       when &apos;SEATSMAX&apos;.
         me-&gt;set_cell_disabled(

@@ -18,14 +18,14 @@ class lcl_test definition inheriting from zcl_falv.
 
   protected section.
     &quot;redefinition of event handler
-    methods evt_hotspot_click redefinition.
+    methods evf_hotspot_click redefinition.
   private section.
 
 endclass.
 
 class lcl_test implementation.
 
-  method evt_hotspot_click.
+  method evf_hotspot_click.
     case e_column_id-fieldname.
       when &apos;SEATSMAX&apos;.
         call function &apos;POPUP_DISPLAY_MESSAGE&apos;
@@ -48,8 +48,8 @@ start-of-selection.
 
   &quot;creation of falv with local redefinition
   data falv type ref to lcl_test.
-  falv ?= lcl_test=&gt;create( exporting  i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
-                              changing ct_table = sflight    ) .
+  data(subcl) = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; ).
+  falv ?=  lcl_test=&gt;create( exporting  i_subclass = subcl changing ct_table = sflight ).
 
   &quot;Add hotspot to column &apos;SEATSMAX&apos;
   falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_hotspot( abap_true ).
