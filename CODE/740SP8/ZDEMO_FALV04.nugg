@@ -17,14 +17,14 @@ class lcl_test definition inheriting from zcl_falv.
 
   protected section.
     &quot;redefinition of event handler
-    methods evt_user_command redefinition.
+    methods evf_user_command redefinition.
   private section.
 
 endclass.
 
 class lcl_test implementation.
 
-  method evt_user_command.
+  method evf_user_command.
     case e_ucomm.
       when zcl_falv_dynamic_status=&gt;b_01.
         call function &apos;POPUP_DISPLAY_MESSAGE&apos;
