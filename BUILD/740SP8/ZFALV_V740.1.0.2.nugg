@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nugget name="ZFALV_740">
+<nugget name="ZFALV_V740.1.0.2">
  <CLAS CLSNAME="ZCL_FALV" VERSION="1" LANGU="E" DESCRIPT="Fast ALV" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_GUI_ALV_GRID">
   <types CLSNAME="ZCL_FALV" CMPNAME="T_COLUMN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " TYPTYPE="3" TYPE="ZCL_FALV_COLUMN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="11 " SRCROW2="15 " SRCCOLUMN2="29 " TYPESRC_LENG="192 " TYPESRC="begin of t_subcl_call,
@@ -356,7 +356,6 @@
             main_parent ?= custom_container.
           endif.
 
-          if i_applog_embedded eq abap_true.
             &quot; Create split container, log at bottom, grid at top.
             &quot;Log hidden as default, will appear when error will be thrown.
             data(split_container) = new cl_gui_splitter_container(
@@ -364,14 +363,13 @@
                                                  when abap_false then c_screen_full )
                 link_repid              = c_fscr_repid
                  parent                  = main_parent
-                 rows                    = 2
+                 rows                    = cond #( when  i_applog_embedded eq abap_true then 2
+                                                 else 1 )
                  columns                 = 1
             ).
             parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
             applog = split_container-&gt;get_container( row = 2 column    = 1 ).
-          else.
-            parent ?= main_parent.
-          endif.
+
         catch cx_root.
           &quot;Something is wrong...
       endtry.
@@ -384,11 +382,12 @@
       else.
 
         applog ?= i_applogparent.
-        if applog is initial and i_applog_embedded eq abap_true.
+        if applog is initial.
           custom_container ?= i_parent.
           split_container = new cl_gui_splitter_container(
                parent                  = custom_container
-               rows                    = 2
+               rows                    = cond #( when  i_applog_embedded eq abap_true then 2
+                                                 else 1 )
                columns                 = 1
           ).
           parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
@@ -422,11 +421,11 @@
     endif.
     set handler rv_falv-&gt;evf_after_refresh for rv_falv.
     set handler rv_falv-&gt;evf_after_user_command for rv_falv.
-    set handler rv_falv-&gt;evt_before_ucommand_internal for rv_falv.
+    set handler rv_falv-&gt;evf_before_ucommand_internal for rv_falv.
     set handler rv_falv-&gt;evf_before_user_command for rv_falv.
     set handler rv_falv-&gt;evf_btn_click for rv_falv.
-    set handler rv_falv-&gt;evr_data_changed for rv_falv.
-    set handler rv_falv-&gt;evt_data_changed_internal for rv_falv.
+    set handler rv_falv-&gt;evf_data_changed for rv_falv.
+    set handler rv_falv-&gt;evf_data_changed_internal for rv_falv.
     set handler rv_falv-&gt;evf_data_changed_finished for rv_falv.
     set handler rv_falv-&gt;evf_double_click for rv_falv.
     set handler rv_falv-&gt;evf_hotspot_click for rv_falv.
@@ -434,12 +433,12 @@
     set handler rv_falv-&gt;evf_onf1 for rv_falv.
     set handler rv_falv-&gt;evf_onf4 for rv_falv.
     set handler rv_falv-&gt;evf_subtotal_text for rv_falv.
-    set handler rv_falv-&gt;evt_toolbar_internal for rv_falv.
+    set handler rv_falv-&gt;evf_toolbar_internal for rv_falv.
     set handler rv_falv-&gt;evf_toolbar for rv_falv.
     set handler rv_falv-&gt;evf_user_command for rv_falv.
-    set handler rv_falv-&gt;evt_user_command_internal for rv_falv.
-    set handler rv_falv-&gt;evt_at_set_pf_status for rv_falv.
-    set handler rv_falv-&gt;evt_at_set_title for rv_falv.
+    set handler rv_falv-&gt;evf_user_command_internal for rv_falv.
+    set handler rv_falv-&gt;evf_at_set_pf_status for rv_falv.
+    set handler rv_falv-&gt;evf_at_set_title for rv_falv.
     set handler rv_falv-&gt;evf_top_of_page for rv_falv.
     set handler rv_falv-&gt;evf_delayed_callback for rv_falv.
     set handler rv_falv-&gt;evf_delayed_changed_sel_call for rv_falv.
@@ -557,7 +556,7 @@
             main_parent ?= custom_container.
 
           endif.
-          if application_log_embedded eq abap_true.
+
             &quot; Create split container, log at bottom, grid at top.
             &quot;Log hidden as default, will appear when error will be thrown.
             data(split_container) = new cl_gui_splitter_container(
@@ -565,14 +564,13 @@
                                                  when abap_false then c_screen_full )
                 link_repid              = c_fscr_repid
                  parent                  = main_parent
-                 rows                    = 2
+                 rows                    = cond #( when   application_log_embedded eq abap_true then 2
+                                                 else 1 )
                  columns                 = 1
             ).
             i_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
             i_applogparent = split_container-&gt;get_container( row = 2 column    = 1 ).
-          else.
-            i_parent ?= main_parent.
-          endif.
+
         catch cx_root.
           &quot;Something is wrong...
       endtry.
@@ -605,11 +603,11 @@
 
     set handler rv_falv-&gt;evf_after_refresh for rv_falv.
     set handler rv_falv-&gt;evf_after_user_command for rv_falv.
-    set handler rv_falv-&gt;evt_before_ucommand_internal for rv_falv.
+    set handler rv_falv-&gt;evf_before_ucommand_internal for rv_falv.
     set handler rv_falv-&gt;evf_before_user_command for rv_falv.
     set handler rv_falv-&gt;evf_btn_click for rv_falv.
-    set handler rv_falv-&gt;evr_data_changed for rv_falv.
-    set handler rv_falv-&gt;evt_data_changed_internal for rv_falv.
+    set handler rv_falv-&gt;evf_data_changed for rv_falv.
+    set handler rv_falv-&gt;evf_data_changed_internal for rv_falv.
     set handler rv_falv-&gt;evf_data_changed_finished for rv_falv.
     set handler rv_falv-&gt;evf_double_click for rv_falv.
     set handler rv_falv-&gt;evf_hotspot_click for rv_falv.
@@ -617,12 +615,12 @@
     set handler rv_falv-&gt;evf_onf1 for rv_falv.
     set handler rv_falv-&gt;evf_onf4 for rv_falv.
     set handler rv_falv-&gt;evf_subtotal_text for rv_falv.
-    set handler rv_falv-&gt;evt_toolbar_internal for rv_falv.
+    set handler rv_falv-&gt;evf_toolbar_internal for rv_falv.
     set handler rv_falv-&gt;evf_toolbar for rv_falv.
     set handler rv_falv-&gt;evf_user_command for rv_falv.
-    set handler rv_falv-&gt;evt_user_command_internal for rv_falv.
-    set handler rv_falv-&gt;evt_at_set_pf_status for rv_falv.
-    set handler rv_falv-&gt;evt_at_set_title for rv_falv.
+    set handler rv_falv-&gt;evf_user_command_internal for rv_falv.
+    set handler rv_falv-&gt;evf_at_set_pf_status for rv_falv.
+    set handler rv_falv-&gt;evf_at_set_title for rv_falv.
     set handler rv_falv-&gt;evf_top_of_page for rv_falv.
     set handler rv_falv-&gt;evf_delayed_callback for rv_falv.
     set handler rv_falv-&gt;evf_delayed_changed_sel_call for rv_falv.
@@ -844,6 +842,48 @@
    <source>method evf_after_user_command.
   endmethod.</source>
   </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_AT_SET_PF_STATUS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="37 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_PF_STATUS" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method evf_at_set_pf_status.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_AT_SET_TITLE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="38 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_TITLE" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method evf_at_set_title.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_BEFORE_UCOMMAND_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BEFORE_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_BEFORE_UCOMMAND_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_before_ucommand_internal.
+    field-symbols: &lt;outtab&gt; type standard table.
+    case e_ucomm.
+      when me-&gt;mc_fc_select_all.
+        if layout-&gt;mark_field is not initial and
+           line_exists( fcat[ fieldname = layout-&gt;mark_field checkbox = abap_true ] ).
+          assign outtab-&gt;* to &lt;outtab&gt;.
+          loop at &lt;outtab&gt; assigning field-symbol(&lt;line&gt;).
+            assign component layout-&gt;mark_field of structure &lt;line&gt; to field-symbol(&lt;mark&gt;).
+            if sy-subrc eq 0.
+              &lt;mark&gt; = abap_true.
+            endif.
+          endloop.
+          me-&gt;soft_refresh( ).
+          set_user_command( i_ucomm = space ).
+        endif.
+      when me-&gt;mc_fc_deselect_all.
+        if layout-&gt;mark_field is not initial and
+          line_exists( fcat[ fieldname = layout-&gt;mark_field checkbox = abap_true ] ).
+          assign outtab-&gt;* to &lt;outtab&gt;.
+          loop at &lt;outtab&gt; assigning &lt;line&gt;.
+            assign component layout-&gt;mark_field of structure &lt;line&gt; to &lt;mark&gt;.
+            if sy-subrc eq 0.
+              &lt;mark&gt; = abap_false.
+            endif.
+          endloop.
+          me-&gt;soft_refresh( ).
+          set_user_command( i_ucomm = space ).
+        endif.
+    endcase.
+  endmethod.</source>
+  </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVF_BEFORE_USER_COMMAND" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BEFORE_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_BEFORE_USER_COMMAND" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <source>method evf_before_user_command.
@@ -879,10 +919,34 @@
 
   endmethod.</source>
   </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED" SCONAME="ER_DATA_CHANGED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED" SCONAME="E_ONF4" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED" SCONAME="E_ONF4_BEFORE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED" SCONAME="E_ONF4_AFTER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_data_changed.
+
+  endmethod.</source>
+  </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_FINISHED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED_FINISHED" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_FINISHED" SCONAME="E_MODIFIED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_FINISHED" SCONAME="ET_GOOD_CELLS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <source>method evf_data_changed_finished.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_INTERNAL" SCONAME="ER_DATA_CHANGED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4_BEFORE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4_AFTER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_data_changed_internal.
+    if er_data_changed-&gt;mt_protocol is not initial.
+      show_applog( ).
+    else.
+      hide_applog( ).
+    endif.
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DBLCLICK_ROW_COL" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="27 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DBLCLICK_ROW_COL" BCMTDCAT="00" BCMTDSYN="0">
@@ -1029,6 +1093,29 @@
 
   endmethod.</source>
   </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_INTERNAL" SCONAME="E_OBJECT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_INTERNAL" SCONAME="E_INTERACTIVE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_toolbar_internal.
+    loop at toolbar_added assigning field-symbol(&lt;tb&gt;).
+      insert &lt;tb&gt; into table e_object-&gt;mt_toolbar[].
+    endloop.
+    loop at toolbar_disabled assigning &lt;tb&gt;.
+      try.
+          e_object-&gt;mt_toolbar[ function = &lt;tb&gt;-function ]-disabled = abap_true.
+        catch cx_sy_itab_line_not_found.
+
+      endtry.
+    endloop.
+    loop at toolbar_deleted assigning &lt;tb&gt;.
+      data(tabix) = sy-tabix.
+      delete e_object-&gt;mt_toolbar where function = &lt;tb&gt;-function.
+      if sy-subrc ne 0.
+      endif.
+    endloop.
+
+  endmethod.</source>
+  </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_MENUBUTTON_CLICK" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="23 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR_MENUBUTTON_CLICK" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_MENUBUTTON_CLICK" SCONAME="FCODE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_TOOLBAR_MENUBUTTON_CLICK" SCONAME="MENU_POS_X" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
@@ -1063,98 +1150,9 @@
 
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" SCONAME="ER_DATA_CHANGED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" SCONAME="E_ONF4" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" SCONAME="E_ONF4_BEFORE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" SCONAME="E_ONF4_AFTER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVR_DATA_CHANGED" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evr_data_changed.
-
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_PF_STATUS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="37 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_PF_STATUS" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method evt_at_set_pf_status.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_AT_SET_TITLE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="38 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="ZCL_FALV" REFCMPNAME="AT_SET_TITLE" BCMTDCAT="00" BCMTDSYN="0">
-   <source>method evt_at_set_title.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_BEFORE_UCOMMAND_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="3 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="BEFORE_USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_BEFORE_UCOMMAND_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_before_ucommand_internal.
-    field-symbols: &lt;outtab&gt; type standard table.
-    case e_ucomm.
-      when me-&gt;mc_fc_select_all.
-        if layout-&gt;mark_field is not initial and
-           line_exists( fcat[ fieldname = layout-&gt;mark_field checkbox = abap_true ] ).
-          assign outtab-&gt;* to &lt;outtab&gt;.
-          loop at &lt;outtab&gt; assigning field-symbol(&lt;line&gt;).
-            assign component layout-&gt;mark_field of structure &lt;line&gt; to field-symbol(&lt;mark&gt;).
-            if sy-subrc eq 0.
-              &lt;mark&gt; = abap_true.
-            endif.
-          endloop.
-          me-&gt;soft_refresh( ).
-          set_user_command( i_ucomm = space ).
-        endif.
-      when me-&gt;mc_fc_deselect_all.
-        if layout-&gt;mark_field is not initial and
-          line_exists( fcat[ fieldname = layout-&gt;mark_field checkbox = abap_true ] ).
-          assign outtab-&gt;* to &lt;outtab&gt;.
-          loop at &lt;outtab&gt; assigning &lt;line&gt;.
-            assign component layout-&gt;mark_field of structure &lt;line&gt; to &lt;mark&gt;.
-            if sy-subrc eq 0.
-              &lt;mark&gt; = abap_false.
-            endif.
-          endloop.
-          me-&gt;soft_refresh( ).
-          set_user_command( i_ucomm = space ).
-        endif.
-    endcase.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="5 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DATA_CHANGED" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="ER_DATA_CHANGED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4_BEFORE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4_AFTER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_DATA_CHANGED_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_data_changed_internal.
-    if er_data_changed-&gt;mt_protocol is not initial.
-      show_applog( ).
-    else.
-      hide_applog( ).
-    endif.
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="4 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="TOOLBAR" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR_INTERNAL" SCONAME="E_OBJECT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_TOOLBAR_INTERNAL" SCONAME="E_INTERACTIVE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_toolbar_internal.
-    loop at toolbar_added assigning field-symbol(&lt;tb&gt;).
-      insert &lt;tb&gt; into table e_object-&gt;mt_toolbar[].
-    endloop.
-    loop at toolbar_disabled assigning &lt;tb&gt;.
-      try.
-          e_object-&gt;mt_toolbar[ function = &lt;tb&gt;-function ]-disabled = abap_true.
-        catch cx_sy_itab_line_not_found.
-
-      endtry.
-    endloop.
-    loop at toolbar_deleted assigning &lt;tb&gt;.
-      data(tabix) = sy-tabix.
-      delete e_object-&gt;mt_toolbar where function = &lt;tb&gt;-function.
-      if sy-subrc ne 0.
-      endif.
-    endloop.
-
-  endmethod.</source>
-  </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVT_USER_COMMAND_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
-   <source>method evt_user_command_internal.
+  <method CLSNAME="ZCL_FALV" CMPNAME="EVF_USER_COMMAND_INTERNAL" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="6 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="USER_COMMAND" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_USER_COMMAND_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
+   <source>method evf_user_command_internal.
     case e_ucomm.
       when fc_back.
         leave to screen 0.
@@ -4813,14 +4811,14 @@ class lcl_test definition inheriting from zcl_falv.
   public section.
 
   protected section.
-    methods evt_at_set_title redefinition.
+    methods evf_at_set_title redefinition.
   private section.
 
 endclass.
 
 class lcl_test implementation.
 
-  method evt_at_set_title.
+  method evf_at_set_title.
 
   endmethod.
 

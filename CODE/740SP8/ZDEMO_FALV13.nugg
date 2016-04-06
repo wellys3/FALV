@@ -35,14 +35,14 @@ class lcl_test definition inheriting from zcl_falv.
   public section.
 
   protected section.
-    methods evt_at_set_title redefinition.
+    methods evf_at_set_title redefinition.
   private section.
 
 endclass.
 
 class lcl_test implementation.
 
-  method evt_at_set_title.
+  method evf_at_set_title.
 
   endmethod.
 

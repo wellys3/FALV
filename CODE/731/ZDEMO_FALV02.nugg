@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nugget name="Z">
+<nugget name="ZDEMO_FALV02">
  <PROG NAME="ZDEMO_FALV02" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
   <textPool>
    <language SPRAS="E">
@@ -23,7 +23,7 @@ CLASS lcl_test DEFINITION INHERITING FROM zcl_falv.
 
   PROTECTED SECTION.
     &quot;redefinition of event handler
-    METHODS evt_hotspot_click REDEFINITION.
+    METHODS evf_hotspot_click REDEFINITION.
   PRIVATE SECTION.
 
 ENDCLASS.                    &quot;lcl_test DEFINITION
@@ -35,7 +35,7 @@ ENDCLASS.                    &quot;lcl_test DEFINITION
 *----------------------------------------------------------------------*
 CLASS lcl_test IMPLEMENTATION.
 
-  METHOD evt_hotspot_click.
+  METHOD evf_hotspot_click.
     CASE e_column_id-fieldname.
       WHEN &apos;SEATSMAX&apos;.
         CALL FUNCTION &apos;POPUP_DISPLAY_MESSAGE&apos;
