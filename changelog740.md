@@ -1,5 +1,5 @@
 #Changes V 740.1.0.3
-Top_of_page event is now raise and handled.
+Top_of_page event is now raised and handled.
 
 Changed Classes: ZCL_FALV
 Changed Programs: ZDEMO_FALV02, ZDEMO_FALV13
