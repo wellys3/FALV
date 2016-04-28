@@ -23,7 +23,7 @@ PROCESS AFTER INPUT.
 report zdemo_falv13.
 
 types: begin of t_sflight.
-       include type sflight.
+        include type sflight.
 types: style type lvc_t_styl,
        end of t_sflight.
 
@@ -36,6 +36,7 @@ class lcl_test definition inheriting from zcl_falv.
 
   protected section.
     methods evf_at_set_title redefinition.
+    methods evf_top_of_page redefinition.
   private section.
 
 endclass.
@@ -45,6 +46,24 @@ class lcl_test implementation.
   method evf_at_set_title.
 
   endmethod.
+
+  method evf_top_of_page.
+
+    e_dyndoc_id-&gt;add_text( text = &apos;Top Of Page&apos; sap_style = cl_dd_area=&gt;heading ).
+
+    e_dyndoc_id-&gt;new_line( repeat = 1 ).
+
+    e_dyndoc_id-&gt;add_link(
+      exporting
+        name                   =  &apos;ABAPBLOG.com&apos;   &quot; Name (You Can Use Any Name You Choose)
+        url                    =   &apos;http://abapblog.com&apos;  &quot; URL
+        tooltip                =  &apos;ABAPBLOG.com&apos;   &quot; Tool Tip
+        text                   =  &apos;ABAPBLOG.com&apos;    &quot; Text
+    ).
+
+
+  endmethod.
+
 
 endclass.
 
@@ -59,6 +78,7 @@ start-of-selection.
                               i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
                               changing ct_table = sflight    ) .
 
+  falv_redef-&gt;show_top_of_page( ).
   falv_redef-&gt;add_button(
     exporting
       iv_function  = &apos;F111&apos;
@@ -87,109 +107,109 @@ start-of-selection.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
-    falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_16
-      iv_text                = &apos;F16&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+  exporting
+    iv_button              = falv_stand-&gt;gui_status-&gt;b_16
+    iv_text                = &apos;F16&apos;
+    iv_icon                = icon_refresh
+    iv_qinfo               = &apos;Test d&apos;
+    iv_allowed             = abap_true
+  exceptions
+    button_already_filled  = 1
+    button_does_not_exists = 2
+    icon_and_text_empty    = 3
+    others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
 
-    falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_17
-      iv_text                = &apos;F17&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+  exporting
+    iv_button              = falv_stand-&gt;gui_status-&gt;b_17
+    iv_text                = &apos;F17&apos;
+    iv_icon                = icon_refresh
+    iv_qinfo               = &apos;Test d&apos;
+    iv_allowed             = abap_true
+  exceptions
+    button_already_filled  = 1
+    button_does_not_exists = 2
+    icon_and_text_empty    = 3
+    others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
 
-      falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_18
-      iv_text                = &apos;F18&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+exporting
+  iv_button              = falv_stand-&gt;gui_status-&gt;b_18
+  iv_text                = &apos;F18&apos;
+  iv_icon                = icon_refresh
+  iv_qinfo               = &apos;Test d&apos;
+  iv_allowed             = abap_true
+exceptions
+  button_already_filled  = 1
+  button_does_not_exists = 2
+  icon_and_text_empty    = 3
+  others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
 
-      falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_19
-      iv_text                = &apos;F19&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+exporting
+  iv_button              = falv_stand-&gt;gui_status-&gt;b_19
+  iv_text                = &apos;F19&apos;
+  iv_icon                = icon_refresh
+  iv_qinfo               = &apos;Test d&apos;
+  iv_allowed             = abap_true
+exceptions
+  button_already_filled  = 1
+  button_does_not_exists = 2
+  icon_and_text_empty    = 3
+  others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
 
-      falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_13
-      iv_text                = &apos;F13&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+exporting
+  iv_button              = falv_stand-&gt;gui_status-&gt;b_13
+  iv_text                = &apos;F13&apos;
+  iv_icon                = icon_refresh
+  iv_qinfo               = &apos;Test d&apos;
+  iv_allowed             = abap_true
+exceptions
+  button_already_filled  = 1
+  button_does_not_exists = 2
+  icon_and_text_empty    = 3
+  others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
 
-    falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_14
-      iv_text                = &apos;F14&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+  exporting
+    iv_button              = falv_stand-&gt;gui_status-&gt;b_14
+    iv_text                = &apos;F14&apos;
+    iv_icon                = icon_refresh
+    iv_qinfo               = &apos;Test d&apos;
+    iv_allowed             = abap_true
+  exceptions
+    button_already_filled  = 1
+    button_does_not_exists = 2
+    icon_and_text_empty    = 3
+    others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
@@ -198,7 +218,7 @@ start-of-selection.
 
   falv_stand-&gt;display( ).
 
- &quot;copy of standard falv + some changes of descriptions
+  &quot;copy of standard falv + some changes of descriptions
   data(falv_stand_copy) = falv_stand-&gt;create_by_copy(  ).
   falv_stand_copy-&gt;column( &apos;CARRID&apos; )-&gt;set_scrtext_l( &apos;test&apos; ).
   falv_stand_copy-&gt;column( &apos;CARRID&apos; )-&gt;set_scrtext_m( &apos;test&apos; ).
@@ -252,6 +272,7 @@ module pbo output.
       i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
       changing ct_table = sflight    ) .
     falv_screen-&gt;column( &apos;CARRID&apos; )-&gt;set_reptext( &apos;test&apos; ).
+    falv_screen-&gt;show_top_of_page( ).
     falv_screen-&gt;display( ).
   endif.
 endmodule.
