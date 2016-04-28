@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nugget name="ZFALV_V740.1.0.2">
+<nugget name="ZFALV_V740.1.0.3">
  <CLAS CLSNAME="ZCL_FALV" VERSION="1" LANGU="E" DESCRIPT="Fast ALV" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_GUI_ALV_GRID">
   <types CLSNAME="ZCL_FALV" CMPNAME="T_COLUMN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " TYPTYPE="3" TYPE="ZCL_FALV_COLUMN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="11 " SRCROW2="15 " SRCCOLUMN2="29 " TYPESRC_LENG="192 " TYPESRC="begin of t_subcl_call,
@@ -25,58 +25,66 @@
   <forwardDeclaration>ABAP</forwardDeclaration>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="APPLICATION_LOG_EMBEDDED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUILT_IN_SCREEN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_CHECKBOX" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="25 " ATTDECLTYP="2" ATTVALUE="&apos;5&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="22 " ATTDECLTYP="2" ATTVALUE="&apos;2&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU_DEFAULT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="21 " ATTDECLTYP="2" ATTVALUE="&apos;1&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU_ENTRY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="26 " ATTDECLTYP="2" ATTVALUE="&apos;6&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_NORMAL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="20 " ATTDECLTYP="2" ATTVALUE="&apos;0&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_RADIOBUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="24 " ATTDECLTYP="2" ATTVALUE="&apos;4&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_SEPARATOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="23 " ATTDECLTYP="2" ATTVALUE="&apos;3&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_CHECKBOX" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="27 " ATTDECLTYP="2" ATTVALUE="&apos;5&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="24 " ATTDECLTYP="2" ATTVALUE="&apos;2&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU_DEFAULT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="23 " ATTDECLTYP="2" ATTVALUE="&apos;1&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU_ENTRY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="28 " ATTDECLTYP="2" ATTVALUE="&apos;6&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_NORMAL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="22 " ATTDECLTYP="2" ATTVALUE="&apos;0&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_RADIOBUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="26 " ATTDECLTYP="2" ATTVALUE="&apos;4&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_SEPARATOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="25 " ATTDECLTYP="2" ATTVALUE="&apos;3&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="CC_NAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;CC_GRID&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR30" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="COLUMNS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="7 " SRCCOLUMN1="10 " SRCROW2="7 " SRCCOLUMN2="73 " TYPESRC_LENG="66 " TYPESRC="columns type sorted table of t_column with unique key table_line
 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_FSCR_REPID" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="&apos;SAPLZFALV&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-REPID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_SCREEN_FULL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTVALUE="&apos;0100&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_SCREEN_POPUP" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " ATTDECLTYP="2" ATTVALUE="&apos;0200&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="DELAY_CHANGE_SELECTION" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="46 " ATTDECLTYP="0" ATTRDONLY="X" ATTVALUE="20" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="DELAY_MOVE_CURRENT_CELL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="45 " ATTDECLTYP="0" ATTRDONLY="X" ATTVALUE="20" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="EXCLUDE_FUNCTIONS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="31 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="UI_FUNCTIONS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FCAT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="32 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_T_FCAT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_BACK" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " ATTDECLTYP="2" ATTVALUE="&apos;BACK&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_CANCEL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " ATTDECLTYP="2" ATTVALUE="&apos;CANCEL&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_EXIT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " ATTDECLTYP="2" ATTVALUE="&apos;EXIT&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_FIND" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " ATTDECLTYP="2" ATTVALUE="&apos;FIND&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_FIND_NEXT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="15 " ATTDECLTYP="2" ATTVALUE="&apos;FINDNEXT&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_FIRST_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="16 " ATTDECLTYP="2" ATTVALUE="&apos;PGHOME&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_LAST_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="17 " ATTDECLTYP="2" ATTVALUE="&apos;PGEND&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_MASS_REPLACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " ATTDECLTYP="2" ATTVALUE="&apos;MASS_REPL&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_NEXT_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="19 " ATTDECLTYP="2" ATTVALUE="&apos;PGDOWN&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_PREVIOUS_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="18 " ATTDECLTYP="2" ATTVALUE="&apos;PGUP&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_PRINT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " ATTDECLTYP="2" ATTVALUE="&apos;PRINT&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_SAVE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " ATTDECLTYP="2" ATTVALUE="&apos;&amp;DATA_SAVE&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_UP" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " ATTDECLTYP="2" ATTVALUE="&apos;UP&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="FILTER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="34 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_T_FILT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="GUI_STATUS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="37 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_FALV_DYNAMIC_STATUS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="LAYOUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="36 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_FALV_LAYOUT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="LAYOUT_SAVE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="30 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR01" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="LVC_LAYOUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="35 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_S_LAYO" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="MAIN_CONTAINER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="27 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="OUTTAB" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="39 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="DATA" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="DELAY_CHANGE_SELECTION" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="50 " ATTDECLTYP="0" ATTRDONLY="X" ATTVALUE="20" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="DELAY_MOVE_CURRENT_CELL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="49 " ATTDECLTYP="0" ATTRDONLY="X" ATTVALUE="20" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="ERROR_LOG_HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="52 " ATTDECLTYP="0" ATTVALUE="100" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="EXCLUDE_FUNCTIONS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="35 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="UI_FUNCTIONS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FCAT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="36 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_T_FCAT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_BACK" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="9 " ATTDECLTYP="2" ATTVALUE="&apos;BACK&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_CANCEL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="12 " ATTDECLTYP="2" ATTVALUE="&apos;CANCEL&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_EXIT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " ATTDECLTYP="2" ATTVALUE="&apos;EXIT&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_FIND" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="16 " ATTDECLTYP="2" ATTVALUE="&apos;FIND&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_FIND_NEXT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="17 " ATTDECLTYP="2" ATTVALUE="&apos;FINDNEXT&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_FIRST_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="18 " ATTDECLTYP="2" ATTVALUE="&apos;PGHOME&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_LAST_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="19 " ATTDECLTYP="2" ATTVALUE="&apos;PGEND&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_MASS_REPLACE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="13 " ATTDECLTYP="2" ATTVALUE="&apos;MASS_REPL&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_NEXT_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="21 " ATTDECLTYP="2" ATTVALUE="&apos;PGDOWN&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_PREVIOUS_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="20 " ATTDECLTYP="2" ATTVALUE="&apos;PGUP&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_PRINT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="15 " ATTDECLTYP="2" ATTVALUE="&apos;PRINT&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_SAVE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " ATTDECLTYP="2" ATTVALUE="&apos;&amp;DATA_SAVE&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_UP" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " ATTDECLTYP="2" ATTVALUE="&apos;UP&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="FILTER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="38 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_T_FILT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="GUI_STATUS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="41 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_FALV_DYNAMIC_STATUS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="LAYOUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="40 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_FALV_LAYOUT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="LAYOUT_SAVE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="34 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR01" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="LVC_LAYOUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="39 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_S_LAYO" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="MAIN_CONTAINER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="29 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="MAIN_SPLIT_CONTAINER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="31 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_SPLITTER_CONTAINER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="OUTTAB" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="43 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="DATA" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="RESULT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="SCREEN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="38 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="SORT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="33 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_T_SORT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLIT_CONTAINER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="28 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_SPLITTER_CONTAINER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SCREEN" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="42 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SORT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="37 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_T_SORT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLITTER_ROW_1_HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLITTER_ROW_2_HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLITTER_ROW_3_HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLIT_CONTAINER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="30 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_SPLITTER_CONTAINER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="SUBCLASS_TYPE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_ABAP_TYPEDESCR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V1" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="40 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V2" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="41 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V3" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="42 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V4" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="43 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V5" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="44 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V1" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="44 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V2" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="45 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V3" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="46 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V4" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="47 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V5" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="48 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TOOLBAR_ADDED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TTB_BUTTON" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TOOLBAR_DELETED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TTB_BUTTON" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TOOLBAR_DISABLED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="3 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TTB_BUTTON" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="VARIANT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="29 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="DISVARIANT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TOP_OF_PAGE_CONTAINER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="32 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TOP_OF_PAGE_DOC" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_DD_DOCUMENT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TOP_OF_PAGE_HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="51 " ATTDECLTYP="0" ATTVALUE="150" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="TOP_OF_PAGE_VISIBLE_AT_START" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="VARIANT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="33 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="DISVARIANT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <inheritance CLSNAME="ZCL_FALV" REFCLSNAME="CL_GUI_ALV_GRID" VERSION="1" STATE="1">
    <redefinition CLSNAME="ZCL_FALV" REFCLSNAME="CL_GUI_ALV_GRID" VERSION="1" MTDNAME="SET_FRONTEND_FIELDCATALOG" EXPOSURE="2"/>
    <redefinition CLSNAME="ZCL_FALV" REFCLSNAME="CL_GUI_ALV_GRID" VERSION="1" MTDNAME="SET_FRONTEND_LAYOUT" EXPOSURE="2"/>
@@ -122,136 +130,136 @@
   <method CLSNAME="ZCL_FALV" CMPNAME="CHECK_IF_CALLED_FROM_SUBCLASS" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="1" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="CHECK_IF_CALLED_FROM_SUBCLASS" SCONAME="RO_SUBCLASS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="OBJECT"/>
    <source>method check_if_called_from_subclass.
-*    types: t_tokens     type table of stokex,
-*           t_statements type table of sstmnt,
-*           t_levels     type table of slevel.
-*
-*    data: callstack      type abap_callstack,
-*          et_callstack   type sys_callst,
-*          src            type table of string,
-*          program        type char255,
-*          tokens         type table of stokes,
-*          owerflow       type table of stokex,
-*          statements     type table of sstmnt,
-*          keywords       type table of char255,
-*          levels         type table of slevel,
-*          overflow(4096).          .
-*
-*    call function &apos;SYSTEM_CALLSTACK&apos;
-**      exporting
-**        max_level    = 0
-*      importing
-*        callstack    = callstack
-*        et_callstack = et_callstack[].    &quot; System Callstack Table
-*
-*
-*    data:
-*      progtab  type table of string,
-*      progline type string,
-*      idx      type sy-tabix,
-*      moff     type i,
-*      counter  type i.
-*
-*    field-symbols &lt;progline&gt; type string.
-*
-*    program = callstack[ 3 ]-mainprogram.
-*    read report program into src.
-*
-*    scan abap-source src
-*              tokens      into tokens
-*              levels      into levels
-*              statements  into statements
-*              &quot;REPLACING   edit_include_tab
-*              include program from program
-*              frame   program from program
-*
-*              &quot;overflow into owerflow
-*              with comments
-**              WITH DECLARATIONS
-**              WITH BLOCKS
-*              with includes.
-*
-**    scan abap-source src tokens into tokens
-**                         statements into statements
-**                         &quot;WITH LIST TOKENIZATION
-**                         with includes
-**                         with comments
-**                         WITH TYPE-POOLS
-**                         PRESERVING IDENTIFIER ESCAPING
-**&quot;                         with declarations
-**                         with analysis.
-*
-*    data(comp) = cl_abap_compiler=&gt;create(
-*                   p_name             =  callstack[ 3 ]-mainprogram
-*                   p_include          =  callstack[ 3 ]-include
-**                 p_includes         =
-**                 p_substitutions    =
-**                 p_only_interface   =
-*                   p_no_package_check = abap_true
-*               ).
-*
-*
-*    comp-&gt;get_single_ref(
+    types: t_tokens     type table of stokex,
+           t_statements type table of sstmnt,
+           t_levels     type table of slevel.
+
+    data: callstack      type abap_callstack,
+          et_callstack   type sys_callst,
+          src            type table of string,
+          program        type char255,
+          tokens         type table of stokes,
+          owerflow       type table of stokex,
+          statements     type table of sstmnt,
+          keywords       type table of char255,
+          levels         type table of slevel,
+          overflow(4096).          .
+
+    call function &apos;SYSTEM_CALLSTACK&apos;
 *      exporting
-*        p_full_name       =  &apos;\TY:ZCL_FALV\ME:CREATE&apos;   &quot; Complete Name of Object
-*        p_grade           =  1   &quot; Grade of Use
-*      importing
-*        p_result          =    data(res2) &quot; Where-Used List
-*      exceptions
-*        others            = 5
-*    ).
-*    if sy-subrc &lt;&gt; 0.
-** message id sy-msgid type sy-msgty number sy-msgno
-**            with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-*    endif.
+*        max_level    = 0
+      importing
+        callstack    = callstack
+        et_callstack = et_callstack[].    &quot; System Callstack Table
+
+
+    data:
+      progtab  type table of string,
+      progline type string,
+      idx      type sy-tabix,
+      moff     type i,
+      counter  type i.
+
+    field-symbols &lt;progline&gt; type string.
+
+    program = callstack[ 3 ]-mainprogram.
+    read report program into src.
+
+    scan abap-source src
+              tokens      into tokens
+              levels      into levels
+              statements  into statements
+              &quot;REPLACING   edit_include_tab
+              include program from program
+              frame   program from program
+
+              &quot;overflow into owerflow
+              with comments
+*              WITH DECLARATIONS
+*              WITH BLOCKS
+              with includes.
+
+*    scan abap-source src tokens into tokens
+*                         statements into statements
+*                         &quot;WITH LIST TOKENIZATION
+*                         with includes
+*                         with comments
+*                         WITH TYPE-POOLS
+*                         PRESERVING IDENTIFIER ESCAPING
+*&quot;                         with declarations
+*                         with analysis.
+
+    data(comp) = cl_abap_compiler=&gt;create(
+                   p_name             =  callstack[ 3 ]-mainprogram
+                   p_include          =  callstack[ 3 ]-include
+*                 p_includes         =
+*                 p_substitutions    =
+*                 p_only_interface   =
+                   p_no_package_check = abap_true
+               ).
+
+
+    comp-&gt;get_single_ref(
+      exporting
+        p_full_name       =  &apos;\TY:ZCL_FALV\ME:CREATE&apos;   &quot; Complete Name of Object
+        p_grade           =  1   &quot; Grade of Use
+      importing
+        p_result          =    data(res2) &quot; Where-Used List
+      exceptions
+        others            = 5
+    ).
+    if sy-subrc &lt;&gt; 0.
+* message id sy-msgid type sy-msgty number sy-msgno
+*            with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    endif.
+
+
+    assign src[ callstack[ 3 ]-line ] to field-symbol(&lt;line&gt;).
+    if &lt;line&gt; is assigned.
+
+      data: teststr type string.
+      data: tokst type abptokens.
+      loop at src assigning field-symbol(&lt;res&gt;).
+        if teststr is not initial.
+          teststr = teststr &amp;&amp; cl_abap_char_utilities=&gt;newline &amp;&amp; &lt;res&gt;.
+        else.
+          teststr = &lt;res&gt;.
+        endif.
+*        do &lt;res&gt;-offset times.
+*          data(current_char) = &lt;res&gt;-offset - sy-index.
+*          if &lt;line&gt;+current_char(1) eq ` `.
+*            exit.
+*          endif.
+*        enddo.
 *
-*
-*    assign src[ callstack[ 3 ]-line ] to field-symbol(&lt;line&gt;).
-*    if &lt;line&gt; is assigned.
-*
-*      data: teststr type string.
-*      data: tokst type abptokens.
-*      loop at src assigning field-symbol(&lt;res&gt;).
-*        if teststr is not initial.
-*          teststr = teststr &amp;&amp; cl_abap_char_utilities=&gt;newline &amp;&amp; &lt;res&gt;.
-*        else.
-*          teststr = &lt;res&gt;.
+*        &quot;method call can be done directly from beginning of the line
+*        &quot;so I must check if there is a space in current character or not
+*        &quot;one more time
+*        if &lt;line&gt;+current_char(1) eq ` `.
+*          add 1 to current_char.
 *        endif.
-**        do &lt;res&gt;-offset times.
-**          data(current_char) = &lt;res&gt;-offset - sy-index.
-**          if &lt;line&gt;+current_char(1) eq ` `.
-**            exit.
-**          endif.
-**        enddo.
-**
-**        &quot;method call can be done directly from beginning of the line
-**        &quot;so I must check if there is a space in current character or not
-**        &quot;one more time
-**        if &lt;line&gt;+current_char(1) eq ` `.
-**          add 1 to current_char.
-**        endif.
-**        data(size) = &lt;res&gt;-offset - current_char.
-**        data(class) = &lt;line&gt;+current_char(size).
-**
-**        if class ne &apos;ZCL_FALV&apos;.
-**          &quot;inheritance used ?
-**          &quot;try to check if we can use class
-**
-**        endif.
+*        data(size) = &lt;res&gt;-offset - current_char.
+*        data(class) = &lt;line&gt;+current_char(size).
 *
-*      endloop.
+*        if class ne &apos;ZCL_FALV&apos;.
+*          &quot;inheritance used ?
+*          &quot;try to check if we can use class
 *
-*      cl_abap_parser=&gt;get_tokens(
-*       exporting
-*         source = teststr
-*       importing
-*         tokens =  data(toks)    &quot; Sequence of qualified tokens
-*     ).
-*
-*      data(stack_other) = cl_abap_get_call_stack=&gt;get_call_stack( ).
-*
-*    endif.
-*
+*        endif.
+
+      endloop.
+
+      cl_abap_parser=&gt;get_tokens(
+       exporting
+         source = teststr
+       importing
+         tokens =  data(toks)    &quot; Sequence of qualified tokens
+     ).
+
+      data(stack_other) = cl_abap_get_call_stack=&gt;get_call_stack( ).
+
+    endif.
+
 
   endmethod.</source>
   </method>
@@ -326,6 +334,7 @@
     data: main_parent type ref to cl_gui_container.
     data: parent type ref to cl_gui_container.
     data: applog type ref to cl_gui_container.
+    data: top_of_page_parent type ref to cl_gui_container.
 
     check_if_called_from_subclass( ).
 
@@ -356,20 +365,26 @@
             main_parent ?= custom_container.
           endif.
 
-            &quot; Create split container, log at bottom, grid at top.
-            &quot;Log hidden as default, will appear when error will be thrown.
-            data(split_container) = new cl_gui_splitter_container(
-                link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
-                                                 when abap_false then c_screen_full )
-                link_repid              = c_fscr_repid
-                 parent                  = main_parent
-                 rows                    = cond #( when  i_applog_embedded eq abap_true then 2
+          &quot; Create split container, log at bottom, grid at top.
+          &quot;Log hidden as default, will appear when error will be thrown.
+          data(main_split_container) = new cl_gui_splitter_container(
+              link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
+                                                          when abap_false then c_screen_full )
+              link_repid              = c_fscr_repid
+               parent                  = main_parent
+               rows                    = cond #( when  i_applog_embedded eq abap_true then 2
                                                  else 1 )
-                 columns                 = 1
-            ).
-            parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
-            applog = split_container-&gt;get_container( row = 2 column    = 1 ).
+               columns                 = 1
+          ).
+          data(split_container) = new cl_gui_splitter_container(
+            parent                  = main_split_container-&gt;get_container( row = 1 column    = 1 )
+            rows                    = 2
+            columns                 = 1
+       ).
 
+          parent ?= split_container-&gt;get_container( row = 2 column    = 1 ).
+          applog ?= main_split_container-&gt;get_container( row = 2 column    = 1 ).
+          top_of_page_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
         catch cx_root.
           &quot;Something is wrong...
       endtry.
@@ -382,18 +397,28 @@
       else.
 
         applog ?= i_applogparent.
+
+        custom_container ?= i_parent.
+
+        main_split_container = new cl_gui_splitter_container(
+             parent                  = custom_container
+             rows                    = cond #( when  i_applog_embedded eq abap_true then 2
+                                               else 1 )
+             columns                 = 1
+        ).
+
+        split_container = new cl_gui_splitter_container(
+             parent                  = main_split_container-&gt;get_container( row = 1 column    = 1 )
+             rows                    = 2
+             columns                 = 1
+        ).
         if applog is initial.
-          custom_container ?= i_parent.
-          split_container = new cl_gui_splitter_container(
-               parent                  = custom_container
-               rows                    = cond #( when  i_applog_embedded eq abap_true then 2
-                                                 else 1 )
-               columns                 = 1
-          ).
-          parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
-          applog = split_container-&gt;get_container( row = 2 column    = 1 ).
+          parent ?= split_container-&gt;get_container( row = 2 column    = 1 ).
+          applog ?= main_split_container-&gt;get_container( row = 2 column  = 1 ).
+          top_of_page_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
         else.
-          parent ?= i_parent.
+          parent ?= split_container-&gt;get_container( row = 2 column    = 1 ).
+          top_of_page_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
           custom_container ?= i_parent.
         endif.
 
@@ -418,6 +443,7 @@
         exporting
           i_parent       = parent
           i_applogparent = applog.
+
     endif.
     set handler rv_falv-&gt;evf_after_refresh for rv_falv.
     set handler rv_falv-&gt;evf_after_user_command for rv_falv.
@@ -511,9 +537,38 @@
     endif.
     rv_falv-&gt;main_container ?= custom_container.
     rv_falv-&gt;split_container = split_container.
+    rv_falv-&gt;main_split_container = main_split_container.
+    rv_falv-&gt;top_of_page_container = top_of_page_parent.
 *    rv_falv-&gt;variant-report = sy-repid.
-    if split_container is not initial.
+    if main_split_container is not initial.
+      main_split_container-&gt;set_row_mode(
+        exporting
+          mode              =  split_container-&gt;mode_absolute
+        exceptions
+          cntl_error        = 1
+          cntl_system_error = 2
+          others            = 3
+      ).
+      if sy-subrc &lt;&gt; 0.
+*       message id sy-msgid type sy-msgty number sy-msgno
+*                  with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+      endif.
       rv_falv-&gt;hide_applog( ).
+    endif.
+    if split_container is not initial.
+      split_container-&gt;set_row_mode(
+        exporting
+          mode              =  split_container-&gt;mode_absolute
+        exceptions
+          cntl_error        = 1
+          cntl_system_error = 2
+          others            = 3
+      ).
+      if sy-subrc &lt;&gt; 0.
+*       message id sy-msgid type sy-msgty number sy-msgno
+*                  with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+      endif.
+      rv_falv-&gt;hide_top_of_page( ).
     endif.
 
     rv_falv-&gt;layout_save = &apos;A&apos;.
@@ -529,6 +584,9 @@
    <source>method create_by_copy.
     data: built_in_screen type abap_bool.
     data: main_parent type ref to cl_gui_container.
+    data: parent type ref to cl_gui_container.
+    data: applog type ref to cl_gui_container.
+    data: top_of_page_parent type ref to cl_gui_container.
 
     if cl_gui_alv_grid=&gt;offline( ) is not initial.
       &quot;To fool bg call
@@ -557,20 +615,29 @@
 
           endif.
 
-            &quot; Create split container, log at bottom, grid at top.
-            &quot;Log hidden as default, will appear when error will be thrown.
-            data(split_container) = new cl_gui_splitter_container(
-                link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
-                                                 when abap_false then c_screen_full )
-                link_repid              = c_fscr_repid
-                 parent                  = main_parent
-                 rows                    = cond #( when   application_log_embedded eq abap_true then 2
-                                                 else 1 )
-                 columns                 = 1
-            ).
-            i_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
-            i_applogparent = split_container-&gt;get_container( row = 2 column    = 1 ).
+          &quot; Create split container, log at bottom, grid at top.
+          &quot;Log hidden as default, will appear when error will be thrown.
+          data(main_split_container) = new cl_gui_splitter_container(
+*              link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
+*                                               when abap_false then c_screen_full )
+*              link_repid              = c_fscr_repid
+               parent                  = main_parent
+               rows                    = cond #( when  application_log_embedded eq abap_true then 2
+                                                    else 1 )
+               columns                 = 1
+          ).
+          data(split_container) = new cl_gui_splitter_container(
+*              link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
+*                                               when abap_false then c_screen_full )
+*              link_repid              = c_fscr_repid
+               parent                  = main_split_container-&gt;get_container( row = 1 column    = 1 )
+               rows                    = 2
+               columns                 = 1
+          ).
 
+          parent ?= split_container-&gt;get_container( row = 2 column    = 1 ).
+          applog ?= main_split_container-&gt;get_container( row = 2 column    = 1 ).
+          top_of_page_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
         catch cx_root.
           &quot;Something is wrong...
       endtry.
@@ -579,6 +646,28 @@
       if main_parent is initial.
 
         main_parent ?= i_parent.
+        parent ?= main_parent.
+
+      else.
+
+        main_split_container = new cl_gui_splitter_container(
+                parent                  = main_parent
+                rows                    = cond #( when   application_log_embedded eq abap_true then 2
+                                                  else 1 )
+                columns                 = 1
+           ).
+
+        split_container = new cl_gui_splitter_container(
+                parent                  = main_split_container-&gt;get_container( row = 1 column    = 1 )
+                rows                    = 2
+                columns                 = 1
+           ).
+
+        parent ?= split_container-&gt;get_container( row = 2 column    = 1 ).
+        if i_applogparent is initial.
+          applog ?= main_split_container-&gt;get_container( row = 2 column    = 1 ).
+        endif.
+        top_of_page_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
 
       endif.
 
@@ -589,16 +678,16 @@
       data(sublcass_abs_name) = subclass_type-&gt;absolute_name.
       create object subclass type (sublcass_abs_name)
        exporting
-        i_parent       = main_parent
-        i_applogparent = i_applogparent.
+        i_parent       = parent
+        i_applogparent = applog.
 
       rv_falv ?= subclass.
       rv_falv-&gt;subclass_type = subclass_type.
     else.
       create object rv_falv
         exporting
-          i_parent       = main_parent
-          i_applogparent = i_applogparent.
+          i_parent       = parent
+          i_applogparent = applog.
     endif.
 
     set handler rv_falv-&gt;evf_after_refresh for rv_falv.
@@ -683,8 +772,39 @@
 
     rv_falv-&gt;main_container ?= custom_container.
     rv_falv-&gt;split_container = split_container.
-    if split_container is not initial.
+    rv_falv-&gt;main_split_container = main_split_container.
+    rv_falv-&gt;top_of_page_container = top_of_page_parent.
+    rv_falv-&gt;top_of_page_height = me-&gt;top_of_page_height.
+    rv_falv-&gt;top_of_page_visible_at_start = me-&gt;top_of_page_visible_at_start.
+    if main_split_container is not initial.
+      main_split_container-&gt;set_row_mode(
+        exporting
+          mode              =  split_container-&gt;mode_absolute
+        exceptions
+          cntl_error        = 1
+          cntl_system_error = 2
+          others            = 3
+      ).
+      if sy-subrc &lt;&gt; 0.
+*       message id sy-msgid type sy-msgty number sy-msgno
+*                  with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+      endif.
       rv_falv-&gt;hide_applog( ).
+    endif.
+    if split_container is not initial.
+      split_container-&gt;set_row_mode(
+        exporting
+          mode              =  split_container-&gt;mode_absolute
+        exceptions
+          cntl_error        = 1
+          cntl_system_error = 2
+          others            = 3
+      ).
+      if sy-subrc &lt;&gt; 0.
+*       message id sy-msgid type sy-msgty number sy-msgno
+*                  with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+      endif.
+      rv_falv-&gt;hide_top_of_page( ).
     endif.
     rv_falv-&gt;title_v1 = me-&gt;title_v1.
     rv_falv-&gt;title_v2 = me-&gt;title_v2.
@@ -816,6 +936,8 @@
         if me-&gt;split_container is not initial.
           me-&gt;split_container-&gt;set_visible( abap_true ).
         endif.
+
+        me-&gt;raise_top_of_page( ).
       endif.
     endif.
   endmethod.</source>
@@ -942,11 +1064,13 @@
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_INTERNAL" SCONAME="E_ONF4_AFTER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="EVF_DATA_CHANGED_INTERNAL" SCONAME="E_UCOMM" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="1" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="0"/>
    <source>method evf_data_changed_internal.
+
     if er_data_changed-&gt;mt_protocol is not initial.
       show_applog( ).
     else.
       hide_applog( ).
     endif.
+
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVF_DBLCLICK_ROW_COL" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="27 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="DBLCLICK_ROW_COL" BCMTDCAT="00" BCMTDSYN="0">
@@ -1175,9 +1299,137 @@
     endif.
   endmethod.</source>
   </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="24 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" SCONAME="IT_FIELDCAT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_T_FCAT" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" SCONAME="IT_SORT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_T_SORT" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" SCONAME="IT_FILT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_T_FILT" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" SCONAME="IS_LAYOUT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_LAYO" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" SCONAME="RV_XSTRING" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="XSTRING"/>
+   <source>method export_to_excel.
+
+
+    data: version type string.
+    data: result_data type ref to cl_salv_ex_result_data_table.
+    data: columns  type ref to cl_salv_columns_table.
+    data: aggreg   type ref to cl_salv_aggregations.
+    data: salv_table  type ref to cl_salv_table.
+    data: file_type type salv_bs_constant.
+    field-symbols &lt;tab&gt; type any table.
+
+    if it_fieldcat is initial.
+
+      it_fieldcat = me-&gt;fcat.
+
+    endif.
+
+    if it_sort is initial.
+
+      me-&gt;get_sort_criteria(
+        importing
+          et_sort =     it_sort
+      ).
+
+    endif.
+
+    if it_filt is initial.
+
+      me-&gt;get_filter_criteria(
+        importing
+          et_filter =     it_filt
+      ).
+
+    endif.
+
+    if is_layout is initial.
+
+      me-&gt;get_frontend_layout(
+        importing
+          es_layout =  is_layout
+      ).
+
+    endif.
+
+
+
+    if cl_salv_bs_a_xml_base=&gt;get_version( ) eq if_salv_bs_xml=&gt;version_25 or
+       cl_salv_bs_a_xml_base=&gt;get_version( ) eq if_salv_bs_xml=&gt;version_26.
+
+      result_data = cl_salv_ex_util=&gt;factory_result_data_table(
+          r_data                      = me-&gt;outtab
+          s_layout                    = is_layout
+          t_fieldcatalog              = it_fieldcat
+          t_sort                      = it_sort
+          t_filter                    = it_filt
+      ).
+
+      case cl_salv_bs_a_xml_base=&gt;get_version( ).
+        when if_salv_bs_xml=&gt;version_25.
+          version = if_salv_bs_xml=&gt;version_25.
+        when if_salv_bs_xml=&gt;version_26.
+          version = if_salv_bs_xml=&gt;version_26.
+      endcase.
+
+      &quot;if XLSX is possible then we create it,  if not then MHTML excel file
+
+      cl_abap_typedescr=&gt;describe_by_name( exporting p_name = &apos;IF_SALV_BS_XML=&gt;C_TYPE_XLSX&apos;
+                                           receiving p_descr_ref =  data(excel_type)
+                                           exceptions others = 1 ).
+      if sy-subrc eq 0.
+        file_type = 10.
+      else.
+        file_type = 02.
+      endif.
+
+      &quot;transformation of data to excel
+      call method cl_salv_bs_tt_util=&gt;if_salv_bs_tt_util~transform
+        exporting
+          xml_type      = file_type
+          xml_version   = version
+          r_result_data = result_data
+          xml_flavour   = if_salv_bs_c_tt=&gt;c_tt_xml_flavour_export
+          gui_type      = if_salv_bs_xml=&gt;c_gui_type_gui
+        importing
+          xml           = rv_xstring.
+    endif.
+
+
+  endmethod.</source>
+  </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="HIDE_APPLOG" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method hide_applog.
+
+    if main_split_container is not initial.
+      main_split_container-&gt;set_row_sash(
+        exporting
+          id                =  1   &quot; Row Splitter Bar ID
+          type              =  split_container-&gt;type_sashvisible   &quot; Attribute
+          value             =  0   &quot; Value
+        exceptions
+          cntl_error        = 1
+          cntl_system_error = 2
+          others            = 3
+      ).
+      if sy-subrc &lt;&gt; 0.
+      endif.
+      main_split_container-&gt;set_row_height(
+        exporting
+          id                =   2 &quot; Row ID
+          height            =   0  &quot; Height
+        exceptions
+          cntl_error        = 1
+          cntl_system_error = 2
+          others            = 3
+      ).
+      if sy-subrc &lt;&gt; 0.
+      endif.
+      clear splitter_row_3_height.
+    endif.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="HIDE_TOP_OF_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="26 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method hide_top_of_page.
     if split_container is not initial.
+
       split_container-&gt;set_row_sash(
         exporting
           id                =  1   &quot; Row Splitter Bar ID
@@ -1192,7 +1444,7 @@
       endif.
       split_container-&gt;set_row_height(
         exporting
-          id                =   2 &quot; Row ID
+          id                =   1 &quot; Row ID
           height            =   0  &quot; Height
         exceptions
           cntl_error        = 1
@@ -1267,6 +1519,55 @@
 
   endmethod.</source>
   </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="RAISE_TOP_OF_PAGE" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method raise_top_of_page.
+
+    if top_of_page_visible_at_start eq abap_true.
+
+      if me-&gt;top_of_page_doc is initial.
+        top_of_page_doc = new cl_dd_document(
+*            style            =
+*            background_color =
+*            bds_stylesheet   =
+*            no_margins       =
+        ).
+      endif.
+
+      export alv_form_html from abap_true
+            to memory id &apos;ALV_FORM_HTML&apos;.
+
+
+      call method me-&gt;list_processing_events
+        exporting
+          i_event_name = &apos;TOP_OF_PAGE&apos;
+          i_dyndoc_id  = me-&gt;top_of_page_doc.
+
+
+      export alv_form_html from abap_false
+             to memory id &apos;ALV_FORM_HTML&apos;.
+
+      if top_of_page_container is not initial.
+
+        top_of_page_doc-&gt;display_document(
+          exporting
+            reuse_control      =  &apos;X&apos;
+*            reuse_registration =     &quot; Event Registration Reused
+*            container          =     &quot; Name of Container (New Container Object Generated)
+             parent             =  top_of_page_container   &quot; Contain Object Already Exists
+          exceptions
+            html_display_error = 1
+            others             = 2
+        ).
+        if sy-subrc &lt;&gt; 0.
+*         message id sy-msgid type sy-msgty number sy-msgno
+*                    with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+        endif.
+
+      endif.
+      show_top_of_page( ).
+    endif.
+  endmethod.</source>
+  </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="REFRESH_TOOLBAR" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method refresh_toolbar.
     try.
@@ -1275,6 +1576,87 @@
         &quot;in case method is called before the display of grid
         &quot;no need to do anything with that
     endtry.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SAVE_EXCEL_LOCALY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="25 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SAVE_EXCEL_LOCALY" SCONAME="IV_PATH" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="STRING" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SAVE_EXCEL_LOCALY" SCONAME="RV_SAVED" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL"/>
+   <source>method save_excel_localy.
+    data: path     type string,
+          filename type string.
+
+    if iv_path is initial.
+      cl_gui_frontend_services=&gt;file_save_dialog(
+      exporting
+*      window_title         = window_title
+        default_extension    = &apos;XLSX&apos;
+*      default_file_name    = default_file_name
+*      with_encoding        = with_encoding
+*      file_filter          = file_filter
+*      initial_directory    = initial_directory
+*      prompt_on_overwrite  = &apos;X&apos;
+      changing
+        filename             = filename
+        path                 = path
+        fullpath             = iv_path
+*      user_action          = user_action
+*      file_encoding        = file_encoding
+      exceptions
+        cntl_error           = 1
+        error_no_gui         = 2
+        not_supported_by_gui = 3
+        others               = 4
+           ).
+      if sy-subrc &lt;&gt; 0.
+*   Implement suitable error handling here
+      endif.
+
+    endif.
+
+    if iv_path is not initial.
+
+      data(xstring) = me-&gt;export_to_excel( ).
+      data(xstrsize) = xstrlen( xstring ).
+      data(solix) = cl_bcs_convert=&gt;xstring_to_solix( xstring  ).
+
+      cl_gui_frontend_services=&gt;gui_download(
+        exporting
+          bin_filesize              = xstrsize
+          filename                  = iv_path
+          filetype                  = &apos;BIN&apos;
+        changing
+          data_tab                  = solix
+        exceptions
+          file_write_error          = 1
+          no_batch                  = 2
+          gui_refuse_filetransfer   = 3
+          invalid_type              = 4
+          no_authority              = 5
+          unknown_error             = 6
+          header_not_allowed        = 7
+          separator_not_allowed     = 8
+          filesize_not_allowed      = 9
+          header_too_long           = 10
+          dp_error_create           = 11
+          dp_error_send             = 12
+          dp_error_write            = 13
+          unknown_dp_error          = 14
+          access_denied             = 15
+          dp_out_of_memory          = 16
+          disk_full                 = 17
+          dp_timeout                = 18
+          file_not_found            = 19
+          dataprovider_exception    = 20
+          control_flush_error       = 21
+          not_supported_by_gui      = 22
+          error_no_gui              = 23
+          others                    = 24
+             ).
+      if sy-subrc eq 0.
+        rv_saved = abap_true.
+      endif.
+
+    endif.
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_BUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="19 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
@@ -1490,6 +1872,94 @@
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="SHOW_APPLOG" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method show_applog.
+
+
+    if main_split_container is not initial.
+      main_split_container-&gt;get_row_height(
+    exporting
+      id                =  2
+    importing
+      result            =  splitter_row_2_height
+    exceptions
+      cntl_error        = 1
+      cntl_system_error = 2
+      others            = 3
+  ).
+      if sy-subrc eq 0 and splitter_row_2_height eq 0.
+        main_split_container-&gt;set_row_sash(
+          exporting
+            id                =  1   &quot; Row Splitter Bar ID
+            type              =  split_container-&gt;type_sashvisible   &quot; Attribute
+            value             =  1   &quot; Value
+          exceptions
+            cntl_error        = 1
+            cntl_system_error = 2
+            others            = 3
+        ).
+        if sy-subrc &lt;&gt; 0.
+        endif.
+
+        main_split_container-&gt;get_row_height(
+          exporting
+            id                =  1   &quot; ALV
+          importing
+            result            =  splitter_row_2_height
+          exceptions
+            cntl_error        = 1
+            cntl_system_error = 2
+            others            = 3
+        ).
+
+        main_split_container-&gt;get_row_height(
+          exporting
+            id                = 2   &quot; Row ID
+          importing
+            result            =  splitter_row_3_height   &quot; Result Code
+          exceptions
+            cntl_error        = 1
+            cntl_system_error = 2
+            others            = 3
+        ).
+
+        main_split_container-&gt;set_row_height(
+          exporting
+            id                =   2 &quot;error log
+            height            =   error_log_height
+          importing
+            result           = result
+          exceptions
+            cntl_error        = 1
+            cntl_system_error = 2
+            others            = 3
+        ).
+        if sy-subrc &lt;&gt; 0.
+        endif.
+        try.
+            main_split_container-&gt;set_row_height(
+             exporting
+               id                =   1 &quot; ALV
+               height            =   conv #( splitter_row_2_height - error_log_height )
+             importing
+               result           = result
+             exceptions
+               cntl_error        = 1
+               cntl_system_error = 2
+               others            = 3
+           ).
+            if sy-subrc &lt;&gt; 0.
+            endif.
+          catch cx_root.
+        endtry.
+
+
+      endif.
+      clear splitter_row_2_height.
+      clear splitter_row_3_height.
+    endif.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SHOW_TOP_OF_PAGE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="27 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method show_top_of_page.
     if split_container is not initial.
       split_container-&gt;set_row_sash(
         exporting
@@ -1505,19 +1975,19 @@
       endif.
       split_container-&gt;get_row_height(
         exporting
-          id                =  2   &quot; Row ID
+          id                =  1   &quot; Row ID
         importing
-          result            =  height   &quot; Result Code
+          result            =  splitter_row_1_height   &quot; Result Code
         exceptions
           cntl_error        = 1
           cntl_system_error = 2
           others            = 3
       ).
-      if sy-subrc eq 0 and height eq 0.
+      if sy-subrc eq 0 and splitter_row_2_height eq 0.
         split_container-&gt;set_row_height(
           exporting
-            id                =   2 &quot; Row ID
-            height            =   15  &quot; Height
+            id                =   1 &quot; Row ID
+            height            =   top_of_page_height
           importing
             result           = result
           exceptions
@@ -1528,6 +1998,7 @@
         if sy-subrc &lt;&gt; 0.
         endif.
       endif.
+      top_of_page_visible_at_start = abap_true.
     endif.
   endmethod.</source>
   </method>
@@ -3999,6 +4470,7 @@ class lcl_test definition inheriting from zcl_falv.
   protected section.
     &quot;redefinition of event handler
     methods evf_hotspot_click redefinition.
+    methods evf_top_of_page redefinition.
   private section.
 
 endclass.
@@ -4018,6 +4490,23 @@ class lcl_test implementation.
     endcase.
   endmethod.
 
+  method evf_top_of_page.
+
+    e_dyndoc_id-&gt;add_text( text = &apos;Top Of Page&apos; sap_style = cl_dd_area=&gt;heading ).
+
+    e_dyndoc_id-&gt;new_line( repeat = 1 ).
+
+    e_dyndoc_id-&gt;add_link(
+      exporting
+        name                   =  &apos;ABAPBLOG.com&apos;   &quot; Name (You Can Use Any Name You Choose)
+        url                    =   &apos;http://abapblog.com&apos;  &quot; URL
+        tooltip                =  &apos;ABAPBLOG.com&apos;   &quot; Tool Tip
+        text                   =  &apos;ABAPBLOG.com&apos;    &quot; Text
+    ).
+
+
+  endmethod.
+
 endclass.
 
 start-of-selection.
@@ -4029,12 +4518,19 @@ start-of-selection.
   &quot;creation of falv with local redefinition
   data falv type ref to lcl_test.
   data(subcl) = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; ).
-  falv ?=  lcl_test=&gt;create( exporting  i_subclass = subcl changing ct_table = sflight ).
+
+  falv ?=  lcl_test=&gt;create( exporting i_subclass = subcl changing ct_table = sflight ).
+
 
   &quot;Add hotspot to column &apos;SEATSMAX&apos;
   falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_hotspot( abap_true ).
   &quot;Add title variable
   falv-&gt;title_v1 = &apos;ZDEMO_FALV02&apos;.
+
+  falv-&gt;top_of_page_height = 100. &quot;absolute size
+  &quot;To enable top_of_page
+  falv-&gt;show_top_of_page( ).
+
   &quot;Display full screen grid
   falv-&gt;display( ).</source>
  </PROG>
@@ -4799,7 +5295,7 @@ PROCESS AFTER INPUT.
 report zdemo_falv13.
 
 types: begin of t_sflight.
-       include type sflight.
+        include type sflight.
 types: style type lvc_t_styl,
        end of t_sflight.
 
@@ -4812,6 +5308,7 @@ class lcl_test definition inheriting from zcl_falv.
 
   protected section.
     methods evf_at_set_title redefinition.
+    methods evf_top_of_page redefinition.
   private section.
 
 endclass.
@@ -4821,6 +5318,24 @@ class lcl_test implementation.
   method evf_at_set_title.
 
   endmethod.
+
+  method evf_top_of_page.
+
+    e_dyndoc_id-&gt;add_text( text = &apos;Top Of Page&apos; sap_style = cl_dd_area=&gt;heading ).
+
+    e_dyndoc_id-&gt;new_line( repeat = 1 ).
+
+    e_dyndoc_id-&gt;add_link(
+      exporting
+        name                   =  &apos;ABAPBLOG.com&apos;   &quot; Name (You Can Use Any Name You Choose)
+        url                    =   &apos;http://abapblog.com&apos;  &quot; URL
+        tooltip                =  &apos;ABAPBLOG.com&apos;   &quot; Tool Tip
+        text                   =  &apos;ABAPBLOG.com&apos;    &quot; Text
+    ).
+
+
+  endmethod.
+
 
 endclass.
 
@@ -4835,6 +5350,7 @@ start-of-selection.
                               i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
                               changing ct_table = sflight    ) .
 
+  falv_redef-&gt;show_top_of_page( ).
   falv_redef-&gt;add_button(
     exporting
       iv_function  = &apos;F111&apos;
@@ -4863,109 +5379,109 @@ start-of-selection.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
-    falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_16
-      iv_text                = &apos;F16&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+  exporting
+    iv_button              = falv_stand-&gt;gui_status-&gt;b_16
+    iv_text                = &apos;F16&apos;
+    iv_icon                = icon_refresh
+    iv_qinfo               = &apos;Test d&apos;
+    iv_allowed             = abap_true
+  exceptions
+    button_already_filled  = 1
+    button_does_not_exists = 2
+    icon_and_text_empty    = 3
+    others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
 
-    falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_17
-      iv_text                = &apos;F17&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+  exporting
+    iv_button              = falv_stand-&gt;gui_status-&gt;b_17
+    iv_text                = &apos;F17&apos;
+    iv_icon                = icon_refresh
+    iv_qinfo               = &apos;Test d&apos;
+    iv_allowed             = abap_true
+  exceptions
+    button_already_filled  = 1
+    button_does_not_exists = 2
+    icon_and_text_empty    = 3
+    others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
 
-      falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_18
-      iv_text                = &apos;F18&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+exporting
+  iv_button              = falv_stand-&gt;gui_status-&gt;b_18
+  iv_text                = &apos;F18&apos;
+  iv_icon                = icon_refresh
+  iv_qinfo               = &apos;Test d&apos;
+  iv_allowed             = abap_true
+exceptions
+  button_already_filled  = 1
+  button_does_not_exists = 2
+  icon_and_text_empty    = 3
+  others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
 
-      falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_19
-      iv_text                = &apos;F19&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+exporting
+  iv_button              = falv_stand-&gt;gui_status-&gt;b_19
+  iv_text                = &apos;F19&apos;
+  iv_icon                = icon_refresh
+  iv_qinfo               = &apos;Test d&apos;
+  iv_allowed             = abap_true
+exceptions
+  button_already_filled  = 1
+  button_does_not_exists = 2
+  icon_and_text_empty    = 3
+  others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
 
-      falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_13
-      iv_text                = &apos;F13&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+exporting
+  iv_button              = falv_stand-&gt;gui_status-&gt;b_13
+  iv_text                = &apos;F13&apos;
+  iv_icon                = icon_refresh
+  iv_qinfo               = &apos;Test d&apos;
+  iv_allowed             = abap_true
+exceptions
+  button_already_filled  = 1
+  button_does_not_exists = 2
+  icon_and_text_empty    = 3
+  others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
   endif.
 
-    falv_stand-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = falv_stand-&gt;gui_status-&gt;b_14
-      iv_text                = &apos;F14&apos;
-      iv_icon                = icon_refresh
-      iv_qinfo               = &apos;Test d&apos;
-      iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
+  falv_stand-&gt;gui_status-&gt;add_button(
+  exporting
+    iv_button              = falv_stand-&gt;gui_status-&gt;b_14
+    iv_text                = &apos;F14&apos;
+    iv_icon                = icon_refresh
+    iv_qinfo               = &apos;Test d&apos;
+    iv_allowed             = abap_true
+  exceptions
+    button_already_filled  = 1
+    button_does_not_exists = 2
+    icon_and_text_empty    = 3
+    others                 = 4
+).
   if sy-subrc &lt;&gt; 0.
 *   message id sy-msgid type sy-msgty number sy-msgno
 *              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
@@ -4974,7 +5490,7 @@ start-of-selection.
 
   falv_stand-&gt;display( ).
 
- &quot;copy of standard falv + some changes of descriptions
+  &quot;copy of standard falv + some changes of descriptions
   data(falv_stand_copy) = falv_stand-&gt;create_by_copy(  ).
   falv_stand_copy-&gt;column( &apos;CARRID&apos; )-&gt;set_scrtext_l( &apos;test&apos; ).
   falv_stand_copy-&gt;column( &apos;CARRID&apos; )-&gt;set_scrtext_m( &apos;test&apos; ).
@@ -5028,6 +5544,7 @@ module pbo output.
       i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
       changing ct_table = sflight    ) .
     falv_screen-&gt;column( &apos;CARRID&apos; )-&gt;set_reptext( &apos;test&apos; ).
+    falv_screen-&gt;show_top_of_page( ).
     falv_screen-&gt;display( ).
   endif.
 endmodule.
