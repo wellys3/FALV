@@ -1,3 +1,6 @@
+#Changes V 740.1.0.4
+Run in BG mode error solved.
+
 #Changes V 740.1.0.3
 Top_of_page event is now raised and handled.
 
