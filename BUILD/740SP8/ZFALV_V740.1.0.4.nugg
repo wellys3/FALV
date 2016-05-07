@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nugget name="ZFALV_V740.1.0.3">
+<nugget name="ZFALV_V740.1.0.4">
  <CLAS CLSNAME="ZCL_FALV" VERSION="1" LANGU="E" DESCRIPT="Fast ALV" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_GUI_ALV_GRID">
   <types CLSNAME="ZCL_FALV" CMPNAME="T_COLUMN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " TYPTYPE="3" TYPE="ZCL_FALV_COLUMN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="11 " SRCROW2="15 " SRCCOLUMN2="29 " TYPESRC_LENG="192 " TYPESRC="begin of t_subcl_call,
@@ -335,15 +335,16 @@
     data: parent type ref to cl_gui_container.
     data: applog type ref to cl_gui_container.
     data: top_of_page_parent type ref to cl_gui_container.
+    data: docking_parent type ref to cl_gui_docking_container.
 
     check_if_called_from_subclass( ).
 
     if cl_gui_alv_grid=&gt;offline( ) is not initial.
       &quot;To fool bg call
-      data(docking_parent) = new cl_gui_docking_container( dynnr = switch #( i_popup when abap_true then c_screen_popup
-                                                                                     when abap_false then c_screen_full )
-                                                           repid = c_fscr_repid
-                                                                 ).
+*      docking_parent = new cl_gui_docking_container( &quot;dynnr = switch #( i_popup when abap_true then c_screen_popup
+**                                                                                     when abap_false then c_screen_full )
+**                                                           repid = c_fscr_repid
+*                                                                 ).
       main_parent ?= docking_parent.
 
     endif.
@@ -354,7 +355,7 @@
       built_in_screen = abap_true.
       try.
 
-          if main_parent is initial.
+          if cl_gui_alv_grid=&gt;offline( ) is initial.
             data(custom_container) = new cl_gui_custom_container(
                       container_name = cc_name
                       dynnr          = switch #( i_popup when abap_true then c_screen_popup
@@ -363,33 +364,40 @@
                       no_autodef_progid_dynnr = abap_true
                       ).
             main_parent ?= custom_container.
+
+
+            &quot; Create split container, log at bottom, grid at top.
+            &quot;Log hidden as default, will appear when error will be thrown.
+            data(main_split_container) = new cl_gui_splitter_container(
+                link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
+                                                            when abap_false then c_screen_full )
+                link_repid              = c_fscr_repid
+                 parent                  = main_parent
+                 rows                    = cond #( when  i_applog_embedded eq abap_true then 2
+                                                   else 1 )
+                 columns                 = 1
+            ).
+            data(split_container) = new cl_gui_splitter_container(
+              parent                  = main_split_container-&gt;get_container( row = 1 column    = 1 )
+              rows                    = 2
+              columns                 = 1
+         ).
+
+            parent ?= split_container-&gt;get_container( row = 2 column    = 1 ).
+            applog ?= main_split_container-&gt;get_container( row = 2 column    = 1 ).
+            top_of_page_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
+          else.
+
+            parent ?= main_parent.
+            custom_container ?= parent.
+
           endif.
 
-          &quot; Create split container, log at bottom, grid at top.
-          &quot;Log hidden as default, will appear when error will be thrown.
-          data(main_split_container) = new cl_gui_splitter_container(
-              link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
-                                                          when abap_false then c_screen_full )
-              link_repid              = c_fscr_repid
-               parent                  = main_parent
-               rows                    = cond #( when  i_applog_embedded eq abap_true then 2
-                                                 else 1 )
-               columns                 = 1
-          ).
-          data(split_container) = new cl_gui_splitter_container(
-            parent                  = main_split_container-&gt;get_container( row = 1 column    = 1 )
-            rows                    = 2
-            columns                 = 1
-       ).
-
-          parent ?= split_container-&gt;get_container( row = 2 column    = 1 ).
-          applog ?= main_split_container-&gt;get_container( row = 2 column    = 1 ).
-          top_of_page_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
         catch cx_root.
           &quot;Something is wrong...
       endtry.
     else.
-      if main_parent is not initial.
+      if cl_gui_alv_grid=&gt;offline( ) is not initial.
 
         parent ?= main_parent.
         custom_container ?= parent.
@@ -587,13 +595,14 @@
     data: parent type ref to cl_gui_container.
     data: applog type ref to cl_gui_container.
     data: top_of_page_parent type ref to cl_gui_container.
+    data: docking_parent type ref to cl_gui_docking_container.
 
     if cl_gui_alv_grid=&gt;offline( ) is not initial.
-      &quot;To fool bg call
-      data(docking_parent) = new cl_gui_docking_container( dynnr = switch #( i_popup when abap_true then c_screen_popup
-                                                                                     when abap_false then c_screen_full )
-                                                           repid = c_fscr_repid
-                                                                 ).
+*      &quot;To fool bg call
+*    docking_parent = new cl_gui_docking_container( &quot;dynnr = switch #( i_popup when abap_true then c_screen_popup
+**                                                                                     when abap_false then c_screen_full )
+**                                                           repid = c_fscr_repid
+*    ).
 
       main_parent  ?= docking_parent.
     endif.
@@ -603,7 +612,7 @@
     if i_parent is initial.
       built_in_screen = abap_true.
       try.
-          if main_parent is initial.
+          if cl_gui_alv_grid=&gt;offline( ) is initial.
             data(custom_container) = new cl_gui_custom_container(
                       container_name = cc_name
                       dynnr          = switch #( i_popup when abap_true then c_screen_popup
@@ -613,42 +622,46 @@
                       ).
             main_parent ?= custom_container.
 
+
+
+            &quot; Create split container, log at bottom, grid at top.
+            &quot;Log hidden as default, will appear when error will be thrown.
+            data(main_split_container) = new cl_gui_splitter_container(
+*              link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
+*                                               when abap_false then c_screen_full )
+*              link_repid              = c_fscr_repid
+                 parent                  = main_parent
+                 rows                    = cond #( when  application_log_embedded eq abap_true then 2
+                                                      else 1 )
+                 columns                 = 1
+            ).
+            data(split_container) = new cl_gui_splitter_container(
+*              link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
+*                                               when abap_false then c_screen_full )
+*              link_repid              = c_fscr_repid
+                 parent                  = main_split_container-&gt;get_container( row = 1 column    = 1 )
+                 rows                    = 2
+                 columns                 = 1
+            ).
+
+            parent ?= split_container-&gt;get_container( row = 2 column    = 1 ).
+            applog ?= main_split_container-&gt;get_container( row = 2 column    = 1 ).
+            top_of_page_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
+          else.
+
+            parent ?= main_parent.
+            custom_container ?= parent.
+
           endif.
-
-          &quot; Create split container, log at bottom, grid at top.
-          &quot;Log hidden as default, will appear when error will be thrown.
-          data(main_split_container) = new cl_gui_splitter_container(
-*              link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
-*                                               when abap_false then c_screen_full )
-*              link_repid              = c_fscr_repid
-               parent                  = main_parent
-               rows                    = cond #( when  application_log_embedded eq abap_true then 2
-                                                    else 1 )
-               columns                 = 1
-          ).
-          data(split_container) = new cl_gui_splitter_container(
-*              link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
-*                                               when abap_false then c_screen_full )
-*              link_repid              = c_fscr_repid
-               parent                  = main_split_container-&gt;get_container( row = 1 column    = 1 )
-               rows                    = 2
-               columns                 = 1
-          ).
-
-          parent ?= split_container-&gt;get_container( row = 2 column    = 1 ).
-          applog ?= main_split_container-&gt;get_container( row = 2 column    = 1 ).
-          top_of_page_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
         catch cx_root.
           &quot;Something is wrong...
       endtry.
     else.
 
-      if main_parent is initial.
+      if cl_gui_alv_grid=&gt;offline( ) is initial.
 
         main_parent ?= i_parent.
         parent ?= main_parent.
-
-      else.
 
         main_split_container = new cl_gui_splitter_container(
                 parent                  = main_parent
@@ -668,6 +681,11 @@
           applog ?= main_split_container-&gt;get_container( row = 2 column    = 1 ).
         endif.
         top_of_page_parent ?= split_container-&gt;get_container( row = 1 column    = 1 ).
+
+      else.
+
+        parent ?= main_parent.
+        custom_container ?= parent.
 
       endif.
 
@@ -1522,7 +1540,8 @@
   <method CLSNAME="ZCL_FALV" CMPNAME="RAISE_TOP_OF_PAGE" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method raise_top_of_page.
 
-    if top_of_page_visible_at_start eq abap_true.
+    if top_of_page_visible_at_start eq abap_true and
+       top_of_page_container is not initial.
 
       if me-&gt;top_of_page_doc is initial.
         top_of_page_doc = new cl_dd_document(
@@ -1546,8 +1565,6 @@
       export alv_form_html from abap_false
              to memory id &apos;ALV_FORM_HTML&apos;.
 
-      if top_of_page_container is not initial.
-
         top_of_page_doc-&gt;display_document(
           exporting
             reuse_control      =  &apos;X&apos;
@@ -1563,7 +1580,6 @@
 *                    with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
         endif.
 
-      endif.
       show_top_of_page( ).
     endif.
   endmethod.</source>
@@ -3853,6 +3869,7 @@ endmodule.</include_source>
     falv = io_falv.
   endmethod.
   method show.
+    check cl_gui_alv_grid=&gt;offline( ) is initial.
     loop at outputs assigning field-symbol(&lt;hide&gt;) where table_line-&gt;guid ne me-&gt;guid.
       &lt;hide&gt;-&gt;hide( ).
     endloop.
@@ -3861,6 +3878,7 @@ endmodule.</include_source>
     falv-&gt;main_container-&gt;set_visible( abap_true ).
   endmethod.
   method hide.
+    check cl_gui_alv_grid=&gt;offline( ) is initial.
     falv-&gt;set_visible( abap_false ).
     falv-&gt;parent-&gt;set_visible( abap_false ).
     falv-&gt;main_container-&gt;set_visible( abap_false ).
@@ -3868,7 +3886,8 @@ endmodule.</include_source>
 
   method pbo.
     show( ).
-    if sy-dynnr eq zcl_falv=&gt;c_screen_popup and first_output eq abap_true.
+    if sy-dynnr eq zcl_falv=&gt;c_screen_popup and first_output eq abap_true and
+       cl_gui_alv_grid=&gt;offline( ) is initial.
       cl_gui_cfw=&gt;flush(
         exceptions
           cntl_system_error = 1
@@ -3905,10 +3924,10 @@ endmodule.</include_source>
     if first_output eq abap_true.
 
       cl_gui_cfw=&gt;flush(
-  exceptions
-    cntl_system_error = 1
-    cntl_error        = 2
-    others            = 3
+      exceptions
+        cntl_system_error = 1
+        cntl_error        = 2
+        others            = 3
 ).
       if sy-subrc &lt;&gt; 0.
 *       message id sy-msgid type sy-msgty number sy-msgno
