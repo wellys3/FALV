@@ -1586,6 +1586,7 @@
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="REFRESH_TOOLBAR" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method refresh_toolbar.
+    check cl_gui_alv_grid=&gt;offline( ) is initial.
     try.
         me-&gt;set_toolbar_interactive(  ).
       catch cx_root.
@@ -1799,6 +1800,7 @@
   <method CLSNAME="ZCL_FALV" CMPNAME="SET_EDITABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_EDITABLE" SCONAME="IV_MODIFY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL" PARVALUE="ABAP_FALSE"/>
    <source>method set_editable.
+    check cl_gui_alv_grid=&gt;offline( ) is initial.
     me-&gt;set_ready_for_input( i_ready_for_input = 1 ).
     if iv_modify eq abap_true.
       me-&gt;register_edit_event(
