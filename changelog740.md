@@ -1,3 +1,7 @@
+#Changes V 740.1.0.6
+new method "SEND" for sending grid as an XLSX attachment
+correction of zcl_falv->export_to_excel 
+
 #Changes V 740.1.0.4
 Run in BG mode error solved.
 
