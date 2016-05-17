@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nugget name="ZFALV_V740.1.0.4">
+<nugget name="ZFALV_7.40V1.0.0.6">
  <CLAS CLSNAME="ZCL_FALV" VERSION="1" LANGU="E" DESCRIPT="Fast ALV" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_GUI_ALV_GRID">
   <types CLSNAME="ZCL_FALV" CMPNAME="T_COLUMN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " TYPTYPE="3" TYPE="ZCL_FALV_COLUMN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="11 " SRCROW2="15 " SRCCOLUMN2="29 " TYPESRC_LENG="192 " TYPESRC="begin of t_subcl_call,
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="13 " SRCCOLUMN1="4 " SRCROW2="18 " SRCCOLUMN2="29 " TYPESRC_LENG="192 " TYPESRC="begin of t_subcl_call,
              progname type progname,
              line     type i,
              column   type i,
              class    type string,
            end of t_subcl_call
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="TT_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="16 " SRCCOLUMN1="11 " SRCROW2="16 " SRCCOLUMN2="94 " TYPESRC_LENG="86 " TYPESRC="tt_subcl_call type sorted table of t_subcl_call with unique key progname line column
+  <types CLSNAME="ZCL_FALV" CMPNAME="TT_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="20 " SRCCOLUMN1="4 " SRCROW2="20 " SRCCOLUMN2="87 " TYPESRC_LENG="86 " TYPESRC="tt_subcl_call type sorted table of t_subcl_call with unique key progname line column
+"/>
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="22 " SRCCOLUMN1="4 " SRCROW2="27 " SRCCOLUMN2="24 " TYPESRC_LENG="214 " TYPESRC="begin of t_email,
+             smtp_addr  type ad_smtpadr,
+             express    type os_boolean,
+             copy       type os_boolean,
+             blind_copy type os_boolean,
+           end of t_email
+"/>
+  <types CLSNAME="ZCL_FALV" CMPNAME="TT_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="29 " SRCCOLUMN1="4 " SRCROW2="29 " SRCCOLUMN2="33 " TYPESRC_LENG="32 " TYPESRC="tt_email type table of t_email
 "/>
   <friends CLSNAME="ZCL_FALV" REFCLSNAME="ZCL_FALV_LAYOUT" FRIENDTYPE="0" VERSION="1" STATE="1"/>
   <implementing CLSNAME="ZCL_FALV" REFCLSNAME="IF_OS_CLONE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
@@ -119,7 +128,7 @@
 
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="BUILD_COLUMNS" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="BUILD_COLUMNS" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method build_columns.
     loop at fcat assigning field-symbol(&lt;fcat&gt;).
       data(column) = new zcl_falv_column( iv_fieldname = &lt;fcat&gt;-fieldname io_falv = me ).
@@ -274,7 +283,7 @@
     endtry.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="0" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" DESCRIPT="CONSTRUCTOR" EXPOSURE="0" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_SHELLSTYLE" VERSION="1" LANGU="E" DESCRIPT="Control Style" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="I" PARVALUE="0"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_LIFETIME" VERSION="1" LANGU="E" DESCRIPT="Lifetime" CMPTYPE="1" MTDTYPE="2" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="I" PAROPTIONL="X"/>
    <parameter CLSNAME="ZCL_FALV" CMPNAME="CONSTRUCTOR" SCONAME="I_PARENT" VERSION="1" LANGU="E" DESCRIPT="Parent Container" CMPTYPE="1" MTDTYPE="2" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="3" TYPE="CL_GUI_CONTAINER" PAROPTIONL="X"/>
@@ -832,6 +841,7 @@
     rv_falv-&gt;toolbar_added = me-&gt;toolbar_added.
     rv_falv-&gt;toolbar_deleted = me-&gt;toolbar_deleted.
     rv_falv-&gt;toolbar_disabled = me-&gt;toolbar_disabled.
+    rv_falv-&gt;m_batch_mode = me-&gt;m_batch_mode.
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="DELETE_BUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="16 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
@@ -969,6 +979,16 @@
     endtry.
     delete toolbar_disabled where function = iv_function.
     me-&gt;refresh_toolbar( ).
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="ENCODE_PICTURE_BASE64" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="29 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="ENCODE_PICTURE_BASE64" SCONAME="IV_XSTRING" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="XSTRING"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="ENCODE_PICTURE_BASE64" SCONAME="IV_MIME_TYPE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CSEQUENCE"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="ENCODE_PICTURE_BASE64" SCONAME="RV_IMAGE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="STRING"/>
+   <source>method encode_picture_base64.
+
+    rv_image = |&lt;img src=&quot;data:{ iv_mime_type };base64,{ cl_http_utility=&gt;encode_x_base64( unencoded = iv_xstring ) }&quot;&gt;|.
+
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EVF_AFTER_REFRESH" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="14 " DISPID="0 " MTDTYPE="1" MTDDECLTYP="0" REFCLSNAME="CL_GUI_ALV_GRID" REFCMPNAME="AFTER_REFRESH" BCMTDCAT="00" BCMTDSYN="0">
@@ -1413,7 +1433,45 @@
 
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="HIDE_APPLOG" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="8 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="GET_FILE_FROM_MIME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="30 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="GET_FILE_FROM_MIME" SCONAME="IV_PATH" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="STRING"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="GET_FILE_FROM_MIME" SCONAME="EV_XSTRING" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="0" TYPTYPE="1" TYPE="XSTRING"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="GET_FILE_FROM_MIME" SCONAME="EV_MIME_TYPE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="1" PARPASSTYP="0" TYPTYPE="1" TYPE="STRING"/>
+   <source>method get_file_from_mime.
+    cl_mime_repository_api=&gt;get_api( )-&gt;get(
+            exporting i_url = iv_path
+            importing e_content = ev_xstring
+                      e_mime_type = ev_mime_type
+        exceptions others = 1 ).
+    check sy-subrc eq 0.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="GET_PICTURE_FROM_SE78" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="31 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="GET_PICTURE_FROM_SE78" SCONAME="IV_NAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="STXBITMAPS-TDNAME"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="GET_PICTURE_FROM_SE78" SCONAME="IV_TYPE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="STXBITMAPS-TDBTYPE" PARVALUE="&apos;BCOL&apos;"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="GET_PICTURE_FROM_SE78" SCONAME="IV_ID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="STXBITMAPS-TDID" PARVALUE="&apos;BMAP&apos;"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="GET_PICTURE_FROM_SE78" SCONAME="RV_XSTRING" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="XSTRING"/>
+   <source>method get_picture_from_se78.
+    cl_ssf_xsf_utilities=&gt;get_bds_graphic_as_bmp(
+      exporting
+        p_object       = &apos;GRAPHICS&apos;    &quot; SAPscript Graphics Management: Application object
+        p_name         =  iv_name   &quot; Name
+        p_id           =  iv_id   &quot; SAPscript Graphics Management: ID
+        p_btype        =  iv_type   &quot; SAPscript: Type of graphic
+      receiving
+        p_bmp          =  rv_xstring   &quot; Graphic Data
+      exceptions
+        not_found      = 1
+        internal_error = 2
+        others         = 3
+    ).
+    if sy-subrc &lt;&gt; 0.
+*    message id sy-msgid type sy-msgty number sy-msgno
+*               with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+    endif.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="HIDE_APPLOG" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="33 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method hide_applog.
 
     if main_split_container is not initial.
@@ -1460,6 +1518,7 @@
       ).
       if sy-subrc &lt;&gt; 0.
       endif.
+
       split_container-&gt;set_row_height(
         exporting
           id                =   1 &quot; Row ID
@@ -1469,7 +1528,8 @@
           cntl_system_error = 2
           others            = 3
       ).
-      if sy-subrc &lt;&gt; 0.
+      if sy-subrc eq 0.
+        splitter_row_1_height = 0.
       endif.
     endif.
   endmethod.</source>
@@ -1537,7 +1597,7 @@
 
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="RAISE_TOP_OF_PAGE" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="13 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="RAISE_TOP_OF_PAGE" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="11 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method raise_top_of_page.
 
     if top_of_page_visible_at_start eq abap_true and
@@ -1565,20 +1625,20 @@
       export alv_form_html from abap_false
              to memory id &apos;ALV_FORM_HTML&apos;.
 
-        top_of_page_doc-&gt;display_document(
-          exporting
-            reuse_control      =  &apos;X&apos;
+      top_of_page_doc-&gt;display_document(
+        exporting
+          reuse_control      =  &apos;X&apos;
 *            reuse_registration =     &quot; Event Registration Reused
 *            container          =     &quot; Name of Container (New Container Object Generated)
-             parent             =  top_of_page_container   &quot; Contain Object Already Exists
-          exceptions
-            html_display_error = 1
-            others             = 2
-        ).
-        if sy-subrc &lt;&gt; 0.
+           parent             =  top_of_page_container   &quot; Contain Object Already Exists
+        exceptions
+          html_display_error = 1
+          others             = 2
+      ).
+      if sy-subrc &lt;&gt; 0.
 *         message id sy-msgid type sy-msgty number sy-msgno
 *                    with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-        endif.
+      endif.
 
       show_top_of_page( ).
     endif.
@@ -1675,6 +1735,144 @@
 
     endif.
   endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SEND" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="32 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="IV_SUBJECT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CSEQUENCE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="IV_SENDER" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="AD_SMTPADR" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="IV_SENDER_NAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="AD_SMTPADR" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="IV_FILENAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="CSEQUENCE" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="IT_RECIPIENTS" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="TT_EMAIL"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="IV_BODY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="6 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="STRING" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="IV_IMPORTANCE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="7 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="BCS_DOCIMP" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="IV_SENSITIVITY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="8 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="SO_OBJ_SNS" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="IV_IMMEDIATELY" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="9 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL" PAROPTIONL="X"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="IV_COMMIT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="10 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="ABAP_BOOL" PARVALUE="ABAP_TRUE"/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="CREATE_REQUEST_ERROR" VERSION="1" LANGU="E" MTDTYPE="0" EDITORDER="1 "/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="CREATE_DOCUMENT_ERROR" VERSION="1" LANGU="E" MTDTYPE="0" EDITORDER="2 "/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="ADD_ATTACHMENT_ERROR" VERSION="1" LANGU="E" MTDTYPE="0" EDITORDER="3 "/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="ADD_DOCUMENT_ERROR" VERSION="1" LANGU="E" MTDTYPE="0" EDITORDER="4 "/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="ADD_RECIPIENT_ERROR" VERSION="1" LANGU="E" MTDTYPE="0" EDITORDER="5 "/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="ADD_SENDER_ERROR" VERSION="1" LANGU="E" MTDTYPE="0" EDITORDER="6 "/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="SEND_ERROR" VERSION="1" LANGU="E" MTDTYPE="0" EDITORDER="7 "/>
+   <exception CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="SEND_IMMEDIATELY_ERROR" VERSION="1" LANGU="E" MTDTYPE="0" EDITORDER="8 "/>
+   <source>method send.
+     try.
+        data(request) = cl_bcs=&gt;create_persistent( ).
+      catch cx_send_req_bcs.
+        raise create_request_error.
+    endtry.
+
+    try.
+          data(document) = cl_document_bcs=&gt;create_document(
+                                                              i_type = &apos;HTM&apos;
+                                                              i_text = cl_document_bcs=&gt;string_to_soli( iv_body )
+                                                              i_subject = conv #( iv_subject )
+                                                              i_importance = iv_importance
+                                                              i_sensitivity = iv_sensitivity
+                                                             ).
+
+
+      catch cx_document_bcs.
+        raise create_document_error.
+    endtry.
+
+    export_to_excel(
+      exporting
+        it_fieldcat = me-&gt;fcat
+        it_sort     = me-&gt;sort
+        it_filt     = me-&gt;filter
+*        is_layout   = me-&gt;m*va
+      receiving
+        rv_xstring  = data(excel)
+    ).
+
+     try.
+            document-&gt;add_attachment(
+                i_attachment_type    = &apos;EXT&apos;
+                i_att_content_hex    = cl_document_bcs=&gt;xstring_to_solix( excel )
+                i_attachment_size    = conv #( xstrlen( excel ) )
+                i_attachment_subject = cond #( when iv_filename is not initial then iv_filename
+                                               else conv #( |{ sy-repid }_{ sy-datum }_{ sy-uzeit }.xlsx | )
+                                                            )
+
+                                               ).
+          catch cx_document_bcs .
+            raise add_attachment_error.
+        endtry.
+
+
+    try.
+
+       request-&gt;set_document( document ).
+      catch cx_send_req_bcs.
+        raise add_document_error.
+    endtry.
+
+    if it_recipients is not initial.
+      loop at it_recipients assigning field-symbol(&lt;addr&gt;).
+        try.
+            data(smtp_addr) = cl_cam_address_bcs=&gt;create_internet_address( &lt;addr&gt;-smtp_addr ).
+        catch cx_address_bcs.
+            raise add_recipient_error.
+        endtry.
+
+        try.
+            request-&gt;add_recipient( i_recipient = smtp_addr
+                                    i_express = &lt;addr&gt;-express
+                                    i_copy = &lt;addr&gt;-copy
+                                    i_blind_copy = &lt;addr&gt;-blind_copy
+            ).
+
+          catch cx_send_req_bcs.
+            raise add_recipient_error.
+        endtry.
+      endloop.
+
+      if iv_sender is not initial.
+        try.
+            data(sender)  = cl_cam_address_bcs=&gt;create_internet_address(  i_address_string  = iv_sender
+                                                                          i_address_name    = iv_sender_name ).
+          catch cx_address_bcs.
+            raise add_sender_error.
+        endtry.
+
+        try.
+            request-&gt;set_sender( i_sender = sender  ).
+          catch cx_send_req_bcs.
+            raise add_sender_error.
+        endtry.
+      endif.
+
+      try.
+          request-&gt;set_message_subject( ip_subject = iv_subject ).
+        catch cx_root.
+      endtry.
+
+
+      if iv_immediately eq abap_true.
+        try .
+*     set send immediately
+            request-&gt;set_send_immediately( abap_true ).
+          catch cx_send_req_bcs.
+            raise send_immediately_error.
+        endtry.
+
+      endif.
+      try.
+          data(result) = request-&gt;send(  ).
+          if iv_commit eq abap_true.
+            commit work.
+          endif.
+        catch cx_send_req_bcs.
+          raise send_error.
+      endtry.
+    else.
+      raise add_recipient_error.
+    endif.
+
+
+
+  ENDMETHOD.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_BUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="19 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_BUTTON" SCONAME="IV_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="FIELDNAME"/>
@@ -1841,6 +2039,11 @@
     super-&gt;set_frontend_layout( is_layout ).
   endmethod.</source>
   </method>
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_LIST_VIEW" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="28 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <source>method set_list_view.
+    m_batch_mode = abap_true.
+  endmethod.</source>
+  </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="SET_MARK_FIELD" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_MARK_FIELD" SCONAME="IV_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_FCAT-FIELDNAME"/>
    <source>method set_mark_field.
@@ -1851,7 +2054,7 @@
     endif.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="SET_OUTPUT_TABLE" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="10 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="SET_OUTPUT_TABLE" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="9 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_OUTPUT_TABLE" SCONAME="CT_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="2" PARPASSTYP="1" TYPTYPE="1" TYPE="STANDARD TABLE"/>
    <source>method set_output_table.
     get reference of ct_table into outtab.
@@ -1888,7 +2091,7 @@
     endif.
   endmethod.</source>
   </method>
-  <method CLSNAME="ZCL_FALV" CMPNAME="SHOW_APPLOG" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="12 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+  <method CLSNAME="ZCL_FALV" CMPNAME="SHOW_APPLOG" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="34 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <source>method show_applog.
 
 
@@ -2001,7 +2204,7 @@
           cntl_system_error = 2
           others            = 3
       ).
-      if sy-subrc eq 0 and splitter_row_2_height eq 0.
+      if sy-subrc eq 0 and splitter_row_1_height eq 0.
         split_container-&gt;set_row_height(
           exporting
             id                =   1 &quot; Row ID
@@ -4718,7 +4921,7 @@ start-of-selection.
   &quot;Set Gui status to fully dynamic (no standard buttons of ALV Grid)
   falv-&gt;gui_status-&gt;fully_dynamic = abap_true.
 
-  &quot;Add button into GUI status at for function F01 (in partial dynamic GUI Status we can have up to 19 buttons)
+  &quot;Add button into GUI status at for function F01 (in full dynamic GUI Status we can have up to 35 buttons)
   falv-&gt;gui_status-&gt;add_button(
     exporting
       iv_button              = zcl_falv_dynamic_status=&gt;b_01
