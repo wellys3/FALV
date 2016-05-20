@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nugget name="ZFALV_V740.1.0.6">
+<nugget name="ZFALV_V740.1.0.7">
  <CLAS CLSNAME="ZCL_FALV" VERSION="1" LANGU="E" DESCRIPT="Fast ALV" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_GUI_ALV_GRID">
   <types CLSNAME="ZCL_FALV" CMPNAME="T_COLUMN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " TYPTYPE="3" TYPE="ZCL_FALV_COLUMN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="13 " SRCCOLUMN1="4 " SRCROW2="18 " SRCCOLUMN2="29 " TYPESRC_LENG="186 " TYPESRC="begin of t_subcl_call,
-             progname type progname,
-             line     type i,
-             column   type i,
-             class    type string,
-           end of t_subcl_call
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="13 " SRCCOLUMN1="6 " SRCROW2="18 " SRCCOLUMN2="24 " TYPESRC_LENG="167 " TYPESRC="begin of t_subcl_call,
+        progname type progname,
+        line     type i,
+        column   type i,
+        class    type string,
+      end of t_subcl_call
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="TT_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="20 " SRCCOLUMN1="4 " SRCROW2="20 " SRCCOLUMN2="87 " TYPESRC_LENG="85 " TYPESRC="tt_subcl_call type sorted table of t_subcl_call with unique key progname line column
+  <types CLSNAME="ZCL_FALV" CMPNAME="TT_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="20 " SRCCOLUMN1="6 " SRCROW2="20 " SRCCOLUMN2="89 " TYPESRC_LENG="86 " TYPESRC="tt_subcl_call type sorted table of t_subcl_call with unique key progname line column
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="T_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="22 " SRCCOLUMN1="4 " SRCROW2="27 " SRCCOLUMN2="24 " TYPESRC_LENG="208 " TYPESRC="begin of t_email,
-             smtp_addr  type ad_smtpadr,
-             express    type os_boolean,
-             copy       type os_boolean,
-             blind_copy type os_boolean,
-           end of t_email
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="22 " SRCCOLUMN1="6 " SRCROW2="27 " SRCCOLUMN2="19 " TYPESRC_LENG="189 " TYPESRC="begin of t_email,
+        smtp_addr  type ad_smtpadr,
+        express    type os_boolean,
+        copy       type os_boolean,
+        blind_copy type os_boolean,
+      end of t_email
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="TT_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="29 " SRCCOLUMN1="4 " SRCROW2="29 " SRCCOLUMN2="33 " TYPESRC_LENG="31 " TYPESRC="tt_email type table of t_email
+  <types CLSNAME="ZCL_FALV" CMPNAME="TT_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="29 " SRCCOLUMN1="6 " SRCROW2="29 " SRCCOLUMN2="35 " TYPESRC_LENG="32 " TYPESRC="tt_email type table of t_email
 "/>
   <friends CLSNAME="ZCL_FALV" REFCLSNAME="ZCL_FALV_LAYOUT" FRIENDTYPE="0" VERSION="1" STATE="1"/>
   <implementing CLSNAME="ZCL_FALV" REFCLSNAME="IF_OS_CLONE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
@@ -34,8 +34,8 @@
 *&quot;* in the implementation part of the class</localMacros>
   <typeUsage CLSNAME="ZCL_FALV" TYPEGROUP="ABAP" VERSION="1" TPUTYPE="0" IMPLICIT="X"/>
   <forwardDeclaration>ABAP</forwardDeclaration>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="APPLICATION_LOG_EMBEDDED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUILT_IN_SCREEN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="APPLICATION_LOG_EMBEDDED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUILT_IN_SCREEN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_CHECKBOX" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="27 " ATTDECLTYP="2" ATTVALUE="&apos;5&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="24 " ATTDECLTYP="2" ATTVALUE="&apos;2&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU_DEFAULT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="23 " ATTDECLTYP="2" ATTVALUE="&apos;1&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
@@ -44,7 +44,7 @@
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_RADIOBUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="26 " ATTDECLTYP="2" ATTVALUE="&apos;4&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_SEPARATOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="25 " ATTDECLTYP="2" ATTVALUE="&apos;3&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="CC_NAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;CC_GRID&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR30" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="COLUMNS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="9 " SRCCOLUMN1="4 " SRCROW2="9 " SRCCOLUMN2="67 " TYPESRC_LENG="65 " TYPESRC="columns type sorted table of t_column with unique key table_line
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="COLUMNS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="6 " SRCROW2="10 " SRCCOLUMN2="69 " TYPESRC_LENG="66 " TYPESRC="columns type sorted table of t_column with unique key table_line
 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_FSCR_REPID" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="&apos;SAPLZFALV&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-REPID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_SCREEN_FULL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTVALUE="&apos;0100&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
@@ -82,7 +82,7 @@
   <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLITTER_ROW_2_HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLITTER_ROW_3_HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLIT_CONTAINER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="30 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_SPLITTER_CONTAINER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="SUBCLASS_TYPE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_ABAP_TYPEDESCR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SUBCLASS_TYPE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="8 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_ABAP_TYPEDESCR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V1" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="44 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V2" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="45 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V3" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="46 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
@@ -95,6 +95,7 @@
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TOP_OF_PAGE_DOC" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_DD_DOCUMENT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TOP_OF_PAGE_HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="51 " ATTDECLTYP="0" ATTVALUE="150" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TOP_OF_PAGE_VISIBLE_AT_START" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="UTILITY" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_FALV_UTIL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="VARIANT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="33 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="DISVARIANT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <inheritance CLSNAME="ZCL_FALV" REFCLSNAME="CL_GUI_ALV_GRID" VERSION="1" STATE="1">
    <redefinition CLSNAME="ZCL_FALV" REFCLSNAME="CL_GUI_ALV_GRID" VERSION="1" MTDNAME="SET_FRONTEND_FIELDCATALOG" EXPOSURE="2"/>
@@ -593,6 +594,7 @@
     rv_falv-&gt;layout_save = &apos;A&apos;.
     rv_falv-&gt;variant-report = sy-cprog.
     rv_falv-&gt;variant-username = sy-uname.
+    rv_falv-&gt;utility = new zcl_falv_util( cast #( rv_falv ) ).
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="CREATE_BY_COPY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
@@ -844,6 +846,7 @@
     rv_falv-&gt;toolbar_deleted = me-&gt;toolbar_deleted.
     rv_falv-&gt;toolbar_disabled = me-&gt;toolbar_disabled.
     rv_falv-&gt;m_batch_mode = me-&gt;m_batch_mode.
+    rv_falv-&gt;utility = new zcl_falv_util( cast #( rv_falv ) ).
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="DELETE_BUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="16 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
@@ -1340,98 +1343,54 @@
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="24 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" SCONAME="IT_FIELDCAT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_T_FCAT" PAROPTIONL="X"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" SCONAME="IT_SORT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="2 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_T_SORT" PAROPTIONL="X"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" SCONAME="IT_FILT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="3 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_T_FILT" PAROPTIONL="X"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" SCONAME="IS_LAYOUT" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="4 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="LVC_S_LAYO" PAROPTIONL="X"/>
-   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" SCONAME="RV_XSTRING" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="5 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="XSTRING"/>
+   <parameter CLSNAME="ZCL_FALV" CMPNAME="EXPORT_TO_EXCEL" SCONAME="RV_XSTRING" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="1" TYPE="XSTRING"/>
    <source>method export_to_excel.
 
 
-  data: version type string.
-  data: result_data type ref to cl_salv_ex_result_data_table.
-  data: columns type ref to cl_salv_columns_table.
-  data: aggreg type ref to cl_salv_aggregations.
-  data: salv_intf_descr type ref to cl_abap_objectdescr.
-  data: salv_table type ref to cl_salv_table.
-  data: file_type type salv_bs_constant.
-  field-symbols &lt;tab&gt; type any table.
-
-  if it_fieldcat is initial.
-
-    it_fieldcat = me-&gt;fcat.
-
-  endif.
-
-  if it_sort is initial.
-
-    me-&gt;get_sort_criteria(
-      importing
-        et_sort =     it_sort
-    ).
-
-  endif.
-
-  if it_filt is initial.
-
-    me-&gt;get_filter_criteria(
-      importing
-        et_filter =     it_filt
-    ).
-
-  endif.
-
-  if is_layout is initial.
-
-    me-&gt;get_frontend_layout(
-      importing
-        es_layout =  is_layout
-    ).
-
-  endif.
+    data: version type string.
+    data: result_data type ref to cl_salv_ex_result_data_table.
+    data: columns type ref to cl_salv_columns_table.
+    data: aggreg type ref to cl_salv_aggregations.
+    data: salv_intf_descr type ref to cl_abap_objectdescr.
+    data: salv_table type ref to cl_salv_table.
+    data: file_type type salv_bs_constant.
+    field-symbols &lt;tab&gt; type any table.
 
 
+    if cl_salv_bs_a_xml_base=&gt;get_version( ) eq if_salv_bs_xml=&gt;version_25 or
+       cl_salv_bs_a_xml_base=&gt;get_version( ) eq if_salv_bs_xml=&gt;version_26.
 
-  if cl_salv_bs_a_xml_base=&gt;get_version( ) eq if_salv_bs_xml=&gt;version_25 or
-     cl_salv_bs_a_xml_base=&gt;get_version( ) eq if_salv_bs_xml=&gt;version_26.
+      result_data = utility-&gt;get_table( ).
 
-    result_data = cl_salv_ex_util=&gt;factory_result_data_table(
-        r_data                      = me-&gt;outtab
-        s_layout                    = is_layout
-        t_fieldcatalog              = it_fieldcat
-        t_sort                      = it_sort
-        t_filter                    = it_filt
-    ).
+      case cl_salv_bs_a_xml_base=&gt;get_version( ).
+        when if_salv_bs_xml=&gt;version_25.
+          version = if_salv_bs_xml=&gt;version_25.
+        when if_salv_bs_xml=&gt;version_26.
+          version = if_salv_bs_xml=&gt;version_26.
+      endcase.
 
-    case cl_salv_bs_a_xml_base=&gt;get_version( ).
-      when if_salv_bs_xml=&gt;version_25.
-        version = if_salv_bs_xml=&gt;version_25.
-      when if_salv_bs_xml=&gt;version_26.
-        version = if_salv_bs_xml=&gt;version_26.
-    endcase.
+      &quot;if XLSX is possible then we create it,  if not then MHTML excel file
+      salv_intf_descr ?= cl_abap_intfdescr=&gt;describe_by_name( exporting p_name = &apos;IF_SALV_BS_XML&apos; ).
+      if salv_intf_descr is not initial and line_exists( salv_intf_descr-&gt;attributes[ name = &apos;C_TYPE_XLSX&apos;  ] ).
+        file_type = 10.
+      else.
+        file_type = 02.
+      endif.
 
-    &quot;if XLSX is possible then we create it,  if not then MHTML excel file
-    salv_intf_descr ?= cl_abap_intfdescr=&gt;describe_by_name( exporting p_name = &apos;IF_SALV_BS_XML&apos; ).
-    if salv_intf_descr is not initial and line_exists( salv_intf_descr-&gt;attributes[ name = &apos;C_TYPE_XLSX&apos;  ] ).
-      file_type = 10.
-    else.
-      file_type = 02.
+      &quot;transformation of data to excel
+      call method cl_salv_bs_tt_util=&gt;if_salv_bs_tt_util~transform
+        exporting
+          xml_type      = file_type
+          xml_version   = version
+          r_result_data = result_data
+          xml_flavour   = if_salv_bs_c_tt=&gt;c_tt_xml_flavour_export
+          gui_type      = if_salv_bs_xml=&gt;c_gui_type_gui
+        importing
+          xml           = rv_xstring.
     endif.
 
-    &quot;transformation of data to excel
-    call method cl_salv_bs_tt_util=&gt;if_salv_bs_tt_util~transform
-      exporting
-        xml_type      = file_type
-        xml_version   = version
-        r_result_data = result_data
-        xml_flavour   = if_salv_bs_c_tt=&gt;c_tt_xml_flavour_export
-        gui_type      = if_salv_bs_xml=&gt;c_gui_type_gui
-      importing
-        xml           = rv_xstring.
-  endif.
 
-
-endmethod.</source>
+  endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="GET_FILE_FROM_MIME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="30 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="GET_FILE_FROM_MIME" SCONAME="IV_PATH" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="STRING"/>
@@ -1756,20 +1715,20 @@ endmethod.</source>
    <exception CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="SEND_ERROR" VERSION="1" LANGU="E" MTDTYPE="0" EDITORDER="7 "/>
    <exception CLSNAME="ZCL_FALV" CMPNAME="SEND" SCONAME="SEND_IMMEDIATELY_ERROR" VERSION="1" LANGU="E" MTDTYPE="0" EDITORDER="8 "/>
    <source>method send.
-     try.
+    try.
         data(request) = cl_bcs=&gt;create_persistent( ).
       catch cx_send_req_bcs.
         raise create_request_error.
     endtry.
 
     try.
-          data(document) = cl_document_bcs=&gt;create_document(
-                                                              i_type = &apos;HTM&apos;
-                                                              i_text = cl_document_bcs=&gt;string_to_soli( iv_body )
-                                                              i_subject = conv #( iv_subject )
-                                                              i_importance = iv_importance
-                                                              i_sensitivity = iv_sensitivity
-                                                             ).
+        data(document) = cl_document_bcs=&gt;create_document(
+                                                            i_type = &apos;HTM&apos;
+                                                            i_text = cl_document_bcs=&gt;string_to_soli( iv_body )
+                                                            i_subject = conv #( iv_subject )
+                                                            i_importance = iv_importance
+                                                            i_sensitivity = iv_sensitivity
+                                                           ).
 
 
       catch cx_document_bcs.
@@ -1778,24 +1737,24 @@ endmethod.</source>
 
     data(excel) = export_to_excel( ).
 
-     try.
-            document-&gt;add_attachment(
-                i_attachment_type    = &apos;EXT&apos;
-                i_att_content_hex    = cl_document_bcs=&gt;xstring_to_solix( excel )
-                i_attachment_size    = conv #( xstrlen( excel ) )
-                i_attachment_subject = cond #( when iv_filename is not initial then iv_filename
-                                               else conv #( |{ sy-datum }_{ sy-uzeit }.xlsx | )
-                                                            )
+    try.
+        document-&gt;add_attachment(
+            i_attachment_type    = &apos;EXT&apos;
+            i_att_content_hex    = cl_document_bcs=&gt;xstring_to_solix( excel )
+            i_attachment_size    = conv #( xstrlen( excel ) )
+            i_attachment_subject = cond #( when iv_filename is not initial then iv_filename
+                                           else conv #( |{ sy-datum }_{ sy-uzeit }.xlsx | )
+                                                        )
 
-                                               ).
-          catch cx_document_bcs .
-            raise add_attachment_error.
-        endtry.
+                                           ).
+      catch cx_document_bcs .
+        raise add_attachment_error.
+    endtry.
 
 
     try.
 
-       request-&gt;set_document( document ).
+        request-&gt;set_document( document ).
       catch cx_send_req_bcs.
         raise add_document_error.
     endtry.
@@ -1804,7 +1763,7 @@ endmethod.</source>
       loop at it_recipients assigning field-symbol(&lt;addr&gt;).
         try.
             data(smtp_addr) = cl_cam_address_bcs=&gt;create_internet_address( &lt;addr&gt;-smtp_addr ).
-        catch cx_address_bcs.
+          catch cx_address_bcs.
             raise add_recipient_error.
         endtry.
 
@@ -1864,7 +1823,7 @@ endmethod.</source>
 
 
 
-  ENDMETHOD.</source>
+  endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_BUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="19 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
    <parameter CLSNAME="ZCL_FALV" CMPNAME="SET_CELL_BUTTON" SCONAME="IV_FIELDNAME" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="0" TYPTYPE="1" TYPE="FIELDNAME"/>
@@ -3412,6 +3371,41 @@ endmethod.</source>
   endmethod.</source>
   </method>
  </CLAS>
+ <CLAS CLSNAME="ZCL_FALV_UTIL" VERSION="1" LANGU="E" DESCRIPT="FALV Utility" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 ">
+  <implementing CLSNAME="ZCL_FALV_UTIL" REFCLSNAME="IF_SALV_GRM_DS_GRID_FACADE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
+  <implementing CLSNAME="ZCL_FALV_UTIL" REFCLSNAME="IF_ALV_RM_GRID_FRIEND" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="2 "/>
+  <localImplementation>*&quot;* use this source file for the definition and implementation of
+*&quot;* local helper classes, interface definitions and type
+*&quot;* declarations</localImplementation>
+  <localTypes>*&quot;* use this source file for any type of declarations (class
+*&quot;* definitions, interfaces or type declarations) you need for
+*&quot;* components in the private section</localTypes>
+  <localMacros>*&quot;* use this source file for any macro definitions you need
+*&quot;* in the implementation part of the class</localMacros>
+  <localTestClasses>*&quot;* use this source file for your ABAP unit test classes</localTestClasses>
+  <attribute CLSNAME="ZCL_FALV_UTIL" CMPNAME="GRID" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_ALV_GRID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV_UTIL" CMPNAME="SALV_RESULT_DATA" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_SALV_EX_RESULT_DATA_TABLE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <interfaceMethod CLSNAME="ZCL_FALV_UTIL" CPDNAME="IF_SALV_GRM_DS_GRID_FACADE~GET_T_HYPERLINK">
+   <source>method if_salv_grm_ds_grid_facade~get_t_hyperlink.
+    salv_result_data =  me-&gt;grid-&gt;create_ex_result( ).
+  endmethod.</source>
+  </interfaceMethod>
+  <method CLSNAME="ZCL_FALV_UTIL" CMPNAME="CONSTRUCTOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " DISPID="0 " MTDTYPE="2" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_UTIL" CMPNAME="CONSTRUCTOR" SCONAME="IO_GRID" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="2" EDITORDER="1 " DISPID="0 " PARDECLTYP="0" PARPASSTYP="1" TYPTYPE="3" TYPE="CL_GUI_ALV_GRID"/>
+   <source>method constructor.
+    grid = io_grid.
+  endmethod.</source>
+  </method>
+  <method CLSNAME="ZCL_FALV_UTIL" CMPNAME="GET_TABLE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
+   <parameter CLSNAME="ZCL_FALV_UTIL" CMPNAME="GET_TABLE" SCONAME="RO_TABLE" VERSION="1" LANGU="E" CMPTYPE="1" MTDTYPE="0" EDITORDER="1 " DISPID="0 " PARDECLTYP="3" PARPASSTYP="0" TYPTYPE="3" TYPE="CL_SALV_EX_RESULT_DATA_TABLE"/>
+   <source>method get_table.
+    &quot;Just to fool compiler I needed to use if_salv_grm_ds_grid_facade and if_alv_rm_grid_friend
+    &quot;use at your own risk :-)
+    me-&gt;if_salv_grm_ds_grid_facade~get_t_hyperlink( ).
+    ro_table = salv_result_data.
+  endmethod.</source>
+  </method>
+ </CLAS>
  <FUGR AREA="ZFALV" SPRAS="E" AREAT="Fast ALV Grid">
   <functionGroupDocumentation/>
   <mainprogram NAME="SAPLZFALV" VARCL="X" DBAPL="S" DBNA="D$" SUBC="F" APPL="S" RMAND="001" RLOAD="E" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
@@ -4638,18 +4632,31 @@ at selection-screen output.
    </functionmodule>
   </functionmodules>
  </FUGR>
- <PROG NAME="ZDEMO_FALV01" VARCL="X" SUBC="1" APPL="*" RSTAT="K" RMAND="001" RLOAD="E" FIXPT="X" UCCHECK="X">
+ <PROG NAME="ZDEMO_FALV14" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
   <textPool>
    <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Simple Full Screen Call" LENGTH="34 "/>
+    <textElement ID="R" ENTRY="FALV: Demo Popup" LENGTH="16 "/>
+    <textElement ID="S" KEY="P_COLEND" ENTRY="        End column" LENGTH="18 "/>
+    <textElement ID="S" KEY="P_COLST" ENTRY="        Start column" LENGTH="20 "/>
+    <textElement ID="S" KEY="P_DEFAU" ENTRY="        Default size" LENGTH="20 "/>
+    <textElement ID="S" KEY="P_ROWEND" ENTRY="        End row" LENGTH="15 "/>
+    <textElement ID="S" KEY="P_ROWST" ENTRY="        Start row" LENGTH="17 "/>
+    <textElement ID="S" KEY="P_SET" ENTRY="        Customized size" LENGTH="23 "/>
    </language>
   </textPool>
-  <source>&quot;! This is demo for FALV standard fast call
+  <source>&quot;! This is demo for FALV standard fast call of pppup
 &quot;! done by Lukasz Pegiel for http://abapblog.com
-report zdemo_falv01.
+report zdemo_falv14.
 
 data: sflight type standard table of sflight.
 
+
+parameters: p_defau  radiobutton group gr1 default &apos;X&apos;,
+            p_set    radiobutton group gr1,
+            p_rowst  type i,
+            p_rowend type i,
+            p_colst  type i,
+            p_colend type i.
 
 start-of-selection.
 
@@ -4659,834 +4666,23 @@ start-of-selection.
   from sflight.
 
   &quot;FALV creation with only table passed
-  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
+  data(falv) = zcl_falv=&gt;create( exporting i_popup = abap_true changing ct_table = sflight ).
 
   &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV01&apos;.
-
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
- </PROG>
- <PROG NAME="ZDEMO_FALV02" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Redefinitions" LENGTH="24 "/>
-   </language>
-  </textPool>
-  <source>&quot;! This is demo for FALV with redefinition of hotspot event handler
-&quot;! done by Lukasz Pegiel for http://abapblog.com
-report zdemo_falv02.
-
-data: sflight type standard table of sflight.
-
-
-class lcl_test definition inheriting from zcl_falv.
-  public section.
-
-  protected section.
-    &quot;redefinition of event handler
-    methods evf_hotspot_click redefinition.
-    methods evf_top_of_page redefinition.
-  private section.
-
-endclass.
-
-class lcl_test implementation.
-
-  method evf_hotspot_click.
-    case e_column_id-fieldname.
-      when &apos;SEATSMAX&apos;.
-        call function &apos;POPUP_DISPLAY_MESSAGE&apos;
-          exporting
-            titel = &apos;Hotspot is working&apos;   &quot; Title
-            msgid = &apos;00&apos;
-            msgty = &apos;I&apos;
-            msgno = &apos;001&apos;
-            msgv1 = &apos;Yupi!&apos;.
-    endcase.
-  endmethod.
-
-  method evf_top_of_page.
-
-    e_dyndoc_id-&gt;add_text( text = &apos;Top Of Page&apos; sap_style = cl_dd_area=&gt;heading ).
-
-    e_dyndoc_id-&gt;new_line( repeat = 1 ).
-
-    e_dyndoc_id-&gt;add_link(
-      exporting
-        name                   =  &apos;ABAPBLOG.com&apos;   &quot; Name (You Can Use Any Name You Choose)
-        url                    =   &apos;http://abapblog.com&apos;  &quot; URL
-        tooltip                =  &apos;ABAPBLOG.com&apos;   &quot; Tool Tip
-        text                   =  &apos;ABAPBLOG.com&apos;    &quot; Text
-    ).
-
-
-  endmethod.
-
-endclass.
-
-start-of-selection.
-
-  select * up to 100 rows
-  into corresponding fields of table @sflight
-  from sflight.
-
-  &quot;creation of falv with local redefinition
-  data falv type ref to lcl_test.
-  data(subcl) = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; ).
-
-  falv ?=  lcl_test=&gt;create( exporting i_subclass = subcl changing ct_table = sflight ).
-
-
-  &quot;Add hotspot to column &apos;SEATSMAX&apos;
-  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_hotspot( abap_true ).
-  &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV02&apos;.
-
-  falv-&gt;top_of_page_height = 100. &quot;absolute size
-  &quot;To enable top_of_page
-  falv-&gt;show_top_of_page( ).
-
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
- </PROG>
- <PROG NAME="ZDEMO_FALV03" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Full Screen GUI Status Dynamic Partly" LENGTH="48 "/>
-   </language>
-  </textPool>
-  <source>&quot;! This is demo for FALV full screen with partly dynamic GUI STATUS
-&quot;! done by Lukasz Pegiel for http://abapblog.com
-report zdemo_falv03.
-
-data: sflight type standard table of sflight.
-
-class lcl_test definition inheriting from zcl_falv.
-  public section.
-
-  protected section.
-    &quot;redefinition of event handler
-    methods evf_user_command redefinition.
-  private section.
-
-endclass.
-
-class lcl_test implementation.
-
-  method evf_user_command.
-    case e_ucomm.
-      when zcl_falv_dynamic_status=&gt;b_01.
-        call function &apos;POPUP_DISPLAY_MESSAGE&apos;
-          exporting
-            titel = &apos;Popup&apos;   &quot; Title
-            msgid = &apos;00&apos;
-            msgty = &apos;S&apos;
-            msgno = &apos;001&apos;
-            msgv1 = &apos;Button 1 clicked&apos;.
-      when zcl_falv_dynamic_status=&gt;b_02.
-        call function &apos;POPUP_DISPLAY_MESSAGE&apos;
-          exporting
-            titel = &apos;Popup&apos;   &quot; Title
-            msgid = &apos;00&apos;
-            msgty = &apos;S&apos;
-            msgno = &apos;001&apos;
-            msgv1 = &apos;Button 2 clicked&apos;.
-    endcase.
-  endmethod.
-endclass.
-
-start-of-selection.
-
-
-  select * up to 100 rows
-  into corresponding fields of table @sflight
-  from sflight.
-
-  &quot;creation of falv with local redefinition
-  data falv type ref to lcl_test.
-  falv ?= lcl_test=&gt;create( exporting  i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
-                              changing ct_table = sflight    ) .
-
-  &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV03&apos;.
-
-  &quot;Add button into GUI status at for function F01 (in partial dynamic GUI Status we can have up to 19 buttons)
-  falv-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = zcl_falv_dynamic_status=&gt;b_01
-      iv_text                = &apos;POPUP 01&apos;
-      iv_icon                = icon_abc
-*      iv_qinfo               =
-*      iv_allowed             = ABAP_TRUE
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
-  if sy-subrc &lt;&gt; 0.
-  endif.
-
-  &quot;Add button into GUI status at for function F02
-  falv-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = zcl_falv_dynamic_status=&gt;b_02
-      iv_text                = &apos;POPUP 02&apos;
-      iv_icon                = icon_address
-*      iv_qinfo               =
-*      iv_allowed             = ABAP_TRUE
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
-  if sy-subrc &lt;&gt; 0.
-  endif.
-
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
- </PROG>
- <PROG NAME="ZDEMO_FALV04" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Full Screen GUI Status Dynamic Fully" LENGTH="47 "/>
-   </language>
-  </textPool>
-  <source>&quot;! This is demo for FALV full screen with fully dynamic GUI STATUS
-&quot;! done by Lukasz Pegiel for http://abapblog.com
-report zdemo_falv04.
-
-data: sflight type standard table of sflight.
-
-class lcl_test definition inheriting from zcl_falv.
-  public section.
-
-  protected section.
-    &quot;redefinition of event handler
-    methods evf_user_command redefinition.
-  private section.
-
-endclass.
-
-class lcl_test implementation.
-
-  method evf_user_command.
-    case e_ucomm.
-      when zcl_falv_dynamic_status=&gt;b_01.
-        call function &apos;POPUP_DISPLAY_MESSAGE&apos;
-          exporting
-            titel = &apos;Popup&apos;   &quot; Title
-            msgid = &apos;00&apos;
-            msgty = &apos;S&apos;
-            msgno = &apos;001&apos;
-            msgv1 = &apos;Button 1 clicked&apos;.
-      when zcl_falv_dynamic_status=&gt;b_02.
-        call function &apos;POPUP_DISPLAY_MESSAGE&apos;
-          exporting
-            titel = &apos;Popup&apos;   &quot; Title
-            msgid = &apos;00&apos;
-            msgty = &apos;S&apos;
-            msgno = &apos;001&apos;
-            msgv1 = &apos;Button 2 clicked&apos;.
-    endcase.
-  endmethod.
-
-endclass.
-
-start-of-selection.
-
-
-  select * up to 100 rows
-  into corresponding fields of table @sflight
-  from sflight.
-
-  &quot;creation of falv with local redefinition
-  data falv type ref to lcl_test.
-  falv ?= lcl_test=&gt;create( exporting  i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
-                              changing ct_table = sflight    ) .
-
-  &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV04&apos;.
-
-  &quot;Set Gui status to fully dynamic (no standard buttons of ALV Grid)
-  falv-&gt;gui_status-&gt;fully_dynamic = abap_true.
-
-  &quot;Add button into GUI status at for function F01 (in full dynamic GUI Status we can have up to 35 buttons)
-  falv-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = zcl_falv_dynamic_status=&gt;b_01
-      iv_text                = &apos;POPUP 01&apos;
-      iv_icon                = icon_abc
-*      iv_qinfo               =
-*      iv_allowed             = ABAP_TRUE
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
-  if sy-subrc &lt;&gt; 0.
-*   message id sy-msgid type sy-msgty number sy-msgno
-*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-  endif.
-  &quot;Add button into GUI status at for function F02
-  falv-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = zcl_falv_dynamic_status=&gt;b_02
-      iv_text                = &apos;POPUP 02&apos;
-      iv_icon                = icon_address
-*      iv_qinfo               =
-*      iv_allowed             = ABAP_TRUE
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
-  if sy-subrc &lt;&gt; 0.
-*   message id sy-msgid type sy-msgty number sy-msgno
-*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-  endif.
-
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
- </PROG>
- <PROG NAME="ZDEMO_FALV05" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Full Screen ALV Toolbar" LENGTH="34 "/>
-   </language>
-  </textPool>
-  <source>&quot;! This is demo for FALV grid button adding, deleting, enabling, disabling
-&quot;! done by Lukasz Pegiel for http://abapblog.com
-report zdemo_falv05.
-
-
-data: sflight type standard table of sflight.
-
-
-class lcl_test definition inheriting from zcl_falv.
-  public section.
-
-  protected section.
-    &quot;redefinition of event handler
-    methods evf_user_command redefinition.
-  private section.
-
-endclass.
-
-class lcl_test implementation.
-
-  method evf_user_command.
-    case e_ucomm.
-      when zcl_falv_dynamic_status=&gt;b_01.
-        me-&gt;enable_button( me-&gt;mc_fc_print_back ).
-      when zcl_falv_dynamic_status=&gt;b_02.
-        me-&gt;disable_button( me-&gt;mc_fc_print_back ).
-        me-&gt;add_button(
-          exporting
-            iv_function  = zcl_falv_dynamic_status=&gt;b_03
-             iv_icon      = icon_alarm
-        ).
-      when zcl_falv_dynamic_status=&gt;b_03.
-        me-&gt;delete_button( zcl_falv_dynamic_status=&gt;b_03 ).
-    endcase.
-  endmethod.
-
-endclass.
-
-start-of-selection.
-
-
-  select * up to 100 rows
-  into corresponding fields of table @sflight
-  from sflight.
-
-  &quot;creation of falv with local redefinition
-  data falv type ref to lcl_test.
-  falv ?= lcl_test=&gt;create( exporting  i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
-                              changing ct_table = sflight    ) .
-
-  &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV05&apos;.
-
-  &quot;Set Gui status to fully dynamic (no standard buttons of ALV Grid)
-  falv-&gt;gui_status-&gt;fully_dynamic = abap_true.
-
-  &quot;Add button into GUI status at for function F01 (in partial dynamic GUI Status we can have up to 19 buttons)
-  falv-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = zcl_falv_dynamic_status=&gt;b_01
-      iv_text                = &apos;Enable Print&apos;
-      iv_icon                = icon_activate
-*      iv_qinfo               =
-*      iv_allowed             = ABAP_TRUE
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
-  if sy-subrc &lt;&gt; 0.
-  endif.
-  &quot;Add button into GUI status at for function F02
-  falv-&gt;gui_status-&gt;add_button(
-    exporting
-      iv_button              = zcl_falv_dynamic_status=&gt;b_02
-      iv_text                = &apos;Disable Print&apos;
-      iv_icon                = icon_active_inactive
-*      iv_qinfo               =
-*      iv_allowed             = ABAP_TRUE
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
-  if sy-subrc &lt;&gt; 0.
-
-  endif.
-
-
-  &quot;In default when we use full screen FALV, Grid toolbar is switched off, we must turn it on )
-  falv-&gt;layout-&gt;set_no_toolbar( abap_false ).
-
-  &quot;we Add buttons to ALV grid toolbar, I&apos;ll use same function like in GUI status
-  falv-&gt;add_button(
-    exporting
-      iv_function  = zcl_falv_dynamic_status=&gt;b_01
-      iv_icon      = icon_activate
-*      iv_quickinfo =
-*      iv_butn_type =
-*      iv_disabled  =
-       iv_text      = &apos;Enable Print&apos;
-*      iv_checked   =
-  ).
-  &quot;we Add buttons to ALV grid toolbar, I&apos;ll use same function like in GUI status
-  falv-&gt;add_button(
-    exporting
-      iv_function  = zcl_falv_dynamic_status=&gt;b_02
-      iv_icon      = icon_active_inactive
-*      iv_quickinfo =
-*      iv_butn_type =
-*      iv_disabled  =
-       iv_text      = &apos;Disable Print&apos;
-*      iv_checked   =
-  ).
-
-  &quot;remove button &quot;Details&quot; &amp; &quot;Info&quot; from standard Grid functions
-  falv-&gt;delete_button( falv-&gt;mc_fc_detail ).
-  falv-&gt;delete_button( falv-&gt;mc_fc_info ).
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
- </PROG>
- <PROG NAME="ZDEMO_FALV06" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Full Screen Layout" LENGTH="29 "/>
-    <textElement ID="S" KEY="P_USEMAR" ENTRY="        Use Mark Field?" LENGTH="23 "/>
-   </language>
-  </textPool>
-  <source>&quot;! This is demo for FALV full screen with layout changes
-&quot;! done by Lukasz Pegiel for http://abapblog.com
-report zdemo_falv06.
-
-types: begin of t_sflight,
-         mark type bcselect.
-        include type sflight.
-types: end of t_sflight.
-
-data: sflight type standard table of t_sflight.
-
-
-parameter: p_usemar as checkbox.
-
-start-of-selection.
-
-
-  select * up to 100 rows
-  into corresponding fields of table @sflight
-  from sflight.
-
-  &quot;FALV creation with only table passed
-  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
-
-  &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV06&apos;.
-
-  &quot;All layout settings have set method in layout object of FALV
-  &quot;it can be udated before output or during runtime of program
-  falv-&gt;layout-&gt;set_zebra( abap_true  ).
-  falv-&gt;layout-&gt;set_no_merging( abap_true ).
-
-  &quot;additionally there is a attribute mark field which when is set
-  &quot;then fcat for it is changed so it&apos;s checkbox field and
-  &quot;when you&apos;ll use standard select all/deselect all functions then
-  &quot;it will check/uncheck checkbox instead of selecting/deselecting rows
-  if p_usemar eq abap_true.
-    falv-&gt;set_mark_field( &apos;MARK&apos; ).
-  endif.
-
-  &quot;user Layout option save changed to user-specific only
-  falv-&gt;layout_save = &apos;U&apos;.
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
- </PROG>
- <PROG NAME="ZDEMO_FALV07" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Full Screen Columns" LENGTH="30 "/>
-   </language>
-  </textPool>
-  <source>&quot;! This is demo for FALV full screen with fieldcatalog update
-&quot;! done by Lukasz Pegiel for http://abapblog.com
-
-report zdemo_falv07.
-
-data: sflight type standard table of sflight.
-
-
-start-of-selection.
-
-
-  select * up to 100 rows
-  into corresponding fields of table @sflight
-  from sflight.
-
-  &quot;FALV creation with only table passed
-  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
-
-  &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV07&apos;.
-
-
-  &quot;Changing some of field catalog settings
-  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_hotspot( abap_true ).
-  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_color( &apos;C700&apos; ).
-
-  falv-&gt;column( &apos;PLANETYPE&apos; )-&gt;set_color( &apos;C300&apos; ).
-  falv-&gt;column( &apos;PLANETYPE&apos; )-&gt;set_no_merging( abap_true ).
-
-  falv-&gt;column( &apos;PAYMENTSUM&apos; )-&gt;set_no_zero( abap_true ).
-
-  &quot;or
-
-  data(price) = falv-&gt;column( &apos;PRICE&apos; ).
-  price-&gt;set_no_out( abap_true ).
-  data(occup) = falv-&gt;column( &apos;SEATSOCC&apos; ).
-  occup-&gt;set_no_zero( abap_true ).
-  occup-&gt;set_no_merging( abap_true  ).
-
-
-
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
- </PROG>
- <PROG NAME="ZDEMO_FALV08" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Mass Replace Function" LENGTH="32 "/>
-   </language>
-  </textPool>
-  <source>&quot;! This is demo for FALV with mass replace function
-&quot;! done by Lukasz Pegiel for http://abapblog.com
-report zdemo_falv08.
-
-data: sflight type standard table of sflight.
-
-
-start-of-selection.
-
-
-  select * up to 100 rows
-  into corresponding fields of table @sflight
-  from sflight.
-
-  &quot;FALV creation with only table passed
-  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
-
-  &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV08&apos;.
-
-  &quot;set whole grid editable
-  falv-&gt;layout-&gt;set_edit( abap_true ).
-  falv-&gt;set_editable( iv_modify = abap_true ).
-
-  &quot;show default grid toolbar
-  falv-&gt;layout-&gt;set_no_toolbar( abap_false ).
-
-  &quot;Add mass replace function to grid toolbar (can be also added to GUI STATUS as well )
-  falv-&gt;add_button(
-    exporting
-      iv_function  = falv-&gt;fc_mass_replace
-       iv_icon      = icon_replace
-*      iv_quickinfo =
-*      iv_butn_type =
-*      iv_disabled  =
-       iv_text      = &apos;Mass replace&apos;
-*      iv_checked   =
-  ).
-
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
- </PROG>
- <PROG NAME="ZDEMO_FALV09" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Cell Settings" LENGTH="24 "/>
-   </language>
-  </textPool>
-  <source>&quot;! This is demo for FALV with cell settings
-&quot;! done by Lukasz Pegiel for http://abapblog.com
-report zdemo_falv09.
-
-types: begin of t_sflight.
-        include type sflight.
-types:  styles type lvc_t_styl,
-        end of t_sflight.
-
-data: sflight type standard table of t_sflight.
-
-
-class lcl_test definition inheriting from zcl_falv.
-  public section.
-
-  protected section.
-    &quot;redefinition of event handler
-    methods evf_hotspot_click redefinition.
-  private section.
-
-endclass.
-
-class lcl_test implementation.
-
-  method evf_hotspot_click.
-    case e_column_id-fieldname.
-      when &apos;SEATSMAX&apos;.
-        me-&gt;set_cell_disabled(
-          exporting
-            iv_fieldname = e_column_id-fieldname
-            iv_row       = es_row_no-row_id
-        ).
-        me-&gt;set_cell_button(
-          exporting
-            iv_fieldname = &apos;PRICE&apos;
-            iv_row       = es_row_no-row_id
-        ).
-
-        me-&gt;set_cell_hotspot(
-          exporting
-            iv_fieldname = &apos;CARRID&apos;
-            iv_row       = es_row_no-row_id
-        ).
-
-        me-&gt;soft_refresh( ).
-    endcase.
-  endmethod.
-
-endclass.
-
-start-of-selection.
-
-  select * up to 100 rows
-  into corresponding fields of table @sflight
-  from sflight.
-
-  &quot;creation of falv with local redefinition
-  data falv type ref to lcl_test.
-  falv ?= lcl_test=&gt;create( exporting  i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
-                              changing ct_table = sflight    ) .
-
-
-  &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV09&apos;.
-
-  &quot;set whole grid editable
-  falv-&gt;layout-&gt;set_edit( abap_true ).
-  falv-&gt;set_editable( iv_modify = abap_true ).
-
-  &quot;Set style column name
-  falv-&gt;layout-&gt;set_stylefname( &apos;STYLES&apos; ).
-
-  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_hotspot( abap_true  ).
-
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
- </PROG>
- <PROG NAME="ZDEMO_FALV10" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Colors" LENGTH="17 "/>
-   </language>
-  </textPool>
-  <source>&quot;! This is demo for FALV full screen with color settings
-&quot;! done by Lukasz Pegiel for http://abapblog.com
-
-report zdemo_falv10.
-
-types: begin of t_sflight.
-        include type sflight.
-types:  cell_color type lvc_t_scol,
-        row_color  type char4,
-        end of t_sflight.
-
-data: sflight type standard table of t_sflight.
-
-start-of-selection.
-
-
-  select * up to 100 rows
-  into corresponding fields of table @sflight
-  from sflight.
-
-  &quot;FALV creation with only table passed
-  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
-
-  &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV10&apos;.
-
-
-  &quot;Changing some of field catalog settings for column colors
-  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_color( &apos;C700&apos; ).
-
-  &quot;setting of color fields -&gt; this must be done before calling
-  &quot;set_row_colors or set_cell_color
-  falv-&gt;layout-&gt;set_ctab_fname( &apos;CELL_COLOR&apos; ).
-  falv-&gt;layout-&gt;set_info_fname( &apos;ROW_COLOR&apos;  ).
-
-  &quot;change some row colors
-  do 10 times.
-    falv-&gt;set_row_color(
-      exporting
-        iv_color = &apos;C300&apos;
-        iv_row   = 2 * sy-index
-    ).
-  enddo.
-
-  &quot;change some cell colors.
-  do 10 times.
-    falv-&gt;set_cell_color(
-      exporting
-        iv_fieldname = &apos;PLANETYPE&apos;
-        iv_color     = value #( col = 5 int = 0 inv = 0  )
-        iv_row       = 3 * sy-index
-    ).
-
-  enddo.
-
-
-
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
- </PROG>
- <PROG NAME="ZDEMO_FALV11" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Editable" LENGTH="19 "/>
-    <textElement ID="S" KEY="P_CELL" ENTRY="        Set cell editable" LENGTH="25 "/>
-    <textElement ID="S" KEY="P_COLUMN" ENTRY="        Set column editable" LENGTH="27 "/>
-    <textElement ID="S" KEY="P_WHOLE" ENTRY="        Set whole grid editable" LENGTH="31 "/>
-   </language>
-  </textPool>
-  <source>&quot;! This is demo for FALV with edit settings
-&quot;! done by Lukasz Pegiel for http://abapblog.com
-report zdemo_falv11.
-
-types: begin of t_sflight.
-        include type sflight.
-types:  styles type lvc_t_styl,
-        end of t_sflight.
-
-data: sflight type standard table of t_sflight.
-
-
-parameters: p_whole  radiobutton group gr1 default &apos;X&apos;,
-            p_column radiobutton group gr1,
-            p_cell   radiobutton group gr1.
-
-
-start-of-selection.
-
-
-  select * up to 100 rows
-  into corresponding fields of table @sflight
-  from sflight.
-
-  &quot;FALV creation with only table passed
-  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
-
-  &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV11&apos;.
-
-  if p_whole eq abap_true.
-    &quot;set whole grid editable
-    falv-&gt;layout-&gt;set_edit( abap_true ).
-  elseif p_column eq abap_true.
-    falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_edit( abap_true ).
-    falv-&gt;column( &apos;PLANETYPE&apos; )-&gt;set_edit( abap_true ).
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV14&apos;.
+
+  if p_defau eq abap_true.
+    &quot;Display popup with default size
+    falv-&gt;display( ).
   else.
-    &quot;Set style column name
-    falv-&gt;layout-&gt;set_stylefname( &apos;STYLES&apos; ).
-    do 20 times.
-      falv-&gt;set_cell_enabled(
-        exporting
-          iv_fieldname = &apos;FLDATE&apos;
-          iv_row       = 2 * sy-index
-          ).
-    enddo.
-  endif.
-
-  &quot;Change grid to edit mode
-  falv-&gt;set_editable( iv_modify = abap_true ).
-
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
- </PROG>
- <PROG NAME="ZDEMO_FALV12" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <textPool>
-   <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Error Log" LENGTH="20 "/>
-    <textElement ID="S" KEY="P_EMBEED" ENTRY="        Embeeded Error Log" LENGTH="26 "/>
-    <textElement ID="S" KEY="P_NOTEMB" ENTRY="        Popup Error Log" LENGTH="23 "/>
-   </language>
-  </textPool>
-  <source>&quot;! This is demo for FALV with error log
-&quot;! done by Lukasz Pegiel for http://abapblog.com
-report zdemo_falv12.
-
-data: sflight type standard table of sflight.
-
-
-parameters: p_embeed radiobutton group gr1 default &apos;X&apos;,
-            p_notemb radiobutton group gr1.
-
-
-start-of-selection.
-
-
-  select * up to 100 rows
-  into corresponding fields of table @sflight
-  from sflight.
-
-  &quot;FALV creation with only table passed
-
-  if p_embeed eq abap_true.
-   data(falv) = zcl_falv=&gt;create( exporting i_applog_embedded = abap_true  changing ct_table = sflight ).
-  else.
-   falv = zcl_falv=&gt;create( changing ct_table = sflight ).
-  endif.
-  &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV12&apos;.
-
-    &quot;set whole grid editable
-   falv-&gt;layout-&gt;set_edit( abap_true ).
-    &quot;Change grid to edit mode
-  falv-&gt;set_editable( iv_modify = abap_true ).
-
-  &quot;Display full screen grid
-  falv-&gt;display( ).</source>
+    &quot;display popup with customized size
+    falv-&gt;display(
+        iv_start_row    = p_rowst
+        iv_start_column = p_colst
+        iv_end_row      = p_rowend
+        iv_end_column   = p_colend
+    ).
+  endif.</source>
  </PROG>
  <PROG NAME="ZDEMO_FALV13" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
   <textPool>
@@ -5775,31 +4971,24 @@ module pai input.
 
 endmodule.</source>
  </PROG>
- <PROG NAME="ZDEMO_FALV14" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+ <PROG NAME="ZDEMO_FALV12" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
   <textPool>
    <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Popup" LENGTH="16 "/>
-    <textElement ID="S" KEY="P_COLEND" ENTRY="        End column" LENGTH="18 "/>
-    <textElement ID="S" KEY="P_COLST" ENTRY="        Start column" LENGTH="20 "/>
-    <textElement ID="S" KEY="P_DEFAU" ENTRY="        Default size" LENGTH="20 "/>
-    <textElement ID="S" KEY="P_ROWEND" ENTRY="        End row" LENGTH="15 "/>
-    <textElement ID="S" KEY="P_ROWST" ENTRY="        Start row" LENGTH="17 "/>
-    <textElement ID="S" KEY="P_SET" ENTRY="        Customized size" LENGTH="23 "/>
+    <textElement ID="R" ENTRY="FALV: Demo Error Log" LENGTH="20 "/>
+    <textElement ID="S" KEY="P_EMBEED" ENTRY="        Embeeded Error Log" LENGTH="26 "/>
+    <textElement ID="S" KEY="P_NOTEMB" ENTRY="        Popup Error Log" LENGTH="23 "/>
    </language>
   </textPool>
-  <source>&quot;! This is demo for FALV standard fast call of pppup
+  <source>&quot;! This is demo for FALV with error log
 &quot;! done by Lukasz Pegiel for http://abapblog.com
-report zdemo_falv14.
+report zdemo_falv12.
 
 data: sflight type standard table of sflight.
 
 
-parameters: p_defau  radiobutton group gr1 default &apos;X&apos;,
-            p_set    radiobutton group gr1,
-            p_rowst  type i,
-            p_rowend type i,
-            p_colst  type i,
-            p_colend type i.
+parameters: p_embeed radiobutton group gr1 default &apos;X&apos;,
+            p_notemb radiobutton group gr1.
+
 
 start-of-selection.
 
@@ -5809,22 +4998,827 @@ start-of-selection.
   from sflight.
 
   &quot;FALV creation with only table passed
-  data(falv) = zcl_falv=&gt;create( exporting i_popup = abap_true changing ct_table = sflight ).
+
+  if p_embeed eq abap_true.
+   data(falv) = zcl_falv=&gt;create( exporting i_applog_embedded = abap_true  changing ct_table = sflight ).
+  else.
+   falv = zcl_falv=&gt;create( changing ct_table = sflight ).
+  endif.
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV12&apos;.
+
+    &quot;set whole grid editable
+   falv-&gt;layout-&gt;set_edit( abap_true ).
+    &quot;Change grid to edit mode
+  falv-&gt;set_editable( iv_modify = abap_true ).
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+ <PROG NAME="ZDEMO_FALV11" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Editable" LENGTH="19 "/>
+    <textElement ID="S" KEY="P_CELL" ENTRY="        Set cell editable" LENGTH="25 "/>
+    <textElement ID="S" KEY="P_COLUMN" ENTRY="        Set column editable" LENGTH="27 "/>
+    <textElement ID="S" KEY="P_WHOLE" ENTRY="        Set whole grid editable" LENGTH="31 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV with edit settings
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv11.
+
+types: begin of t_sflight.
+        include type sflight.
+types:  styles type lvc_t_styl,
+        end of t_sflight.
+
+data: sflight type standard table of t_sflight.
+
+
+parameters: p_whole  radiobutton group gr1 default &apos;X&apos;,
+            p_column radiobutton group gr1,
+            p_cell   radiobutton group gr1.
+
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;FALV creation with only table passed
+  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
 
   &quot;Add title variable
-  falv-&gt;title_v1 = &apos;ZDEMO_FALV14&apos;.
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV11&apos;.
 
-  if p_defau eq abap_true.
-    &quot;Display popup with default size
-    falv-&gt;display( ).
+  if p_whole eq abap_true.
+    &quot;set whole grid editable
+    falv-&gt;layout-&gt;set_edit( abap_true ).
+  elseif p_column eq abap_true.
+    falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_edit( abap_true ).
+    falv-&gt;column( &apos;PLANETYPE&apos; )-&gt;set_edit( abap_true ).
   else.
-    &quot;display popup with customized size
-    falv-&gt;display(
-        iv_start_row    = p_rowst
-        iv_start_column = p_colst
-        iv_end_row      = p_rowend
-        iv_end_column   = p_colend
+    &quot;Set style column name
+    falv-&gt;layout-&gt;set_stylefname( &apos;STYLES&apos; ).
+    do 20 times.
+      falv-&gt;set_cell_enabled(
+        exporting
+          iv_fieldname = &apos;FLDATE&apos;
+          iv_row       = 2 * sy-index
+          ).
+    enddo.
+  endif.
+
+  &quot;Change grid to edit mode
+  falv-&gt;set_editable( iv_modify = abap_true ).
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+ <PROG NAME="ZDEMO_FALV10" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Colors" LENGTH="17 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV full screen with color settings
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+
+report zdemo_falv10.
+
+types: begin of t_sflight.
+        include type sflight.
+types:  cell_color type lvc_t_scol,
+        row_color  type char4,
+        end of t_sflight.
+
+data: sflight type standard table of t_sflight.
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;FALV creation with only table passed
+  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV10&apos;.
+
+
+  &quot;Changing some of field catalog settings for column colors
+  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_color( &apos;C700&apos; ).
+
+  &quot;setting of color fields -&gt; this must be done before calling
+  &quot;set_row_colors or set_cell_color
+  falv-&gt;layout-&gt;set_ctab_fname( &apos;CELL_COLOR&apos; ).
+  falv-&gt;layout-&gt;set_info_fname( &apos;ROW_COLOR&apos;  ).
+
+  &quot;change some row colors
+  do 10 times.
+    falv-&gt;set_row_color(
+      exporting
+        iv_color = &apos;C300&apos;
+        iv_row   = 2 * sy-index
     ).
-  endif.</source>
+  enddo.
+
+  &quot;change some cell colors.
+  do 10 times.
+    falv-&gt;set_cell_color(
+      exporting
+        iv_fieldname = &apos;PLANETYPE&apos;
+        iv_color     = value #( col = 5 int = 0 inv = 0  )
+        iv_row       = 3 * sy-index
+    ).
+
+  enddo.
+
+
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+ <PROG NAME="ZDEMO_FALV09" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Cell Settings" LENGTH="24 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV with cell settings
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv09.
+
+types: begin of t_sflight.
+        include type sflight.
+types:  styles type lvc_t_styl,
+        end of t_sflight.
+
+data: sflight type standard table of t_sflight.
+
+
+class lcl_test definition inheriting from zcl_falv.
+  public section.
+
+  protected section.
+    &quot;redefinition of event handler
+    methods evf_hotspot_click redefinition.
+  private section.
+
+endclass.
+
+class lcl_test implementation.
+
+  method evf_hotspot_click.
+    case e_column_id-fieldname.
+      when &apos;SEATSMAX&apos;.
+        me-&gt;set_cell_disabled(
+          exporting
+            iv_fieldname = e_column_id-fieldname
+            iv_row       = es_row_no-row_id
+        ).
+        me-&gt;set_cell_button(
+          exporting
+            iv_fieldname = &apos;PRICE&apos;
+            iv_row       = es_row_no-row_id
+        ).
+
+        me-&gt;set_cell_hotspot(
+          exporting
+            iv_fieldname = &apos;CARRID&apos;
+            iv_row       = es_row_no-row_id
+        ).
+
+        me-&gt;soft_refresh( ).
+    endcase.
+  endmethod.
+
+endclass.
+
+start-of-selection.
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;creation of falv with local redefinition
+  data falv type ref to lcl_test.
+  falv ?= lcl_test=&gt;create( exporting  i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
+                              changing ct_table = sflight    ) .
+
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV09&apos;.
+
+  &quot;set whole grid editable
+  falv-&gt;layout-&gt;set_edit( abap_true ).
+  falv-&gt;set_editable( iv_modify = abap_true ).
+
+  &quot;Set style column name
+  falv-&gt;layout-&gt;set_stylefname( &apos;STYLES&apos; ).
+
+  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_hotspot( abap_true  ).
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+ <PROG NAME="ZDEMO_FALV08" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Mass Replace Function" LENGTH="32 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV with mass replace function
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv08.
+
+data: sflight type standard table of sflight.
+
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;FALV creation with only table passed
+  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV08&apos;.
+
+  &quot;set whole grid editable
+  falv-&gt;layout-&gt;set_edit( abap_true ).
+  falv-&gt;set_editable( iv_modify = abap_true ).
+
+  &quot;show default grid toolbar
+  falv-&gt;layout-&gt;set_no_toolbar( abap_false ).
+
+  &quot;Add mass replace function to grid toolbar (can be also added to GUI STATUS as well )
+  falv-&gt;add_button(
+    exporting
+      iv_function  = falv-&gt;fc_mass_replace
+       iv_icon      = icon_replace
+*      iv_quickinfo =
+*      iv_butn_type =
+*      iv_disabled  =
+       iv_text      = &apos;Mass replace&apos;
+*      iv_checked   =
+  ).
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+ <PROG NAME="ZDEMO_FALV07" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Full Screen Columns" LENGTH="30 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV full screen with fieldcatalog update
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+
+report zdemo_falv07.
+
+data: sflight type standard table of sflight.
+
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;FALV creation with only table passed
+  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV07&apos;.
+
+
+  &quot;Changing some of field catalog settings
+  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_hotspot( abap_true ).
+  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_color( &apos;C700&apos; ).
+
+  falv-&gt;column( &apos;PLANETYPE&apos; )-&gt;set_color( &apos;C300&apos; ).
+  falv-&gt;column( &apos;PLANETYPE&apos; )-&gt;set_no_merging( abap_true ).
+
+  falv-&gt;column( &apos;PAYMENTSUM&apos; )-&gt;set_no_zero( abap_true ).
+
+  &quot;or
+
+  data(price) = falv-&gt;column( &apos;PRICE&apos; ).
+  price-&gt;set_no_out( abap_true ).
+  data(occup) = falv-&gt;column( &apos;SEATSOCC&apos; ).
+  occup-&gt;set_no_zero( abap_true ).
+  occup-&gt;set_no_merging( abap_true  ).
+
+
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+ <PROG NAME="ZDEMO_FALV06" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Full Screen Layout" LENGTH="29 "/>
+    <textElement ID="S" KEY="P_USEMAR" ENTRY="        Use Mark Field?" LENGTH="23 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV full screen with layout changes
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv06.
+
+types: begin of t_sflight,
+         mark type bcselect.
+        include type sflight.
+types: end of t_sflight.
+
+data: sflight type standard table of t_sflight.
+
+
+parameter: p_usemar as checkbox.
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;FALV creation with only table passed
+  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV06&apos;.
+
+  &quot;All layout settings have set method in layout object of FALV
+  &quot;it can be udated before output or during runtime of program
+  falv-&gt;layout-&gt;set_zebra( abap_true  ).
+  falv-&gt;layout-&gt;set_no_merging( abap_true ).
+
+  &quot;additionally there is a attribute mark field which when is set
+  &quot;then fcat for it is changed so it&apos;s checkbox field and
+  &quot;when you&apos;ll use standard select all/deselect all functions then
+  &quot;it will check/uncheck checkbox instead of selecting/deselecting rows
+  if p_usemar eq abap_true.
+    falv-&gt;set_mark_field( &apos;MARK&apos; ).
+  endif.
+
+  &quot;user Layout option save changed to user-specific only
+  falv-&gt;layout_save = &apos;U&apos;.
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+ <PROG NAME="ZDEMO_FALV05" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Full Screen ALV Toolbar" LENGTH="34 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV grid button adding, deleting, enabling, disabling
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv05.
+
+
+data: sflight type standard table of sflight.
+
+
+class lcl_test definition inheriting from zcl_falv.
+  public section.
+
+  protected section.
+    &quot;redefinition of event handler
+    methods evf_user_command redefinition.
+  private section.
+
+endclass.
+
+class lcl_test implementation.
+
+  method evf_user_command.
+    case e_ucomm.
+      when zcl_falv_dynamic_status=&gt;b_01.
+        me-&gt;enable_button( me-&gt;mc_fc_print_back ).
+      when zcl_falv_dynamic_status=&gt;b_02.
+        me-&gt;disable_button( me-&gt;mc_fc_print_back ).
+        me-&gt;add_button(
+          exporting
+            iv_function  = zcl_falv_dynamic_status=&gt;b_03
+             iv_icon      = icon_alarm
+        ).
+      when zcl_falv_dynamic_status=&gt;b_03.
+        me-&gt;delete_button( zcl_falv_dynamic_status=&gt;b_03 ).
+    endcase.
+  endmethod.
+
+endclass.
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;creation of falv with local redefinition
+  data falv type ref to lcl_test.
+  falv ?= lcl_test=&gt;create( exporting  i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
+                              changing ct_table = sflight    ) .
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV05&apos;.
+
+  &quot;Set Gui status to fully dynamic (no standard buttons of ALV Grid)
+  falv-&gt;gui_status-&gt;fully_dynamic = abap_true.
+
+  &quot;Add button into GUI status at for function F01 (in partial dynamic GUI Status we can have up to 19 buttons)
+  falv-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = zcl_falv_dynamic_status=&gt;b_01
+      iv_text                = &apos;Enable Print&apos;
+      iv_icon                = icon_activate
+*      iv_qinfo               =
+*      iv_allowed             = ABAP_TRUE
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+  endif.
+  &quot;Add button into GUI status at for function F02
+  falv-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = zcl_falv_dynamic_status=&gt;b_02
+      iv_text                = &apos;Disable Print&apos;
+      iv_icon                = icon_active_inactive
+*      iv_qinfo               =
+*      iv_allowed             = ABAP_TRUE
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+
+  endif.
+
+
+  &quot;In default when we use full screen FALV, Grid toolbar is switched off, we must turn it on )
+  falv-&gt;layout-&gt;set_no_toolbar( abap_false ).
+
+  &quot;we Add buttons to ALV grid toolbar, I&apos;ll use same function like in GUI status
+  falv-&gt;add_button(
+    exporting
+      iv_function  = zcl_falv_dynamic_status=&gt;b_01
+      iv_icon      = icon_activate
+*      iv_quickinfo =
+*      iv_butn_type =
+*      iv_disabled  =
+       iv_text      = &apos;Enable Print&apos;
+*      iv_checked   =
+  ).
+  &quot;we Add buttons to ALV grid toolbar, I&apos;ll use same function like in GUI status
+  falv-&gt;add_button(
+    exporting
+      iv_function  = zcl_falv_dynamic_status=&gt;b_02
+      iv_icon      = icon_active_inactive
+*      iv_quickinfo =
+*      iv_butn_type =
+*      iv_disabled  =
+       iv_text      = &apos;Disable Print&apos;
+*      iv_checked   =
+  ).
+
+  &quot;remove button &quot;Details&quot; &amp; &quot;Info&quot; from standard Grid functions
+  falv-&gt;delete_button( falv-&gt;mc_fc_detail ).
+  falv-&gt;delete_button( falv-&gt;mc_fc_info ).
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+ <PROG NAME="ZDEMO_FALV04" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Full Screen GUI Status Dynamic Fully" LENGTH="47 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV full screen with fully dynamic GUI STATUS
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv04.
+
+data: sflight type standard table of sflight.
+
+class lcl_test definition inheriting from zcl_falv.
+  public section.
+
+  protected section.
+    &quot;redefinition of event handler
+    methods evf_user_command redefinition.
+  private section.
+
+endclass.
+
+class lcl_test implementation.
+
+  method evf_user_command.
+    case e_ucomm.
+      when zcl_falv_dynamic_status=&gt;b_01.
+        call function &apos;POPUP_DISPLAY_MESSAGE&apos;
+          exporting
+            titel = &apos;Popup&apos;   &quot; Title
+            msgid = &apos;00&apos;
+            msgty = &apos;S&apos;
+            msgno = &apos;001&apos;
+            msgv1 = &apos;Button 1 clicked&apos;.
+      when zcl_falv_dynamic_status=&gt;b_02.
+        call function &apos;POPUP_DISPLAY_MESSAGE&apos;
+          exporting
+            titel = &apos;Popup&apos;   &quot; Title
+            msgid = &apos;00&apos;
+            msgty = &apos;S&apos;
+            msgno = &apos;001&apos;
+            msgv1 = &apos;Button 2 clicked&apos;.
+    endcase.
+  endmethod.
+
+endclass.
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;creation of falv with local redefinition
+  data falv type ref to lcl_test.
+  falv ?= lcl_test=&gt;create( exporting  i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
+                              changing ct_table = sflight    ) .
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV04&apos;.
+
+  &quot;Set Gui status to fully dynamic (no standard buttons of ALV Grid)
+  falv-&gt;gui_status-&gt;fully_dynamic = abap_true.
+
+  &quot;Add button into GUI status at for function F01 (in full dynamic GUI Status we can have up to 35 buttons)
+  falv-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = zcl_falv_dynamic_status=&gt;b_01
+      iv_text                = &apos;POPUP 01&apos;
+      iv_icon                = icon_abc
+*      iv_qinfo               =
+*      iv_allowed             = ABAP_TRUE
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+*   message id sy-msgid type sy-msgty number sy-msgno
+*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  endif.
+  &quot;Add button into GUI status at for function F02
+  falv-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = zcl_falv_dynamic_status=&gt;b_02
+      iv_text                = &apos;POPUP 02&apos;
+      iv_icon                = icon_address
+*      iv_qinfo               =
+*      iv_allowed             = ABAP_TRUE
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+*   message id sy-msgid type sy-msgty number sy-msgno
+*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
+  endif.
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+ <PROG NAME="ZDEMO_FALV03" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Full Screen GUI Status Dynamic Partly" LENGTH="48 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV full screen with partly dynamic GUI STATUS
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv03.
+
+data: sflight type standard table of sflight.
+
+class lcl_test definition inheriting from zcl_falv.
+  public section.
+
+  protected section.
+    &quot;redefinition of event handler
+    methods evf_user_command redefinition.
+  private section.
+
+endclass.
+
+class lcl_test implementation.
+
+  method evf_user_command.
+    case e_ucomm.
+      when zcl_falv_dynamic_status=&gt;b_01.
+        call function &apos;POPUP_DISPLAY_MESSAGE&apos;
+          exporting
+            titel = &apos;Popup&apos;   &quot; Title
+            msgid = &apos;00&apos;
+            msgty = &apos;S&apos;
+            msgno = &apos;001&apos;
+            msgv1 = &apos;Button 1 clicked&apos;.
+      when zcl_falv_dynamic_status=&gt;b_02.
+        call function &apos;POPUP_DISPLAY_MESSAGE&apos;
+          exporting
+            titel = &apos;Popup&apos;   &quot; Title
+            msgid = &apos;00&apos;
+            msgty = &apos;S&apos;
+            msgno = &apos;001&apos;
+            msgv1 = &apos;Button 2 clicked&apos;.
+    endcase.
+  endmethod.
+endclass.
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;creation of falv with local redefinition
+  data falv type ref to lcl_test.
+  falv ?= lcl_test=&gt;create( exporting  i_subclass = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; )
+                              changing ct_table = sflight    ) .
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV03&apos;.
+
+  &quot;Add button into GUI status at for function F01 (in partial dynamic GUI Status we can have up to 19 buttons)
+  falv-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = zcl_falv_dynamic_status=&gt;b_01
+      iv_text                = &apos;POPUP 01&apos;
+      iv_icon                = icon_abc
+*      iv_qinfo               =
+*      iv_allowed             = ABAP_TRUE
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+  endif.
+
+  &quot;Add button into GUI status at for function F02
+  falv-&gt;gui_status-&gt;add_button(
+    exporting
+      iv_button              = zcl_falv_dynamic_status=&gt;b_02
+      iv_text                = &apos;POPUP 02&apos;
+      iv_icon                = icon_address
+*      iv_qinfo               =
+*      iv_allowed             = ABAP_TRUE
+    exceptions
+      button_already_filled  = 1
+      button_does_not_exists = 2
+      icon_and_text_empty    = 3
+      others                 = 4
+  ).
+  if sy-subrc &lt;&gt; 0.
+  endif.
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+ <PROG NAME="ZDEMO_FALV02" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Redefinitions" LENGTH="24 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV with redefinition of hotspot event handler
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv02.
+
+data: sflight type standard table of sflight.
+
+
+class lcl_test definition inheriting from zcl_falv.
+  public section.
+
+  protected section.
+    &quot;redefinition of event handler
+    methods evf_hotspot_click redefinition.
+    methods evf_top_of_page redefinition.
+  private section.
+
+endclass.
+
+class lcl_test implementation.
+
+  method evf_hotspot_click.
+    case e_column_id-fieldname.
+      when &apos;SEATSMAX&apos;.
+        call function &apos;POPUP_DISPLAY_MESSAGE&apos;
+          exporting
+            titel = &apos;Hotspot is working&apos;   &quot; Title
+            msgid = &apos;00&apos;
+            msgty = &apos;I&apos;
+            msgno = &apos;001&apos;
+            msgv1 = &apos;Yupi!&apos;.
+    endcase.
+  endmethod.
+
+  method evf_top_of_page.
+
+    e_dyndoc_id-&gt;add_text( text = &apos;Top Of Page&apos; sap_style = cl_dd_area=&gt;heading ).
+
+    e_dyndoc_id-&gt;new_line( repeat = 1 ).
+
+    e_dyndoc_id-&gt;add_link(
+      exporting
+        name                   =  &apos;ABAPBLOG.com&apos;   &quot; Name (You Can Use Any Name You Choose)
+        url                    =   &apos;http://abapblog.com&apos;  &quot; URL
+        tooltip                =  &apos;ABAPBLOG.com&apos;   &quot; Tool Tip
+        text                   =  &apos;ABAPBLOG.com&apos;    &quot; Text
+    ).
+
+
+  endmethod.
+
+endclass.
+
+start-of-selection.
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;creation of falv with local redefinition
+  data falv type ref to lcl_test.
+  data(subcl) = cl_abap_classdescr=&gt;describe_by_name( p_name = &apos;LCL_TEST&apos; ).
+
+  falv ?=  lcl_test=&gt;create( exporting i_subclass = subcl changing ct_table = sflight ).
+
+
+  &quot;Add hotspot to column &apos;SEATSMAX&apos;
+  falv-&gt;column( &apos;SEATSMAX&apos; )-&gt;set_hotspot( abap_true ).
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV02&apos;.
+
+  falv-&gt;top_of_page_height = 100. &quot;absolute size
+  &quot;To enable top_of_page
+  falv-&gt;show_top_of_page( ).
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
+ </PROG>
+ <PROG NAME="ZDEMO_FALV01" VARCL="X" SUBC="1" APPL="*" RSTAT="K" RMAND="001" RLOAD="E" FIXPT="X" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Demo Simple Full Screen Call" LENGTH="34 "/>
+   </language>
+  </textPool>
+  <source>&quot;! This is demo for FALV standard fast call
+&quot;! done by Lukasz Pegiel for http://abapblog.com
+report zdemo_falv01.
+
+data: sflight type standard table of sflight.
+
+
+start-of-selection.
+
+
+  select * up to 100 rows
+  into corresponding fields of table @sflight
+  from sflight.
+
+  &quot;FALV creation with only table passed
+  data(falv) = zcl_falv=&gt;create( changing ct_table = sflight ).
+
+  &quot;Add title variable
+  falv-&gt;title_v1 = &apos;ZDEMO_FALV01&apos;.
+
+  &quot;Display full screen grid
+  falv-&gt;display( ).</source>
  </PROG>
 </nugget>
