@@ -2,26 +2,27 @@
 <nugget name="ZCL_FALV">
  <CLAS CLSNAME="ZCL_FALV" VERSION="1" LANGU="E" DESCRIPT="Fast ALV" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_GUI_ALV_GRID">
   <types CLSNAME="ZCL_FALV" CMPNAME="T_COLUMN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " TYPTYPE="3" TYPE="ZCL_FALV_COLUMN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="13 " SRCCOLUMN1="6 " SRCROW2="18 " SRCCOLUMN2="24 " TYPESRC_LENG="167 " TYPESRC="begin of t_subcl_call,
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="14 " SRCCOLUMN1="6 " SRCROW2="19 " SRCCOLUMN2="24 " TYPESRC_LENG="167 " TYPESRC="begin of t_subcl_call,
         progname type progname,
         line     type i,
         column   type i,
         class    type string,
       end of t_subcl_call
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="TT_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="20 " SRCCOLUMN1="6 " SRCROW2="20 " SRCCOLUMN2="89 " TYPESRC_LENG="86 " TYPESRC="tt_subcl_call type sorted table of t_subcl_call with unique key progname line column
+  <types CLSNAME="ZCL_FALV" CMPNAME="TT_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="6 " SRCROW2="21 " SRCCOLUMN2="89 " TYPESRC_LENG="86 " TYPESRC="tt_subcl_call type sorted table of t_subcl_call with unique key progname line column
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="T_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="22 " SRCCOLUMN1="6 " SRCROW2="27 " SRCCOLUMN2="19 " TYPESRC_LENG="189 " TYPESRC="begin of t_email,
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="6 " SRCROW2="28 " SRCCOLUMN2="19 " TYPESRC_LENG="189 " TYPESRC="begin of t_email,
         smtp_addr  type ad_smtpadr,
         express    type os_boolean,
         copy       type os_boolean,
         blind_copy type os_boolean,
       end of t_email
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="TT_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="29 " SRCCOLUMN1="6 " SRCROW2="29 " SRCCOLUMN2="35 " TYPESRC_LENG="32 " TYPESRC="tt_email type table of t_email
+  <types CLSNAME="ZCL_FALV" CMPNAME="TT_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="30 " SRCCOLUMN1="6 " SRCROW2="30 " SRCCOLUMN2="35 " TYPESRC_LENG="32 " TYPESRC="tt_email type table of t_email
 "/>
   <friends CLSNAME="ZCL_FALV" REFCLSNAME="ZCL_FALV_LAYOUT" FRIENDTYPE="0" VERSION="1" STATE="1"/>
   <implementing CLSNAME="ZCL_FALV" REFCLSNAME="IF_OS_CLONE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
+  <implementing CLSNAME="ZCL_FALV" REFCLSNAME="IF_ALV_RM_GRID_FRIEND" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="2 "/>
   <events CLSNAME="ZCL_FALV" CMPNAME="AT_SET_PF_STATUS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " EVTDECLTYP="0" BCEVTCAT="00"/>
   <events CLSNAME="ZCL_FALV" CMPNAME="AT_SET_TITLE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="2 " EVTDECLTYP="0" BCEVTCAT="00"/>
   <localImplementation>*&quot;* use this source file for the definition and implementation of
@@ -1360,7 +1361,7 @@
     if cl_salv_bs_a_xml_base=&gt;get_version( ) eq if_salv_bs_xml=&gt;version_25 or
        cl_salv_bs_a_xml_base=&gt;get_version( ) eq if_salv_bs_xml=&gt;version_26.
 
-      result_data = utility-&gt;get_table( ).
+      result_data = utility-&gt;create_ex_result( ).
 
       case cl_salv_bs_a_xml_base=&gt;get_version( ).
         when if_salv_bs_xml=&gt;version_25.
