@@ -997,7 +997,7 @@ at selection-screen output.
   field-symbols: &lt;outtab_ref&gt; type any table.
   field-symbols: &lt;outp&gt; type any.
   field-symbols: &lt;value&gt; type lvc_s_modi-value.
-  field-symbols: &lt;out_Line&gt; type lvc_t_styl.
+  field-symbols: &lt;out_line&gt; type lvc_t_styl.
   field-symbols: &lt;style&gt; type lvc_s_styl.
   field-symbols: &lt;any&gt; type any.
   if io_grid-&gt;is_ready_for_input( ) eq 0.
@@ -1083,11 +1083,16 @@ at selection-screen output.
 
   refresh &lt;out&gt;-&gt;mass_repl_params .
   sort fcat by col_pos.
-  call function &apos;RM_FREE_SESSION_CHECK&apos;
-    exceptions
-      no_free_session = 1
-      others          = 2.
-  if sy-subrc eq 0.
+
+  data: act_sessions type sta_cntre,
+        max_sessions type sta_cntre.
+
+  call function &apos;TH_USER_INFO&apos;
+    importing
+      act_sessions = act_sessions
+      max_sessions = max_sessions.
+
+  if max_sessions - act_sessions gt 0.
     &lt;out&gt;-&gt;wait_for_mass_repl = abap_true.
     call function &apos;Z_FALV_CALL_MASS_SS&apos;
       destination &apos;NONE&apos;
