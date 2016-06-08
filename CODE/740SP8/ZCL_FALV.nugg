@@ -35,8 +35,8 @@
 *&quot;* in the implementation part of the class</localMacros>
   <typeUsage CLSNAME="ZCL_FALV" TYPEGROUP="ABAP" VERSION="1" TPUTYPE="0" IMPLICIT="X"/>
   <forwardDeclaration>ABAP</forwardDeclaration>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="APPLICATION_LOG_EMBEDDED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUILT_IN_SCREEN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="APPLICATION_LOG_EMBEDDED" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="6 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="BUILT_IN_SCREEN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_CHECKBOX" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="27 " ATTDECLTYP="2" ATTVALUE="&apos;5&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="24 " ATTDECLTYP="2" ATTVALUE="&apos;2&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_MENU_DEFAULT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="23 " ATTDECLTYP="2" ATTVALUE="&apos;1&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
@@ -45,7 +45,7 @@
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_RADIOBUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="26 " ATTDECLTYP="2" ATTVALUE="&apos;4&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_SEPARATOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="25 " ATTDECLTYP="2" ATTVALUE="&apos;3&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="CC_NAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;CC_GRID&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR30" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="COLUMNS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="5 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="10 " SRCCOLUMN1="6 " SRCROW2="10 " SRCCOLUMN2="69 " TYPESRC_LENG="66 " TYPESRC="columns type sorted table of t_column with unique key table_line
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="COLUMNS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="9 " SRCCOLUMN1="6 " SRCROW2="9 " SRCCOLUMN2="69 " TYPESRC_LENG="66 " TYPESRC="columns type sorted table of t_column with unique key table_line
 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_FSCR_REPID" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="&apos;SAPLZFALV&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-REPID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_SCREEN_FULL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTVALUE="&apos;0100&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
@@ -69,6 +69,7 @@
   <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_SAVE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="14 " ATTDECLTYP="2" ATTVALUE="&apos;&amp;DATA_SAVE&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="FC_UP" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="10 " ATTDECLTYP="2" ATTVALUE="&apos;UP&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-UCOMM" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="FILTER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="38 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="LVC_T_FILT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="GRID" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="53 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_ALV_GRID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="GUI_STATUS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="41 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_FALV_DYNAMIC_STATUS" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="LAYOUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="40 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_FALV_LAYOUT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="LAYOUT_SAVE" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="34 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR01" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
@@ -83,7 +84,7 @@
   <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLITTER_ROW_2_HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLITTER_ROW_3_HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="8 " ATTDECLTYP="0" ATTRDONLY="X" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="SPLIT_CONTAINER" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="30 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_GUI_SPLITTER_CONTAINER" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="SUBCLASS_TYPE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="8 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_ABAP_TYPEDESCR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="SUBCLASS_TYPE" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="7 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_ABAP_TYPEDESCR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V1" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="44 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V2" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="45 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TITLE_V3" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="46 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="STRING" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
@@ -96,7 +97,6 @@
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TOP_OF_PAGE_DOC" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="1 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="CL_DD_DOCUMENT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TOP_OF_PAGE_HEIGHT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="51 " ATTDECLTYP="0" ATTVALUE="150" ATTEXPVIRT="0" TYPTYPE="1" TYPE="I" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="TOP_OF_PAGE_VISIBLE_AT_START" VERSION="1" LANGU="E" EXPOSURE="0" STATE="1" EDITORDER="2 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="ABAP_BOOL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="UTILITY" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="3" TYPE="ZCL_FALV_UTIL" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="VARIANT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="33 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="1" TYPE="DISVARIANT" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <inheritance CLSNAME="ZCL_FALV" REFCLSNAME="CL_GUI_ALV_GRID" VERSION="1" STATE="1">
    <redefinition CLSNAME="ZCL_FALV" REFCLSNAME="CL_GUI_ALV_GRID" VERSION="1" MTDNAME="SET_FRONTEND_FIELDCATALOG" EXPOSURE="2"/>
@@ -466,6 +466,40 @@
           i_applogparent = applog.
 
     endif.
+
+
+    rv_falv-&gt;set_delay_change_selection(
+      exporting
+        time   =  rv_falv-&gt;delay_change_selection
+      exceptions
+        error  = 1
+        others = 2
+    ).
+    if sy-subrc &lt;&gt; 0.
+    endif.
+
+    rv_falv-&gt;register_delayed_event(
+      exporting
+        i_event_id =  rv_falv-&gt;mc_evt_delayed_move_curr_cell
+      exceptions
+        error      = 1
+        others     = 2
+    ).
+    if sy-subrc &lt;&gt; 0.
+    endif.
+
+    rv_falv-&gt;set_delay_move_current_cell(
+      exporting
+       time   = rv_falv-&gt;delay_move_current_cell
+      exceptions
+        error  = 1
+        others = 2
+    ).
+    if sy-subrc &lt;&gt; 0.
+    endif.
+
+
+
     set handler rv_falv-&gt;evf_after_refresh for rv_falv.
     set handler rv_falv-&gt;evf_after_user_command for rv_falv.
     set handler rv_falv-&gt;evf_before_ucommand_internal for rv_falv.
@@ -510,35 +544,7 @@
     set handler rv_falv-&gt;evf_request_data for rv_falv.
 
 
-    rv_falv-&gt;set_delay_change_selection(
-      exporting
-        time   =  rv_falv-&gt;delay_change_selection
-      exceptions
-        error  = 1
-        others = 2
-    ).
-    if sy-subrc &lt;&gt; 0.
-    endif.
 
-    rv_falv-&gt;set_delay_move_current_cell(
-      exporting
-       time   = rv_falv-&gt;delay_move_current_cell
-      exceptions
-        error  = 1
-        others = 2
-    ).
-    if sy-subrc &lt;&gt; 0.
-    endif.
-
-*    rv_falv-&gt;register_delayed_event(
-*      exporting
-*        i_event_id =  rv_falv-&gt;mc_evt_delayed_change_select
-*      exceptions
-*        error      = 1
-*        others     = 2
-*    ).
-*    if sy-subrc &lt;&gt; 0.
-*    endif.
 
 
     rv_falv-&gt;set_output_table( changing ct_table = ct_table ).
@@ -595,7 +601,7 @@
     rv_falv-&gt;layout_save = &apos;A&apos;.
     rv_falv-&gt;variant-report = sy-cprog.
     rv_falv-&gt;variant-username = sy-uname.
-    rv_falv-&gt;utility = new zcl_falv_util( cast #( rv_falv ) ).
+    rv_falv-&gt;grid = cast #(  rv_falv ).
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="CREATE_BY_COPY" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
@@ -722,6 +728,18 @@
           i_applogparent = applog.
     endif.
 
+    rv_falv-&gt;register_delayed_event(
+  exporting
+    i_event_id =  rv_falv-&gt;mc_evt_delayed_move_curr_cell
+  exceptions
+    error      = 1
+    others     = 2
+        ).
+    if sy-subrc &lt;&gt; 0.
+    endif.
+
+
+
     set handler rv_falv-&gt;evf_after_refresh for rv_falv.
     set handler rv_falv-&gt;evf_after_user_command for rv_falv.
     set handler rv_falv-&gt;evf_before_ucommand_internal for rv_falv.
@@ -764,6 +782,7 @@
     set handler rv_falv-&gt;evf_context_menu_selected for rv_falv.
     set handler rv_falv-&gt;evf_toolbar_menu_selected for rv_falv.
     set handler rv_falv-&gt;evf_request_data for rv_falv.
+
     rv_falv-&gt;set_delay_change_selection(
       exporting
         time   =  me-&gt;delay_change_selection
@@ -847,7 +866,7 @@
     rv_falv-&gt;toolbar_deleted = me-&gt;toolbar_deleted.
     rv_falv-&gt;toolbar_disabled = me-&gt;toolbar_disabled.
     rv_falv-&gt;m_batch_mode = me-&gt;m_batch_mode.
-    rv_falv-&gt;utility = new zcl_falv_util( cast #( rv_falv ) ).
+    rv_falv-&gt;grid = cast #( rv_falv ).
   endmethod.</source>
   </method>
   <method CLSNAME="ZCL_FALV" CMPNAME="DELETE_BUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="16 " DISPID="0 " MTDTYPE="0" MTDDECLTYP="0" BCMTDCAT="00" BCMTDSYN="0">
@@ -1361,7 +1380,7 @@
     if cl_salv_bs_a_xml_base=&gt;get_version( ) eq if_salv_bs_xml=&gt;version_25 or
        cl_salv_bs_a_xml_base=&gt;get_version( ) eq if_salv_bs_xml=&gt;version_26.
 
-      result_data = utility-&gt;create_ex_result( ).
+      result_data = grid-&gt;create_ex_result( ).
 
       case cl_salv_bs_a_xml_base=&gt;get_version( ).
         when if_salv_bs_xml=&gt;version_25.
