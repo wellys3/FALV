@@ -2,23 +2,23 @@
 <nugget name="ZCL_FALV">
  <CLAS CLSNAME="ZCL_FALV" VERSION="1" LANGU="E" DESCRIPT="Fast ALV" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_GUI_ALV_GRID">
   <types CLSNAME="ZCL_FALV" CMPNAME="T_COLUMN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " TYPTYPE="3" TYPE="ZCL_FALV_COLUMN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="14 " SRCCOLUMN1="6 " SRCROW2="19 " SRCCOLUMN2="24 " TYPESRC_LENG="167 " TYPESRC="begin of t_subcl_call,
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="14 " SRCCOLUMN1="4 " SRCROW2="19 " SRCCOLUMN2="24 " TYPESRC_LENG="167 " TYPESRC="begin of t_subcl_call,
         progname type progname,
         line     type i,
         column   type i,
         class    type string,
       end of t_subcl_call
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="TT_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="6 " SRCROW2="21 " SRCCOLUMN2="89 " TYPESRC_LENG="86 " TYPESRC="tt_subcl_call type sorted table of t_subcl_call with unique key progname line column
+  <types CLSNAME="ZCL_FALV" CMPNAME="TT_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="4 " SRCROW2="21 " SRCCOLUMN2="87 " TYPESRC_LENG="86 " TYPESRC="tt_subcl_call type sorted table of t_subcl_call with unique key progname line column
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="T_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="6 " SRCROW2="28 " SRCCOLUMN2="19 " TYPESRC_LENG="189 " TYPESRC="begin of t_email,
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="4 " SRCROW2="28 " SRCCOLUMN2="19 " TYPESRC_LENG="189 " TYPESRC="begin of t_email,
         smtp_addr  type ad_smtpadr,
         express    type os_boolean,
         copy       type os_boolean,
         blind_copy type os_boolean,
       end of t_email
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="TT_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="30 " SRCCOLUMN1="6 " SRCROW2="30 " SRCCOLUMN2="35 " TYPESRC_LENG="32 " TYPESRC="tt_email type table of t_email
+  <types CLSNAME="ZCL_FALV" CMPNAME="TT_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="30 " SRCCOLUMN1="4 " SRCROW2="30 " SRCCOLUMN2="33 " TYPESRC_LENG="32 " TYPESRC="tt_email type table of t_email
 "/>
   <friends CLSNAME="ZCL_FALV" REFCLSNAME="ZCL_FALV_LAYOUT" FRIENDTYPE="0" VERSION="1" STATE="1"/>
   <implementing CLSNAME="ZCL_FALV" REFCLSNAME="IF_OS_CLONE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
@@ -45,7 +45,7 @@
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_RADIOBUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="26 " ATTDECLTYP="2" ATTVALUE="&apos;4&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_SEPARATOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="25 " ATTDECLTYP="2" ATTVALUE="&apos;3&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="CC_NAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;CC_GRID&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR30" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="COLUMNS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="9 " SRCCOLUMN1="6 " SRCROW2="9 " SRCCOLUMN2="69 " TYPESRC_LENG="66 " TYPESRC="columns type sorted table of t_column with unique key table_line
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="COLUMNS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="9 " SRCCOLUMN1="4 " SRCROW2="9 " SRCCOLUMN2="67 " TYPESRC_LENG="66 " TYPESRC="columns type sorted table of t_column with unique key table_line
 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_FSCR_REPID" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="&apos;SAPLZFALV&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-REPID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_SCREEN_FULL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTVALUE="&apos;0100&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
@@ -369,13 +369,13 @@
       try.
 
           if cl_gui_alv_grid=&gt;offline( ) is initial.
-            data(custom_container) = new cl_gui_custom_container(
+            data(custom_container) = cast cl_gui_container( new cl_gui_custom_container(
                       container_name = cc_name
                       dynnr          = switch #( i_popup when abap_true then c_screen_popup
                                                          when abap_false then c_screen_full )
                       repid          = c_fscr_repid
                       no_autodef_progid_dynnr = abap_true
-                      ).
+                      ) ).
             main_parent ?= custom_container.
 
 
@@ -633,13 +633,13 @@
       built_in_screen = abap_true.
       try.
           if cl_gui_alv_grid=&gt;offline( ) is initial.
-            data(custom_container) = new cl_gui_custom_container(
+            data(custom_container) = cast cl_gui_container( new cl_gui_custom_container(
                       container_name = cc_name
                       dynnr          = switch #( i_popup when abap_true then c_screen_popup
                                                          when abap_false then c_screen_full )
                       repid          = c_fscr_repid
                       no_autodef_progid_dynnr = abap_true
-                      ).
+                      ) ).
             main_parent ?= custom_container.
 
 
