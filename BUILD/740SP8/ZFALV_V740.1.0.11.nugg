@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<nugget name="ZFALV_V740.1.0.10">
+<nugget name="ZFALV_V740.1.0.11">
  <CLAS CLSNAME="ZCL_FALV" VERSION="1" LANGU="E" DESCRIPT="Fast ALV" CATEGORY="00" EXPOSURE="0" STATE="1" RELEASE="0" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" DURATION_TYPE="0 " RISK_LEVEL="0 " REFCLSNAME="CL_GUI_ALV_GRID">
   <types CLSNAME="ZCL_FALV" CMPNAME="T_COLUMN" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="1 " TYPTYPE="3" TYPE="ZCL_FALV_COLUMN" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="14 " SRCCOLUMN1="6 " SRCROW2="19 " SRCCOLUMN2="24 " TYPESRC_LENG="167 " TYPESRC="begin of t_subcl_call,
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="14 " SRCCOLUMN1="4 " SRCROW2="19 " SRCCOLUMN2="24 " TYPESRC_LENG="167 " TYPESRC="begin of t_subcl_call,
         progname type progname,
         line     type i,
         column   type i,
         class    type string,
       end of t_subcl_call
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="TT_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="6 " SRCROW2="21 " SRCCOLUMN2="89 " TYPESRC_LENG="86 " TYPESRC="tt_subcl_call type sorted table of t_subcl_call with unique key progname line column
+  <types CLSNAME="ZCL_FALV" CMPNAME="TT_SUBCL_CALL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="21 " SRCCOLUMN1="4 " SRCROW2="21 " SRCCOLUMN2="87 " TYPESRC_LENG="86 " TYPESRC="tt_subcl_call type sorted table of t_subcl_call with unique key progname line column
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="T_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="6 " SRCROW2="28 " SRCCOLUMN2="19 " TYPESRC_LENG="189 " TYPESRC="begin of t_email,
+  <types CLSNAME="ZCL_FALV" CMPNAME="T_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="23 " SRCCOLUMN1="4 " SRCROW2="28 " SRCCOLUMN2="19 " TYPESRC_LENG="189 " TYPESRC="begin of t_email,
         smtp_addr  type ad_smtpadr,
         express    type os_boolean,
         copy       type os_boolean,
         blind_copy type os_boolean,
       end of t_email
 "/>
-  <types CLSNAME="ZCL_FALV" CMPNAME="TT_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="30 " SRCCOLUMN1="6 " SRCROW2="30 " SRCCOLUMN2="35 " TYPESRC_LENG="32 " TYPESRC="tt_email type table of t_email
+  <types CLSNAME="ZCL_FALV" CMPNAME="TT_EMAIL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="30 " SRCCOLUMN1="4 " SRCROW2="30 " SRCCOLUMN2="33 " TYPESRC_LENG="32 " TYPESRC="tt_email type table of t_email
 "/>
   <friends CLSNAME="ZCL_FALV" REFCLSNAME="ZCL_FALV_LAYOUT" FRIENDTYPE="0" VERSION="1" STATE="1"/>
   <implementing CLSNAME="ZCL_FALV" REFCLSNAME="IF_OS_CLONE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
@@ -45,7 +45,7 @@
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_RADIOBUTTON" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="26 " ATTDECLTYP="2" ATTVALUE="&apos;4&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="BUTTON_SEPARATOR" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="25 " ATTDECLTYP="2" ATTVALUE="&apos;3&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="TB_BTYPE" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="CC_NAME" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " ATTDECLTYP="2" ATTVALUE="&apos;CC_GRID&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="CHAR30" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
-  <attribute CLSNAME="ZCL_FALV" CMPNAME="COLUMNS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="9 " SRCCOLUMN1="6 " SRCROW2="9 " SRCCOLUMN2="69 " TYPESRC_LENG="66 " TYPESRC="columns type sorted table of t_column with unique key table_line
+  <attribute CLSNAME="ZCL_FALV" CMPNAME="COLUMNS" VERSION="1" LANGU="E" EXPOSURE="1" STATE="1" EDITORDER="4 " ATTDECLTYP="0" ATTEXPVIRT="0" TYPTYPE="4" SRCROW1="9 " SRCCOLUMN1="4 " SRCROW2="9 " SRCCOLUMN2="67 " TYPESRC_LENG="66 " TYPESRC="columns type sorted table of t_column with unique key table_line
 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_FSCR_REPID" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " ATTDECLTYP="2" ATTVALUE="&apos;SAPLZFALV&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-REPID" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
   <attribute CLSNAME="ZCL_FALV" CMPNAME="C_SCREEN_FULL" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " ATTDECLTYP="2" ATTVALUE="&apos;0100&apos;" ATTEXPVIRT="0" TYPTYPE="1" TYPE="SY-DYNNR" SRCROW1="0 " SRCCOLUMN1="0 " SRCROW2="0 " SRCCOLUMN2="0 " TYPESRC_LENG="0 "/>
@@ -369,13 +369,13 @@
       try.
 
           if cl_gui_alv_grid=&gt;offline( ) is initial.
-            data(custom_container) = new cl_gui_custom_container(
+            data(custom_container) = cast cl_gui_container( new cl_gui_custom_container(
                       container_name = cc_name
                       dynnr          = switch #( i_popup when abap_true then c_screen_popup
                                                          when abap_false then c_screen_full )
                       repid          = c_fscr_repid
                       no_autodef_progid_dynnr = abap_true
-                      ).
+                      ) ).
             main_parent ?= custom_container.
 
 
@@ -633,13 +633,13 @@
       built_in_screen = abap_true.
       try.
           if cl_gui_alv_grid=&gt;offline( ) is initial.
-            data(custom_container) = new cl_gui_custom_container(
+            data(custom_container) = cast cl_gui_container( new cl_gui_custom_container(
                       container_name = cc_name
                       dynnr          = switch #( i_popup when abap_true then c_screen_popup
                                                          when abap_false then c_screen_full )
                       repid          = c_fscr_repid
                       no_autodef_progid_dynnr = abap_true
-                      ).
+                      ) ).
             main_parent ?= custom_container.
 
 
@@ -3199,7 +3199,7 @@
   </method>
  </CLAS>
  <CLAS CLSNAME="ZCL_FALV_DYNAMIC_STATUS" VERSION="1" LANGU="E" DESCRIPT="FALV Dynamic Status" CATEGORY="00" EXPOSURE="2" STATE="1" RELEASE="0" CLSFINAL="X" CLSCCINCL="X" FIXPT="X" UNICODE="X" CLSBCCAT="00" WITH_UNIT_TESTS="X" DURATION_TYPE="0 " RISK_LEVEL="0 ">
-  <types CLSNAME="ZCL_FALV_DYNAMIC_STATUS" CMPNAME="T_BUTTONS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="11 " SRCCOLUMN1="6 " SRCROW2="47 " SRCCOLUMN2="21 " TYPESRC_LENG="1095 " TYPESRC="begin of t_buttons,
+  <types CLSNAME="ZCL_FALV_DYNAMIC_STATUS" CMPNAME="T_BUTTONS" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="1 " TYPTYPE="4" SRCROW1="11 " SRCCOLUMN1="4 " SRCROW2="47 " SRCCOLUMN2="21 " TYPESRC_LENG="1095 " TYPESRC="begin of t_buttons,
         f01 type rsfunc_txt,
         f02 type rsfunc_txt,
         f03 type rsfunc_txt,
@@ -3237,13 +3237,13 @@
         f35 type rsfunc_txt,
       end of t_buttons
 "/>
-  <types CLSNAME="ZCL_FALV_DYNAMIC_STATUS" CMPNAME="T_ALLOWED_BUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="49 " SRCCOLUMN1="6 " SRCROW2="51 " SRCCOLUMN2="25 " TYPESRC_LENG="86 " TYPESRC="begin of t_allowed_but,
+  <types CLSNAME="ZCL_FALV_DYNAMIC_STATUS" CMPNAME="T_ALLOWED_BUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="2 " TYPTYPE="4" SRCROW1="49 " SRCCOLUMN1="4 " SRCROW2="51 " SRCCOLUMN2="25 " TYPESRC_LENG="86 " TYPESRC="begin of t_allowed_but,
         function type sy-ucomm,
       end of t_allowed_but
 "/>
-  <types CLSNAME="ZCL_FALV_DYNAMIC_STATUS" CMPNAME="TT_EXCLUDED_BUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="53 " SRCCOLUMN1="6 " SRCROW2="53 " SRCCOLUMN2="52 " TYPESRC_LENG="49 " TYPESRC="tt_excluded_but type standard table of sy-ucomm
+  <types CLSNAME="ZCL_FALV_DYNAMIC_STATUS" CMPNAME="TT_EXCLUDED_BUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="3 " TYPTYPE="4" SRCROW1="53 " SRCCOLUMN1="4 " SRCROW2="53 " SRCCOLUMN2="50 " TYPESRC_LENG="49 " TYPESRC="tt_excluded_but type standard table of sy-ucomm
 "/>
-  <types CLSNAME="ZCL_FALV_DYNAMIC_STATUS" CMPNAME="TT_ALLOWED_BUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="55 " SRCCOLUMN1="6 " SRCROW2="55 " SRCCOLUMN2="56 " TYPESRC_LENG="53 " TYPESRC="tt_allowed_but type standard table of t_allowed_but
+  <types CLSNAME="ZCL_FALV_DYNAMIC_STATUS" CMPNAME="TT_ALLOWED_BUT" VERSION="1" LANGU="E" EXPOSURE="2" STATE="1" EDITORDER="4 " TYPTYPE="4" SRCROW1="55 " SRCCOLUMN1="4 " SRCROW2="55 " SRCCOLUMN2="54 " TYPESRC_LENG="53 " TYPESRC="tt_allowed_but type standard table of t_allowed_but
 "/>
   <implementing CLSNAME="ZCL_FALV_DYNAMIC_STATUS" REFCLSNAME="IF_OS_CLONE" VERSION="1" EXPOSURE="2" STATE="1" RELTYPE="1" EDITORDER="1 "/>
   <localImplementation>*&quot;* use this source file for the definition and implementation of
@@ -4661,6 +4661,79 @@ at selection-screen output.
    </functionmodule>
   </functionmodules>
  </FUGR>
+ <PROG NAME="ZDEMO_FALV16" VARCL="X" DBAPL="S" SUBC="1" RMAND="100" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
+  <textPool>
+   <language SPRAS="E">
+    <textElement ID="R" ENTRY="FALV: Split container on custom container screen" LENGTH="48 "/>
+   </language>
+  </textPool>
+  <dynpros>
+   <dynpro PROG="ZDEMO_FALV16" DNUM="0100" FNUM="0100" BZMX="200 " BZBR="255 " MILI="192 " MICO="37 " MALI="0 " MACO="0 " NOLI="200 " NOCO="255 " VALP="0 " CUAN="G" SPRA="E" DTEXT="Demo scree">
+    <dynprofield FNAM="MAIN" DIDX="00C8" FLG1="00" FLG2="30" FLG3="00" FILL="U" FMB1="30" FMB2="00" LENG="FF" LINE="01" COLN="02" LANF="00" LBLK="00" LREP="00" AUTH="101" AGLT="0A" ADEZ="0A"/>
+    <dynprofield FNAM="OK_CODE" DIDX="0000" FLG1="80" FLG2="10" FLG3="00" FMB1="00" FMB2="00" LENG="14" LINE="FF" COLN="01" LTYP="O" LANF="00" LBLK="00" LREP="00" TYPE="CHAR" AGLT="00" ADEZ="00" STXT="____________________"/>
+    <dynproflowsource>process before output.
+  module pbo.
+*
+process after input.
+  module pai.</dynproflowsource>
+   </dynpro>
+  </dynpros>
+  <source>report zdemo_falv16.
+
+
+data: spfli type standard table of spfli,
+      sflight type standard table of sflight,
+      falv_first type ref to zcl_falv,
+      falv_second type ref to zcl_falv,
+      splitter type ref to cl_gui_splitter_container.
+
+      constants: custom_container_name type char30 value &apos;MAIN&apos;.
+
+
+      initialization.
+
+      select * up to 50 rows into corresponding fields of table @spfli
+        from spfli.
+
+      select * up to 100 rows into corresponding fields of table @sflight
+        from sflight.
+
+
+      call screen 0100.
+
+     module pbo output.
+        set pf-status &apos;DYNAMIC_STATUS&apos; of program &apos;SAPLZFALV&apos;.
+
+        if splitter is initial.
+            splitter = new cl_gui_splitter_container( columns = 1
+                                                      rows = 2
+                                                      parent = new cl_gui_custom_container( container_name = custom_container_name )
+                                                     ).
+            falv_first = zcl_falv=&gt;create( exporting i_parent =  splitter-&gt;get_container(
+                                                                                        row       = 1
+                                                                                        column    = 1
+                                                                                    )
+                                           changing ct_table = spfli ).
+
+            falv_second = zcl_falv=&gt;create( exporting i_parent = splitter-&gt;get_container(
+                                                                                        row       = 2
+                                                                                        column    = 1
+                                                                                    )
+                                           changing ct_table = sflight ).
+           falv_first-&gt;display( ).
+           falv_second-&gt;display( ).
+        endif.
+     endmodule.
+
+     module pai input.
+
+        case sy-ucomm.
+            when &apos;BACK&apos; or &apos;UP&apos; or &apos;EXIT&apos;.
+             leave to screen 0.
+         endcase.
+
+     endmodule.</source>
+ </PROG>
  <PROG NAME="ZDEMO_FALV15" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
   <textPool>
    <language SPRAS="E">
@@ -4744,7 +4817,6 @@ start-of-selection.
  <PROG NAME="ZDEMO_FALV14" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
   <textPool>
    <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Popup" LENGTH="16 "/>
     <textElement ID="S" KEY="P_COLEND" ENTRY="        End column" LENGTH="18 "/>
     <textElement ID="S" KEY="P_COLST" ENTRY="        Start column" LENGTH="20 "/>
     <textElement ID="S" KEY="P_DEFAU" ENTRY="        Default size" LENGTH="20 "/>
@@ -5082,7 +5154,6 @@ endmodule.</source>
  <PROG NAME="ZDEMO_FALV12" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
   <textPool>
    <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Error Log" LENGTH="20 "/>
     <textElement ID="S" KEY="P_EMBEED" ENTRY="        Embeeded Error Log" LENGTH="26 "/>
     <textElement ID="S" KEY="P_NOTEMB" ENTRY="        Popup Error Log" LENGTH="23 "/>
    </language>
@@ -5126,7 +5197,6 @@ start-of-selection.
  <PROG NAME="ZDEMO_FALV11" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
   <textPool>
    <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Editable" LENGTH="19 "/>
     <textElement ID="S" KEY="P_CELL" ENTRY="        Set cell editable" LENGTH="25 "/>
     <textElement ID="S" KEY="P_COLUMN" ENTRY="        Set column editable" LENGTH="27 "/>
     <textElement ID="S" KEY="P_WHOLE" ENTRY="        Set whole grid editable" LENGTH="31 "/>
@@ -5436,7 +5506,6 @@ start-of-selection.
  <PROG NAME="ZDEMO_FALV06" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
   <textPool>
    <language SPRAS="E">
-    <textElement ID="R" ENTRY="FALV: Demo Full Screen Layout" LENGTH="29 "/>
     <textElement ID="S" KEY="P_USEMAR" ENTRY="        Use Mark Field?" LENGTH="23 "/>
    </language>
   </textPool>
