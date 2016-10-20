@@ -1,5 +1,5 @@
 #Changes V 740.1.0.7 - 740.1.0.11
-New demo program ZDEMO_FALV16 for check if FALV is working on split container, few bugs correction.
+New demo program ZDEMO_FALV16 for check if FALV is working on split container, few bugs correction ( Loop in PAI, split container ).
 
 #Changes V 740.1.0.6
 new method "SEND" for sending grid as an XLSX attachment
