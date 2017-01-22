@@ -3,7 +3,7 @@
  <asx:values>
   <DATA>
    <MASTER_LANGUAGE>E</MASTER_LANGUAGE>
-   <STARTING_FOLDER>/CODE/abapgit</STARTING_FOLDER>
+   <STARTING_FOLDER>/CODE/abapgit/</STARTING_FOLDER>
    <IGNORE>
     <item>/.gitignore</item>
     <item>/LICENSE</item>
