@@ -10,6 +10,14 @@
     <item>/README.md</item>
     <item>/package.json</item>
     <item>/.travis.yml</item>
+    <item>/changelog731.md</item>
+    <item>/changelog740.md</item>
+    <item>/BUILD/ZFALV_V731.1.0.3.nugg</item>
+    <item>/BUILD/ZFALV_V731.1.0.3.zip</item>
+    <item>/BUILD/ZFALV_V740.1.0.11.nugg</item>
+    <item>/BUILD/ZFALV_V740.1.0.11.zip</item>
+    <item>/CODE/abapgit/README.md</item>
+    <item>/CODE/abapgit/readme</item>
    </IGNORE>
   </DATA>
  </asx:values>
