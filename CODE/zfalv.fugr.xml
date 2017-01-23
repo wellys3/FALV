@@ -284,6 +284,10 @@
     </item>
    </DYNPROS>
    <CUA>
+    <ADM>
+     <ACTCODE>000004</ACTCODE> 
+     <PFKCODE>000005</PFKCODE> 
+    </ADM>
     <STA>
      <RSMPE_STAT>
       <CODE>DYNAMIC_STATUS</CODE>
