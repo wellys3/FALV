@@ -28,7 +28,7 @@ class zcl_falv definition
       end of t_email .
     types:
       tt_email type table of t_email .
-    constants version type string value '740.1.0.12' ##NO_TEXT.
+    constants version type string value '740.1.0.13' ##NO_TEXT.
     constants cc_name type char30 value 'CC_GRID' ##NO_TEXT.
     constants c_screen_popup type sy-dynnr value '0200' ##NO_TEXT.
     constants c_screen_full type sy-dynnr value '0100' ##NO_TEXT.
@@ -492,11 +492,11 @@ class zcl_falv definition
         !ct_table type standard table .
     methods build_columns .
     methods raise_top_of_page .
-ENDCLASS.
+endclass.
 
 
 
-CLASS ZCL_FALV IMPLEMENTATION.
+class zcl_falv implementation.
 
 
   method add_button.
@@ -839,16 +839,6 @@ CLASS ZCL_FALV IMPLEMENTATION.
     if sy-subrc <> 0.
     endif.
 
-    rv_falv->register_delayed_event(
-      exporting
-        i_event_id =  rv_falv->mc_evt_delayed_move_curr_cell
-      exceptions
-        error      = 1
-        others     = 2
-    ).
-    if sy-subrc <> 0.
-    endif.
-
     rv_falv->set_delay_move_current_cell(
       exporting
        time   = rv_falv->delay_move_current_cell
@@ -1085,17 +1075,6 @@ CLASS ZCL_FALV IMPLEMENTATION.
           i_applogparent = applog.
     endif.
 
-    rv_falv->register_delayed_event(
-  exporting
-    i_event_id =  rv_falv->mc_evt_delayed_move_curr_cell
-  exceptions
-    error      = 1
-    others     = 2
-        ).
-    if sy-subrc <> 0.
-    endif.
-
-
 
     set handler rv_falv->evf_after_refresh for rv_falv.
     set handler rv_falv->evf_after_user_command for rv_falv.
@@ -1252,9 +1231,9 @@ CLASS ZCL_FALV IMPLEMENTATION.
 
   method display.
     field-symbols: <outtab> type standard table.
-    if me->title_v1 is INITIAL.
+    if me->title_v1 is initial.
       me->title_v1 = sy-title. " for lazy people who wants to have alv title to be equal one from report.
-    ENDIF.
+    endif.
     if built_in_screen eq abap_true and iv_force_grid eq abap_false.
       if screen eq c_screen_popup and iv_start_row is initial
                                   and iv_start_column is initial
@@ -1624,15 +1603,6 @@ CLASS ZCL_FALV IMPLEMENTATION.
 
 
   method evf_user_command.
-
-  endmethod.
-
-
-  method evf_user_command_internal.
-    "TODO add check if function was called from FALV PAI
-    "or not, if yes, just change current guid?
-    "what about popup? - it's on a different screen
-    "so it should work without exceptions
     case e_ucomm.
       when fc_back.
         leave to screen 0.
@@ -1645,6 +1615,26 @@ CLASS ZCL_FALV IMPLEMENTATION.
       when fc_mass_replace.
         mass_replace( ).
     endcase.
+  endmethod.
+
+
+  method evf_user_command_internal.
+*    "TODO add check if function was called from FALV PAI
+*    "or not, if yes, just change current guid?
+*    "what about popup? - it's on a different screen
+*    "so it should work without exceptions
+*    case e_ucomm.
+*      when fc_back.
+*        leave to screen 0.
+*      when fc_exit.
+*        leave to screen 0.
+*      when fc_up.
+*        leave to screen 0.
+*      when fc_cancel.
+*        leave to screen 0.
+*      when fc_mass_replace.
+*        mass_replace( ).
+*    endcase.
   endmethod.
 
 
@@ -2500,4 +2490,4 @@ CLASS ZCL_FALV IMPLEMENTATION.
 *                with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
     endif.
   endmethod.
-ENDCLASS.
+endclass.

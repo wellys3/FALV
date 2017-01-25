@@ -25,7 +25,9 @@ class lcl_test implementation.
   method evf_user_command.
     case e_ucomm.
       when zcl_falv_dynamic_status=>b_01.
-         falv_called->display( ).
+        falv_called->display( ).
+      when others.
+        super->evf_user_command( e_ucomm ).
     endcase.
   endmethod.
 endclass.
