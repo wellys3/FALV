@@ -1252,6 +1252,9 @@ CLASS ZCL_FALV IMPLEMENTATION.
 
   method display.
     field-symbols: <outtab> type standard table.
+    if me->title_v1 is INITIAL.
+      me->title_v1 = sy-title. " for lazy people who wants to have alv title to be equal one from report.
+    ENDIF.
     if built_in_screen eq abap_true and iv_force_grid eq abap_false.
       if screen eq c_screen_popup and iv_start_row is initial
                                   and iv_start_column is initial
