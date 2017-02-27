@@ -28,7 +28,7 @@ class zcl_falv definition
       end of t_email .
     types:
       tt_email type table of t_email .
-    constants version type string value '740.1.0.13' ##NO_TEXT.
+    constants version type string value '740.1.0.14' ##NO_TEXT.
     constants cc_name type char30 value 'CC_GRID' ##NO_TEXT.
     constants c_screen_popup type sy-dynnr value '0200' ##NO_TEXT.
     constants c_screen_full type sy-dynnr value '0100' ##NO_TEXT.
