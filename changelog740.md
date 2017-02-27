@@ -1,3 +1,9 @@
+#Changes V 740.1.0.14
+Small change in mass replace function - data is no longer directly move to output table but only passed to grid by set_delta_celss method. This is done to avoid omitting event on_data_change 
+
+#Changes V 740.1.0.13
+Internal event for user comand handling was removed. Instead all code from this method was moved to evf_user_command, so you have to call super->evf_user_command if you want standard functions to work.Additionally hot spot bug with delayed events was solved.
+
 #Changes V 740.1.0.12
 Getters added for columns settings + get_cell_enabled method + some minor bugs
 
