@@ -232,6 +232,7 @@ exceptions
       iv_icon      = icon_replace
   ).
   falv_redef_copy->refresh_table_display( ).
+  falv_redef_copy->delete_all_buttons(   ).
   falv_redef_copy->display( ).
 
   falv_stand->display( ).
