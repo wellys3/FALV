@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<nugget name="ZDEMO_FALV15">
- <PROG NAME="ZDEMO_FALV15" VARCL="X" DBAPL="S" SUBC="1" RMAND="001" FIXPT="X" LDBNAME="D$S" UCCHECK="X">
-  <source>REPORT ZDEMO_FALV15 .</source>
- </PROG>
-</nugget>

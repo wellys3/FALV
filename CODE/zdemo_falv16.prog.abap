@@ -40,6 +40,7 @@ module pbo output.
                                                                                 column    = 1
                                                                             )
                                    changing ct_table = sflight ).
+
     falv_first->column( 'CONNID' )->set_editable( ).
     falv_first->set_editable(
             iv_modify = abap_true
