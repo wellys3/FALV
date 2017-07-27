@@ -194,8 +194,10 @@ public section.
 protected section.
 private section.
 
-  data FALV type ref to ZCL_FALV .
-
+  data: FALV type ref to ZCL_FALV,
+        "! Deletes all buttons except the once passed in delete_all_buttons
+        "! method
+        delete_all_buttons type abap_bool.
   methods CHANGE_SETTING
     importing
       value(IV_VALUE) type ANY

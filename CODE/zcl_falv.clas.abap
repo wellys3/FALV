@@ -28,7 +28,11 @@ class zcl_falv definition
       end of t_email .
     types:
       tt_email type table of t_email .
+<<<<<<< HEAD
     constants version type string value '740.1.0.16' ##NO_TEXT.
+=======
+    constants version type string value '740.1.0.15' ##NO_TEXT.
+>>>>>>> origin/master
     constants cc_name type char30 value 'CC_GRID' ##NO_TEXT.
     constants c_screen_popup type sy-dynnr value '0200' ##NO_TEXT.
     constants c_screen_full type sy-dynnr value '0100' ##NO_TEXT.
@@ -155,6 +159,9 @@ class zcl_falv definition
     methods delete_button
       importing
         value(iv_function) type ui_func .
+    methods delete_all_buttons
+      importing
+        value(iv_exceptions) type ttb_button optional.
     methods set_cell_disabled
       importing
         value(iv_fieldname) type fieldname
@@ -241,6 +248,7 @@ class zcl_falv definition
         value(i_field)   type lvc_fname
       returning
         value(r_enabled) type abap_bool.
+    methods refresh_toolbar .
 
     methods set_frontend_fieldcatalog
         redefinition .
@@ -250,9 +258,10 @@ class zcl_falv definition
 
     types t_column type ref to zcl_falv_column .
 
-    data toolbar_added type ttb_button .
-    data toolbar_deleted type ttb_button .
-    data toolbar_disabled type ttb_button .
+    data: toolbar_added      type ttb_button,
+          toolbar_deleted    type ttb_button,
+          toolbar_disabled   type ttb_button,
+          toolbar_exceptions type ttb_button.
     data:
       columns type sorted table of t_column with unique key table_line .
     data built_in_screen type abap_bool .
@@ -446,7 +455,7 @@ class zcl_falv definition
     class-methods check_if_called_from_subclass
       returning
         value(ro_subclass) type ref to object .
-    methods refresh_toolbar .
+
     methods evf_before_ucommand_internal
           for event before_user_command of cl_gui_alv_grid
       importing
@@ -1203,6 +1212,27 @@ CLASS ZCL_FALV IMPLEMENTATION.
     rv_falv->toolbar_disabled = me->toolbar_disabled.
     rv_falv->m_batch_mode = me->m_batch_mode.
     rv_falv->grid = cast #( rv_falv ).
+    rv_falv->layout->delete_all_buttons = me->layout->delete_all_buttons.
+    rv_falv->layout->mark_field = me->layout->mark_field.
+  endmethod.
+
+
+  method delete_all_buttons.
+    layout->delete_all_buttons = abap_true.
+    if iv_exceptions is initial.
+      append lines of mt_toolbar to toolbar_deleted.
+      refresh toolbar_added.
+    else.
+      toolbar_exceptions = iv_exceptions.
+      loop at mt_toolbar assigning field-symbol(<tlb>).
+        if not line_exists( iv_exceptions[ function = <tlb>-function ] ).
+          append <tlb> to toolbar_deleted.
+          delete toolbar_added where function eq <tlb>-function.
+        endif.
+      endloop.
+    endif.
+    append lines of toolbar_deleted to exclude_functions.
+    me->refresh_toolbar( ).
   endmethod.
 
 
@@ -1283,6 +1313,9 @@ CLASS ZCL_FALV IMPLEMENTATION.
           others                        = 4
       ).
       if sy-subrc eq 0.
+        if layout->delete_all_buttons eq abap_true.
+          delete_all_buttons( toolbar_exceptions ).
+        endif.
         if split_container is not initial.
           split_container->set_focus(
             exporting
