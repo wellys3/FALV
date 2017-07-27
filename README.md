@@ -2,6 +2,8 @@
 FALV - Fast ALV Grid
 http://abapblog.com/falv
 
+# Changes V 740.1.0.16 
+Bug Fix for mass replace function if it was run from FALV in custom container
 # Changes V 740.1.0.15 
 
 New method DELETE_ALL_BUTTONS for quick clear of grid toolbar.
