@@ -676,11 +676,11 @@ class zcl_falv_column definition
         value(iv_setting) type string
       exporting
         value(e_value)    type any.
-ENDCLASS.
+endclass.
 
 
 
-CLASS ZCL_FALV_COLUMN IMPLEMENTATION.
+class zcl_falv_column implementation.
 
 
   method change_setting.
@@ -696,480 +696,6 @@ CLASS ZCL_FALV_COLUMN IMPLEMENTATION.
     endif.
   endmethod.
 
-
-  method constructor.
-    fieldname = iv_fieldname.
-    falv = io_falv.
-  endmethod.
-
-
-  method get_auto_value.
-    get_setting( exporting  iv_setting = 'AUTO_VALUE' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_cfieldname.
-    get_setting( exporting  iv_setting = 'CFIELDNAME' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_checkbox.
-    get_setting( exporting  iv_setting = 'CHECKBOX' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_checktable.
-    get_setting( exporting  iv_setting = 'CHECKTABLE' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_colddictxt.
-    get_setting( exporting  iv_setting = 'COLDDICTXT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_color.
-    get_emphasize(   receiving rv_value = rv_value ).
-  endmethod.
-
-
-  method get_coltext.
-    get_setting( exporting  iv_setting = 'COLTEXT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_col_id.
-    get_setting( exporting  iv_setting = 'COL_ID' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_col_opt.
-    get_setting( exporting  iv_setting = 'COL_OPT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_col_pos.
-    get_setting( exporting  iv_setting = 'COL_POS' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_convexit.
-    get_setting( exporting  iv_setting = 'CONVEXIT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_currency.
-    get_setting( exporting  iv_setting = 'CURRENCY' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_datatype.
-    get_setting( exporting  iv_setting = 'DATATYPE' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_dd_outlen.
-    get_setting( exporting  iv_setting = 'DD_OUTLEN' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_dd_roll.
-    get_setting( exporting  iv_setting = 'DD_ROLL' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_decfloat_style.
-    get_setting( exporting  iv_setting = 'DECFLOAT_STYLE' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_decimals.
-    get_setting( exporting  iv_setting = 'DECIMALS' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_decimals_o.
-    get_setting( exporting  iv_setting = 'DECIMALS_O' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_decmlfield.
-    get_setting( exporting  iv_setting = 'DECMLFIELD' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_dfieldname.
-    get_setting( exporting  iv_setting = 'DFIELDNAME' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_domname.
-    get_setting( exporting  iv_setting = 'DOMNAME' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_do_sum.
-    get_setting( exporting  iv_setting = 'DO_SUM' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_dragdropid.
-    get_setting( exporting  iv_setting = 'DRAGDROPID' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_drdn_alias.
-    get_setting( exporting  iv_setting = 'DRDN_ALIAS' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_drdn_field.
-    get_setting( exporting  iv_setting = 'DRDN_FIELD' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_drdn_hndl.
-    get_setting( exporting  iv_setting = 'DRDN_HNDL' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_edit.
-    get_setting( exporting  iv_setting = 'EDIT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_editable.
-    get_setting( exporting iv_setting = 'EDIT' importing e_value = rv_editable ).
-  endmethod.
-
-
-  method get_edit_mask.
-    get_setting( exporting  iv_setting = 'EDIT_MASK' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_emphasize.
-    get_setting( exporting  iv_setting = 'EMPHASIZE' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_exponent.
-    get_setting( exporting  iv_setting = 'EXPONENT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_f4availabl.
-    get_setting( exporting  iv_setting = 'F4AVAILABL' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_fieldname.
-    get_setting( exporting  iv_setting = 'FIELDNAME' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_fix_column.
-    get_setting( exporting  iv_setting = 'FIX_COLUMN' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_get_style.
-    get_setting( exporting  iv_setting = 'GET_STYLE' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_hier_cpos.
-    get_setting( exporting  iv_setting = 'HIER_CPOS' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_hier_level.
-    get_setting( exporting  iv_setting = 'HIER_LEVEL' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_hotspot.
-    get_setting( exporting  iv_setting = 'HOTSPOT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_href_hndl.
-    get_setting( exporting  iv_setting = 'HREF_HNDL' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_h_col_key.
-    get_setting( exporting  iv_setting = 'H_COL_KEY' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_h_ftype.
-    get_setting( exporting  iv_setting = 'H_FTYPE' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_h_select.
-    get_setting( exporting  iv_setting = 'H_SELECT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_icon.
-    get_setting( exporting  iv_setting = 'ICON' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_ifieldname.
-    get_setting( exporting  iv_setting = 'IFIELDNAME' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_indx_cfiel.
-    get_setting( exporting  iv_setting = 'INDX_CFIEL' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_indx_decml.
-    get_setting( exporting  iv_setting = 'INDX_DECML' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_indx_field.
-    get_setting( exporting  iv_setting = 'INDX_FIELD' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_indx_ifiel.
-    get_setting( exporting  iv_setting = 'INDX_IFIEL' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_indx_qfiel.
-    get_setting( exporting  iv_setting = 'INDX_QFIEL' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_indx_round.
-    get_setting( exporting  iv_setting = 'INDX_ROUND' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_intlen.
-    get_setting( exporting  iv_setting = 'INTLEN' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_inttype.
-    get_setting( exporting  iv_setting = 'INTTYPE' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_just.
-    get_setting( exporting  iv_setting = 'JUST' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_key.
-    get_setting( exporting  iv_setting = 'KEY' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_key_sel.
-    get_setting( exporting  iv_setting = 'KEY_SEL' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_lowercase.
-    get_setting( exporting  iv_setting = 'LOWERCASE' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_lzero.
-    get_setting( exporting  iv_setting = 'LZERO' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_mac.
-    get_setting( exporting  iv_setting = 'MAC' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_mark.
-    get_setting( exporting  iv_setting = 'MARK' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_no_convext.
-    get_setting( exporting  iv_setting = 'NO_CONVEXT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_no_init_ch.
-    get_setting( exporting  iv_setting = 'NO_INIT_CH' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_no_merging.
-    get_setting( exporting  iv_setting = 'NO_MERGING' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_no_out.
-    get_setting( exporting  iv_setting = 'NO_OUT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_no_sign.
-    get_setting( exporting  iv_setting = 'NO_SIGN' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_no_sum.
-    get_setting( exporting  iv_setting = 'NO_SUM' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_no_zero.
-    get_setting( exporting  iv_setting = 'NO_ZERO' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_outputlen.
-    get_setting( exporting  iv_setting = 'OUTPUTLEN' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_parameter0.
-    get_setting( exporting  iv_setting = 'PARAMETER0' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_parameter1.
-    get_setting( exporting  iv_setting = 'PARAMETER1' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_parameter2.
-    get_setting( exporting  iv_setting = 'PARAMETER2' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_parameter3.
-    get_setting( exporting  iv_setting = 'PARAMETER3' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_parameter4.
-    get_setting( exporting  iv_setting = 'PARAMETER4' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_parameter5.
-    get_setting( exporting  iv_setting = 'PARAMETER5' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_parameter6.
-    get_setting( exporting  iv_setting = 'PARAMETER6' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_parameter7.
-    get_setting( exporting  iv_setting = 'PARAMETER7' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_parameter8.
-    get_setting( exporting  iv_setting = 'PARAMETER8' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_parameter9.
-    get_setting( exporting  iv_setting = 'PARAMETER9' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_qfieldname.
-    get_setting( exporting  iv_setting = 'QFIELDNAME' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_quantity.
-    get_setting( exporting  iv_setting = 'QUANTITY' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_readonly.
-    get_setting( exporting iv_setting = 'EDIT' importing e_value = rv_read_only ).
-    rv_read_only = switch #( rv_read_only when abap_true then abap_false
-                                          when abap_false then abap_true ).
-  endmethod.
-
-
-  method get_ref_field.
-    get_setting( exporting  iv_setting = 'REF_FIELD' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_ref_table.
-    get_setting( exporting  iv_setting = 'REF_TABLE' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_reprep.
-    get_setting( exporting  iv_setting = 'REPREP' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_reptext.
-    get_setting( exporting  iv_setting = 'REPTEXT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_rollname.
-    get_setting( exporting  iv_setting = 'ROLLNAME' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_round.
-    get_setting( exporting  iv_setting = 'ROUND' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_roundfield.
-    get_setting( exporting  iv_setting = 'ROUNDFIELD' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_row_pos.
-    get_setting( exporting  iv_setting = 'ROW_POS' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_scrtext_l.
-    get_setting( exporting  iv_setting = 'SCRTEXT_L' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_scrtext_m.
-    get_setting( exporting  iv_setting = 'SCRTEXT_M' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_scrtext_s.
-    get_setting( exporting  iv_setting = 'SCRTEXT_S' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_selddictxt.
-    get_setting( exporting  iv_setting = 'SELDDICTXT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_seltext.
-    get_setting( exporting  iv_setting = 'SELTEXT' importing e_value = rv_value ).
-  endmethod.
-
-
   method get_setting.
     falv->get_frontend_fieldcatalog( importing et_fieldcatalog = falv->fcat ).
     assign falv->fcat[ fieldname = fieldname ] to field-symbol(<fcat>).
@@ -1183,83 +709,10 @@ CLASS ZCL_FALV_COLUMN IMPLEMENTATION.
   endmethod.
 
 
-  method get_sp_group.
-    get_setting( exporting  iv_setting = 'SP_GROUP' importing e_value = rv_value ).
-  endmethod.
 
-
-  method get_style.
-    get_setting( exporting  iv_setting = 'STYLE' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_style2.
-    get_setting( exporting  iv_setting = 'STYLE2' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_style3.
-    get_setting( exporting  iv_setting = 'STYLE3' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_style4.
-    get_setting( exporting  iv_setting = 'STYLE4' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_symbol.
-    get_setting( exporting  iv_setting = 'SYMBOL' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_tabname.
-    get_setting( exporting  iv_setting = 'TABNAME' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_tech.
-    get_setting( exporting  iv_setting = 'TECH' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_tech_col.
-    get_setting( exporting  iv_setting = 'TECH_COL' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_tech_comp.
-    get_setting( exporting  iv_setting = 'TECH_COMP' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_tech_form.
-    get_setting( exporting  iv_setting = 'TECH_FORM' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_tipddictxt.
-    get_setting( exporting  iv_setting = 'TIPDDICTXT' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_tooltip.
-    get_setting( exporting  iv_setting = 'TOOLTIP' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_txt_field.
-    get_setting( exporting  iv_setting = 'TXT_FIELD' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_valexi.
-    get_setting( exporting  iv_setting = 'VALEXI' importing e_value = rv_value ).
-  endmethod.
-
-
-  method get_web_field.
-    get_setting( exporting  iv_setting = 'WEB_FIELD' importing e_value = rv_value ).
+  method constructor.
+    fieldname = iv_fieldname.
+    falv = io_falv.
   endmethod.
 
 
@@ -1806,4 +1259,551 @@ CLASS ZCL_FALV_COLUMN IMPLEMENTATION.
   method set_web_field.
     change_setting( iv_value = iv_value iv_setting = 'WEB_FIELD').
   endmethod.
-ENDCLASS.
+
+  method get_auto_value.
+    get_setting( exporting  iv_setting = 'AUTO_VALUE' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_cfieldname.
+    get_setting( exporting  iv_setting = 'CFIELDNAME' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_checkbox.
+    get_setting( exporting  iv_setting = 'CHECKBOX' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_checktable.
+    get_setting( exporting  iv_setting = 'CHECKTABLE' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_colddictxt.
+    get_setting( exporting  iv_setting = 'COLDDICTXT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_color.
+    get_emphasize(   receiving rv_value = rv_value ).
+  endmethod.
+
+
+  method get_coltext.
+    get_setting( exporting  iv_setting = 'COLTEXT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_col_id.
+    get_setting( exporting  iv_setting = 'COL_ID' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_col_opt.
+    get_setting( exporting  iv_setting = 'COL_OPT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_col_pos.
+    get_setting( exporting  iv_setting = 'COL_POS' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_convexit.
+    get_setting( exporting  iv_setting = 'CONVEXIT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_currency.
+    get_setting( exporting  iv_setting = 'CURRENCY' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_datatype.
+    get_setting( exporting  iv_setting = 'DATATYPE' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_dd_outlen.
+    get_setting( exporting  iv_setting = 'DD_OUTLEN' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_dd_roll.
+    get_setting( exporting  iv_setting = 'DD_ROLL' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_decfloat_style.
+    get_setting( exporting  iv_setting = 'DECFLOAT_STYLE' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_decimals.
+    get_setting( exporting  iv_setting = 'DECIMALS' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_decimals_o.
+    get_setting( exporting  iv_setting = 'DECIMALS_O' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_decmlfield.
+    get_setting( exporting  iv_setting = 'DECMLFIELD' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_dfieldname.
+    get_setting( exporting  iv_setting = 'DFIELDNAME' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_domname.
+    get_setting( exporting  iv_setting = 'DOMNAME' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_do_sum.
+    get_setting( exporting  iv_setting = 'DO_SUM' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_dragdropid.
+    get_setting( exporting  iv_setting = 'DRAGDROPID' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_drdn_alias.
+    get_setting( exporting  iv_setting = 'DRDN_ALIAS' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_drdn_field.
+    get_setting( exporting  iv_setting = 'DRDN_FIELD' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_drdn_hndl.
+    get_setting( exporting  iv_setting = 'DRDN_HNDL' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_edit.
+    get_setting( exporting  iv_setting = 'EDIT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_editable.
+    get_setting( exporting iv_setting = 'EDIT' importing e_value = rv_editable ).
+  endmethod.
+
+
+  method get_edit_mask.
+    get_setting( exporting  iv_setting = 'EDIT_MASK' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_emphasize.
+    get_setting( exporting  iv_setting = 'EMPHASIZE' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_exponent.
+    get_setting( exporting  iv_setting = 'EXPONENT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_f4availabl.
+    get_setting( exporting  iv_setting = 'F4AVAILABL' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_fieldname.
+    get_setting( exporting  iv_setting = 'FIELDNAME' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_fix_column.
+    get_setting( exporting  iv_setting = 'FIX_COLUMN' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_get_style.
+    get_setting( exporting  iv_setting = 'GET_STYLE' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_hier_cpos.
+    get_setting( exporting  iv_setting = 'HIER_CPOS' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_hier_level.
+    get_setting( exporting  iv_setting = 'HIER_LEVEL' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_hotspot.
+    get_setting( exporting  iv_setting = 'HOTSPOT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_href_hndl.
+    get_setting( exporting  iv_setting = 'HREF_HNDL' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_h_col_key.
+    get_setting( exporting  iv_setting = 'H_COL_KEY' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_h_ftype.
+    get_setting( exporting  iv_setting = 'H_FTYPE' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_h_select.
+    get_setting( exporting  iv_setting = 'H_SELECT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_icon.
+    get_setting( exporting  iv_setting = 'ICON' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_ifieldname.
+    get_setting( exporting  iv_setting = 'IFIELDNAME' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_indx_cfiel.
+    get_setting( exporting  iv_setting = 'INDX_CFIEL' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_indx_decml.
+    get_setting( exporting  iv_setting = 'INDX_DECML' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_indx_field.
+    get_setting( exporting  iv_setting = 'INDX_FIELD' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_indx_ifiel.
+    get_setting( exporting  iv_setting = 'INDX_IFIEL' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_indx_qfiel.
+    get_setting( exporting  iv_setting = 'INDX_QFIEL' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_indx_round.
+    get_setting( exporting  iv_setting = 'INDX_ROUND' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_intlen.
+    get_setting( exporting  iv_setting = 'INTLEN' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_inttype.
+    get_setting( exporting  iv_setting = 'INTTYPE' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_just.
+    get_setting( exporting  iv_setting = 'JUST' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_key.
+    get_setting( exporting  iv_setting = 'KEY' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_key_sel.
+    get_setting( exporting  iv_setting = 'KEY_SEL' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_lowercase.
+    get_setting( exporting  iv_setting = 'LOWERCASE' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_lzero.
+    get_setting( exporting  iv_setting = 'LZERO' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_mac.
+    get_setting( exporting  iv_setting = 'MAC' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_mark.
+    get_setting( exporting  iv_setting = 'MARK' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_no_convext.
+    get_setting( exporting  iv_setting = 'NO_CONVEXT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_no_init_ch.
+    get_setting( exporting  iv_setting = 'NO_INIT_CH' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_no_merging.
+    get_setting( exporting  iv_setting = 'NO_MERGING' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_no_out.
+    get_setting( exporting  iv_setting = 'NO_OUT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_no_sign.
+    get_setting( exporting  iv_setting = 'NO_SIGN' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_no_sum.
+    get_setting( exporting  iv_setting = 'NO_SUM' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_no_zero.
+    get_setting( exporting  iv_setting = 'NO_ZERO' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_outputlen.
+    get_setting( exporting  iv_setting = 'OUTPUTLEN' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_parameter0.
+    get_setting( exporting  iv_setting = 'PARAMETER0' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_parameter1.
+    get_setting( exporting  iv_setting = 'PARAMETER1' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_parameter2.
+    get_setting( exporting  iv_setting = 'PARAMETER2' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_parameter3.
+    get_setting( exporting  iv_setting = 'PARAMETER3' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_parameter4.
+    get_setting( exporting  iv_setting = 'PARAMETER4' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_parameter5.
+    get_setting( exporting  iv_setting = 'PARAMETER5' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_parameter6.
+    get_setting( exporting  iv_setting = 'PARAMETER6' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_parameter7.
+    get_setting( exporting  iv_setting = 'PARAMETER7' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_parameter8.
+    get_setting( exporting  iv_setting = 'PARAMETER8' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_parameter9.
+    get_setting( exporting  iv_setting = 'PARAMETER9' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_qfieldname.
+    get_setting( exporting  iv_setting = 'QFIELDNAME' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_quantity.
+    get_setting( exporting  iv_setting = 'QUANTITY' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_readonly.
+    get_setting( exporting iv_setting = 'EDIT' importing e_value = rv_read_only ).
+    rv_read_only = switch #( rv_read_only when abap_true then abap_false
+                                          when abap_false then abap_true ).
+  endmethod.
+
+  method get_ref_field.
+    get_setting( exporting  iv_setting = 'REF_FIELD' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_ref_table.
+    get_setting( exporting  iv_setting = 'REF_TABLE' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_reprep.
+    get_setting( exporting  iv_setting = 'REPREP' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_reptext.
+    get_setting( exporting  iv_setting = 'REPTEXT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_rollname.
+    get_setting( exporting  iv_setting = 'ROLLNAME' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_round.
+    get_setting( exporting  iv_setting = 'ROUND' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_roundfield.
+    get_setting( exporting  iv_setting = 'ROUNDFIELD' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_row_pos.
+    get_setting( exporting  iv_setting = 'ROW_POS' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_scrtext_l.
+    get_setting( exporting  iv_setting = 'SCRTEXT_L' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_scrtext_m.
+    get_setting( exporting  iv_setting = 'SCRTEXT_M' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_scrtext_s.
+    get_setting( exporting  iv_setting = 'SCRTEXT_S' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_selddictxt.
+    get_setting( exporting  iv_setting = 'SELDDICTXT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_seltext.
+    get_setting( exporting  iv_setting = 'SELTEXT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_sp_group.
+    get_setting( exporting  iv_setting = 'SP_GROUP' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_style.
+    get_setting( exporting  iv_setting = 'STYLE' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_style2.
+    get_setting( exporting  iv_setting = 'STYLE2' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_style3.
+    get_setting( exporting  iv_setting = 'STYLE3' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_style4.
+    get_setting( exporting  iv_setting = 'STYLE4' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_symbol.
+    get_setting( exporting  iv_setting = 'SYMBOL' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_tabname.
+    get_setting( exporting  iv_setting = 'TABNAME' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_tech.
+    get_setting( exporting  iv_setting = 'TECH' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_tech_col.
+    get_setting( exporting  iv_setting = 'TECH_COL' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_tech_comp.
+    get_setting( exporting  iv_setting = 'TECH_COMP' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_tech_form.
+    get_setting( exporting  iv_setting = 'TECH_FORM' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_tipddictxt.
+    get_setting( exporting  iv_setting = 'TIPDDICTXT' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_tooltip.
+    get_setting( exporting  iv_setting = 'TOOLTIP' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_txt_field.
+    get_setting( exporting  iv_setting = 'TXT_FIELD' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_valexi.
+    get_setting( exporting  iv_setting = 'VALEXI' importing e_value = rv_value ).
+  endmethod.
+
+
+  method get_web_field.
+    get_setting( exporting  iv_setting = 'WEB_FIELD' importing e_value = rv_value ).
+  endmethod.
+
+
+endclass.

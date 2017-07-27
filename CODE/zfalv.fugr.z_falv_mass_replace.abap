@@ -107,8 +107,8 @@ FUNCTION Z_FALV_MASS_REPLACE.
     endif.
   endloop.
 
-  if <out> is not assigned."can happen when not calling full screen FALV
-    data(output) = new lcl_output( cast #(  io_grid ) ).
+  if <out> is not assigned. "can happen when not called from Full Screen FALV
+    data(output) = new lcl_output( cast #( io_grid ) ).
     assign output to <out>.
   endif.
   refresh <out>->mass_repl_params .

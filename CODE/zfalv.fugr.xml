@@ -13,7 +13,7 @@
    <FUNCTIONS>
     <item>
      <FUNCNAME>Z_FALV_CALL_MASS_SS</FUNCNAME>
-     <INCLUDE>LZFALVU03</INCLUDE>
+     <INCLUDE>LZFALVU01</INCLUDE>
      <REMOTE_CALL>R</REMOTE_CALL>
      <SHORT_TEXT>Call mass replace selection screen</SHORT_TEXT>
      <IMPORT>
@@ -52,7 +52,7 @@
     </item>
     <item>
      <FUNCNAME>Z_FALV_DISPLAY</FUNCNAME>
-     <INCLUDE>LZFALVU01</INCLUDE>
+     <INCLUDE>LZFALVU02</INCLUDE>
      <SHORT_TEXT>Display FALV</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
@@ -112,7 +112,7 @@
     </item>
     <item>
      <FUNCNAME>Z_FALV_MASS_REPLACE</FUNCNAME>
-     <INCLUDE>LZFALVU02</INCLUDE>
+     <INCLUDE>LZFALVU03</INCLUDE>
      <SHORT_TEXT>Mass replace for grid</SHORT_TEXT>
      <IMPORT>
       <RSIMP>
