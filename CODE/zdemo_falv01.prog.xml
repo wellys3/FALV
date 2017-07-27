@@ -8,6 +8,7 @@
     <VARCL>X</VARCL>
     <SUBC>1</SUBC>
     <APPL>*</APPL>
+    <SECU>Z0</SECU>
     <RSTAT>K</RSTAT>
     <RLOAD>E</RLOAD>
     <FIXPT>X</FIXPT>

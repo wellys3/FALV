@@ -34,6 +34,8 @@ class lcl_test implementation.
             msgty = 'S'
             msgno = '001'
             msgv1 = 'Button 2 clicked'.
+      when others.
+        super->evf_user_command( e_ucomm ).
     endcase.
   endmethod.
 endclass.

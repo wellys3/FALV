@@ -1,13 +1,11 @@
 FUNCTION Z_FALV_MASS_REPLACE.
-*"--------------------------------------------------------------------
+*"----------------------------------------------------------------------
 *"*"Local Interface:
 *"  IMPORTING
-*"     REFERENCE(IO_GRID) TYPE REF TO CL_GUI_ALV_GRID
+*"     REFERENCE(IO_GRID) TYPE REF TO  CL_GUI_ALV_GRID
 *"  CHANGING
 *"     REFERENCE(CT_OUTTAB) TYPE  STANDARD TABLE
-*"--------------------------------------------------------------------
-.
-
+*"----------------------------------------------------------------------
   data: ft_rsparams type rsparams_tt.
   data: f_lines type i.
   data: f_num(2) type n.
@@ -16,6 +14,7 @@ FUNCTION Z_FALV_MASS_REPLACE.
   data: f_changed type flag.
   data: f_tabix type i.
   data: f_space like line of ft_rsparams.
+
   field-symbols: <paramsf> like line of ft_rsparams.
   field-symbols: <paramst> like line of ft_rsparams.
   field-symbols: <paramsc> like line of ft_rsparams.
@@ -108,6 +107,10 @@ FUNCTION Z_FALV_MASS_REPLACE.
     endif.
   endloop.
 
+  if <out> is not assigned."can happen when not calling full screen FALV
+    data(output) = new lcl_output( cast #(  io_grid ) ).
+    assign output to <out>.
+  endif.
   refresh <out>->mass_repl_params .
   sort fcat by col_pos.
 
@@ -185,7 +188,8 @@ FUNCTION Z_FALV_MASS_REPLACE.
                 endif.
               endif.
 
-              <any> = <paramst>-low.
+              "<any> = <paramst>-low. "direct assignment not needed and may be dangerous if some
+                                      "rules are set in the events like data_change
               clear fs_delta.
               fs_delta-fieldname = <fcat>-fieldname.
               fs_delta-row_id    = f_row.

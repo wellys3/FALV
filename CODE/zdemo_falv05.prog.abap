@@ -31,6 +31,8 @@ class lcl_test implementation.
         ).
       when zcl_falv_dynamic_status=>b_03.
         me->delete_button( zcl_falv_dynamic_status=>b_03 ).
+      when others.
+        super->evf_user_command( e_ucomm ).
     endcase.
   endmethod.
 

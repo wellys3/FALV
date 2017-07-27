@@ -8,6 +8,7 @@
     <VARCL>X</VARCL>
     <DBAPL>S</DBAPL>
     <SUBC>1</SUBC>
+    <SECU>Z0</SECU>
     <FIXPT>X</FIXPT>
     <LDBNAME>D$S</LDBNAME>
     <UCCHECK>X</UCCHECK>
