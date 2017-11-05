@@ -10,7 +10,6 @@
     <RLOAD>E</RLOAD>
     <UCCHECK>X</UCCHECK>
    </PROGDIR>
-   <TPOOL/>
   </asx:values>
  </asx:abap>
 </abapGit>
