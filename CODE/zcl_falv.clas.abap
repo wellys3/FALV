@@ -497,11 +497,11 @@ class zcl_falv definition
         !ct_table type standard table .
     methods build_columns .
     methods raise_top_of_page .
-ENDCLASS.
+endclass.
 
 
 
-CLASS ZCL_FALV IMPLEMENTATION.
+class zcl_falv implementation.
 
 
   method add_button.
@@ -534,133 +534,85 @@ CLASS ZCL_FALV IMPLEMENTATION.
 *    types: t_tokens     type table of stokex,
 *           t_statements type table of sstmnt,
 *           t_levels     type table of slevel.
-*
-*    data: callstack      type abap_callstack,
+
+    data: callstack      type abap_callstack,
 *          et_callstack   type sys_callst,
-*          src            type table of string,
-*          program        type char255,
-*          tokens         type table of stokes,
-*          owerflow       type table of stokex,
-*          statements     type table of sstmnt,
-*          keywords       type table of char255,
-*          levels         type table of slevel,
-*          overflow(4096).          .
-*
-*    call function 'SYSTEM_CALLSTACK'
-**      exporting
-**        max_level    = 0
-*      importing
-*        callstack    = callstack
-*        et_callstack = et_callstack[].    " System Callstack Table
-*
-*
-*    data:
-*      progtab  type table of string,
-*      progline type string,
-*      idx      type sy-tabix,
-*      moff     type i,
-*      counter  type i.
-*
-*    field-symbols <progline> type string.
-*
-*    program = callstack[ 3 ]-mainprogram.
-*    read report program into src.
-*
-*    scan abap-source src
-*              tokens      into tokens
-*              levels      into levels
-*              statements  into statements
-*              "REPLACING   edit_include_tab
-*              include program from program
-*              frame   program from program
-*
-*              "overflow into owerflow
-*              with comments
-**              WITH DECLARATIONS
-**              WITH BLOCKS
-*              with includes.
-*
-**    scan abap-source src tokens into tokens
-**                         statements into statements
-**                         "WITH LIST TOKENIZATION
-**                         with includes
-**                         with comments
-**                         WITH TYPE-POOLS
-**                         PRESERVING IDENTIFIER ESCAPING
-**"                         with declarations
-**                         with analysis.
-*
-*    data(comp) = cl_abap_compiler=>create(
-*                   p_name             =  callstack[ 3 ]-mainprogram
-*                   p_include          =  callstack[ 3 ]-include
-**                 p_includes         =
-**                 p_substitutions    =
-**                 p_only_interface   =
-*                   p_no_package_check = abap_true
-*               ).
-*
-*
-*    comp->get_single_ref(
-*      exporting
-*        p_full_name       =  '\TY:ZCL_FALV\ME:CREATE'   " Complete Name of Object
-*        p_grade           =  1   " Grade of Use
-*      importing
-*        p_result          =    data(res2) " Where-Used List
-*      exceptions
-*        others            = 5
-*    ).
-*    if sy-subrc <> 0.
-** message id sy-msgid type sy-msgty number sy-msgno
-**            with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-*    endif.
-*
-*
-*    assign src[ callstack[ 3 ]-line ] to field-symbol(<line>).
-*    if <line> is assigned.
-*
-*      data: teststr type string.
-*      data: tokst type abptokens.
-*      loop at src assigning field-symbol(<res>).
-*        if teststr is not initial.
-*          teststr = teststr && cl_abap_char_utilities=>newline && <res>.
-*        else.
-*          teststr = <res>.
-*        endif.
-**        do <res>-offset times.
-**          data(current_char) = <res>-offset - sy-index.
-**          if <line>+current_char(1) eq ` `.
-**            exit.
-**          endif.
-**        enddo.
-**
-**        "method call can be done directly from beginning of the line
-**        "so I must check if there is a space in current character or not
-**        "one more time
-**        if <line>+current_char(1) eq ` `.
-**          add 1 to current_char.
-**        endif.
-**        data(size) = <res>-offset - current_char.
-**        data(class) = <line>+current_char(size).
-**
-**        if class ne 'ZCL_FALV'.
-**          "inheritance used ?
-**          "try to check if we can use class
-**
-**        endif.
-*
-*      endloop.
-*
-*      cl_abap_parser=>get_tokens(
-*       exporting
-*         source = teststr
-*       importing
-*         tokens =  data(toks)    " Sequence of qualified tokens
-*     ).
-*
-*      data(stack_other) = cl_abap_get_call_stack=>get_call_stack( ).
-*
-*    endif.
-*
+          src            type table of string,
+          tokens         type table of stokes,
+          owerflow       type table of stokex,
+          statements     type table of sstmnt,
+          keywords       type table of char255,
+          levels         type table of slevel,
+          overflow(4096).          .
+
+    call function 'SYSTEM_CALLSTACK'
+      importing
+        callstack = callstack
+*       et_callstack = et_callstack[]
+      .    " System Callstack Table
+
+
+    data:
+      progtab  type table of string,
+      progline type string,
+      idx      type sy-tabix,
+      moff     type i,
+      counter  type i.
+
+    field-symbols <progline> type string.
+
+    assign callstack[ 3 ] to field-symbol(<stack>).
+    check sy-subrc eq 0.
+
+
+    read report <stack>-mainprogram into src.
+
+    scan abap-source src
+              tokens      into tokens
+              levels      into levels
+              statements  into statements
+              include program from <stack>-mainprogram
+              frame   program from <stack>-mainprogram
+              with comments
+              with includes.
+
+    data(compiler) = cl_abap_compiler=>create(
+                   p_name             =  <stack>-mainprogram
+                   p_include          =  <stack>-include
+                   p_no_package_check = abap_true ).
+
+    compiler->get_single_ref(
+      exporting
+        p_full_name       =  '\TY:ZCL_FALV\ME:CREATE'
+        p_grade           =  1   " Grade of Use
+      importing
+        p_result          =    data(falv_references) " Where-Used List
+      exceptions
+        others            = 5
+    ).
+    if sy-subrc eq 0.
+
+      assign src[ <stack>-line ] to field-symbol(<line>).
+      if <line> is assigned.
+        assign falv_references[ line = <stack>-line ] to field-symbol(<reference>).
+        if sy-subrc eq 0.
+          data: subclass_name type string.
+          do.
+            data(offset) = <reference>-column - sy-index - 2. "-2 because of =>
+            if offset lt 0 or <line>+offset(1) eq ` `.
+              exit.
+            endif.
+            subclass_name =  <line>+offset(1) && subclass_name.
+          enddo.
+          cl_abap_classdescr=>describe_by_name( exporting p_name = to_upper( subclass_name )
+                                                receiving p_descr_ref = ro_subclass
+                                                        exceptions type_not_found = 1 ).
+          if sy-subrc eq 0.
+            return.
+          endif.
+        endif.
+      endif.
+    endif.
 
   endmethod.
 
@@ -716,18 +668,13 @@ CLASS ZCL_FALV IMPLEMENTATION.
     data: top_of_page_parent type ref to cl_gui_container.
     data: docking_parent type ref to cl_gui_docking_container.
 
-    check_if_called_from_subclass( ).
-
-    if cl_gui_alv_grid=>offline( ) is not initial.
-      "To fool bg call
-*      docking_parent = new cl_gui_docking_container( "dynnr = switch #( i_popup when abap_true then c_screen_popup
-**                                                                                     when abap_false then c_screen_full )
-**                                                           repid = c_fscr_repid
-*                                                                 ).
-      main_parent ?= docking_parent.
-
+    if i_subclass is initial.
+      i_subclass ?= check_if_called_from_subclass( ).
     endif.
 
+    if cl_gui_alv_grid=>offline( ) is not initial.
+      main_parent ?= docking_parent.
+    endif.
     "We need to call full screen ALV as container was not passed
     if i_parent is initial.
 
@@ -815,15 +762,12 @@ CLASS ZCL_FALV IMPLEMENTATION.
     if i_subclass is not initial.
       data: subclass type ref to object.
       data(sublcass_abs_name) = i_subclass->absolute_name.
-*        data(subclass_type) = cl_abap_classdescr=>describe_by_name( p_name = i_subclass ).
       create object subclass type (sublcass_abs_name)
        exporting
         i_parent       = parent
         i_applogparent = applog.
       rv_falv ?= subclass.
       rv_falv->subclass_type = i_subclass.
-*    elseif cl_abap_classdescr=>describe_by_object_ref( me )->absolute_name ne 'ZCL_FALV'.
-*
 
     else.
       create object rv_falv
@@ -922,20 +866,15 @@ CLASS ZCL_FALV IMPLEMENTATION.
     rv_falv->split_container = split_container.
     rv_falv->main_split_container = main_split_container.
     rv_falv->top_of_page_container = top_of_page_parent.
-*    rv_falv->variant-report = sy-repid.
     if main_split_container is not initial.
       main_split_container->set_row_mode(
         exporting
           mode              =  split_container->mode_absolute
         exceptions
-          cntl_error        = 1
-          cntl_system_error = 2
-          others            = 3
+          cntl_error        = 0
+          cntl_system_error = 0
+          others            = 0
       ).
-      if sy-subrc <> 0.
-*       message id sy-msgid type sy-msgty number sy-msgno
-*                  with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-      endif.
       rv_falv->hide_applog( ).
     endif.
     if split_container is not initial.
@@ -943,14 +882,10 @@ CLASS ZCL_FALV IMPLEMENTATION.
         exporting
           mode              =  split_container->mode_absolute
         exceptions
-          cntl_error        = 1
-          cntl_system_error = 2
-          others            = 3
+          cntl_error        = 0
+          cntl_system_error = 0
+          others            = 0
       ).
-      if sy-subrc <> 0.
-*       message id sy-msgid type sy-msgty number sy-msgno
-*                  with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-      endif.
       rv_falv->hide_top_of_page( ).
     endif.
 
@@ -970,15 +905,8 @@ CLASS ZCL_FALV IMPLEMENTATION.
     data: docking_parent type ref to cl_gui_docking_container.
 
     if cl_gui_alv_grid=>offline( ) is not initial.
-*      "To fool bg call
-*    docking_parent = new cl_gui_docking_container( "dynnr = switch #( i_popup when abap_true then c_screen_popup
-**                                                                                     when abap_false then c_screen_full )
-**                                                           repid = c_fscr_repid
-*    ).
-
       main_parent  ?= docking_parent.
     endif.
-
 
     "We need to call full screen ALV as container was not passed
     if i_parent is initial.
@@ -993,28 +921,17 @@ CLASS ZCL_FALV IMPLEMENTATION.
                       no_autodef_progid_dynnr = abap_true
                       ) ).
             main_parent ?= custom_container.
-
-
-
             " Create split container, log at bottom, grid at top.
             "Log hidden as default, will appear when error will be thrown.
             data(main_split_container) = new cl_gui_splitter_container(
-*              link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
-*                                               when abap_false then c_screen_full )
-*              link_repid              = c_fscr_repid
                  parent                  = main_parent
                  rows                    = cond #( when  application_log_embedded eq abap_true then 2
                                                       else 1 )
-                 columns                 = 1
-            ).
+                 columns                 = 1  ).
             data(split_container) = new cl_gui_splitter_container(
-*              link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
-*                                               when abap_false then c_screen_full )
-*              link_repid              = c_fscr_repid
                  parent                  = main_split_container->get_container( row = 1 column    = 1 )
                  rows                    = 2
-                 columns                 = 1
-            ).
+                 columns                 = 1  ).
 
             parent ?= split_container->get_container( row = 2 column    = 1 ).
             applog ?= main_split_container->get_container( row = 2 column    = 1 ).
@@ -1173,14 +1090,9 @@ CLASS ZCL_FALV IMPLEMENTATION.
         exporting
           mode              =  split_container->mode_absolute
         exceptions
-          cntl_error        = 1
-          cntl_system_error = 2
-          others            = 3
-      ).
-      if sy-subrc <> 0.
-*       message id sy-msgid type sy-msgty number sy-msgno
-*                  with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-      endif.
+          cntl_error        = 0
+          cntl_system_error = 0
+          others            = 0   ).
       rv_falv->hide_applog( ).
     endif.
     if split_container is not initial.
@@ -1188,14 +1100,10 @@ CLASS ZCL_FALV IMPLEMENTATION.
         exporting
           mode              =  split_container->mode_absolute
         exceptions
-          cntl_error        = 1
-          cntl_system_error = 2
-          others            = 3
+          cntl_error        = 0
+          cntl_system_error = 0
+          others            = 0
       ).
-      if sy-subrc <> 0.
-*       message id sy-msgid type sy-msgty number sy-msgno
-*                  with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-      endif.
       rv_falv->hide_top_of_page( ).
     endif.
     rv_falv->title_v1 = me->title_v1.
@@ -1317,40 +1225,30 @@ CLASS ZCL_FALV IMPLEMENTATION.
             exporting
               control           =     me
             exceptions
-              cntl_error        = 1
-              cntl_system_error = 2
-              others            = 3
-          ).
-          if sy-subrc <> 0.
-          endif.
+              cntl_error        = 0
+              cntl_system_error = 0
+              others            = 0 ).
           me->hide_applog( ).
         else.
           me->parent->set_focus(
             exporting
               control           =  me
             exceptions
-              cntl_error        = 1
-              cntl_system_error = 2
-              others            = 3
-          ).
-          if sy-subrc <> 0.
-          endif.
+              cntl_error        = 0
+              cntl_system_error = 0
+              others            = 0  ).
         endif.
         cl_gui_cfw=>flush(
           exceptions
-            cntl_system_error = 1
-            cntl_error        = 2
-            others            = 3
-        ).
-        if sy-subrc <> 0.
-        endif.
+            cntl_system_error = 0
+            cntl_error        = 0
+            others            = 0 ).
         me->set_visible( abap_true ).
         me->parent->set_visible( abap_true ).
         me->main_container->set_visible( abap_true ).
         if me->split_container is not initial.
           me->split_container->set_visible( abap_true ).
         endif.
-
         me->raise_top_of_page( ).
       endif.
     endif.
@@ -1784,14 +1682,10 @@ CLASS ZCL_FALV IMPLEMENTATION.
       receiving
         p_bmp          =  rv_xstring   " Graphic Data
       exceptions
-        not_found      = 1
-        internal_error = 2
-        others         = 3
+        not_found      = 0
+        internal_error = 0
+        others         = 0
     ).
-    if sy-subrc <> 0.
-*    message id sy-msgid type sy-msgty number sy-msgno
-*               with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-    endif.
   endmethod.
 
 
@@ -1804,23 +1698,17 @@ CLASS ZCL_FALV IMPLEMENTATION.
           type              =  split_container->type_sashvisible   " Attribute
           value             =  0   " Value
         exceptions
-          cntl_error        = 1
-          cntl_system_error = 2
-          others            = 3
-      ).
-      if sy-subrc <> 0.
-      endif.
+          cntl_error        = 0
+          cntl_system_error = 0
+          others            = 0      ).
       main_split_container->set_row_height(
         exporting
           id                =   2 " Row ID
           height            =   0  " Height
         exceptions
-          cntl_error        = 1
-          cntl_system_error = 2
-          others            = 3
-      ).
-      if sy-subrc <> 0.
-      endif.
+          cntl_error        = 0
+          cntl_system_error = 0
+          others            = 0   ).
       clear splitter_row_3_height.
     endif.
   endmethod.
@@ -1835,12 +1723,9 @@ CLASS ZCL_FALV IMPLEMENTATION.
           type              =  split_container->type_sashvisible   " Attribute
           value             =  0   " Value
         exceptions
-          cntl_error        = 1
-          cntl_system_error = 2
-          others            = 3
-      ).
-      if sy-subrc <> 0.
-      endif.
+          cntl_error        = 0
+          cntl_system_error = 0
+          others            = 0  ).
 
       split_container->set_row_height(
         exporting
@@ -1849,8 +1734,7 @@ CLASS ZCL_FALV IMPLEMENTATION.
         exceptions
           cntl_error        = 1
           cntl_system_error = 2
-          others            = 3
-      ).
+          others            = 3   ).
       if sy-subrc eq 0.
         splitter_row_1_height = 0.
       endif.
@@ -1954,18 +1838,10 @@ CLASS ZCL_FALV IMPLEMENTATION.
       top_of_page_doc->display_document(
         exporting
           reuse_control      =  'X'
-*            reuse_registration =     " Event Registration Reused
-*            container          =     " Name of Container (New Container Object Generated)
-           parent             =  top_of_page_container   " Contain Object Already Exists
+           parent             =  top_of_page_container
         exceptions
-          html_display_error = 1
-          others             = 2
-      ).
-      if sy-subrc <> 0.
-*         message id sy-msgid type sy-msgty number sy-msgno
-*                    with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-      endif.
-
+          html_display_error = 0
+          others             = 0    ).
       show_top_of_page( ).
     endif.
   endmethod.
@@ -2009,9 +1885,8 @@ CLASS ZCL_FALV IMPLEMENTATION.
         others               = 4
            ).
       if sy-subrc <> 0.
-*   Implement suitable error handling here
+        return.
       endif.
-
     endif.
 
     if iv_path is not initial.
@@ -2291,25 +2166,15 @@ CLASS ZCL_FALV IMPLEMENTATION.
         exporting
           i_event_id =  me->mc_evt_modified
         exceptions
-          error      = 1
-          others     = 2
-      ).
-      if sy-subrc <> 0.
-*        message id sy-msgid type sy-msgty number sy-msgno
-*                   with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-      endif.
+          error      = 0
+          others     = 0 ).
     else.
       me->register_edit_event(
         exporting
           i_event_id =  me->mc_evt_enter
         exceptions
-          error      = 1
-          others     = 2
-      ).
-      if sy-subrc <> 0.
-*        message id sy-msgid type sy-msgty number sy-msgno
-*                   with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-      endif.
+          error      = 0
+          others     = 0  ).
     endif.
   endmethod.
 
@@ -2385,8 +2250,7 @@ CLASS ZCL_FALV IMPLEMENTATION.
     exceptions
       cntl_error        = 1
       cntl_system_error = 2
-      others            = 3
-  ).
+      others            = 3  ).
       if sy-subrc eq 0 and splitter_row_2_height eq 0.
         main_split_container->set_row_sash(
           exporting
@@ -2394,23 +2258,18 @@ CLASS ZCL_FALV IMPLEMENTATION.
             type              =  split_container->type_sashvisible   " Attribute
             value             =  1   " Value
           exceptions
-            cntl_error        = 1
-            cntl_system_error = 2
-            others            = 3
-        ).
-        if sy-subrc <> 0.
-        endif.
-
+            cntl_error        = 0
+            cntl_system_error = 0
+            others            = 0 ).
         main_split_container->get_row_height(
           exporting
             id                =  1   " ALV
           importing
             result            =  splitter_row_2_height
           exceptions
-            cntl_error        = 1
-            cntl_system_error = 2
-            others            = 3
-        ).
+            cntl_error        = 0
+            cntl_system_error = 0
+            others            = 0 ).
 
         main_split_container->get_row_height(
           exporting
@@ -2418,10 +2277,9 @@ CLASS ZCL_FALV IMPLEMENTATION.
           importing
             result            =  splitter_row_3_height   " Result Code
           exceptions
-            cntl_error        = 1
-            cntl_system_error = 2
-            others            = 3
-        ).
+            cntl_error        = 0
+            cntl_system_error = 0
+            others            = 0 ).
 
         main_split_container->set_row_height(
           exporting
@@ -2430,12 +2288,10 @@ CLASS ZCL_FALV IMPLEMENTATION.
           importing
             result           = result
           exceptions
-            cntl_error        = 1
-            cntl_system_error = 2
-            others            = 3
-        ).
-        if sy-subrc <> 0.
-        endif.
+            cntl_error        = 0
+            cntl_system_error = 0
+            others            = 0 ).
+
         try.
             main_split_container->set_row_height(
              exporting
@@ -2444,16 +2300,11 @@ CLASS ZCL_FALV IMPLEMENTATION.
              importing
                result           = result
              exceptions
-               cntl_error        = 1
-               cntl_system_error = 2
-               others            = 3
-           ).
-            if sy-subrc <> 0.
-            endif.
+               cntl_error        = 0
+               cntl_system_error = 0
+               others            = 0 ).
           catch cx_root.
         endtry.
-
-
       endif.
       clear splitter_row_2_height.
       clear splitter_row_3_height.
@@ -2469,12 +2320,10 @@ CLASS ZCL_FALV IMPLEMENTATION.
           type              =  split_container->type_sashvisible   " Attribute
           value             =  1   " Value
         exceptions
-          cntl_error        = 1
-          cntl_system_error = 2
-          others            = 3
-      ).
-      if sy-subrc <> 0.
-      endif.
+          cntl_error        = 0
+          cntl_system_error = 0
+          others            = 0 ).
+
       split_container->get_row_height(
         exporting
           id                =  1   " Row ID
@@ -2483,8 +2332,7 @@ CLASS ZCL_FALV IMPLEMENTATION.
         exceptions
           cntl_error        = 1
           cntl_system_error = 2
-          others            = 3
-      ).
+          others            = 3 ).
       if sy-subrc eq 0 and splitter_row_1_height eq 0.
         split_container->set_row_height(
           exporting
@@ -2493,12 +2341,9 @@ CLASS ZCL_FALV IMPLEMENTATION.
           importing
             result           = result
           exceptions
-            cntl_error        = 1
-            cntl_system_error = 2
-            others            = 3
-        ).
-        if sy-subrc <> 0.
-        endif.
+            cntl_error        = 0
+            cntl_system_error = 0
+            others            = 0 ).
       endif.
       top_of_page_visible_at_start = abap_true.
     endif.
@@ -2511,12 +2356,7 @@ CLASS ZCL_FALV IMPLEMENTATION.
         is_stable      =     conv #('XX') " With Stable Rows/Columns
         i_soft_refresh =     abap_true" Without Sort, Filter, etc.
       exceptions
-        finished       = 1
-        others         = 2
-    ).
-    if sy-subrc <> 0.
-*     message id sy-msgid type sy-msgty number sy-msgno
-*                with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-    endif.
+        finished       = 0
+        others         = 0 ).
   endmethod.
-ENDCLASS.
+endclass.
