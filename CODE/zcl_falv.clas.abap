@@ -57,6 +57,63 @@ class zcl_falv definition
     constants button_radiobutton type tb_btype value '4' ##NO_TEXT.
     constants button_checkbox type tb_btype value '5' ##NO_TEXT.
     constants button_menu_entry type tb_btype value '6' ##NO_TEXT.
+    constants: begin of symbol,
+                 empty_space        type char01 value ' ',
+                 plus_box           type char01 value '!',
+                 minus_box          type char01 value '"',
+                 plus_circle        type char01 value '#',
+                 minus_circle       type char01 value '$',
+                 filled_square      type char01 value '%',
+                 half_filled_square type char01 value '&',
+                 square             type char01 value `'`,
+                 filled_circle      type char01 value '(',
+                 half_filled_circle type char01 value ')',
+                 circle             type char01 value '*',
+                 filled_diamond     type char01 value '+',
+                 diamond            type char01 value ',',
+                 bold_x             type char01 value '.',
+                 note               type char01 value '/',
+                 document           type char01 value '0',
+                 checked_document   type char01 value '1',
+                 documents          type char01 value '2',
+                 folder             type char01 value '3',
+                 plus_folder        type char01 value '4',
+                 minus_folder       type char01 value '5',
+                 open_folder        type char01 value '6',
+                 bold_minus         type char01 value '7',
+                 bold_plus          type char01 value '8',
+                 checkbox           type char01 value '9',
+                 radiobutton        type char01 value  ':',
+                 left_triangle      type char01 value  ';',
+                 right_triangle     type char01 value  '<',
+                 up_triangle        type char01 value  '=',
+                 down_triangle      type char01 value  '>',
+                 left_hand          type char01 value  '?',
+                 left_arrow         type char01 value  'A',
+                 right_arrow        type char01 value  'B',
+                 up_arrow           type char01 value  'C',
+                 down_arrow         type char01 value  'D',
+                 check_mark         type char01 value  'E',
+                 pencil             type char01 value  'F',
+                 glasses            type char01 value  'G',
+                 locked             type char01 value  'H',
+                 unlocked           type char01 value  'I',
+                 phone              type char01 value  'J',
+                 printer            type char01 value  'K',
+                 fax                type char01 value  'L',
+                 asterisk           type char01 value  'M',
+                 right_hand         type char01 value  'N',
+                 sorted_up          type char01 value  'O',
+                 sorted_down        type char01 value  'P',
+                 cumulated          type char01 value  'Q',
+                 delete             type char01 value  'R',
+                 executable         type char01 value  'S',
+                 workflow_item      type char01 value  'T',
+                 caution            type char01 value  'U',
+                 flash              type char01 value  'V',
+                 large_square       type char01 value  'W',
+                 ellipsis           type char01 value  'X',
+               end of symbol.
     data main_container type ref to cl_gui_container read-only .
     data split_container type ref to cl_gui_splitter_container .
     data main_split_container type ref to cl_gui_splitter_container .
@@ -531,10 +588,10 @@ class zcl_falv implementation.
 
 
   method check_if_called_from_subclass.
-    data: callstack      type abap_callstack,
-          src            type table of string,
-          tokens         type table of stokes,
-          statements     type table of sstmnt.
+    data: callstack  type abap_callstack,
+          src        type table of string,
+          tokens     type table of stokes,
+          statements type table of sstmnt.
 
     call function 'SYSTEM_CALLSTACK'
       importing
@@ -2336,3 +2393,4 @@ class zcl_falv implementation.
         others         = 0 ).
   endmethod.
 endclass.
+
