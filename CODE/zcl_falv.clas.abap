@@ -28,7 +28,7 @@ class zcl_falv definition
       end of t_email .
     types:
       tt_email type table of t_email .
-    constants version type string value '740.1.0.16' ##NO_TEXT.
+    constants version type string value '740.1.0.17' ##NO_TEXT.
     constants cc_name type char30 value 'CC_GRID' ##NO_TEXT.
     constants c_screen_popup type sy-dynnr value '0200' ##NO_TEXT.
     constants c_screen_full type sy-dynnr value '0100' ##NO_TEXT.
@@ -531,55 +531,22 @@ class zcl_falv implementation.
 
 
   method check_if_called_from_subclass.
-*    types: t_tokens     type table of stokex,
-*           t_statements type table of sstmnt,
-*           t_levels     type table of slevel.
-
     data: callstack      type abap_callstack,
-*          et_callstack   type sys_callst,
           src            type table of string,
           tokens         type table of stokes,
-          owerflow       type table of stokex,
-          statements     type table of sstmnt,
-          keywords       type table of char255,
-          levels         type table of slevel,
-          overflow(4096).          .
+          statements     type table of sstmnt.
 
     call function 'SYSTEM_CALLSTACK'
       importing
-        callstack = callstack
-*       et_callstack = et_callstack[]
-      .    " System Callstack Table
-
-
-    data:
-      progtab  type table of string,
-      progline type string,
-      idx      type sy-tabix,
-      moff     type i,
-      counter  type i.
-
-    field-symbols <progline> type string.
+        callstack = callstack.
 
     assign callstack[ 3 ] to field-symbol(<stack>).
     check sy-subrc eq 0.
 
-
-    read report <stack>-mainprogram into src.
-
-    scan abap-source src
-              tokens      into tokens
-              levels      into levels
-              statements  into statements
-              include program from <stack>-mainprogram
-              frame   program from <stack>-mainprogram
-              with comments
-              with includes.
-
     data(compiler) = cl_abap_compiler=>create(
-                   p_name             =  <stack>-mainprogram
-                   p_include          =  <stack>-include
-                   p_no_package_check = abap_true ).
+                    p_name             =  <stack>-mainprogram
+                    p_include          =  <stack>-include
+                    p_no_package_check = abap_true ).
 
     compiler->get_single_ref(
       exporting
@@ -591,6 +558,15 @@ class zcl_falv implementation.
         others            = 5
     ).
     if sy-subrc eq 0.
+      read report <stack>-mainprogram into src.
+
+      scan abap-source src
+                tokens      into tokens
+                statements  into statements
+                include program from <stack>-mainprogram
+                frame   program from <stack>-mainprogram
+                with comments
+                with includes.
 
       assign src[ <stack>-line ] to field-symbol(<line>).
       if <line> is assigned.
