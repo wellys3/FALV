@@ -10,329 +10,436 @@ class zcl_falv_column definition
       importing
         value(iv_fieldname) type lvc_s_fcat-fieldname
         !io_falv            type ref to zcl_falv .
-    methods set_editable .
-    methods set_readonly .
+    methods set_editable returning value(r_column) type ref to zcl_falv_column.
+    methods set_readonly returning value(r_column) type ref to zcl_falv_column.
     methods set_row_pos
       importing
-        value(iv_value) type lvc_rowpos .
+                value(iv_value) type lvc_rowpos
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_col_pos
       importing
-        value(iv_value) type lvc_colpos .
+                value(iv_value) type lvc_colpos
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_fieldname
       importing
-        value(iv_value) type lvc_fname .
+                value(iv_value) type lvc_fname
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_tabname
       importing
-        value(iv_value) type lvc_tname .
+                value(iv_value) type lvc_tname
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_currency
       importing
-        value(iv_value) type lvc_curr .
+                value(iv_value) type lvc_curr
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_cfieldname
       importing
-        value(iv_value) type lvc_cfname .
+                value(iv_value) type lvc_cfname
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_quantity
       importing
-        value(iv_value) type lvc_quan .
+                value(iv_value) type lvc_quan
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_qfieldname
       importing
-        value(iv_value) type lvc_qfname .
+                value(iv_value) type lvc_qfname
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_ifieldname
       importing
-        value(iv_value) type lvc_fname .
+                value(iv_value) type lvc_fname
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_round
       importing
-        value(iv_value) type lvc_round .
+                value(iv_value) type lvc_round
+      returning value(r_column) type ref to zcl_falv_column..
     methods set_exponent
       importing
-        value(iv_value) type lvc_expont .
+                value(iv_value) type lvc_expont
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_key
       importing
-        value(iv_value) type lvc_key .
+                value(iv_value) type lvc_key
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_key_sel
       importing
-        value(iv_value) type lvc_keysel .
+                value(iv_value) type lvc_keysel
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_icon
       importing
-        value(iv_value) type lvc_icon .
+                value(iv_value) type lvc_icon
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_symbol
       importing
-        value(iv_value) type lvc_symbol .
+                value(iv_value) type lvc_symbol
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_checkbox
       importing
-        value(iv_value) type lvc_checkb .
+                value(iv_value) type lvc_checkb
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_just
       importing
-        value(iv_value) type lvc_just .
+                value(iv_value) type lvc_just
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_lzero
       importing
-        value(iv_value) type lvc_lzero .
+                value(iv_value) type lvc_lzero
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_no_sign
       importing
-        value(iv_value) type lvc_nosign .
+                value(iv_value) type lvc_nosign
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_no_zero
       importing
-        value(iv_value) type lvc_nozero .
+                value(iv_value) type lvc_nozero
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_no_convext
       importing
-        value(iv_value) type lvc_noconv .
+                value(iv_value) type lvc_noconv
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_edit_mask
       importing
-        value(iv_value) type lvc_edtmsk .
+        value(iv_value) type lvc_edtmsk
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_emphasize
       importing
-        value(iv_value) type lvc_emphsz .
+        value(iv_value) type lvc_emphsz
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_color
       importing
-        value(iv_value) type lvc_emphsz .
+        value(iv_value) type lvc_emphsz
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_fix_column
       importing
-        value(iv_value) type lvc_fixcol .
+        value(iv_value) type lvc_fixcol
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_do_sum
       importing
-        value(iv_value) type lvc_dosum .
+        value(iv_value) type lvc_dosum
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_no_sum
       importing
-        value(iv_value) type lvc_nosum .
+        value(iv_value) type lvc_nosum
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_no_out
       importing
-        value(iv_value) type lvc_noout .
+        value(iv_value) type lvc_noout
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_tech
       importing
-        value(iv_value) type lvc_tech .
+        value(iv_value) type lvc_tech
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_outputlen
       importing
-        value(iv_value) type lvc_outlen .
+        value(iv_value) type lvc_outlen
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_convexit
       importing
-        value(iv_value) type convexit .
+        value(iv_value) type convexit
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_seltext
       importing
-        value(iv_value) type lvc_txt .
+        value(iv_value) type lvc_txt
+         returning value(r_column) type ref to zcl_falv_column.
     methods set_tooltip
       importing
-        value(iv_value) type lvc_tip .
+        value(iv_value) type lvc_tip
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_rollname
       importing
-        value(iv_value) type lvc_roll .
+        value(iv_value) type lvc_roll
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_datatype
       importing
-        value(iv_value) type datatype_d .
+        value(iv_value) type datatype_d
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_inttype
       importing
-        value(iv_value) type inttype .
+        value(iv_value) type inttype
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_intlen
       importing
-        value(iv_value) type intlen .
+        value(iv_value) type intlen
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_lowercase
       importing
-        value(iv_value) type lowercase .
+        value(iv_value) type lowercase
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_reptext
       importing
-        value(iv_value) type reptext .
+        value(iv_value) type reptext
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_hier_level
       importing
-        value(iv_value) type lvc_hierl .
+        value(iv_value) type lvc_hierl
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_reprep
       importing
-        value(iv_value) type lvc_crprp .
+        value(iv_value) type lvc_crprp
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_domname
       importing
-        value(iv_value) type domname .
+        value(iv_value) type domname
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_sp_group
       importing
-        value(iv_value) type lvc_spgrp .
+        value(iv_value) type lvc_spgrp
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_hotspot
       importing
-        value(iv_value) type lvc_hotspt .
+        value(iv_value) type lvc_hotspt
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_dfieldname
       importing
-        value(iv_value) type lvcdbgfn .
+        value(iv_value) type lvcdbgfn
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_col_id
       importing
-        value(iv_value) type lvc_colid .
+        value(iv_value) type lvc_colid
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_f4availabl
       importing
-        value(iv_value) type ddf4avail .
+        value(iv_value) type ddf4avail
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_auto_value
       importing
-        value(iv_value) type lvc_auto .
+        value(iv_value) type lvc_auto
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_checktable
       importing
-        value(iv_value) type tabname .
+        value(iv_value) type tabname
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_valexi
       importing
-        value(iv_value) type valexi .
+        value(iv_value) type valexi
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_web_field
       importing
-        value(iv_value) type lvc_fname .
+        value(iv_value) type lvc_fname
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_href_hndl
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_style
       importing
-        value(iv_value) type lvc_style .
+        value(iv_value) type lvc_style
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_style2
       importing
-        value(iv_value) type lvc_style .
+        value(iv_value) type lvc_style
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_style3
       importing
-        value(iv_value) type lvc_style .
+        value(iv_value) type lvc_style
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_style4
       importing
-        value(iv_value) type lvc_style .
+        value(iv_value) type lvc_style
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_drdn_hndl
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_drdn_field
       importing
-        value(iv_value) type lvc_fname .
+        value(iv_value) type lvc_fname
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_no_merging
       importing
-        value(iv_value) type char01 .
+        value(iv_value) type char01
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_h_ftype
       importing
-        value(iv_value) type lvc_ftype .
+        value(iv_value) type lvc_ftype
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_col_opt
       importing
-        value(iv_value) type lvc_colopt .
+        value(iv_value) type lvc_colopt
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_no_init_ch
       importing
-        value(iv_value) type char01 .
+        value(iv_value) type char01
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_drdn_alias
       importing
-        value(iv_value) type char01 .
+        value(iv_value) type char01
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_decfloat_style
       importing
-        value(iv_value) type outputstyle .
+        value(iv_value) type outputstyle
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_parameter0
       importing
-        value(iv_value) type char30 .
+        value(iv_value) type char30
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_parameter1
       importing
-        value(iv_value) type char30 .
+        value(iv_value) type char30
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_parameter2
       importing
-        value(iv_value) type char30 .
+        value(iv_value) type char30
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_parameter3
       importing
-        value(iv_value) type char30 .
+        value(iv_value) type char30
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_parameter4
       importing
-        value(iv_value) type char30 .
+        value(iv_value) type char30
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_parameter5
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_parameter6
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_parameter7
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_parameter8
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_parameter9
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_ref_field
       importing
-        value(iv_value) type lvc_rfname .
+        value(iv_value) type lvc_rfname
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_ref_table
       importing
-        value(iv_value) type lvc_rtname .
+        value(iv_value) type lvc_rtname
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_txt_field
       importing
-        value(iv_value) type lvc_fname .
+        value(iv_value) type lvc_fname
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_roundfield
       importing
-        value(iv_value) type lvc_rndfn .
+        value(iv_value) type lvc_rndfn
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_decimals_o
       importing
-        value(iv_value) type lvc_decmls .
+        value(iv_value) type lvc_decmls
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_decmlfield
       importing
-        value(iv_value) type lvc_dfname .
+        value(iv_value) type lvc_dfname
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_dd_outlen
       importing
-        value(iv_value) type lvc_ddlen .
+        value(iv_value) type lvc_ddlen
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_decimals
       importing
-        value(iv_value) type decimals .
+        value(iv_value) type decimals
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_coltext
       importing
-        value(iv_value) type lvc_txtcol .
+        value(iv_value) type lvc_txtcol
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_scrtext_l
       importing
-        value(iv_value) type scrtext_l .
+        value(iv_value) type scrtext_l
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_scrtext_m
       importing
-        value(iv_value) type scrtext_m .
+        value(iv_value) type scrtext_m
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_scrtext_s
       importing
-        value(iv_value) type scrtext_s .
+        value(iv_value) type scrtext_s
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_colddictxt
       importing
-        value(iv_value) type lvc_ddict .
+        value(iv_value) type lvc_ddict
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_selddictxt
       importing
-        value(iv_value) type lvc_ddict .
+        value(iv_value) type lvc_ddict
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_tipddictxt
       importing
-        value(iv_value) type lvc_ddict .
+        value(iv_value) type lvc_ddict
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_edit
       importing
-        value(iv_value) type lvc_edit .
+        value(iv_value) type lvc_edit
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_tech_col
       importing
-        value(iv_value) type lvc_tcol .
+        value(iv_value) type lvc_tcol
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_tech_form
       importing
-        value(iv_value) type lvc_tform .
+        value(iv_value) type lvc_tform
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_tech_comp
       importing
-        value(iv_value) type lvc_tcomp .
+        value(iv_value) type lvc_tcomp
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_hier_cpos
       importing
-        value(iv_value) type lvchcolpos .
+        value(iv_value) type lvchcolpos
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_h_col_key
       importing
-        value(iv_value) type tv_itmname .
+        value(iv_value) type tv_itmname
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_h_select
       importing
-        value(iv_value) type lvc_select .
+        value(iv_value) type lvc_select
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_dd_roll
       importing
-        value(iv_value) type rollname .
+        value(iv_value) type rollname
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_dragdropid
       importing
-        value(iv_value) type lvc_ddid .
+        value(iv_value) type lvc_ddid
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_mac
       importing
-        value(iv_value) type char01 .
+        value(iv_value) type char01
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_indx_field
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_indx_cfiel
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_indx_qfiel
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_indx_ifiel
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+      returning value(r_column) type ref to zcl_falv_column.
     methods set_indx_round
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_indx_decml
       importing
-        value(iv_value) type int4 .
+        value(iv_value) type int4
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_get_style
       importing
-        value(iv_value) type char01 .
+        value(iv_value) type char01
+        returning value(r_column) type ref to zcl_falv_column.
     methods set_mark
       importing
-        value(iv_value) type char01 .
+        value(iv_value) type char01
+        returning value(r_column) type ref to zcl_falv_column.
 
     methods get_editable
       returning value(rv_editable) type abap_bool.
@@ -718,546 +825,655 @@ class zcl_falv_column implementation.
 
   method set_auto_value.
     change_setting( iv_value = iv_value iv_setting = 'AUTO_VALUE').
+    r_column = me.
   endmethod.
 
 
   method set_cfieldname.
     change_setting( iv_value = iv_value iv_setting = 'CFIELDNAME').
+    r_column = me.
   endmethod.
 
 
   method set_checkbox.
     change_setting( iv_value = iv_value iv_setting = 'CHECKBOX').
+    r_column = me.
   endmethod.
 
 
   method set_checktable.
     change_setting( iv_value = iv_value iv_setting = 'CHECKTABLE').
+    r_column = me.
   endmethod.
 
 
   method set_colddictxt.
     change_setting( iv_value = iv_value iv_setting = 'COLDDICTXT').
+    r_column = me.
   endmethod.
 
 
   method set_color.
     set_emphasize( iv_value = iv_value ).
+    r_column = me.
   endmethod.
 
 
   method set_coltext.
     change_setting( iv_value = iv_value iv_setting = 'COLTEXT').
+    r_column = me.
   endmethod.
 
 
   method set_col_id.
     change_setting( iv_value = iv_value iv_setting = 'COL_ID').
+    r_column = me.
   endmethod.
 
 
   method set_col_opt.
     change_setting( iv_value = iv_value iv_setting = 'COL_OPT').
+    r_column = me.
   endmethod.
 
 
   method set_col_pos.
     change_setting( iv_value = iv_value iv_setting = 'COL_POS').
+    r_column = me.
   endmethod.
 
 
   method set_convexit.
     change_setting( iv_value = iv_value iv_setting = 'CONVEXIT').
+    r_column = me.
   endmethod.
 
 
   method set_currency.
     change_setting( iv_value = iv_value iv_setting = 'CURRENCY').
+    r_column = me.
   endmethod.
 
 
   method set_datatype.
     change_setting( iv_value = iv_value iv_setting = 'DATATYPE').
+    r_column = me.
   endmethod.
 
 
   method set_dd_outlen.
     change_setting( iv_value = iv_value iv_setting = 'DD_OUTLEN').
+    r_column = me.
   endmethod.
 
 
   method set_dd_roll.
     change_setting( iv_value = iv_value iv_setting = 'DD_ROLL').
+    r_column = me.
   endmethod.
 
 
   method set_decfloat_style.
     change_setting( iv_value = iv_value iv_setting = 'DECFLOAT_STYLE').
+    r_column = me.
   endmethod.
 
 
   method set_decimals.
     change_setting( iv_value = iv_value iv_setting = 'DECIMALS').
+    r_column = me.
   endmethod.
 
 
   method set_decimals_o.
     change_setting( iv_value = iv_value iv_setting = 'DECIMALS_O').
+    r_column = me.
   endmethod.
 
 
   method set_decmlfield.
     change_setting( iv_value = iv_value iv_setting = 'DECMLFIELD').
+    r_column = me.
   endmethod.
 
 
   method set_dfieldname.
     change_setting( iv_value = iv_value iv_setting = 'DFIELDNAME').
+    r_column = me.
   endmethod.
 
 
   method set_domname.
     change_setting( iv_value = iv_value iv_setting = 'DOMNAME').
+    r_column = me.
   endmethod.
 
 
   method set_do_sum.
     change_setting( iv_value = iv_value iv_setting = 'DO_SUM').
+    r_column = me.
   endmethod.
 
 
   method set_dragdropid.
     change_setting( iv_value = iv_value iv_setting = 'DRAGDROPID').
+    r_column = me.
   endmethod.
 
 
   method set_drdn_alias.
     change_setting( iv_value = iv_value iv_setting = 'DRDN_ALIAS').
+    r_column = me.
   endmethod.
 
 
   method set_drdn_field.
     change_setting( iv_value = iv_value iv_setting = 'DRDN_FIELD').
+    r_column = me.
   endmethod.
 
 
   method set_drdn_hndl.
     change_setting( iv_value = iv_value iv_setting = 'DRDN_HNDL').
+    r_column = me.
   endmethod.
 
 
   method set_edit.
     change_setting( iv_value = iv_value iv_setting = 'EDIT').
+    r_column = me.
   endmethod.
 
 
   method set_editable.
     change_setting( iv_value = abap_true iv_setting = 'EDIT').
+    r_column = me.
   endmethod.
 
 
   method set_edit_mask.
     change_setting( iv_value = iv_value iv_setting = 'EDIT_MASK').
+    r_column = me.
   endmethod.
 
 
   method set_emphasize.
     change_setting( iv_value = iv_value iv_setting = 'EMPHASIZE').
+    r_column = me.
   endmethod.
 
 
   method set_exponent.
     change_setting( iv_value = iv_value iv_setting = 'EXPONENT').
+    r_column = me.
   endmethod.
 
 
   method set_f4availabl.
     change_setting( iv_value = iv_value iv_setting = 'F4AVAILABL').
+    r_column = me.
   endmethod.
 
 
   method set_fieldname.
     change_setting( iv_value = iv_value iv_setting = 'FIELDNAME').
+    r_column = me.
   endmethod.
 
 
   method set_fix_column.
     change_setting( iv_value = iv_value iv_setting = 'FIX_COLUMN').
+    r_column = me.
   endmethod.
 
 
   method set_get_style.
     change_setting( iv_value = iv_value iv_setting = 'GET_STYLE').
+    r_column = me.
   endmethod.
 
 
   method set_hier_cpos.
     change_setting( iv_value = iv_value iv_setting = 'HIER_CPOS').
+    r_column = me.
   endmethod.
 
 
   method set_hier_level.
     change_setting( iv_value = iv_value iv_setting = 'HIER_LEVEL').
+    r_column = me.
   endmethod.
 
 
   method set_hotspot.
     change_setting( iv_value = iv_value iv_setting = 'HOTSPOT').
+    r_column = me.
   endmethod.
 
 
   method set_href_hndl.
     change_setting( iv_value = iv_value iv_setting = 'HREF_HNDL').
+    r_column = me.
   endmethod.
 
 
   method set_h_col_key.
     change_setting( iv_value = iv_value iv_setting = 'H_COL_KEY').
+    r_column = me.
   endmethod.
 
 
   method set_h_ftype.
     change_setting( iv_value = iv_value iv_setting = 'H_FTYPE').
+    r_column = me.
   endmethod.
 
 
   method set_h_select.
     change_setting( iv_value = iv_value iv_setting = 'H_SELECT').
+    r_column = me.
   endmethod.
 
 
   method set_icon.
     change_setting( iv_value = iv_value iv_setting = 'ICON').
+    r_column = me.
   endmethod.
 
 
   method set_ifieldname.
     change_setting( iv_value = iv_value iv_setting = 'IFIELDNAME').
+    r_column = me.
   endmethod.
 
 
   method set_indx_cfiel.
     change_setting( iv_value = iv_value iv_setting = 'INDX_CFIEL').
+    r_column = me.
   endmethod.
 
 
   method set_indx_decml.
     change_setting( iv_value = iv_value iv_setting = 'INDX_DECML').
+    r_column = me.
   endmethod.
 
 
   method set_indx_field.
     change_setting( iv_value = iv_value iv_setting = 'INDX_FIELD').
+    r_column = me.
   endmethod.
 
 
   method set_indx_ifiel.
     change_setting( iv_value = iv_value iv_setting = 'INDX_IFIEL').
+    r_column = me.
   endmethod.
 
 
   method set_indx_qfiel.
     change_setting( iv_value = iv_value iv_setting = 'INDX_QFIEL').
+    r_column = me.
   endmethod.
 
 
   method set_indx_round.
     change_setting( iv_value = iv_value iv_setting = 'INDX_ROUND').
+    r_column = me.
   endmethod.
 
 
   method set_intlen.
     change_setting( iv_value = iv_value iv_setting = 'INTLEN').
+    r_column = me.
   endmethod.
 
 
   method set_inttype.
     change_setting( iv_value = iv_value iv_setting = 'INTTYPE').
+    r_column = me.
   endmethod.
 
 
   method set_just.
     change_setting( iv_value = iv_value iv_setting = 'JUST').
+    r_column = me.
   endmethod.
 
 
   method set_key.
     change_setting( iv_value = iv_value iv_setting = 'KEY').
+    r_column = me.
   endmethod.
 
 
   method set_key_sel.
     change_setting( iv_value = iv_value iv_setting = 'KEY_SEL').
+    r_column = me.
   endmethod.
 
 
   method set_lowercase.
     change_setting( iv_value = iv_value iv_setting = 'LOWERCASE').
+    r_column = me.
   endmethod.
 
 
   method set_lzero.
     change_setting( iv_value = iv_value iv_setting = 'LZERO').
+    r_column = me.
   endmethod.
 
 
   method set_mac.
     change_setting( iv_value = iv_value iv_setting = 'MAC').
+    r_column = me.
   endmethod.
 
 
   method set_mark.
     change_setting( iv_value = iv_value iv_setting = 'MARK').
+    r_column = me.
   endmethod.
 
 
   method set_no_convext.
     change_setting( iv_value = iv_value iv_setting = 'NO_CONVEXT').
+    r_column = me.
   endmethod.
 
 
   method set_no_init_ch.
     change_setting( iv_value = iv_value iv_setting = 'NO_INIT_CH').
+    r_column = me.
   endmethod.
 
 
   method set_no_merging.
     change_setting( iv_value = iv_value iv_setting = 'NO_MERGING').
+    r_column = me.
   endmethod.
 
 
   method set_no_out.
     change_setting( iv_value = iv_value iv_setting = 'NO_OUT').
+    r_column = me.
   endmethod.
 
 
   method set_no_sign.
     change_setting( iv_value = iv_value iv_setting = 'NO_SIGN').
+    r_column = me.
   endmethod.
 
 
   method set_no_sum.
     change_setting( iv_value = iv_value iv_setting = 'NO_SUM').
+    r_column = me.
   endmethod.
 
 
   method set_no_zero.
     change_setting( iv_value = iv_value iv_setting = 'NO_ZERO').
+    r_column = me.
   endmethod.
 
 
   method set_outputlen.
     change_setting( iv_value = iv_value iv_setting = 'OUTPUTLEN').
+    r_column = me.
   endmethod.
 
 
   method set_parameter0.
     change_setting( iv_value = iv_value iv_setting = 'PARAMETER0').
+    r_column = me.
   endmethod.
 
 
   method set_parameter1.
     change_setting( iv_value = iv_value iv_setting = 'PARAMETER1').
+    r_column = me.
   endmethod.
 
 
   method set_parameter2.
     change_setting( iv_value = iv_value iv_setting = 'PARAMETER2').
+    r_column = me.
   endmethod.
 
 
   method set_parameter3.
     change_setting( iv_value = iv_value iv_setting = 'PARAMETER3').
+    r_column = me.
   endmethod.
 
 
   method set_parameter4.
     change_setting( iv_value = iv_value iv_setting = 'PARAMETER4').
+    r_column = me.
   endmethod.
 
 
   method set_parameter5.
     change_setting( iv_value = iv_value iv_setting = 'PARAMETER5').
+    r_column = me.
   endmethod.
 
 
   method set_parameter6.
     change_setting( iv_value = iv_value iv_setting = 'PARAMETER6').
+    r_column = me.
   endmethod.
 
 
   method set_parameter7.
     change_setting( iv_value = iv_value iv_setting = 'PARAMETER7').
+    r_column = me.
   endmethod.
 
 
   method set_parameter8.
     change_setting( iv_value = iv_value iv_setting = 'PARAMETER8').
+    r_column = me.
   endmethod.
 
 
   method set_parameter9.
     change_setting( iv_value = iv_value iv_setting = 'PARAMETER9').
+    r_column = me.
   endmethod.
 
 
   method set_qfieldname.
     change_setting( iv_value = iv_value iv_setting = 'QFIELDNAME').
+    r_column = me.
   endmethod.
 
 
   method set_quantity.
     change_setting( iv_value = iv_value iv_setting = 'QUANTITY').
+    r_column = me.
   endmethod.
 
 
   method set_readonly.
     change_setting( iv_value = abap_false iv_setting = 'EDIT').
+    r_column = me.
   endmethod.
 
 
   method set_ref_field.
     change_setting( iv_value = iv_value iv_setting = 'REF_FIELD').
+    r_column = me.
   endmethod.
 
 
   method set_ref_table.
     change_setting( iv_value = iv_value iv_setting = 'REF_TABLE').
+    r_column = me.
   endmethod.
 
 
   method set_reprep.
     change_setting( iv_value = iv_value iv_setting = 'REPREP').
+    r_column = me.
   endmethod.
 
 
   method set_reptext.
     change_setting( iv_value = iv_value iv_setting = 'REPTEXT').
+    r_column = me.
   endmethod.
 
 
   method set_rollname.
     change_setting( iv_value = iv_value iv_setting = 'ROLLNAME').
+    r_column = me.
   endmethod.
 
 
   method set_round.
     change_setting( iv_value = iv_value iv_setting = 'ROUND').
+    r_column = me.
   endmethod.
 
 
   method set_roundfield.
     change_setting( iv_value = iv_value iv_setting = 'ROUNDFIELD').
+    r_column = me.
   endmethod.
 
 
   method set_row_pos.
     change_setting( iv_value = iv_value iv_setting = 'ROW_POS').
+    r_column = me.
   endmethod.
 
 
   method set_scrtext_l.
     change_setting( iv_value = iv_value iv_setting = 'SCRTEXT_L').
+    r_column = me.
   endmethod.
 
 
   method set_scrtext_m.
     change_setting( iv_value = iv_value iv_setting = 'SCRTEXT_M').
+    r_column = me.
   endmethod.
 
 
   method set_scrtext_s.
     change_setting( iv_value = iv_value iv_setting = 'SCRTEXT_S').
+    r_column = me.
   endmethod.
 
 
   method set_selddictxt.
     change_setting( iv_value = iv_value iv_setting = 'SELDDICTXT').
+    r_column = me.
   endmethod.
 
 
   method set_seltext.
     change_setting( iv_value = iv_value iv_setting = 'SELTEXT').
+    r_column = me.
   endmethod.
 
 
   method set_sp_group.
     change_setting( iv_value = iv_value iv_setting = 'SP_GROUP').
+    r_column = me.
   endmethod.
 
 
   method set_style.
     change_setting( iv_value = iv_value iv_setting = 'STYLE').
+    r_column = me.
   endmethod.
 
 
   method set_style2.
     change_setting( iv_value = iv_value iv_setting = 'STYLE2').
+    r_column = me.
   endmethod.
 
 
   method set_style3.
     change_setting( iv_value = iv_value iv_setting = 'STYLE3').
+    r_column = me.
   endmethod.
 
 
   method set_style4.
     change_setting( iv_value = iv_value iv_setting = 'STYLE4').
+    r_column = me.
   endmethod.
 
 
   method set_symbol.
     change_setting( iv_value = iv_value iv_setting = 'SYMBOL').
+    r_column = me.
   endmethod.
 
 
   method set_tabname.
     change_setting( iv_value = iv_value iv_setting = 'TABNAME').
+    r_column = me.
   endmethod.
 
 
   method set_tech.
     change_setting( iv_value = iv_value iv_setting = 'TECH').
+    r_column = me.
   endmethod.
 
 
   method set_tech_col.
     change_setting( iv_value = iv_value iv_setting = 'TECH_COL').
+    r_column = me.
   endmethod.
 
 
   method set_tech_comp.
     change_setting( iv_value = iv_value iv_setting = 'TECH_COMP').
+    r_column = me.
   endmethod.
 
 
   method set_tech_form.
     change_setting( iv_value = iv_value iv_setting = 'TECH_FORM').
+    r_column = me.
   endmethod.
 
 
   method set_tipddictxt.
     change_setting( iv_value = iv_value iv_setting = 'TIPDDICTXT').
+    r_column = me.
   endmethod.
 
 
   method set_tooltip.
     change_setting( iv_value = iv_value iv_setting = 'TOOLTIP').
+    r_column = me.
   endmethod.
 
 
   method set_txt_field.
     change_setting( iv_value = iv_value iv_setting = 'TXT_FIELD').
+    r_column = me.
   endmethod.
 
 
   method set_valexi.
     change_setting( iv_value = iv_value iv_setting = 'VALEXI').
+    r_column = me.
   endmethod.
 
 
   method set_web_field.
     change_setting( iv_value = iv_value iv_setting = 'WEB_FIELD').
+    r_column = me.
   endmethod.
 
   method get_auto_value.
