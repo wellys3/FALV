@@ -2,6 +2,13 @@
 FALV - Fast ALV Grid
 http://abapblog.com/falv
 
+# Changes V 740.1.0.18 
+Chain call for setters in COLUMNS and LAYOUT are now possible (ZDEMO_FALV18)
+Creation of FALV that is inherited in local class can be done in short way (ZDEMO_FALV19)
+
+# Changes V 740.1.0.17 
+Creation of FALV that is inherited in global class can be done in short way (ZDEMO_FALV17)
+
 # Changes V 740.1.0.16 
 Bug Fix for mass replace function if it was run from FALV in custom container
 # Changes V 740.1.0.15 
