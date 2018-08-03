@@ -440,6 +440,12 @@ class zcl_falv_column definition
       importing
         value(iv_value) type char01
         returning value(r_column) type ref to zcl_falv_column.
+    methods set_texts
+      importing
+        value(iv_text_s) type scrtext_s
+        value(iv_text_m) type scrtext_m
+        value(iv_text_l) type scrtext_l
+        returning value(r_column) type ref to zcl_falv_column.
 
     methods get_editable
       returning value(rv_editable) type abap_bool.
@@ -1173,6 +1179,19 @@ class zcl_falv_column implementation.
 
   method set_mark.
     change_setting( iv_value = iv_value iv_setting = 'MARK').
+    r_column = me.
+  endmethod.
+
+
+  method set_texts.
+    set_scrtext_s( iv_text_s ).
+    set_scrtext_m( iv_text_m ).
+    set_scrtext_l( iv_text_l ).
+    set_tooltip( iv_text_l ) .
+    set_coltext( iv_text_l ).
+    set_seltext( iv_text_l ).
+    set_reptext( iv_text_l && '' ).
+
     r_column = me.
   endmethod.
 
