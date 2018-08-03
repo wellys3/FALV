@@ -109,6 +109,23 @@
      </DOCUMENTATION>
     </item>
     <item>
+     <FUNCNAME>Z_FALV_INHERITANCE_DEMO</FUNCNAME>
+     <SHORT_TEXT>Test of Inheritance</SHORT_TEXT>
+     <TABLES>
+      <RSTBL>
+       <PARAMETER>C_TAB</PARAMETER>
+       <DBSTRUCT>SFLIGHT</DBSTRUCT>
+      </RSTBL>
+     </TABLES>
+     <DOCUMENTATION>
+      <RSFDO>
+       <PARAMETER>C_TAB</PARAMETER>
+       <KIND>P</KIND>
+       <INDEX> 001</INDEX>
+      </RSFDO>
+     </DOCUMENTATION>
+    </item>
+    <item>
      <FUNCNAME>Z_FALV_MASS_REPLACE</FUNCNAME>
      <SHORT_TEXT>Mass replace for grid</SHORT_TEXT>
      <IMPORT>

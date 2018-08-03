@@ -615,13 +615,13 @@ class zcl_falv implementation.
         others            = 5
     ).
     if sy-subrc eq 0.
-      read report <stack>-mainprogram into src.
+      read report <stack>-include into src.
 
       scan abap-source src
                 tokens      into tokens
                 statements  into statements
-                include program from <stack>-mainprogram
-                frame   program from <stack>-mainprogram
+                include program from <stack>-include
+                "   program from <stack>-mainprogram
                 with comments
                 with includes.
 
