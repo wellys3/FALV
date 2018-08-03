@@ -589,9 +589,7 @@ class zcl_falv implementation.
 
   method check_if_called_from_subclass.
     data: callstack  type abap_callstack,
-          src        type table of string,
-          tokens     type table of stokes,
-          statements type table of sstmnt.
+          src        type table of string.
 
     call function 'SYSTEM_CALLSTACK'
       importing
@@ -616,6 +614,9 @@ class zcl_falv implementation.
     ).
     if sy-subrc eq 0.
       read report <stack>-include into src.
+      if sy-subrc ne 0.
+        return.
+      endif.
 
       assign src[ <stack>-line ] to field-symbol(<line>).
       if <line> is assigned.
@@ -632,6 +633,7 @@ class zcl_falv implementation.
           if subclass_name is initial or to_upper( subclass_name ) eq 'ZCL_FALV'.
             return.
           endif.
+
           "global class
           cl_abap_classdescr=>describe_by_name( exporting p_name = to_upper( subclass_name )
                                                 receiving p_descr_ref = ro_subclass
