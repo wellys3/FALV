@@ -726,8 +726,7 @@ class zcl_falv implementation.
       importing
         p_result          =    data(falv_references) " Where-Used List
       exceptions
-        others            = 5
-    ).
+        others            = 5 ).
     if sy-subrc eq 0.
       read report <stack>-include into src.
       if sy-subrc ne 0.
@@ -799,8 +798,7 @@ class zcl_falv implementation.
         error_cntl_init   = 2
         error_cntl_link   = 3
         error_dp_create   = 4
-        others            = 5
-    ).
+        others            = 5 ).
     if sy-subrc <> 0.
       case sy-subrc.
         when 1.
@@ -892,8 +890,7 @@ class zcl_falv implementation.
         exceptions
           cntl_error        = 0
           cntl_system_error = 0
-          others            = 0
-      ).
+          others            = 0 ).
       iv_falv->hide_applog( ).
     endif.
     if i_split_container is not initial.
@@ -903,8 +900,7 @@ class zcl_falv implementation.
         exceptions
           cntl_error        = 0
           cntl_system_error = 0
-          others            = 0
-      ).
+          others            = 0 ).
       iv_falv->hide_top_of_page( ).
     endif.
 
@@ -1021,8 +1017,7 @@ class zcl_falv implementation.
          dynnr          = switch #( i_popup when abap_true then c_screen_popup
                                             when abap_false then c_screen_full )
          repid          = c_fscr_repid
-         no_autodef_progid_dynnr = abap_true
-         ) ).
+         no_autodef_progid_dynnr = abap_true ) ).
 
   endmethod.
 
@@ -1039,8 +1034,7 @@ class zcl_falv implementation.
                                      parent                  = i_main_parent
                                      rows                    = cond #( when  i_applog_embedded eq abap_true then 2
                                                                         else 1 )
-                                     columns                 = 1
-).
+                                     columns                 = 1 ).
 
   endmethod.
 
@@ -1072,8 +1066,7 @@ class zcl_falv implementation.
     rv_falv = create_falv_object(
                   i_subclass = subclass_type
                   i_parent   = parent
-                  i_applog   = applog
-              ).
+                  i_applog   = applog ).
 
     copy_attributes( rv_falv ).
     set_handlers( rv_falv ).
@@ -1252,8 +1245,7 @@ class zcl_falv implementation.
           invalid_parameter_combination = 1
           program_error                 = 2
           too_many_lines                = 3
-          others                        = 4
-      ).
+          others                        = 4 ).
       if sy-subrc eq 0.
         if layout->delete_all_buttons eq abap_true.
           delete_all_buttons( toolbar_exceptions ).
@@ -1428,8 +1420,7 @@ class zcl_falv implementation.
       exceptions
         cntl_error        = 1
         cntl_system_error = 2
-        others            = 3
-    ).
+        others            = 3  ).
     if sy-subrc eq 0.
       me->m_display_protocol = abap_false.
     endif.
@@ -1715,8 +1706,7 @@ class zcl_falv implementation.
       exceptions
         not_found      = 0
         internal_error = 0
-        others         = 0
-    ).
+        others         = 0 ).
   endmethod.
 
 
@@ -1790,8 +1780,7 @@ class zcl_falv implementation.
                                   t_table        = <table>  ).
         rt_fcat = cl_salv_controller_metadata=>get_lvc_fieldcatalog(
             r_columns      = salv_table->get_columns( ) " ALV Filter
-            r_aggregations = salv_table->get_aggregations( ) " ALV Aggregations
-    ).
+            r_aggregations = salv_table->get_aggregations( ) )." ALV Aggregations
       catch cx_root.
     endtry.
   endmethod.
@@ -1833,8 +1822,7 @@ class zcl_falv implementation.
         iv_text2 = title_v2
         iv_text3 = title_v3
         iv_text4 = title_v4
-        iv_text5 = title_v5
-    ).
+        iv_text5 = title_v5 ).
     raise event at_set_title.
 
   endmethod.
@@ -1846,12 +1834,7 @@ class zcl_falv implementation.
        top_of_page_container is not initial.
 
       if me->top_of_page_doc is initial.
-        top_of_page_doc = new cl_dd_document(
-*            style            =
-*            background_color =
-*            bds_stylesheet   =
-*            no_margins       =
-        ).
+        top_of_page_doc = new cl_dd_document( ).
       endif.
 
       export alv_form_html from abap_true
@@ -1915,8 +1898,7 @@ class zcl_falv implementation.
         cntl_error           = 1
         error_no_gui         = 2
         not_supported_by_gui = 3
-        others               = 4
-           ).
+        others               = 4 ).
       if sy-subrc <> 0.
         return.
       endif.
@@ -1983,8 +1965,7 @@ class zcl_falv implementation.
                                                             i_text = cl_document_bcs=>string_to_soli( iv_body )
                                                             i_subject = conv #( iv_subject )
                                                             i_importance = iv_importance
-                                                            i_sensitivity = iv_sensitivity
-                                                           ).
+                                                            i_sensitivity = iv_sensitivity ).
 
 
       catch cx_document_bcs.
@@ -2000,9 +1981,7 @@ class zcl_falv implementation.
             i_attachment_size    = conv #( xstrlen( excel ) )
             i_attachment_subject = cond #( when iv_filename is not initial then iv_filename
                                            else conv #( |{ sy-datum }_{ sy-uzeit }.xlsx | )
-                                                        )
-
-                                           ).
+                                                        ) ).
       catch cx_document_bcs .
         raise add_attachment_error.
     endtry.
