@@ -29,34 +29,34 @@ class zcl_falv definition
     types:
       tt_email type table of t_email .
     constants: begin of color,
-                blue type char4 value 'C100',
-                blue_intensified type char4 value 'C110',
-                blue_intensified_inversed type char4 value 'C111',
-                blue_inversed type char4 value 'C101',
-                gray type char4 value 'C200',
-                gray_itensified type char4 value 'C210',
-                gray_intesified_invers type char4 value 'C211',
-                gray_inversed type char4 value 'C201',
-                yellow type char4 value 'C300',
-                yellow_intensified type char4 value 'C310',
-                yellow_intensified_inversed type char4 value 'C311',
-                yellow_inversed type char4 value 'C301',
-                light_blue type char4 value 'C400',
-                light_blue_itensified type char4 value '410',
-                light_blue_intesified_invers type char4 value 'C411',
-                light_blue_inversed type char4 value 'C401',
-                green type char4 value 'C500',
-                green_intensified type char4 value 'C510',
-                green_intensified_inversed type char4 value 'C511',
-                green_inversed type char4 value 'C501',
-                red type char4 value 'C600',
-                red_intensified type char4 value 'C610',
-                red_intensified_inversed type char4 value 'C611',
-                red_inversed type char4 value 'C601',
-                orange type char4 value 'C700',
-                orange_intensified type char4 value 'C710',
-                orange_intensified_inversed type char4 value 'C711',
-                orange_inversed type char4 value 'C701',
+                 blue                         type char4 value 'C100',
+                 blue_intensified             type char4 value 'C110',
+                 blue_intensified_inversed    type char4 value 'C111',
+                 blue_inversed                type char4 value 'C101',
+                 gray                         type char4 value 'C200',
+                 gray_itensified              type char4 value 'C210',
+                 gray_intesified_invers       type char4 value 'C211',
+                 gray_inversed                type char4 value 'C201',
+                 yellow                       type char4 value 'C300',
+                 yellow_intensified           type char4 value 'C310',
+                 yellow_intensified_inversed  type char4 value 'C311',
+                 yellow_inversed              type char4 value 'C301',
+                 light_blue                   type char4 value 'C400',
+                 light_blue_itensified        type char4 value '410',
+                 light_blue_intesified_invers type char4 value 'C411',
+                 light_blue_inversed          type char4 value 'C401',
+                 green                        type char4 value 'C500',
+                 green_intensified            type char4 value 'C510',
+                 green_intensified_inversed   type char4 value 'C511',
+                 green_inversed               type char4 value 'C501',
+                 red                          type char4 value 'C600',
+                 red_intensified              type char4 value 'C610',
+                 red_intensified_inversed     type char4 value 'C611',
+                 red_inversed                 type char4 value 'C601',
+                 orange                       type char4 value 'C700',
+                 orange_intensified           type char4 value 'C710',
+                 orange_intensified_inversed  type char4 value 'C711',
+                 orange_inversed              type char4 value 'C701',
                end of color ##NEEDED.
     constants version type string value '740.1.0.19' ##NO_TEXT.
     constants cc_name type char30 value 'CC_GRID' ##NO_TEXT.
@@ -670,7 +670,9 @@ class zcl_falv definition
     methods copy_attributes
       importing
         i_falv type ref to zcl_falv.
-
+    methods create_ex_result_falv
+      returning
+        value(er_result_table) type ref to cl_salv_ex_result_data_table .
 endclass.
 
 
@@ -1594,6 +1596,126 @@ class zcl_falv implementation.
   endmethod.
 
 
+  method create_ex_result_falv.
+
+    data:
+      lt_lvc_row type lvc_t_row.
+
+    clear:
+      lt_lvc_row.
+    me->get_selected_rows(
+      importing
+        et_index_rows = lt_lvc_row ).
+
+    data: lt_sel_cols  type lvc_t_col,
+          lt_sel_cells type lvc_t_cell.
+
+    me->get_selected_columns(
+     importing
+       et_index_columns = lt_sel_cols ).
+
+    me->get_selected_cells(
+     importing
+       et_cell = lt_sel_cells ).
+
+    data:
+      ls_lvc_col  type lvc_s_col,
+      ls_lvc_row  type lvc_s_row,
+      ls_cur_cell type lvc_s_cell.
+
+    clear:
+      ls_lvc_row,
+      ls_lvc_col.
+    me->get_current_cell(
+     importing
+       es_row_id = ls_lvc_row
+       es_col_id = ls_lvc_col ).
+    ls_cur_cell-col_id-fieldname = ls_lvc_col-fieldname.
+    ls_cur_cell-row_id-index = ls_lvc_row-index.
+
+    data: ls_hyper_entry    type string,
+          ls_dropdown_entry type string,
+          lt_drdn           type lvc_t_drop.
+
+    if grid->r_salv_adapter is bound.
+      data:
+        lr_display type ref to if_salv_display_adapter.
+
+      lr_display ?= grid->r_salv_adapter.
+
+      data:
+        lr_columns type ref to cl_salv_columns_list.
+
+      lr_columns ?= lr_display->get_columns( ).
+
+      ls_hyper_entry = lr_columns->get_hyperlink_entry_column( ).
+      ls_dropdown_entry = lr_columns->get_dropdown_entry_column( ).
+
+      data:
+        lr_om type ref to cl_salv_table.
+
+      lr_om ?= grid->r_salv_adapter->r_controller->r_model.
+
+      data:
+        lr_functional_settings type ref to cl_salv_functional_settings.
+
+      lr_functional_settings = lr_om->get_functional_settings( ).
+
+      data:
+        lr_dropdowns type ref to cl_salv_dropdowns.
+
+***<<<Y7AK057779
+      try.
+          lr_dropdowns = lr_functional_settings->get_dropdowns( ).
+
+          lt_drdn = cl_salv_controller_metadata=>get_dropdowns( lr_dropdowns ).
+        catch cx_salv_method_not_supported.
+      endtry.
+***>>>Y7AK057779
+
+*>>> Y7AK058143
+      data:
+        lr_tol type ref to cl_salv_form_element,
+        lr_eol type ref to cl_salv_form_element.
+*<<< Y7AK058143
+
+      lr_tol = lr_om->get_top_of_list( ).
+      lr_eol = lr_om->get_end_of_list( ).
+    endif.
+
+*>>> Y7AK058143
+    data:
+      lr_top_of_list type ref to cl_salv_form,
+      lr_end_of_list type ref to cl_salv_form.
+
+    create object lr_top_of_list
+      exporting
+        r_content = lr_tol.
+
+    create object lr_end_of_list
+      exporting
+        r_content = lr_eol.
+*<<< Y7AK058143
+
+    er_result_table = cl_salv_ex_util=>factory_result_data_table(
+        t_selected_rows             = lt_lvc_row
+        t_selected_columns          = lt_sel_cols
+        t_selected_cells            = lt_sel_cells
+        r_data                      = grid->mt_outtab
+        s_layout                    = grid->m_cl_variant->ms_layout
+        t_fieldcatalog              = grid->m_cl_variant->mt_fieldcatalog
+        t_sort                      = grid->m_cl_variant->mt_sort
+        t_filter                    = grid->m_cl_variant->mt_filter
+        t_hyperlinks                = grid->mt_hyperlinks
+        s_current_cell              = ls_cur_cell
+        hyperlink_entry_column      = ls_hyper_entry
+        dropdown_entry_column       = ls_dropdown_entry
+        r_top_of_list               = lr_top_of_list
+        r_end_of_list               = lr_end_of_list
+        t_dropdown_values           = lt_drdn ).
+
+  endmethod.
+
   method export_to_excel.
 
 
@@ -1610,7 +1732,7 @@ class zcl_falv implementation.
     if cl_salv_bs_a_xml_base=>get_version( ) eq if_salv_bs_xml=>version_25 or
        cl_salv_bs_a_xml_base=>get_version( ) eq if_salv_bs_xml=>version_26.
 
-      result_data = grid->create_ex_result( ).
+      result_data = create_ex_result_falv( ).
 
       case cl_salv_bs_a_xml_base=>get_version( ).
         when if_salv_bs_xml=>version_25.
