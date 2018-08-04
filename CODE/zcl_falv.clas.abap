@@ -28,6 +28,36 @@ class zcl_falv definition
       end of t_email .
     types:
       tt_email type table of t_email .
+    constants: begin of color,
+                blue type char4 value 'C100',
+                blue_intensified type char4 value 'C110',
+                blue_intensified_inversed type char4 value 'C111',
+                blue_inversed type char4 value 'C101',
+                gray type char4 value 'C200',
+                gray_itensified type char4 value 'C210',
+                gray_intesified_invers type char4 value 'C211',
+                gray_inversed type char4 value 'C201',
+                yellow type char4 value 'C300',
+                yellow_intensified type char4 value 'C310',
+                yellow_intensified_inversed type char4 value 'C311',
+                yellow_inversed type char4 value 'C301',
+                light_blue type char4 value 'C400',
+                light_blue_itensified type char4 value '410',
+                light_blue_intesified_invers type char4 value 'C411',
+                light_blue_inversed type char4 value 'C401',
+                green type char4 value 'C500',
+                green_intensified type char4 value 'C510',
+                green_intensified_inversed type char4 value 'C511',
+                green_inversed type char4 value 'C501',
+                red type char4 value 'C600',
+                red_intensified type char4 value 'C610',
+                red_intensified_inversed type char4 value 'C611',
+                red_inversed type char4 value 'C601',
+                orange type char4 value 'C700',
+                orange_intensified type char4 value 'C710',
+                orange_intensified_inversed type char4 value 'C711',
+                orange_inversed type char4 value 'C701',
+               end of color ##NEEDED.
     constants version type string value '740.1.0.19' ##NO_TEXT.
     constants cc_name type char30 value 'CC_GRID' ##NO_TEXT.
     constants c_screen_popup type sy-dynnr value '0200' ##NO_TEXT.
@@ -174,81 +204,98 @@ class zcl_falv definition
         !c_ucomm        type sy-ucomm default sy-ucomm .
     methods display final
       importing
-        value(iv_force_grid)   type abap_bool default space
-        value(iv_start_row)    type i optional
-        value(iv_start_column) type i optional
-        value(iv_end_row)      type i optional
-        value(iv_end_column)   type i optional.
+                value(iv_force_grid)   type abap_bool default space
+                value(iv_start_row)    type i optional
+                value(iv_start_column) type i optional
+                value(iv_end_row)      type i optional
+                value(iv_end_column)   type i optional
+      returning value(r_falv)          type ref to zcl_falv.
     methods exclude_function
       importing
-        value(iv_ucomm) type sy-ucomm .
+                value(iv_ucomm) type sy-ucomm
+      returning value(r_falv)   type ref to zcl_falv .
     methods column
       importing
         value(iv_fieldname) type lvc_s_fcat-fieldname
       returning
         value(rv_column)    type ref to zcl_falv_column .
-    methods soft_refresh .
+    methods soft_refresh
+      returning value(r_falv) type ref to zcl_falv .
     methods set_mark_field
       importing
-        value(iv_fieldname) type lvc_s_fcat-fieldname .
+                value(iv_fieldname) type lvc_s_fcat-fieldname
+      returning value(r_falv)       type ref to zcl_falv .
     methods set_editable
       importing
-        value(iv_modify) type abap_bool default abap_false .
-    methods set_readonly .
+                value(iv_modify) type abap_bool default abap_false
+      returning value(r_falv)    type ref to zcl_falv .
+    methods set_readonly
+      returning value(r_falv) type ref to zcl_falv .
     methods add_button
       importing
-        value(iv_function)  type ui_func
-        value(iv_icon)      type icon_d optional
-        value(iv_quickinfo) type iconquick optional
-        value(iv_butn_type) type tb_btype optional
-        value(iv_disabled)  type abap_bool optional
-        value(iv_text)      type text40 optional
-        value(iv_checked)   type abap_bool optional .
+                value(iv_function)  type ui_func
+                value(iv_icon)      type icon_d optional
+                value(iv_quickinfo) type iconquick optional
+                value(iv_butn_type) type tb_btype optional
+                value(iv_disabled)  type abap_bool optional
+                value(iv_text)      type text40 optional
+                value(iv_checked)   type abap_bool optional
+      returning value(r_falv)       type ref to zcl_falv .
     "! Don't call it from Toolbar event handler
     "! as it will cause endless loop
     methods disable_button
       importing
-        value(iv_function) type ui_func .
+                value(iv_function) type ui_func
+      returning value(r_falv)      type ref to zcl_falv .
     "! Don't call it from Toolbar event handler
     "! as it will cause endless loop
     methods enable_button
       importing
-        value(iv_function) type ui_func .
+                value(iv_function) type ui_func
+      returning value(r_falv)      type ref to zcl_falv .
     "! Don't call it from Toolbar event handler
     "! as it will cause endless loop
     methods delete_button
       importing
-        value(iv_function) type ui_func .
+                value(iv_function) type ui_func
+      returning value(r_falv)      type ref to zcl_falv .
     "! Don't call it from Toolbar event handler
     "! as it will cause endless loop
     methods delete_all_buttons
       importing
-        value(iv_exceptions) type ttb_button optional.
+                value(iv_exceptions) type ttb_button optional
+      returning value(r_falv)        type ref to zcl_falv .
     methods set_cell_disabled
       importing
-        value(iv_fieldname) type fieldname
-        value(iv_row)       type lvc_s_roid-row_id .
+                value(iv_fieldname) type fieldname
+                value(iv_row)       type lvc_s_roid-row_id
+      returning value(r_falv)       type ref to zcl_falv .
     methods set_cell_enabled
       importing
-        value(iv_fieldname) type fieldname
-        value(iv_row)       type lvc_s_roid-row_id .
+                value(iv_fieldname) type fieldname
+                value(iv_row)       type lvc_s_roid-row_id
+      returning value(r_falv)       type ref to zcl_falv .
     methods set_cell_button
       importing
-        value(iv_fieldname) type fieldname
-        value(iv_row)       type lvc_s_roid-row_id .
+                value(iv_fieldname) type fieldname
+                value(iv_row)       type lvc_s_roid-row_id
+      returning value(r_falv)       type ref to zcl_falv .
     methods set_cell_hotspot
       importing
-        value(iv_fieldname) type fieldname
-        value(iv_row)       type lvc_s_roid-row_id .
+                value(iv_fieldname) type fieldname
+                value(iv_row)       type lvc_s_roid-row_id
+      returning value(r_falv)       type ref to zcl_falv .
     methods set_row_color
       importing
-        value(iv_color) type char04
-        value(iv_row)   type lvc_s_roid-row_id .
+                value(iv_color) type char04
+                value(iv_row)   type lvc_s_roid-row_id
+      returning value(r_falv)   type ref to zcl_falv .
     methods set_cell_color
       importing
-        value(iv_fieldname) type fieldname
-        value(iv_color)     type lvc_s_colo
-        value(iv_row)       type lvc_s_roid-row_id .
+                value(iv_fieldname) type fieldname
+                value(iv_color)     type lvc_s_colo
+                value(iv_row)       type lvc_s_roid-row_id
+      returning value(r_falv)       type ref to zcl_falv .
     methods mass_replace .
     methods export_to_excel
       returning
@@ -258,9 +305,13 @@ class zcl_falv definition
         value(iv_path)  type string optional
       returning
         value(rv_saved) type abap_bool .
-    methods hide_top_of_page .
-    methods show_top_of_page .
-    methods set_list_view .
+    methods hide_top_of_page
+      returning value(r_falv) type ref to zcl_falv .
+    methods show_top_of_page
+      returning value(r_falv) type ref to zcl_falv .
+    methods set_list_view
+      returning
+        value(r_falv) type ref to zcl_falv .
     methods encode_picture_base64
       importing
         value(iv_xstring)   type xstring
@@ -282,27 +333,30 @@ class zcl_falv definition
         value(rv_xstring) type xstring .
     methods send
       importing
-        value(iv_subject)     type csequence optional
-        value(iv_sender)      type ad_smtpadr optional
-        value(iv_sender_name) type ad_smtpadr optional
-        value(iv_filename)    type csequence optional
-        value(it_recipients)  type tt_email
-        value(iv_body)        type string optional
-        value(iv_importance)  type bcs_docimp optional
-        value(iv_sensitivity) type so_obj_sns optional
-        value(iv_immediately) type abap_bool optional
-        value(iv_commit)      type abap_bool default abap_true
+                 value(iv_subject)     type csequence optional
+                 value(iv_sender)      type ad_smtpadr optional
+                 value(iv_sender_name) type ad_smtpadr optional
+                 value(iv_filename)    type csequence optional
+                 value(it_recipients)  type tt_email
+                 value(iv_body)        type string optional
+                 value(iv_importance)  type bcs_docimp optional
+                 value(iv_sensitivity) type so_obj_sns optional
+                 value(iv_immediately) type abap_bool optional
+                 value(iv_commit)      type abap_bool default abap_true
+      returning  value(r_falv)         type ref to zcl_falv
       exceptions
-        create_request_error
-        create_document_error
-        add_attachment_error
-        add_document_error
-        add_recipient_error
-        add_sender_error
-        send_error
-        send_immediately_error .
+                 create_request_error
+                 create_document_error
+                 add_attachment_error
+                 add_document_error
+                 add_recipient_error
+                 add_sender_error
+                 send_error
+                 send_immediately_error .
     methods hide_applog .
-    methods show_applog .
+    methods show_applog
+      returning
+        value(r_falv) type ref to zcl_falv .
     "! Cell can be editable by layout, by field-catalog or by cell styles
     methods get_cell_enabled
       importing
@@ -310,7 +364,10 @@ class zcl_falv definition
         value(i_field)   type lvc_fname
       returning
         value(r_enabled) type abap_bool.
-    methods refresh_toolbar .
+    methods refresh_toolbar
+      returning value(r_falv) type ref to zcl_falv .
+    methods set_dummy_function_code
+      returning value(r_falv) type ref to zcl_falv .
 
     methods set_frontend_fieldcatalog
         redefinition .
@@ -545,6 +602,23 @@ class zcl_falv definition
         i_custom_container     type ref to cl_gui_container
         i_main_split_container type ref to cl_gui_splitter_container
         i_split_container      type ref to cl_gui_splitter_container.
+    class-methods create_main_split_cotainer
+      importing
+        i_popup                       type abap_bool
+        i_applog_embedded             type abap_bool
+        i_main_parent                 type ref to cl_gui_container
+      returning
+        value(r_main_split_container) type ref to cl_gui_splitter_container.
+    class-methods create_main_cont_for_full_scr
+      importing
+        i_popup                   type abap_bool
+      returning
+        value(r_custom_container) type ref to cl_gui_container.
+    class-methods crate_main_splitter
+      importing
+        i_main_split_container   type ref to cl_gui_splitter_container
+      returning
+        value(r_split_container) type ref to cl_gui_splitter_container.
 
     methods evf_before_ucommand_internal
           for event before_user_command of cl_gui_alv_grid
@@ -566,7 +640,9 @@ class zcl_falv definition
 
     methods set_parent
       importing
-        !io_parent type ref to object .
+        !io_parent    type ref to object
+      returning
+        value(r_falv) type ref to zcl_falv .
     methods constructor
       importing
         value(i_shellstyle)  type i default 0
@@ -594,6 +670,7 @@ class zcl_falv definition
     methods copy_attributes
       importing
         i_falv type ref to zcl_falv.
+
 endclass.
 
 
@@ -615,7 +692,7 @@ class zcl_falv implementation.
       delete toolbar_deleted where function = iv_function.
       me->refresh_toolbar( ).
     endif.
-
+    r_falv = me.
   endmethod.
 
 
@@ -870,38 +947,16 @@ class zcl_falv implementation.
     endif.
     "We need to call full screen ALV as container was not passed
     if i_parent is initial.
-
       e_built_in_screen = abap_true.
       try.
 
           if cl_gui_alv_grid=>offline( ) is initial.
-            e_custom_container  = cast cl_gui_container( new cl_gui_custom_container(
-                 container_name = cc_name
-                 dynnr          = switch #( i_popup when abap_true then c_screen_popup
-                                                    when abap_false then c_screen_full )
-                 repid          = c_fscr_repid
-                 no_autodef_progid_dynnr = abap_true
-                 ) ).
+            e_custom_container = create_main_cont_for_full_scr( i_popup ).
             main_parent ?= e_custom_container.
-
-
-            " Create split container, log at bottom, grid at top.
-            "Log hidden as default, will appear when error will be thrown.
-            e_main_split_container  = new cl_gui_splitter_container(
-           link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
-                                                       when abap_false then c_screen_full )
-           link_repid              = c_fscr_repid
-            parent                  = main_parent
-            rows                    = cond #( when  i_applog_embedded eq abap_true then 2
-                                              else 1 )
-            columns                 = 1
-       ).
-            e_split_container  = new cl_gui_splitter_container(
-         parent                  = e_main_split_container->get_container( row = 1 column    = 1 )
-         rows                    = 2
-         columns                 = 1
-    ).
-
+            e_main_split_container = create_main_split_cotainer( i_popup           = i_popup
+                                                                 i_applog_embedded = i_applog_embedded
+                                                                 i_main_parent     = main_parent ).
+            e_split_container = crate_main_splitter( e_main_split_container ).
             e_parent ?= e_split_container->get_container( row = 2 column    = 1 ).
             e_applog ?= e_main_split_container->get_container( row = 2 column    = 1 ).
             e_top_of_page_parent ?= e_split_container->get_container( row = 1 column    = 1 ).
@@ -924,21 +979,14 @@ class zcl_falv implementation.
       else.
 
         e_applog ?= i_applogparent.
-
         e_custom_container ?= i_parent.
 
-        e_main_split_container = new cl_gui_splitter_container(
-             parent                  = e_custom_container
-             rows                    = cond #( when  i_applog_embedded eq abap_true then 2
-                                               else 1 )
-             columns                 = 1
-        ).
+        e_main_split_container = create_main_split_cotainer( i_popup           = i_popup
+                                                             i_applog_embedded = i_applog_embedded
+                                                             i_main_parent     = e_custom_container ).
 
-        e_split_container = new cl_gui_splitter_container(
-             parent                  = e_main_split_container->get_container( row = 1 column    = 1 )
-             rows                    = 2
-             columns                 = 1
-        ).
+        e_split_container = crate_main_splitter( e_main_split_container ).
+
         if e_applog is initial.
           e_parent ?= e_split_container->get_container( row = 2 column    = 1 ).
           e_applog ?= e_main_split_container->get_container( row = 2 column  = 1 ).
@@ -954,6 +1002,49 @@ class zcl_falv implementation.
     endif.
 
   endmethod.
+
+  method crate_main_splitter.
+
+    r_split_container  = new cl_gui_splitter_container(
+                                                 parent                  = i_main_split_container->get_container( row = 1 column    = 1 )
+                                                 rows                    = 2
+                                                 columns                 = 1 ).
+
+  endmethod.
+
+
+
+  method create_main_cont_for_full_scr.
+
+    r_custom_container  = cast cl_gui_container( new cl_gui_custom_container(
+         container_name = cc_name
+         dynnr          = switch #( i_popup when abap_true then c_screen_popup
+                                            when abap_false then c_screen_full )
+         repid          = c_fscr_repid
+         no_autodef_progid_dynnr = abap_true
+         ) ).
+
+  endmethod.
+
+
+
+  method create_main_split_cotainer.
+
+    " Create split container, log at bottom, grid at top.
+    "Log hidden as default, will appear when error will be thrown.
+    r_main_split_container  = new cl_gui_splitter_container(
+                                     link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
+                                                                                 when abap_false then c_screen_full )
+                                     link_repid              = c_fscr_repid
+                                     parent                  = i_main_parent
+                                     rows                    = cond #( when  i_applog_embedded eq abap_true then 2
+                                                                        else 1 )
+                                     columns                 = 1
+).
+
+  endmethod.
+
+
 
 
 
@@ -1080,6 +1171,7 @@ class zcl_falv implementation.
     endif.
     append lines of toolbar_deleted to exclude_functions.
     me->refresh_toolbar( ).
+    r_falv = me.
   endmethod.
 
 
@@ -1091,6 +1183,7 @@ class zcl_falv implementation.
       endif.
     endif.
     me->refresh_toolbar( ).
+    r_falv = me.
   endmethod.
 
 
@@ -1103,11 +1196,13 @@ class zcl_falv implementation.
     if sy-subrc ne 0.
     endif.
     me->refresh_toolbar( ).
+    r_falv = me.
   endmethod.
 
 
   method display.
     field-symbols: <outtab> type standard table.
+    r_falv = me.
     if me->title_v1 is initial.
       me->title_v1 = sy-title. " for lazy people who wants to have alv title to be equal one from report.
     endif.
@@ -1205,6 +1300,7 @@ class zcl_falv implementation.
     endtry.
     delete toolbar_disabled where function = iv_function.
     me->refresh_toolbar( ).
+    r_falv = me.
   endmethod.
 
 
@@ -1230,6 +1326,15 @@ class zcl_falv implementation.
   method evf_at_set_title.
   endmethod.
 
+  method set_dummy_function_code.
+    call function 'SAPGUI_SET_FUNCTIONCODE'
+      exporting
+        functioncode           = 'DUMMY'
+      exceptions
+        function_not_supported = 0
+        others                 = 0.
+    r_falv = me.
+  endmethod.
 
   method evf_before_ucommand_internal.
     field-symbols: <outtab> type standard table.
@@ -1665,6 +1770,7 @@ class zcl_falv implementation.
         splitter_row_1_height = 0.
       endif.
     endif.
+    r_falv = me.
   endmethod.
 
 
@@ -1781,6 +1887,7 @@ class zcl_falv implementation.
         "in case method is called before the display of grid
         "no need to do anything with that
     endtry.
+    r_falv = me.
   endmethod.
 
 
@@ -1863,6 +1970,7 @@ class zcl_falv implementation.
 
 
   method send.
+    r_falv = me.
     try.
         data(request) = cl_bcs=>create_persistent( ).
       catch cx_send_req_bcs.
@@ -1968,13 +2076,11 @@ class zcl_falv implementation.
     else.
       raise add_recipient_error.
     endif.
-
-
-
   endmethod.
 
 
   method set_cell_button.
+    r_falv = me.
     field-symbols: <outtab> type standard table,
                    <styles> type lvc_t_styl.
     get_frontend_layout( importing es_layout =  lvc_layout ).
@@ -1999,6 +2105,7 @@ class zcl_falv implementation.
   method set_cell_color.
     field-symbols: <outtab> type standard table,
                    <colors> type lvc_t_scol.
+    r_falv = me.
     get_frontend_layout( importing es_layout =  lvc_layout ).
     check lvc_layout-ctab_fname is not initial.
     assign outtab->* to <outtab>.
@@ -2021,6 +2128,7 @@ class zcl_falv implementation.
   method set_cell_disabled.
     field-symbols: <outtab> type standard table,
                    <styles> type lvc_t_styl.
+    r_falv = me.
     get_frontend_layout( importing es_layout =  lvc_layout ).
     check lvc_layout-stylefname is not initial.
     assign outtab->* to <outtab>.
@@ -2043,6 +2151,7 @@ class zcl_falv implementation.
   method set_cell_enabled.
     field-symbols: <outtab> type standard table,
                    <styles> type lvc_t_styl.
+    r_falv = me.
     get_frontend_layout( importing es_layout =  lvc_layout ).
     check lvc_layout-stylefname is not initial.
     assign outtab->* to <outtab>.
@@ -2065,6 +2174,7 @@ class zcl_falv implementation.
   method set_cell_hotspot.
     field-symbols: <outtab> type standard table,
                    <styles> type lvc_t_styl.
+    r_falv = me.
     get_frontend_layout( importing es_layout =  lvc_layout ).
     check lvc_layout-stylefname is not initial.
     assign outtab->* to <outtab>.
@@ -2085,6 +2195,7 @@ class zcl_falv implementation.
 
 
   method set_editable.
+    r_falv = me.
     check cl_gui_alv_grid=>offline( ) is initial.
     me->set_ready_for_input( i_ready_for_input = 1 ).
     if iv_modify eq abap_true.
@@ -2119,6 +2230,7 @@ class zcl_falv implementation.
 
   method set_list_view.
     m_batch_mode = abap_true.
+    r_falv = me.
   endmethod.
 
 
@@ -2138,17 +2250,20 @@ class zcl_falv implementation.
 
   method set_parent.
     me->parent ?= io_parent.
+    r_falv = me.
   endmethod.
 
 
   method set_readonly.
     me->set_ready_for_input( i_ready_for_input = 0 ).
+    r_falv = me.
   endmethod.
 
 
   method set_row_color.
     field-symbols: <outtab> type standard table,
                    <color>  type char04.
+    r_falv = me.
     get_frontend_layout( importing es_layout =  lvc_layout ).
     check lvc_layout-info_fname is not initial.
     assign outtab->* to <outtab>.
@@ -2166,7 +2281,7 @@ class zcl_falv implementation.
 
   method show_applog.
 
-
+    r_falv = me.
     if main_split_container is not initial.
       main_split_container->get_row_height(
     exporting
@@ -2239,6 +2354,7 @@ class zcl_falv implementation.
 
 
   method show_top_of_page.
+    r_falv = me.
     if split_container is not initial.
       split_container->set_row_sash(
         exporting
@@ -2284,6 +2400,7 @@ class zcl_falv implementation.
       exceptions
         finished       = 0
         others         = 0 ).
+    r_falv = me.
   endmethod.
 
   method copy_attributes.

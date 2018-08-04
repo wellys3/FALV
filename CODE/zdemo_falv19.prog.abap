@@ -9,6 +9,7 @@ class lcl_test definition inheriting from zcl_falv.
   protected section.
     "redefinition of event handler
     methods evf_hotspot_click redefinition.
+    methods evf_top_of_page redefinition.
   private section.
 
 endclass.
@@ -39,6 +40,22 @@ start-of-selection.
 
 
 class lcl_test implementation.
+  method evf_top_of_page.
+
+    e_dyndoc_id->add_text( text = 'Top Of Page' sap_style = cl_dd_area=>heading ).
+
+    e_dyndoc_id->new_line( repeat = 1 ).
+
+    e_dyndoc_id->add_link(
+      exporting
+        name                   =  'ABAPBLOG.com'   " Name (You Can Use Any Name You Choose)
+        url                    =   'http://abapblog.com'  " URL
+        tooltip                =  'ABAPBLOG.com'   " Tool Tip
+        text                   =  'ABAPBLOG.com'    " Text
+    ).
+
+
+  endmethod.
 
   method evf_hotspot_click.
     case e_column_id-fieldname.

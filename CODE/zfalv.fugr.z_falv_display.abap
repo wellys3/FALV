@@ -25,12 +25,7 @@ FUNCTION Z_FALV_DISPLAY.
       if <out>->falv->built_in_screen is not initial.
         "! When you reuse FALV sometimes it needs to be refreshed
         "! in order to show on screen. Like with Error log
-        call function 'SAPGUI_SET_FUNCTIONCODE'
-          exporting
-            functioncode           = 'DUMMY'    " Function code
-          exceptions
-            function_not_supported = 0
-            others                 = 0.
+        <out>->falv->set_dummy_function_code( ).
       endif.
     endif.
   endif.

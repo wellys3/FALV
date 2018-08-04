@@ -63,14 +63,7 @@ class lcl_output implementation.
         "! When I use embedded applog then although it's container is hidden
         "! then you can still see the place for it until some pbo will happen.
         "! I force dummy user-command to get rid of it
-        call function 'SAPGUI_SET_FUNCTIONCODE'
-          exporting
-            functioncode           = 'DUMMY'    " Function code
-          exceptions
-            function_not_supported = 1
-            others                 = 2.
-        if sy-subrc <> 0.
-        endif.
+        falv->set_dummy_function_code( ).
       endif.
     endif.
 

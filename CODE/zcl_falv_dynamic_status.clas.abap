@@ -1,14 +1,14 @@
-class ZCL_FALV_DYNAMIC_STATUS definition
+class zcl_falv_dynamic_status definition
   public
   final
   create public .
 
-public section.
+  public section.
 
-  interfaces IF_OS_CLONE .
+    interfaces if_os_clone .
 
-  types:
-    begin of t_buttons,
+    types:
+      begin of t_buttons,
         f01 type rsfunc_txt,
         f02 type rsfunc_txt,
         f03 type rsfunc_txt,
@@ -45,98 +45,107 @@ public section.
         f34 type rsfunc_txt,
         f35 type rsfunc_txt,
       end of t_buttons .
-  types:
-    begin of t_allowed_but,
+    types:
+      begin of t_allowed_but,
         function type sy-ucomm,
       end of t_allowed_but .
-  types:
-    tt_excluded_but type standard table of sy-ucomm .
-  types:
-    tt_allowed_but type standard table of t_allowed_but .
+    types:
+      tt_excluded_but type standard table of sy-ucomm .
+    types:
+      tt_allowed_but type standard table of t_allowed_but .
 
-  constants B_01 type SY-UCOMM value 'F01' ##NO_TEXT.
-  constants B_02 type SY-UCOMM value 'F02' ##NO_TEXT.
-  constants B_03 type SY-UCOMM value 'F03' ##NO_TEXT.
-  constants B_04 type SY-UCOMM value 'F04' ##NO_TEXT.
-  constants B_05 type SY-UCOMM value 'F05' ##NO_TEXT.
-  constants B_06 type SY-UCOMM value 'F06' ##NO_TEXT.
-  constants B_07 type SY-UCOMM value 'F07' ##NO_TEXT.
-  constants B_08 type SY-UCOMM value 'F08' ##NO_TEXT.
-  constants B_09 type SY-UCOMM value 'F09' ##NO_TEXT.
-  constants B_10 type SY-UCOMM value 'F10' ##NO_TEXT.
-  constants B_11 type SY-UCOMM value 'F11' ##NO_TEXT.
-  constants B_12 type SY-UCOMM value 'F12' ##NO_TEXT.
-  constants B_13 type SY-UCOMM value 'F13' ##NO_TEXT.
-  constants B_14 type SY-UCOMM value 'F14' ##NO_TEXT.
-  constants B_15 type SY-UCOMM value 'F15' ##NO_TEXT.
-  constants B_16 type SY-UCOMM value 'F16' ##NO_TEXT.
-  constants B_17 type SY-UCOMM value 'F17' ##NO_TEXT.
-  constants B_18 type SY-UCOMM value 'F18' ##NO_TEXT.
-  constants B_19 type SY-UCOMM value 'F19' ##NO_TEXT.
-  constants B_20 type SY-UCOMM value 'F20' ##NO_TEXT.
-  constants B_21 type SY-UCOMM value 'F21' ##NO_TEXT.
-  constants B_22 type SY-UCOMM value 'F22' ##NO_TEXT.
-  constants B_23 type SY-UCOMM value 'F23' ##NO_TEXT.
-  constants B_24 type SY-UCOMM value 'F24' ##NO_TEXT.
-  constants B_25 type SY-UCOMM value 'F25' ##NO_TEXT.
-  constants B_26 type SY-UCOMM value 'F26' ##NO_TEXT.
-  constants B_27 type SY-UCOMM value 'F27' ##NO_TEXT.
-  constants B_28 type SY-UCOMM value 'F28' ##NO_TEXT.
-  constants B_29 type SY-UCOMM value 'F29' ##NO_TEXT.
-  constants B_30 type SY-UCOMM value 'F30' ##NO_TEXT.
-  constants B_31 type SY-UCOMM value 'F31' ##NO_TEXT.
-  constants B_32 type SY-UCOMM value 'F32' ##NO_TEXT.
-  constants B_33 type SY-UCOMM value 'F33' ##NO_TEXT.
-  constants B_34 type SY-UCOMM value 'F34' ##NO_TEXT.
-  constants B_35 type SY-UCOMM value 'F35' ##NO_TEXT.
-  data FULLY_DYNAMIC type ABAP_BOOL .
-  data EXCLUDED_BUTTONS type TT_EXCLUDED_BUT .
-  data BUTTONS type T_BUTTONS .
+    constants b_01 type sy-ucomm value 'F01' ##NO_TEXT.
+    constants b_02 type sy-ucomm value 'F02' ##NO_TEXT.
+    constants b_03 type sy-ucomm value 'F03' ##NO_TEXT.
+    constants b_04 type sy-ucomm value 'F04' ##NO_TEXT.
+    constants b_05 type sy-ucomm value 'F05' ##NO_TEXT.
+    constants b_06 type sy-ucomm value 'F06' ##NO_TEXT.
+    constants b_07 type sy-ucomm value 'F07' ##NO_TEXT.
+    constants b_08 type sy-ucomm value 'F08' ##NO_TEXT.
+    constants b_09 type sy-ucomm value 'F09' ##NO_TEXT.
+    constants b_10 type sy-ucomm value 'F10' ##NO_TEXT.
+    constants b_11 type sy-ucomm value 'F11' ##NO_TEXT.
+    constants b_12 type sy-ucomm value 'F12' ##NO_TEXT.
+    constants b_13 type sy-ucomm value 'F13' ##NO_TEXT.
+    constants b_14 type sy-ucomm value 'F14' ##NO_TEXT.
+    constants b_15 type sy-ucomm value 'F15' ##NO_TEXT.
+    constants b_16 type sy-ucomm value 'F16' ##NO_TEXT.
+    constants b_17 type sy-ucomm value 'F17' ##NO_TEXT.
+    constants b_18 type sy-ucomm value 'F18' ##NO_TEXT.
+    constants b_19 type sy-ucomm value 'F19' ##NO_TEXT.
+    constants b_20 type sy-ucomm value 'F20' ##NO_TEXT.
+    constants b_21 type sy-ucomm value 'F21' ##NO_TEXT.
+    constants b_22 type sy-ucomm value 'F22' ##NO_TEXT.
+    constants b_23 type sy-ucomm value 'F23' ##NO_TEXT.
+    constants b_24 type sy-ucomm value 'F24' ##NO_TEXT.
+    constants b_25 type sy-ucomm value 'F25' ##NO_TEXT.
+    constants b_26 type sy-ucomm value 'F26' ##NO_TEXT.
+    constants b_27 type sy-ucomm value 'F27' ##NO_TEXT.
+    constants b_28 type sy-ucomm value 'F28' ##NO_TEXT.
+    constants b_29 type sy-ucomm value 'F29' ##NO_TEXT.
+    constants b_30 type sy-ucomm value 'F30' ##NO_TEXT.
+    constants b_31 type sy-ucomm value 'F31' ##NO_TEXT.
+    constants b_32 type sy-ucomm value 'F32' ##NO_TEXT.
+    constants b_33 type sy-ucomm value 'F33' ##NO_TEXT.
+    constants b_34 type sy-ucomm value 'F34' ##NO_TEXT.
+    constants b_35 type sy-ucomm value 'F35' ##NO_TEXT.
+    data fully_dynamic type abap_bool .
+    data excluded_buttons type tt_excluded_but .
+    data buttons type t_buttons .
 
-  methods CONSTRUCTOR .
-  methods ADD_BUTTON
-    importing
-      value(IV_BUTTON) type SY-UCOMM
-      value(IV_TEXT) type SMP_DYNTXT-TEXT optional
-      value(IV_ICON) type SMP_DYNTXT-ICON_ID optional
-      value(IV_QINFO) type SMP_DYNTXT-QUICKINFO optional
-      value(IV_ALLOWED) type ABAP_BOOL default ABAP_TRUE
-    exceptions
-      BUTTON_ALREADY_FILLED
-      BUTTON_DOES_NOT_EXISTS
-      ICON_AND_TEXT_EMPTY .
-  methods HIDE_BUTTON
-    importing
-      value(IV_BUTTON) type SY-UCOMM .
-  methods SHOW_BUTTON
-    importing
-      value(IV_BUTTON) type SY-UCOMM .
-  methods GET_TOOLBAR
-    exporting
-      !E_TOOLBAR type T_BUTTONS .
-  methods ADD_SEPARATOR
-    importing
-      value(IV_BUTTON) type SY-UCOMM .
-  methods SHOW_TITLE
-    importing
-      value(IV_TEXT1) type STRING
-      value(IV_TEXT2) type STRING optional
-      value(IV_TEXT3) type STRING optional
-      value(IV_TEXT4) type STRING optional
-      value(IV_TEXT5) type STRING optional .
-  methods SHOW_GUI_STATUS .
-protected section.
+    methods constructor .
+    methods add_button
+      importing
+        value(iv_button)  type sy-ucomm
+        value(iv_text)    type smp_dyntxt-text optional
+        value(iv_icon)    type smp_dyntxt-icon_id optional
+        value(iv_qinfo)   type smp_dyntxt-quickinfo optional
+        value(iv_allowed) type abap_bool default abap_true
+      RETURNING
+        VALUE(r_status) TYPE REF TO zcl_falv_dynamic_status
+      exceptions
+        button_already_filled
+        button_does_not_exists
+        icon_and_text_empty .
+    methods hide_button
+      importing
+        value(iv_button) type sy-ucomm
+      RETURNING
+        VALUE(r_status) TYPE REF TO zcl_falv_dynamic_status .
+    methods show_button
+      importing
+        value(iv_button) type sy-ucomm
+      RETURNING
+        VALUE(r_status) TYPE REF TO zcl_falv_dynamic_status .
+    methods get_toolbar
+      exporting
+        !e_toolbar type t_buttons .
+    methods add_separator
+      importing
+        value(iv_button) type sy-ucomm
+      RETURNING
+        VALUE(r_status) TYPE REF TO zcl_falv_dynamic_status .
+    methods show_title
+      importing
+        value(iv_text1) type string
+        value(iv_text2) type string optional
+        value(iv_text3) type string optional
+        value(iv_text4) type string optional
+        value(iv_text5) type string optional .
+    methods show_gui_status .
+  protected section.
 
-  data ALLOWED_BUTTONS type TT_ALLOWED_BUT .
-private section.
-ENDCLASS.
+    data allowed_buttons type tt_allowed_but .
+  private section.
+endclass.
 
 
 
-CLASS ZCL_FALV_DYNAMIC_STATUS IMPLEMENTATION.
+class zcl_falv_dynamic_status implementation.
 
 
-method add_button.
+  method add_button.
+    r_status = me.
     data button type smp_dyntxt.
     check iv_button is not initial.
 
@@ -166,28 +175,20 @@ method add_button.
   endmethod.
 
 
-method add_separator.
+  method add_separator.
+    r_status = me.
     add_button(
       exporting
         iv_button              = iv_button
         iv_text                = |{ cl_abap_char_utilities=>minchar }|
-*        iv_icon                = iv_icon
-*        iv_qinfo               = iv_qinfo
          iv_allowed             = abap_true
       exceptions
-        button_already_filled  = 1
-        button_does_not_exists = 2
-        icon_and_text_empty    = 3
-        others                 = 4
+        others                 = 0
     ).
-    if sy-subrc <> 0.
-*     message id sy-msgid type sy-msgty number sy-msgno
-*                with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-    endif.
   endmethod.
 
 
-method constructor.
+  method constructor.
     excluded_buttons = value #( ( b_01 ) ( b_02 ) ( b_03 ) ( b_04 ) ( b_05 ) ( b_06 ) ( b_07 ) ( b_08 ) ( b_09 )
                                 ( b_10 ) ( b_11 ) ( b_12 ) ( b_13 ) ( b_14 ) ( b_15 ) ( b_16 ) ( b_17 ) ( b_18 ) ( b_19 )
                                 ( b_20 ) ( b_21 ) ( b_22 ) ( b_23 ) ( b_24 ) ( b_25 ) ( b_26 ) ( b_27 ) ( b_28 ) ( b_29 )
@@ -197,12 +198,13 @@ method constructor.
   endmethod.
 
 
-method get_toolbar.
+  method get_toolbar.
     e_toolbar = buttons.
   endmethod.
 
 
-method hide_button.
+  method hide_button.
+    r_status = me.
     check iv_button is not initial.
 
     delete allowed_buttons where function = iv_button.
@@ -211,12 +213,13 @@ method hide_button.
   endmethod.
 
 
-method if_os_clone~clone.
+  method if_os_clone~clone.
     system-call objmgr clone me to result.
   endmethod.
 
 
-method show_button.
+  method show_button.
+    r_status = me.
     check iv_button is not initial.
     if not line_exists( allowed_buttons[ function = iv_button ] ).
       data(allowed) = value t_allowed_but( function = iv_button ).
@@ -226,7 +229,7 @@ method show_button.
   endmethod.
 
 
-method show_gui_status.
+  method show_gui_status.
     if sy-dynnr eq zcl_falv=>c_screen_full and fully_dynamic eq abap_true.
       set pf-status 'DYNAMIC_STATUS' of program zcl_falv=>c_fscr_repid excluding excluded_buttons.
     elseif sy-dynnr eq zcl_falv=>c_screen_full.
@@ -237,7 +240,7 @@ method show_gui_status.
   endmethod.
 
 
-method show_title.
+  method show_title.
     set titlebar 'TITLE' of program zcl_falv=>c_fscr_repid with iv_text1 iv_text2 iv_text3 iv_text4 iv_text5.
   endmethod.
-ENDCLASS.
+endclass.

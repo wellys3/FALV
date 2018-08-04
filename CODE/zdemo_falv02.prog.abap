@@ -58,19 +58,12 @@ start-of-selection.
 
   "creation of falv with local redefinition
   data falv type ref to lcl_test.
-  data(subcl) = cl_abap_classdescr=>describe_by_name( p_name = 'LCL_TEST' ).
-
-  falv ?=  lcl_test=>create( exporting i_subclass = subcl changing ct_table = sflight ).
-
+  falv ?=  lcl_test=>create( changing ct_table = sflight ).
 
   "Add hotspot to column 'SEATSMAX'
   falv->column( 'SEATSMAX' )->set_hotspot( abap_true ).
-  "Add title variable
-  falv->title_v1 = 'ZDEMO_FALV02'.
 
   falv->top_of_page_height = 100. "absolute size
-  "To enable top_of_page
-  falv->show_top_of_page( ).
 
-  "Display full screen grid
-  falv->display( ).
+  "Enable top_of_page and display Grid on full screen
+  falv->show_top_of_page( )->display( ).

@@ -49,8 +49,7 @@ start-of-selection.
 
   "creation of falv with local redefinition
   data falv type ref to lcl_test.
-  falv ?= lcl_test=>create( exporting  i_subclass = cl_abap_classdescr=>describe_by_name( p_name = 'LCL_TEST' )
-                              changing ct_table = sflight    ) .
+  falv ?= lcl_test=>create( changing ct_table = sflight ) .
 
   "Add title variable
   falv->title_v1 = 'ZDEMO_FALV03'.
@@ -61,33 +60,12 @@ start-of-selection.
       iv_button              = zcl_falv_dynamic_status=>b_01
       iv_text                = 'POPUP 01'
       iv_icon                = icon_abc
-*      iv_qinfo               =
-*      iv_allowed             = ABAP_TRUE
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
-  if sy-subrc <> 0.
-  endif.
-
-  "Add button into GUI status at for function F02
-  falv->gui_status->add_button(
+  )->add_button(
     exporting
       iv_button              = zcl_falv_dynamic_status=>b_02
       iv_text                = 'POPUP 02'
       iv_icon                = icon_address
-*      iv_qinfo               =
-*      iv_allowed             = ABAP_TRUE
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
   ).
-  if sy-subrc <> 0.
-  endif.
 
   "Display full screen grid
   falv->display( ).
