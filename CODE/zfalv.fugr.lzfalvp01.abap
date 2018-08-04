@@ -29,52 +29,37 @@ class lcl_output implementation.
        cl_gui_alv_grid=>offline( ) is initial.
       cl_gui_cfw=>flush(
         exceptions
-          cntl_system_error = 1
-          cntl_error        = 2
-          others            = 3
-      ).
-      if sy-subrc <> 0.
-*       message id sy-msgid type sy-msgty number sy-msgno
-*                  with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-      endif.
+          cntl_system_error = 0
+          cntl_error        = 0
+          others            = 0  ).
+
       falv->parent->set_enable(
         exporting
           enable            =  abap_true   " Enable/disable state flag
         exceptions
-          cntl_error        = 1
-          cntl_system_error = 2
-          others            = 3
-      ).
-      if sy-subrc <> 0.
-*       message id sy-msgid type sy-msgty number sy-msgno
-*                  with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-      endif.
+          cntl_error        = 0
+          cntl_system_error = 0
+          others            = 0 ).
       if first_output eq abap_true.
         data(falv_popup) = falv->create_by_copy(
-*                       i_parent          =
-*                        i_applogparent    =
                           i_popup           = abap_true
-*                       i_applog_embedded = ABAP_FALSE
                      ).
         falv  ?= falv_popup.
       endif.
     endif.
+
     falv->pbo( iv_dynnr = iv_dynnr ).
     if first_output eq abap_true.
 
       cl_gui_cfw=>flush(
       exceptions
-        cntl_system_error = 1
-        cntl_error        = 2
-        others            = 3
-).
-      if sy-subrc <> 0.
-*       message id sy-msgid type sy-msgty number sy-msgno
-*                  with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-      endif.
+        cntl_system_error = 0
+        cntl_error        = 0
+        others            = 0 ).
       falv->display( iv_force_grid = abap_true ).
+
       clear first_output.
-      if falv->split_container is not initial.
+      if falv->split_container is not initial or falv->built_in_screen is not initial.
         "! When I use embedded applog then although it's container is hidden
         "! then you can still see the place for it until some pbo will happen.
         "! I force dummy user-command to get rid of it

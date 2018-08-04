@@ -28,7 +28,7 @@ class zcl_falv definition
       end of t_email .
     types:
       tt_email type table of t_email .
-    constants version type string value '740.1.0.18' ##NO_TEXT.
+    constants version type string value '740.1.0.19' ##NO_TEXT.
     constants cc_name type char30 value 'CC_GRID' ##NO_TEXT.
     constants c_screen_popup type sy-dynnr value '0200' ##NO_TEXT.
     constants c_screen_full type sy-dynnr value '0100' ##NO_TEXT.
@@ -139,6 +139,7 @@ class zcl_falv definition
     data top_of_page_height type i value 150 ##NO_TEXT.
     data error_log_height type i value 100 ##NO_TEXT.
     data grid type ref to cl_gui_alv_grid .
+    data built_in_screen type abap_bool  read-only.
 
     class-methods create
       importing
@@ -325,7 +326,7 @@ class zcl_falv definition
           toolbar_exceptions type ttb_button.
     data:
       columns type sorted table of t_column with unique key table_line .
-    data built_in_screen type abap_bool .
+
     data application_log_embedded type abap_bool .
     data subclass_type type ref to cl_abap_typedescr .
 
@@ -516,6 +517,34 @@ class zcl_falv definition
     class-methods check_if_called_from_subclass
       returning
         value(ro_subclass) type ref to object .
+    class-methods create_containters
+      importing
+        i_parent               type ref to cl_gui_container
+        i_applogparent         type ref to cl_gui_container
+        i_popup                type abap_bool
+        i_applog_embedded      type abap_bool
+      exporting
+        e_built_in_screen      type abap_bool
+        e_parent               type ref to cl_gui_container
+        e_applog               type ref to cl_gui_container
+        e_top_of_page_parent   type ref to cl_gui_container
+        e_custom_container     type ref to cl_gui_container
+        e_main_split_container type ref to cl_gui_splitter_container
+        e_split_container      type ref to cl_gui_splitter_container.
+    class-methods create_falv_object
+      importing
+        i_subclass     type ref to cl_abap_typedescr
+        i_parent       type ref to cl_gui_container
+        i_applog       type ref to cl_gui_container
+      returning
+        value(rv_falv) type ref to zcl_falv.
+    class-methods link_containers
+      importing
+        iv_falv                type ref to zcl_falv
+        i_top_of_page_parent   type ref to cl_gui_container
+        i_custom_container     type ref to cl_gui_container
+        i_main_split_container type ref to cl_gui_splitter_container
+        i_split_container      type ref to cl_gui_splitter_container.
 
     methods evf_before_ucommand_internal
           for event before_user_command of cl_gui_alv_grid
@@ -534,10 +563,7 @@ class zcl_falv definition
           !e_onf4_before
           !e_onf4_after
           !e_ucomm .
-    methods evf_user_command_internal
-          for event user_command of cl_gui_alv_grid
-      importing
-          !e_ucomm .
+
     methods set_parent
       importing
         !io_parent type ref to object .
@@ -562,11 +588,17 @@ class zcl_falv definition
         !ct_table type standard table .
     methods build_columns .
     methods raise_top_of_page .
-ENDCLASS.
+    methods set_handlers
+      importing
+        iv_falv type ref to zcl_falv.
+    methods copy_attributes
+      importing
+        i_falv type ref to zcl_falv.
+endclass.
 
 
 
-CLASS ZCL_FALV IMPLEMENTATION.
+class zcl_falv implementation.
 
 
   method add_button.
@@ -596,8 +628,8 @@ CLASS ZCL_FALV IMPLEMENTATION.
 
 
   method check_if_called_from_subclass.
-    data: callstack  type abap_callstack,
-          src        type table of string.
+    data: callstack type abap_callstack,
+          src       type table of string.
 
     call function 'SYSTEM_CALLSTACK'
       importing
@@ -708,191 +740,36 @@ CLASS ZCL_FALV IMPLEMENTATION.
 
 
   method create.
-    data: built_in_screen type abap_bool.
     data: main_parent type ref to cl_gui_container.
-    data: parent type ref to cl_gui_container.
-    data: applog type ref to cl_gui_container.
-    data: top_of_page_parent type ref to cl_gui_container.
     data: docking_parent type ref to cl_gui_docking_container.
 
     if i_subclass is initial.
       i_subclass ?= check_if_called_from_subclass( ).
     endif.
 
-    if cl_gui_alv_grid=>offline( ) is not initial.
-      main_parent ?= docking_parent.
-    endif.
-    "We need to call full screen ALV as container was not passed
-    if i_parent is initial.
 
-      built_in_screen = abap_true.
-      try.
-
-          if cl_gui_alv_grid=>offline( ) is initial.
-            data(custom_container) = cast cl_gui_container( new cl_gui_custom_container(
-                      container_name = cc_name
-                      dynnr          = switch #( i_popup when abap_true then c_screen_popup
-                                                         when abap_false then c_screen_full )
-                      repid          = c_fscr_repid
-                      no_autodef_progid_dynnr = abap_true
-                      ) ).
-            main_parent ?= custom_container.
+    create_containters(
+          exporting
+            i_parent          = i_parent
+            i_applogparent    = i_applogparent
+            i_popup           = i_popup
+            i_applog_embedded = i_applog_embedded
+          importing
+            e_built_in_screen      = data(built_in_screen)
+            e_parent               = data(parent)
+            e_applog               = data(applog)
+            e_top_of_page_parent   = data(top_of_page_parent)
+            e_custom_container     = data(custom_container)
+            e_main_split_container = data(main_split_container)
+            e_split_container      = data(split_container) ).
 
 
-            " Create split container, log at bottom, grid at top.
-            "Log hidden as default, will appear when error will be thrown.
-            data(main_split_container) = new cl_gui_splitter_container(
-                link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
-                                                            when abap_false then c_screen_full )
-                link_repid              = c_fscr_repid
-                 parent                  = main_parent
-                 rows                    = cond #( when  i_applog_embedded eq abap_true then 2
-                                                   else 1 )
-                 columns                 = 1
-            ).
-            data(split_container) = new cl_gui_splitter_container(
-              parent                  = main_split_container->get_container( row = 1 column    = 1 )
-              rows                    = 2
-              columns                 = 1
-         ).
+    rv_falv = create_falv_object(
+      i_subclass = i_subclass
+      i_parent   = parent
+      i_applog   = applog ).
 
-            parent ?= split_container->get_container( row = 2 column    = 1 ).
-            applog ?= main_split_container->get_container( row = 2 column    = 1 ).
-            top_of_page_parent ?= split_container->get_container( row = 1 column    = 1 ).
-          else.
-
-            parent ?= main_parent.
-            custom_container ?= parent.
-
-          endif.
-
-        catch cx_root.
-          "Something is wrong...
-      endtry.
-    else.
-      if cl_gui_alv_grid=>offline( ) is not initial.
-
-        parent ?= main_parent.
-        custom_container ?= parent.
-
-      else.
-
-        applog ?= i_applogparent.
-
-        custom_container ?= i_parent.
-
-        main_split_container = new cl_gui_splitter_container(
-             parent                  = custom_container
-             rows                    = cond #( when  i_applog_embedded eq abap_true then 2
-                                               else 1 )
-             columns                 = 1
-        ).
-
-        split_container = new cl_gui_splitter_container(
-             parent                  = main_split_container->get_container( row = 1 column    = 1 )
-             rows                    = 2
-             columns                 = 1
-        ).
-        if applog is initial.
-          parent ?= split_container->get_container( row = 2 column    = 1 ).
-          applog ?= main_split_container->get_container( row = 2 column  = 1 ).
-          top_of_page_parent ?= split_container->get_container( row = 1 column    = 1 ).
-        else.
-          parent ?= split_container->get_container( row = 2 column    = 1 ).
-          top_of_page_parent ?= split_container->get_container( row = 1 column    = 1 ).
-          custom_container ?= i_parent.
-        endif.
-
-      endif.
-
-    endif.
-    if i_subclass is not initial.
-      data: subclass type ref to object.
-      data(sublcass_abs_name) = i_subclass->absolute_name.
-      create object subclass type (sublcass_abs_name)
-       exporting
-        i_parent       = parent
-        i_applogparent = applog.
-      rv_falv ?= subclass.
-      rv_falv->subclass_type = i_subclass.
-
-    else.
-      create object rv_falv
-        exporting
-          i_parent       = parent
-          i_applogparent = applog.
-
-    endif.
-
-
-    rv_falv->set_delay_change_selection(
-      exporting
-        time   =  rv_falv->delay_change_selection
-      exceptions
-        error  = 1
-        others = 2
-    ).
-    if sy-subrc <> 0.
-    endif.
-
-    rv_falv->set_delay_move_current_cell(
-      exporting
-       time   = rv_falv->delay_move_current_cell
-      exceptions
-        error  = 1
-        others = 2
-    ).
-    if sy-subrc <> 0.
-    endif.
-
-
-
-    set handler rv_falv->evf_after_refresh for rv_falv.
-    set handler rv_falv->evf_after_user_command for rv_falv.
-    set handler rv_falv->evf_before_ucommand_internal for rv_falv.
-    set handler rv_falv->evf_before_user_command for rv_falv.
-    set handler rv_falv->evf_btn_click for rv_falv.
-    set handler rv_falv->evf_data_changed for rv_falv.
-    set handler rv_falv->evf_data_changed_internal for rv_falv.
-    set handler rv_falv->evf_data_changed_finished for rv_falv.
-    set handler rv_falv->evf_double_click for rv_falv.
-    set handler rv_falv->evf_hotspot_click for rv_falv.
-    set handler rv_falv->evf_menu_button for rv_falv.
-    set handler rv_falv->evf_onf1 for rv_falv.
-    set handler rv_falv->evf_onf4 for rv_falv.
-    set handler rv_falv->evf_subtotal_text for rv_falv.
-    set handler rv_falv->evf_toolbar_internal for rv_falv.
-    set handler rv_falv->evf_toolbar for rv_falv.
-    set handler rv_falv->evf_user_command for rv_falv.
-    set handler rv_falv->evf_user_command_internal for rv_falv.
-    set handler rv_falv->evf_at_set_pf_status for rv_falv.
-    set handler rv_falv->evf_at_set_title for rv_falv.
-    set handler rv_falv->evf_top_of_page for rv_falv.
-    set handler rv_falv->evf_delayed_callback for rv_falv.
-    set handler rv_falv->evf_delayed_changed_sel_call for rv_falv.
-    set handler rv_falv->evf_ondrag for rv_falv.
-    set handler rv_falv->evf_ondrop for rv_falv.
-    set handler rv_falv->evf_ondropcomplete for rv_falv.
-    set handler rv_falv->evf_ondropgetflavor for rv_falv.
-    set handler rv_falv->evf_drop_external_file for rv_falv.
-    set handler rv_falv->evf_toolbar_menubutton_click for rv_falv.
-    set handler rv_falv->evf_click_col_header for rv_falv.
-    set handler rv_falv->evf_delayed_move_current_cell for rv_falv.
-    set handler rv_falv->evf_f1 for rv_falv.
-    set handler rv_falv->evf_dblclick_row_col for rv_falv.
-    set handler rv_falv->evf_click_row_col for rv_falv.
-    set handler rv_falv->evf_toolbar_button_click for rv_falv.
-    set handler rv_falv->evf_double_click_col_separator for rv_falv.
-    set handler rv_falv->evf_delayed_change_selection for rv_falv.
-    set handler rv_falv->evf_context_menu for rv_falv.
-    set handler rv_falv->evf_total_click_row_col for rv_falv.
-    set handler rv_falv->evf_context_menu_selected for rv_falv.
-    set handler rv_falv->evf_toolbar_menu_selected for rv_falv.
-    set handler rv_falv->evf_request_data for rv_falv.
-
-
-
-
+    rv_falv->set_handlers( rv_falv ).
 
     rv_falv->set_output_table( changing ct_table = ct_table ).
     rv_falv->fcat = rv_falv->lvc_fcat_from_itab( it_table = ct_table ).
@@ -903,38 +780,21 @@ CLASS ZCL_FALV IMPLEMENTATION.
     rv_falv->layout = new zcl_falv_layout( rv_falv ).
 
     rv_falv->gui_status = new zcl_falv_dynamic_status( ).
+
     rv_falv->screen = switch #( i_popup when abap_true then c_screen_popup
                                         when abap_false then c_screen_full ).
     if built_in_screen eq abap_true and rv_falv->screen eq c_screen_full.
       "default in full screen
       rv_falv->layout->set_no_toolbar( abap_true ).
     endif.
-    rv_falv->main_container ?= custom_container.
-    rv_falv->split_container = split_container.
-    rv_falv->main_split_container = main_split_container.
-    rv_falv->top_of_page_container = top_of_page_parent.
-    if main_split_container is not initial.
-      main_split_container->set_row_mode(
-        exporting
-          mode              =  split_container->mode_absolute
-        exceptions
-          cntl_error        = 0
-          cntl_system_error = 0
-          others            = 0
-      ).
-      rv_falv->hide_applog( ).
-    endif.
-    if split_container is not initial.
-      split_container->set_row_mode(
-        exporting
-          mode              =  split_container->mode_absolute
-        exceptions
-          cntl_error        = 0
-          cntl_system_error = 0
-          others            = 0
-      ).
-      rv_falv->hide_top_of_page( ).
-    endif.
+
+
+    link_containers(
+      iv_falv                = rv_falv
+      i_top_of_page_parent   = top_of_page_parent
+      i_custom_container     = custom_container
+      i_main_split_container = main_split_container
+      i_split_container      = split_container ).
 
     rv_falv->layout_save = 'A'.
     rv_falv->variant-report = sy-cprog.
@@ -942,230 +802,266 @@ CLASS ZCL_FALV IMPLEMENTATION.
     rv_falv->grid = cast #(  rv_falv ).
   endmethod.
 
+  method link_containers.
 
-  method create_by_copy.
-    data: built_in_screen type abap_bool.
-    data: main_parent type ref to cl_gui_container.
-    data: parent type ref to cl_gui_container.
-    data: applog type ref to cl_gui_container.
-    data: top_of_page_parent type ref to cl_gui_container.
-    data: docking_parent type ref to cl_gui_docking_container.
-
-    if cl_gui_alv_grid=>offline( ) is not initial.
-      main_parent  ?= docking_parent.
-    endif.
-
-    "We need to call full screen ALV as container was not passed
-    if i_parent is initial.
-      built_in_screen = abap_true.
-      try.
-          if cl_gui_alv_grid=>offline( ) is initial.
-            data(custom_container) = cast cl_gui_container( new cl_gui_custom_container(
-                      container_name = cc_name
-                      dynnr          = switch #( i_popup when abap_true then c_screen_popup
-                                                         when abap_false then c_screen_full )
-                      repid          = c_fscr_repid
-                      no_autodef_progid_dynnr = abap_true
-                      ) ).
-            main_parent ?= custom_container.
-            " Create split container, log at bottom, grid at top.
-            "Log hidden as default, will appear when error will be thrown.
-            data(main_split_container) = new cl_gui_splitter_container(
-                 parent                  = main_parent
-                 rows                    = cond #( when  application_log_embedded eq abap_true then 2
-                                                      else 1 )
-                 columns                 = 1  ).
-            data(split_container) = new cl_gui_splitter_container(
-                 parent                  = main_split_container->get_container( row = 1 column    = 1 )
-                 rows                    = 2
-                 columns                 = 1  ).
-
-            parent ?= split_container->get_container( row = 2 column    = 1 ).
-            applog ?= main_split_container->get_container( row = 2 column    = 1 ).
-            top_of_page_parent ?= split_container->get_container( row = 1 column    = 1 ).
-          else.
-
-            parent ?= main_parent.
-            custom_container ?= parent.
-
-          endif.
-        catch cx_root.
-          "Something is wrong...
-      endtry.
-    else.
-
-      if cl_gui_alv_grid=>offline( ) is initial.
-
-        main_parent ?= i_parent.
-        parent ?= main_parent.
-
-        main_split_container = new cl_gui_splitter_container(
-                parent                  = main_parent
-                rows                    = cond #( when   application_log_embedded eq abap_true then 2
-                                                  else 1 )
-                columns                 = 1
-           ).
-
-        split_container = new cl_gui_splitter_container(
-                parent                  = main_split_container->get_container( row = 1 column    = 1 )
-                rows                    = 2
-                columns                 = 1
-           ).
-
-        parent ?= split_container->get_container( row = 2 column    = 1 ).
-        if i_applogparent is initial.
-          applog ?= main_split_container->get_container( row = 2 column    = 1 ).
-        endif.
-        top_of_page_parent ?= split_container->get_container( row = 1 column    = 1 ).
-
-      else.
-
-        parent ?= main_parent.
-        custom_container ?= parent.
-
-      endif.
-
-    endif.
-
-    if me->subclass_type is not initial.
-      data: subclass type ref to object.
-      data(sublcass_abs_name) = subclass_type->absolute_name.
-      create object subclass type (sublcass_abs_name)
-       exporting
-        i_parent       = parent
-        i_applogparent = applog.
-
-      rv_falv ?= subclass.
-      rv_falv->subclass_type = subclass_type.
-    else.
-      create object rv_falv
+    iv_falv->main_container ?= i_custom_container.
+    iv_falv->split_container = i_split_container.
+    iv_falv->main_split_container = i_main_split_container.
+    iv_falv->top_of_page_container = i_top_of_page_parent.
+    if i_main_split_container is not initial.
+      i_main_split_container->set_row_mode(
         exporting
-          i_parent       = parent
-          i_applogparent = applog.
-    endif.
-
-
-    set handler rv_falv->evf_after_refresh for rv_falv.
-    set handler rv_falv->evf_after_user_command for rv_falv.
-    set handler rv_falv->evf_before_ucommand_internal for rv_falv.
-    set handler rv_falv->evf_before_user_command for rv_falv.
-    set handler rv_falv->evf_btn_click for rv_falv.
-    set handler rv_falv->evf_data_changed for rv_falv.
-    set handler rv_falv->evf_data_changed_internal for rv_falv.
-    set handler rv_falv->evf_data_changed_finished for rv_falv.
-    set handler rv_falv->evf_double_click for rv_falv.
-    set handler rv_falv->evf_hotspot_click for rv_falv.
-    set handler rv_falv->evf_menu_button for rv_falv.
-    set handler rv_falv->evf_onf1 for rv_falv.
-    set handler rv_falv->evf_onf4 for rv_falv.
-    set handler rv_falv->evf_subtotal_text for rv_falv.
-    set handler rv_falv->evf_toolbar_internal for rv_falv.
-    set handler rv_falv->evf_toolbar for rv_falv.
-    set handler rv_falv->evf_user_command for rv_falv.
-    set handler rv_falv->evf_user_command_internal for rv_falv.
-    set handler rv_falv->evf_at_set_pf_status for rv_falv.
-    set handler rv_falv->evf_at_set_title for rv_falv.
-    set handler rv_falv->evf_top_of_page for rv_falv.
-    set handler rv_falv->evf_delayed_callback for rv_falv.
-    set handler rv_falv->evf_delayed_changed_sel_call for rv_falv.
-    set handler rv_falv->evf_ondrag for rv_falv.
-    set handler rv_falv->evf_ondrop for rv_falv.
-    set handler rv_falv->evf_ondropcomplete for rv_falv.
-    set handler rv_falv->evf_ondropgetflavor for rv_falv.
-    set handler rv_falv->evf_drop_external_file for rv_falv.
-    set handler rv_falv->evf_toolbar_menubutton_click for rv_falv.
-    set handler rv_falv->evf_click_col_header for rv_falv.
-    set handler rv_falv->evf_delayed_move_current_cell for rv_falv.
-    set handler rv_falv->evf_f1 for rv_falv.
-    set handler rv_falv->evf_dblclick_row_col for rv_falv.
-    set handler rv_falv->evf_click_row_col for rv_falv.
-    set handler rv_falv->evf_toolbar_button_click for rv_falv.
-    set handler rv_falv->evf_double_click_col_separator for rv_falv.
-    set handler rv_falv->evf_delayed_change_selection for rv_falv.
-    set handler rv_falv->evf_context_menu for rv_falv.
-    set handler rv_falv->evf_total_click_row_col for rv_falv.
-    set handler rv_falv->evf_context_menu_selected for rv_falv.
-    set handler rv_falv->evf_toolbar_menu_selected for rv_falv.
-    set handler rv_falv->evf_request_data for rv_falv.
-
-    rv_falv->set_delay_change_selection(
-      exporting
-        time   =  me->delay_change_selection
-      exceptions
-        error  = 1
-        others = 2
-    ).
-    if sy-subrc <> 0.
-    endif.
-
-    rv_falv->set_delay_move_current_cell(
-      exporting
-       time   = me->delay_move_current_cell
-      exceptions
-        error  = 1
-        others = 2
-    ).
-    if sy-subrc <> 0.
-    endif.
-
-
-    field-symbols: <outtab> type standard table.
-    assign me->outtab->* to <outtab>.
-    rv_falv->set_output_table( changing ct_table = <outtab> ).
-    rv_falv->fcat = rv_falv->lvc_fcat_from_itab( it_table = <outtab> ).
-    rv_falv->sort = me->sort.
-    rv_falv->filter = me->filter.
-    rv_falv->set_frontend_fieldcatalog( it_fieldcatalog = me->fcat ).
-    rv_falv->application_log_embedded = application_log_embedded.
-    rv_falv->built_in_screen = built_in_screen.
-    rv_falv->build_columns( ).
-    rv_falv->layout = new zcl_falv_layout( io_falv = rv_falv ).
-    rv_falv->gui_status ?= me->gui_status->if_os_clone~clone( ). "clone object
-    rv_falv->lvc_layout = me->lvc_layout.
-    rv_falv->variant = me->variant.
-    rv_falv->screen = switch #( i_popup when abap_true then c_screen_popup
-                                        when abap_false then c_screen_full ).
-
-    rv_falv->main_container ?= custom_container.
-    rv_falv->split_container = split_container.
-    rv_falv->main_split_container = main_split_container.
-    rv_falv->top_of_page_container = top_of_page_parent.
-    rv_falv->top_of_page_height = me->top_of_page_height.
-    rv_falv->top_of_page_visible_at_start = me->top_of_page_visible_at_start.
-    if main_split_container is not initial.
-      main_split_container->set_row_mode(
-        exporting
-          mode              =  split_container->mode_absolute
-        exceptions
-          cntl_error        = 0
-          cntl_system_error = 0
-          others            = 0   ).
-      rv_falv->hide_applog( ).
-    endif.
-    if split_container is not initial.
-      split_container->set_row_mode(
-        exporting
-          mode              =  split_container->mode_absolute
+          mode              =  i_split_container->mode_absolute
         exceptions
           cntl_error        = 0
           cntl_system_error = 0
           others            = 0
       ).
-      rv_falv->hide_top_of_page( ).
+      iv_falv->hide_applog( ).
     endif.
-    rv_falv->title_v1 = me->title_v1.
-    rv_falv->title_v2 = me->title_v2.
-    rv_falv->title_v3 = me->title_v3.
-    rv_falv->title_v4 = me->title_v4.
-    rv_falv->exclude_functions = me->exclude_functions.
-    rv_falv->toolbar_added = me->toolbar_added.
-    rv_falv->toolbar_deleted = me->toolbar_deleted.
-    rv_falv->toolbar_disabled = me->toolbar_disabled.
-    rv_falv->m_batch_mode = me->m_batch_mode.
-    rv_falv->grid = cast #( rv_falv ).
-    rv_falv->layout->delete_all_buttons = me->layout->delete_all_buttons.
-    rv_falv->layout->mark_field = me->layout->mark_field.
+    if i_split_container is not initial.
+      i_split_container->set_row_mode(
+        exporting
+          mode              =  i_split_container->mode_absolute
+        exceptions
+          cntl_error        = 0
+          cntl_system_error = 0
+          others            = 0
+      ).
+      iv_falv->hide_top_of_page( ).
+    endif.
+
   endmethod.
+
+
+
+  method create_falv_object.
+
+    if i_subclass is not initial.
+      data: subclass type ref to object.
+      data(sublcass_abs_name) = i_subclass->absolute_name.
+      create object subclass type (sublcass_abs_name)
+       exporting
+        i_parent       = i_parent
+        i_applogparent = i_applog.
+      rv_falv ?= subclass.
+      rv_falv->subclass_type = i_subclass.
+
+    else.
+      create object rv_falv
+        exporting
+          i_parent       = i_parent
+          i_applogparent = i_applog.
+
+    endif.
+
+
+  endmethod.
+
+
+
+  method create_containters.
+
+    data main_parent type ref to cl_gui_container.
+    data docking_parent type ref to cl_gui_docking_container.
+
+    if cl_gui_alv_grid=>offline( ) is not initial.
+      main_parent ?= docking_parent.
+    endif.
+    "We need to call full screen ALV as container was not passed
+    if i_parent is initial.
+
+      e_built_in_screen = abap_true.
+      try.
+
+          if cl_gui_alv_grid=>offline( ) is initial.
+            e_custom_container  = cast cl_gui_container( new cl_gui_custom_container(
+                 container_name = cc_name
+                 dynnr          = switch #( i_popup when abap_true then c_screen_popup
+                                                    when abap_false then c_screen_full )
+                 repid          = c_fscr_repid
+                 no_autodef_progid_dynnr = abap_true
+                 ) ).
+            main_parent ?= e_custom_container.
+
+
+            " Create split container, log at bottom, grid at top.
+            "Log hidden as default, will appear when error will be thrown.
+            e_main_split_container  = new cl_gui_splitter_container(
+           link_dynnr              = switch #( i_popup when abap_true then c_screen_popup
+                                                       when abap_false then c_screen_full )
+           link_repid              = c_fscr_repid
+            parent                  = main_parent
+            rows                    = cond #( when  i_applog_embedded eq abap_true then 2
+                                              else 1 )
+            columns                 = 1
+       ).
+            e_split_container  = new cl_gui_splitter_container(
+         parent                  = e_main_split_container->get_container( row = 1 column    = 1 )
+         rows                    = 2
+         columns                 = 1
+    ).
+
+            e_parent ?= e_split_container->get_container( row = 2 column    = 1 ).
+            e_applog ?= e_main_split_container->get_container( row = 2 column    = 1 ).
+            e_top_of_page_parent ?= e_split_container->get_container( row = 1 column    = 1 ).
+          else.
+
+            e_parent ?= main_parent.
+            e_custom_container ?= e_parent.
+
+          endif.
+
+        catch cx_root.
+          "Something is wrong...
+      endtry.
+    else.
+      if cl_gui_alv_grid=>offline( ) is not initial.
+
+        e_parent ?= main_parent.
+        e_custom_container ?= e_parent.
+
+      else.
+
+        e_applog ?= i_applogparent.
+
+        e_custom_container ?= i_parent.
+
+        e_main_split_container = new cl_gui_splitter_container(
+             parent                  = e_custom_container
+             rows                    = cond #( when  i_applog_embedded eq abap_true then 2
+                                               else 1 )
+             columns                 = 1
+        ).
+
+        e_split_container = new cl_gui_splitter_container(
+             parent                  = e_main_split_container->get_container( row = 1 column    = 1 )
+             rows                    = 2
+             columns                 = 1
+        ).
+        if e_applog is initial.
+          e_parent ?= e_split_container->get_container( row = 2 column    = 1 ).
+          e_applog ?= e_main_split_container->get_container( row = 2 column  = 1 ).
+          e_top_of_page_parent ?= e_split_container->get_container( row = 1 column    = 1 ).
+        else.
+          e_parent ?= e_split_container->get_container( row = 2 column    = 1 ).
+          e_top_of_page_parent ?= e_split_container->get_container( row = 1 column    = 1 ).
+          e_custom_container ?= i_parent.
+        endif.
+
+      endif.
+
+    endif.
+
+  endmethod.
+
+
+
+
+  method create_by_copy.
+    data: main_parent type ref to cl_gui_container.
+    data: docking_parent type ref to cl_gui_docking_container.
+
+    create_containters(
+          exporting
+            i_parent          = i_parent
+            i_applogparent    = i_applogparent
+            i_popup           = i_popup
+            i_applog_embedded = application_log_embedded
+          importing
+            e_built_in_screen      = data(built_in_screen)
+            e_parent               = data(parent)
+            e_applog               = data(applog)
+            e_top_of_page_parent   = data(top_of_page_parent)
+            e_custom_container     = data(custom_container)
+            e_main_split_container = data(main_split_container)
+            e_split_container      = data(split_container) ).
+
+
+    rv_falv = create_falv_object(
+                  i_subclass = subclass_type
+                  i_parent   = parent
+                  i_applog   = applog
+              ).
+
+    copy_attributes( rv_falv ).
+    set_handlers( rv_falv ).
+
+
+    rv_falv->screen = switch #( i_popup when abap_true then c_screen_popup
+                                        when abap_false then c_screen_full ).
+    link_containers(
+         iv_falv                = rv_falv
+         i_top_of_page_parent   = top_of_page_parent
+         i_custom_container     = custom_container
+         i_main_split_container = main_split_container
+         i_split_container      = split_container ).
+
+
+    rv_falv->grid = cast #( rv_falv ).
+  endmethod.
+
+  method set_handlers.
+
+    set handler iv_falv->evf_after_refresh for iv_falv.
+    set handler iv_falv->evf_after_user_command for iv_falv.
+    set handler iv_falv->evf_before_ucommand_internal for iv_falv.
+    set handler iv_falv->evf_before_user_command for iv_falv.
+    set handler iv_falv->evf_btn_click for iv_falv.
+    set handler iv_falv->evf_data_changed for iv_falv.
+    set handler iv_falv->evf_data_changed_internal for iv_falv.
+    set handler iv_falv->evf_data_changed_finished for iv_falv.
+    set handler iv_falv->evf_double_click for iv_falv.
+    set handler iv_falv->evf_hotspot_click for iv_falv.
+    set handler iv_falv->evf_menu_button for iv_falv.
+    set handler iv_falv->evf_onf1 for iv_falv.
+    set handler iv_falv->evf_onf4 for iv_falv.
+    set handler iv_falv->evf_subtotal_text for iv_falv.
+    set handler iv_falv->evf_toolbar_internal for iv_falv.
+    set handler iv_falv->evf_toolbar for iv_falv.
+    set handler iv_falv->evf_user_command for iv_falv.
+    set handler iv_falv->evf_at_set_pf_status for iv_falv.
+    set handler iv_falv->evf_at_set_title for iv_falv.
+    set handler iv_falv->evf_top_of_page for iv_falv.
+    set handler iv_falv->evf_delayed_callback for iv_falv.
+    set handler iv_falv->evf_delayed_changed_sel_call for iv_falv.
+    set handler iv_falv->evf_ondrag for iv_falv.
+    set handler iv_falv->evf_ondrop for iv_falv.
+    set handler iv_falv->evf_ondropcomplete for iv_falv.
+    set handler iv_falv->evf_ondropgetflavor for iv_falv.
+    set handler iv_falv->evf_drop_external_file for iv_falv.
+    set handler iv_falv->evf_toolbar_menubutton_click for iv_falv.
+    set handler iv_falv->evf_click_col_header for iv_falv.
+    set handler iv_falv->evf_delayed_move_current_cell for iv_falv.
+    set handler iv_falv->evf_f1 for iv_falv.
+    set handler iv_falv->evf_dblclick_row_col for iv_falv.
+    set handler iv_falv->evf_click_row_col for iv_falv.
+    set handler iv_falv->evf_toolbar_button_click for iv_falv.
+    set handler iv_falv->evf_double_click_col_separator for iv_falv.
+    set handler iv_falv->evf_delayed_change_selection for iv_falv.
+    set handler iv_falv->evf_context_menu for iv_falv.
+    set handler iv_falv->evf_total_click_row_col for iv_falv.
+    set handler iv_falv->evf_context_menu_selected for iv_falv.
+    set handler iv_falv->evf_toolbar_menu_selected for iv_falv.
+    set handler iv_falv->evf_request_data for iv_falv.
+
+    iv_falv->set_delay_change_selection(
+      exporting
+        time   =  iv_falv->delay_change_selection
+      exceptions
+        error  = 0
+        others = 0 ).
+
+    iv_falv->set_delay_move_current_cell(
+      exporting
+       time   = iv_falv->delay_move_current_cell
+      exceptions
+        error  = 0
+        others = 0 ).
+
+  endmethod.
+
+
 
 
   method delete_all_buttons.
@@ -1592,24 +1488,7 @@ CLASS ZCL_FALV IMPLEMENTATION.
   endmethod.
 
 
-  method evf_user_command_internal.
-*    "TODO add check if function was called from FALV PAI
-*    "or not, if yes, just change current guid?
-*    "what about popup? - it's on a different screen
-*    "so it should work without exceptions
-*    case e_ucomm.
-*      when fc_back.
-*        leave to screen 0.
-*      when fc_exit.
-*        leave to screen 0.
-*      when fc_up.
-*        leave to screen 0.
-*      when fc_cancel.
-*        leave to screen 0.
-*      when fc_mass_replace.
-*        mass_replace( ).
-*    endcase.
-  endmethod.
+
 
 
   method exclude_function.
@@ -2406,4 +2285,35 @@ CLASS ZCL_FALV IMPLEMENTATION.
         finished       = 0
         others         = 0 ).
   endmethod.
-ENDCLASS.
+
+  method copy_attributes.
+    field-symbols: <outtab> type standard table.
+    assign me->outtab->* to <outtab>.
+    i_falv->set_output_table( changing ct_table = <outtab> ).
+    i_falv->fcat = i_falv->lvc_fcat_from_itab( it_table = <outtab> ).
+    i_falv->sort = me->sort.
+    i_falv->filter = me->filter.
+    i_falv->set_frontend_fieldcatalog( it_fieldcatalog = me->fcat ).
+    i_falv->application_log_embedded = application_log_embedded.
+    i_falv->built_in_screen = built_in_screen.
+    i_falv->build_columns( ).
+    i_falv->layout = new zcl_falv_layout( io_falv = i_falv ).
+    i_falv->gui_status ?= me->gui_status->if_os_clone~clone( ). "clone object
+    i_falv->lvc_layout = me->lvc_layout.
+    i_falv->variant = me->variant.
+    i_falv->top_of_page_height = me->top_of_page_height.
+    i_falv->top_of_page_visible_at_start = me->top_of_page_visible_at_start.
+    i_falv->title_v1 = me->title_v1.
+    i_falv->title_v2 = me->title_v2.
+    i_falv->title_v3 = me->title_v3.
+    i_falv->title_v4 = me->title_v4.
+    i_falv->exclude_functions = me->exclude_functions.
+    i_falv->toolbar_added = me->toolbar_added.
+    i_falv->toolbar_deleted = me->toolbar_deleted.
+    i_falv->toolbar_disabled = me->toolbar_disabled.
+    i_falv->m_batch_mode = me->m_batch_mode.
+    i_falv->layout->delete_all_buttons = me->layout->delete_all_buttons.
+    i_falv->layout->mark_field = me->layout->mark_field.
+  endmethod.
+
+endclass.
