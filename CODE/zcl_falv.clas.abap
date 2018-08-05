@@ -393,17 +393,17 @@ class zcl_falv definition
           for event button_click of cl_gui_alv_grid
       importing
           !es_col_id
-          !es_row_no .
+          !es_row_no ##NEEDED.
     methods evf_user_command
           for event user_command of cl_gui_alv_grid
       importing
-          !e_ucomm .
+          !e_ucomm ##NEEDED.
     methods evf_hotspot_click
           for event hotspot_click of cl_gui_alv_grid
       importing
           !e_row_id
           !e_column_id
-          !es_row_no .
+          !es_row_no ##NEEDED.
     methods evf_data_changed
           for event data_changed of cl_gui_alv_grid
       importing
@@ -411,24 +411,24 @@ class zcl_falv definition
           !e_onf4
           !e_onf4_before
           !e_onf4_after
-          !e_ucomm .
+          !e_ucomm ##NEEDED.
     methods evf_data_changed_finished
           for event data_changed_finished of cl_gui_alv_grid
       importing
           !e_modified
-          !et_good_cells .
+          !et_good_cells ##NEEDED.
     methods evf_double_click
           for event double_click of cl_gui_alv_grid
       importing
           !e_row
           !e_column
-          !es_row_no .
+          !es_row_no ##NEEDED.
     methods evf_onf1
           for event onf1 of cl_gui_alv_grid
       importing
           !e_fieldname
           !es_row_no
-          !er_event_data .
+          !er_event_data ##NEEDED.
     methods evf_onf4
           for event onf4 of cl_gui_alv_grid
       importing
@@ -437,40 +437,40 @@ class zcl_falv definition
           !es_row_no
           !er_event_data
           !et_bad_cells
-          !e_display .
+          !e_display ##NEEDED.
     methods evf_subtotal_text
           for event subtotal_text of cl_gui_alv_grid
       importing
           !es_subtottxt_info
           !ep_subtot_line
-          !e_event_data .
+          !e_event_data ##NEEDED.
     methods evf_before_user_command
           for event before_user_command of cl_gui_alv_grid
       importing
-          !e_ucomm .
+          !e_ucomm ##NEEDED.
     methods evf_after_user_command
           for event after_user_command of cl_gui_alv_grid
       importing
           !e_ucomm
           !e_saved
-          !e_not_processed .
+          !e_not_processed ##NEEDED.
     methods evf_menu_button
           for event menu_button of cl_gui_alv_grid
       importing
           !e_object
-          !e_ucomm .
+          !e_ucomm ##NEEDED.
     methods evf_toolbar
           for event toolbar of cl_gui_alv_grid
       importing
           !e_object
-          !e_interactive .
+          !e_interactive ##NEEDED.
     methods evf_after_refresh
         for event after_refresh of cl_gui_alv_grid .
     methods evf_top_of_page
           for event top_of_page of cl_gui_alv_grid
       importing
           !e_dyndoc_id
-          !table_index .
+          !table_index ##NEEDED.
     methods evf_delayed_callback
         for event delayed_callback of cl_gui_alv_grid .
     methods evf_delayed_changed_sel_call
@@ -482,42 +482,42 @@ class zcl_falv definition
           !e_column
           !e_dragdropobj
           !e_flavors
-          !e_row .
+          !e_row ##NEEDED.
     methods evf_ondrag
           for event ondrag of cl_gui_alv_grid
       importing
           !es_row_no
           !e_column
           !e_dragdropobj
-          !e_row .
+          !e_row ##NEEDED.
     methods evf_ondrop
           for event ondrop of cl_gui_alv_grid
       importing
           !es_row_no
           !e_column
           !e_dragdropobj
-          !e_row .
+          !e_row ##NEEDED.
     methods evf_ondropcomplete
           for event ondropcomplete of cl_gui_alv_grid
       importing
           !es_row_no
           !e_column
           !e_dragdropobj
-          !e_row .
+          !e_row ##NEEDED.
     methods evf_drop_external_file
           for event drop_external_files of cl_gui_alv_grid
       importing
-          !files .
+          !files ##NEEDED.
     methods evf_toolbar_menubutton_click
           for event toolbar_menubutton_click of cl_gui_alv_grid
       importing
           !fcode
           !menu_pos_x
-          !menu_pos_y .
+          !menu_pos_y ##NEEDED.
     methods evf_click_col_header
           for event click_col_header of cl_gui_alv_grid
       importing
-          !col_id .
+          !col_id ##NEEDED.
     methods evf_delayed_move_current_cell
         for event delayed_move_current_cell of cl_gui_alv_grid .
     methods evf_f1
@@ -526,20 +526,20 @@ class zcl_falv definition
           for event dblclick_row_col of cl_gui_alv_grid
       importing
           !col_id
-          !row_id .
+          !row_id ##NEEDED.
     methods evf_click_row_col
           for event click_row_col of cl_gui_alv_grid
       importing
           !col_id
-          !row_id .
+          !row_id ##NEEDED.
     methods evf_toolbar_button_click
           for event toolbar_button_click of cl_gui_alv_grid
       importing
-          !fcode .
+          !fcode ##NEEDED.
     methods evf_double_click_col_separator
           for event double_click_col_separator of cl_gui_alv_grid
       importing
-          !col_id .
+          !col_id ##NEEDED.
     methods evf_delayed_change_selection
         for event delayed_change_selection of cl_gui_alv_grid .
     methods evf_context_menu
@@ -548,19 +548,19 @@ class zcl_falv definition
           for event total_click_row_col of cl_gui_alv_grid
       importing
           !col_id
-          !row_id .
+          !row_id ##NEEDED.
     methods evf_context_menu_selected
           for event context_menu_selected of cl_gui_alv_grid
       importing
-          !fcode .
+          !fcode ##NEEDED.
     methods evf_toolbar_menu_selected
           for event toolbar_menu_selected of cl_gui_alv_grid
       importing
-          !fcode .
+          !fcode ##NEEDED.
     methods evf_request_data
           for event _request_data of cl_gui_alv_grid
       importing
-          !fragments .
+          !fragments ##NEEDED.
     methods evf_at_set_pf_status
         for event at_set_pf_status of zcl_falv .
     methods evf_at_set_title
@@ -622,12 +622,12 @@ class zcl_falv definition
     methods evf_before_ucommand_internal
           for event before_user_command of cl_gui_alv_grid
       importing
-          !e_ucomm .
+          !e_ucomm ##NEEDED.
     methods evf_toolbar_internal
           for event toolbar of cl_gui_alv_grid
       importing
           !e_object
-          !e_interactive .
+          !e_interactive ##NEEDED.
     methods evf_data_changed_internal
           for event data_changed of cl_gui_alv_grid
       importing
@@ -635,7 +635,7 @@ class zcl_falv definition
           !e_onf4
           !e_onf4_before
           !e_onf4_after
-          !e_ucomm .
+          !e_ucomm ##NEEDED.
 
     methods set_parent
       importing
@@ -1175,6 +1175,7 @@ class zcl_falv implementation.
     try.
         toolbar_added[ function = iv_function ]-disabled = abap_true.
       catch cx_sy_itab_line_not_found.
+        clear sy-subrc.
     endtry.
     insert value #( function = iv_function ) into table toolbar_disabled.
     me->refresh_toolbar( ).
@@ -1525,11 +1526,10 @@ class zcl_falv implementation.
       try.
           e_object->mt_toolbar[ function = <tb>-function ]-disabled = abap_true.
         catch cx_sy_itab_line_not_found.
-
+            clear sy-subrc.
       endtry.
     endloop.
     loop at toolbar_deleted assigning <tb>.
-      data(tabix) = sy-tabix.
       delete e_object->mt_toolbar where function = <tb>-function.
     endloop.
 
