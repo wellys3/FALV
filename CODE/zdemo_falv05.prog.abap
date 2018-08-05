@@ -43,7 +43,7 @@ start-of-selection.
 
   select * up to 100 rows
   into corresponding fields of table @sflight
-  from sflight.
+  from sflight. "#EC CI_NOWHERE
 
   "creation of falv with local redefinition
   data falv type ref to lcl_test.
@@ -65,13 +65,12 @@ start-of-selection.
 *      iv_qinfo               =
 *      iv_allowed             = ABAP_TRUE
     exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
+      button_already_filled  = 0
+      button_does_not_exists = 0
+      icon_and_text_empty    = 0
+      others                 = 0
   ).
-  if sy-subrc <> 0.
-  endif.
+
   "Add button into GUI status at for function F02
   falv->gui_status->add_button(
     exporting
@@ -81,15 +80,11 @@ start-of-selection.
 *      iv_qinfo               =
 *      iv_allowed             = ABAP_TRUE
     exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
+      button_already_filled  = 0
+      button_does_not_exists = 0
+      icon_and_text_empty    = 0
+      others                 = 0
   ).
-  if sy-subrc <> 0.
-
-  endif.
-
 
   "In default when we use full screen FALV, Grid toolbar is switched off, we must turn it on )
   falv->layout->set_no_toolbar( abap_false ).

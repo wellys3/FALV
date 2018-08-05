@@ -8,7 +8,7 @@ start-of-selection.
 
   select * up to 100 rows
   into corresponding fields of table @sflight
-  from sflight.
+  from sflight. "#EC CI_NOWHERE
 
   data(falv) =  zcl_falv=>create( changing ct_table = sflight ).
 

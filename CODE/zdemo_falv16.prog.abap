@@ -13,10 +13,10 @@ constants: custom_container_name type char30 value 'MAIN'.
 initialization.
 
   select * up to 50 rows into corresponding fields of table @spfli
-    from spfli.
+    from spfli. "#EC CI_NOWHERE
 
   select * up to 100 rows into corresponding fields of table @sflight
-    from sflight.
+    from sflight. "#EC CI_NOWHERE
 
 
   call screen 0100.

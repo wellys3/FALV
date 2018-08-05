@@ -77,16 +77,8 @@ start-of-selection.
       iv_icon                = icon_refresh
       iv_qinfo               = 'Test d'
       iv_allowed             = abap_true
-    exceptions
-      button_already_filled  = 1
-      button_does_not_exists = 2
-      icon_and_text_empty    = 3
-      others                 = 4
-  ).
-  if sy-subrc <> 0.
-*   message id sy-msgid type sy-msgty number sy-msgno
-*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-  endif.
+        ).
+
   falv_stand->gui_status->add_button(
   exporting
     iv_button              = falv_stand->gui_status->b_16
@@ -94,16 +86,7 @@ start-of-selection.
     iv_icon                = icon_refresh
     iv_qinfo               = 'Test d'
     iv_allowed             = abap_true
-  exceptions
-    button_already_filled  = 1
-    button_does_not_exists = 2
-    icon_and_text_empty    = 3
-    others                 = 4
-).
-  if sy-subrc <> 0.
-*   message id sy-msgid type sy-msgty number sy-msgno
-*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-  endif.
+    ).
 
   falv_stand->gui_status->add_button(
   exporting
@@ -112,16 +95,7 @@ start-of-selection.
     iv_icon                = icon_refresh
     iv_qinfo               = 'Test d'
     iv_allowed             = abap_true
-  exceptions
-    button_already_filled  = 1
-    button_does_not_exists = 2
-    icon_and_text_empty    = 3
-    others                 = 4
 ).
-  if sy-subrc <> 0.
-*   message id sy-msgid type sy-msgty number sy-msgno
-*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-  endif.
 
   falv_stand->gui_status->add_button(
 exporting
@@ -130,16 +104,7 @@ exporting
   iv_icon                = icon_refresh
   iv_qinfo               = 'Test d'
   iv_allowed             = abap_true
-exceptions
-  button_already_filled  = 1
-  button_does_not_exists = 2
-  icon_and_text_empty    = 3
-  others                 = 4
 ).
-  if sy-subrc <> 0.
-*   message id sy-msgid type sy-msgty number sy-msgno
-*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-  endif.
 
   falv_stand->gui_status->add_button(
 exporting
@@ -148,16 +113,7 @@ exporting
   iv_icon                = icon_refresh
   iv_qinfo               = 'Test d'
   iv_allowed             = abap_true
-exceptions
-  button_already_filled  = 1
-  button_does_not_exists = 2
-  icon_and_text_empty    = 3
-  others                 = 4
 ).
-  if sy-subrc <> 0.
-*   message id sy-msgid type sy-msgty number sy-msgno
-*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-  endif.
 
   falv_stand->gui_status->add_button(
 exporting
@@ -166,16 +122,7 @@ exporting
   iv_icon                = icon_refresh
   iv_qinfo               = 'Test d'
   iv_allowed             = abap_true
-exceptions
-  button_already_filled  = 1
-  button_does_not_exists = 2
-  icon_and_text_empty    = 3
-  others                 = 4
 ).
-  if sy-subrc <> 0.
-*   message id sy-msgid type sy-msgty number sy-msgno
-*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-  endif.
 
   falv_stand->gui_status->add_button(
   exporting
@@ -184,16 +131,7 @@ exceptions
     iv_icon                = icon_refresh
     iv_qinfo               = 'Test d'
     iv_allowed             = abap_true
-  exceptions
-    button_already_filled  = 1
-    button_does_not_exists = 2
-    icon_and_text_empty    = 3
-    others                 = 4
 ).
-  if sy-subrc <> 0.
-*   message id sy-msgid type sy-msgty number sy-msgno
-*              with sy-msgv1 sy-msgv2 sy-msgv3 sy-msgv4.
-  endif.
 
 
   falv_stand->display( ).

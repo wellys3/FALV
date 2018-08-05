@@ -54,7 +54,7 @@ start-of-selection.
 
   select * up to 100 rows
   into corresponding fields of table @sflight
-  from sflight.
+  from sflight. "#EC CI_NOWHERE
 
   "creation of falv with local redefinition
   data falv type ref to lcl_test.

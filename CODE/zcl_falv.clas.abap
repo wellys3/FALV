@@ -7,7 +7,6 @@ class zcl_falv definition
 
   public section.
 
-    interfaces if_os_clone .
     interfaces if_alv_rm_grid_friend .
 
     types:
@@ -817,8 +816,6 @@ class zcl_falv implementation.
 
 
   method create.
-    data: main_parent type ref to cl_gui_container.
-    data: docking_parent type ref to cl_gui_docking_container.
 
     if i_subclass is initial.
       i_subclass ?= check_if_called_from_subclass( ).
@@ -946,7 +943,6 @@ class zcl_falv implementation.
     "We need to call full screen ALV as container was not passed
     if i_parent is initial.
       e_built_in_screen = abap_true.
-      try.
 
           if cl_gui_alv_grid=>offline( ) is initial.
             e_custom_container = create_main_cont_for_full_scr( i_popup ).
@@ -965,9 +961,6 @@ class zcl_falv implementation.
 
           endif.
 
-        catch cx_root.
-          "Something is wrong...
-      endtry.
     else.
       if cl_gui_alv_grid=>offline( ) is not initial.
 
@@ -1046,8 +1039,6 @@ class zcl_falv implementation.
 
 
   method create_by_copy.
-    data: main_parent type ref to cl_gui_container.
-    data: docking_parent type ref to cl_gui_docking_container.
 
     create_containters(
           exporting
@@ -1056,7 +1047,7 @@ class zcl_falv implementation.
             i_popup           = i_popup
             i_applog_embedded = application_log_embedded
           importing
-            e_built_in_screen      = data(built_in_screen)
+*            e_built_in_screen      = data(built_in_screen)
             e_parent               = data(parent)
             e_applog               = data(applog)
             e_top_of_page_parent   = data(top_of_page_parent)
@@ -1174,8 +1165,6 @@ class zcl_falv implementation.
     delete toolbar_added where function = iv_function.
     if sy-subrc ne 0.
       insert value #( function = iv_function ) into table toolbar_deleted.
-      if sy-subrc ne 0.
-      endif.
     endif.
     me->refresh_toolbar( ).
     r_falv = me.
@@ -1188,8 +1177,6 @@ class zcl_falv implementation.
       catch cx_sy_itab_line_not_found.
     endtry.
     insert value #( function = iv_function ) into table toolbar_disabled.
-    if sy-subrc ne 0.
-    endif.
     me->refresh_toolbar( ).
     r_falv = me.
   endmethod.
@@ -1291,6 +1278,7 @@ class zcl_falv implementation.
     try.
         toolbar_added[ function = iv_function ]-disabled = abap_false.
       catch cx_sy_itab_line_not_found.
+        clear sy-subrc.
     endtry.
     delete toolbar_disabled where function = iv_function.
     me->refresh_toolbar( ).
@@ -1543,8 +1531,6 @@ class zcl_falv implementation.
     loop at toolbar_deleted assigning <tb>.
       data(tabix) = sy-tabix.
       delete e_object->mt_toolbar where function = <tb>-function.
-      if sy-subrc ne 0.
-      endif.
     endloop.
 
   endmethod.
@@ -1670,6 +1656,7 @@ class zcl_falv implementation.
 
           lt_drdn = cl_salv_controller_metadata=>get_dropdowns( lr_dropdowns ).
         catch cx_salv_method_not_supported.
+            clear sy-subrc.
       endtry.
 ***>>>Y7AK057779
 
@@ -1886,11 +1873,6 @@ class zcl_falv implementation.
   endmethod.
 
 
-  method if_os_clone~clone.
-    system-call objmgr clone me to result.
-  endmethod.
-
-
   method lvc_fcat_from_itab.
     data: table type ref to data.
     create data table like it_table.
@@ -1991,6 +1973,7 @@ class zcl_falv implementation.
       catch cx_root.
         "in case method is called before the display of grid
         "no need to do anything with that
+        clear sy-subrc.
     endtry.
     r_falv = me.
   endmethod.
