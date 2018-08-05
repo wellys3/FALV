@@ -12,9 +12,10 @@ class lcl_output implementation.
                                                      and table_line->falv->screen eq falv->screen.
       <hide>->hide( ).
     endloop.
-    falv->set_visible( abap_true ).
-    falv->parent->set_visible( abap_true ).
+
     falv->main_container->set_visible( abap_true ).
+    falv->parent->set_visible( abap_true ).
+    falv->set_visible( abap_true ).
   endmethod.
   method hide.
     check cl_gui_alv_grid=>offline( ) is initial.
@@ -59,12 +60,12 @@ class lcl_output implementation.
       falv->display( iv_force_grid = abap_true ).
 
       clear first_output.
-      if falv->split_container is not initial or falv->built_in_screen is not initial.
-        "! When I use embedded applog then although it's container is hidden
-        "! then you can still see the place for it until some pbo will happen.
-        "! I force dummy user-command to get rid of it
-        falv->set_dummy_function_code( ).
-      endif.
+*      if falv->split_container is not initial or falv->built_in_screen is not initial.
+*        "! When I use embedded applog then although it's container is hidden
+*        "! then you can still see the place for it until some pbo will happen.
+*        "! I force dummy user-command to get rid of it
+*        falv->set_dummy_function_code( ).
+*      endif.
     endif.
 
   endmethod.
