@@ -860,6 +860,9 @@ class zcl_falv implementation.
     if built_in_screen eq abap_true and rv_falv->screen eq c_screen_full.
       "default in full screen
       rv_falv->layout->set_no_toolbar( abap_true ).
+      call function 'Z_FALV_ADD_FALV_TO_STACK'
+        exporting
+          io_falv = rv_falv.
     endif.
 
 
@@ -944,22 +947,22 @@ class zcl_falv implementation.
     if i_parent is initial.
       e_built_in_screen = abap_true.
 
-          if cl_gui_alv_grid=>offline( ) is initial.
-            e_custom_container = create_main_cont_for_full_scr( i_popup ).
-            main_parent ?= e_custom_container.
-            e_main_split_container = create_main_split_cotainer( i_popup           = i_popup
-                                                                 i_applog_embedded = i_applog_embedded
-                                                                 i_main_parent     = main_parent ).
-            e_split_container = crate_main_splitter( e_main_split_container ).
-            e_parent ?= e_split_container->get_container( row = 2 column    = 1 ).
-            e_applog ?= e_main_split_container->get_container( row = 2 column    = 1 ).
-            e_top_of_page_parent ?= e_split_container->get_container( row = 1 column    = 1 ).
-          else.
+      if cl_gui_alv_grid=>offline( ) is initial.
+        e_custom_container = create_main_cont_for_full_scr( i_popup ).
+        main_parent ?= e_custom_container.
+        e_main_split_container = create_main_split_cotainer( i_popup           = i_popup
+                                                             i_applog_embedded = i_applog_embedded
+                                                             i_main_parent     = main_parent ).
+        e_split_container = crate_main_splitter( e_main_split_container ).
+        e_parent ?= e_split_container->get_container( row = 2 column    = 1 ).
+        e_applog ?= e_main_split_container->get_container( row = 2 column    = 1 ).
+        e_top_of_page_parent ?= e_split_container->get_container( row = 1 column    = 1 ).
+      else.
 
-            e_parent ?= main_parent.
-            e_custom_container ?= e_parent.
+        e_parent ?= main_parent.
+        e_custom_container ?= e_parent.
 
-          endif.
+      endif.
 
     else.
       if cl_gui_alv_grid=>offline( ) is not initial.
@@ -1074,7 +1077,11 @@ class zcl_falv implementation.
          i_main_split_container = main_split_container
          i_split_container      = split_container ).
 
-
+    if rv_falv->built_in_screen eq abap_true.
+      call function 'Z_FALV_ADD_FALV_TO_STACK'
+        exporting
+          io_falv = rv_falv.
+    endif.
     rv_falv->grid = cast #( rv_falv ).
   endmethod.
 
@@ -1526,7 +1533,7 @@ class zcl_falv implementation.
       try.
           e_object->mt_toolbar[ function = <tb>-function ]-disabled = abap_true.
         catch cx_sy_itab_line_not_found.
-            clear sy-subrc.
+          clear sy-subrc.
       endtry.
     endloop.
     loop at toolbar_deleted assigning <tb>.
@@ -1656,7 +1663,7 @@ class zcl_falv implementation.
 
           lt_drdn = cl_salv_controller_metadata=>get_dropdowns( lr_dropdowns ).
         catch cx_salv_method_not_supported.
-            clear sy-subrc.
+          clear sy-subrc.
       endtry.
 ***>>>Y7AK057779
 
