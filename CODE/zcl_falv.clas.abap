@@ -199,7 +199,7 @@ class zcl_falv definition
         value(i_subclass)        type ref to cl_abap_typedescr optional
         !i_type                  type ref to cl_abap_typedescr
       returning
-        value(rv_falv)           type ref to zcl_falv .        
+        value(rv_falv)           type ref to zcl_falv .
     class-methods lvc_fcat_from_itab
       importing
         !it_table      type standard table
@@ -220,7 +220,8 @@ class zcl_falv definition
         error_cntl_create
         error_cntl_init
         error_cntl_link
-        error_dp_create .
+        error_dp_create
+        object_created_manually.
     methods pbo
       importing
         value(iv_dynnr) type sy-dynnr default sy-dynnr .
@@ -599,6 +600,7 @@ class zcl_falv definition
         for event at_set_title of zcl_falv .
   private section.
 
+    class-data: created_from_factory type abap_bool.
     data top_of_page_doc type ref to cl_dd_document .
     data top_of_page_visible_at_start type abap_bool .
 
@@ -796,6 +798,10 @@ class zcl_falv implementation.
 
 
   method constructor.
+    if created_from_factory eq abap_false.
+       raise object_created_manually.
+    endif.
+
     super->constructor(
       exporting
         i_shellstyle      = i_shellstyle    " Control Style
@@ -924,6 +930,8 @@ class zcl_falv implementation.
 
 
   method create_falv_object.
+
+    created_from_factory = abap_true.
 
     if i_subclass is not initial.
       data: subclass type ref to object.
@@ -2573,5 +2581,5 @@ class zcl_falv implementation.
         ct_table          = <table>
     ).
   endmethod.
-  
+
 endclass.
