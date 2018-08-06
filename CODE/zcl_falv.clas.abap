@@ -171,13 +171,13 @@ class zcl_falv definition
         value(iv_dynnr) type sy-dynnr default sy-dynnr
       changing
         !c_ucomm        type sy-ucomm default sy-ucomm .
-    methods display
+    methods display final
       importing
         value(iv_force_grid)   type abap_bool default space
         value(iv_start_row)    type i optional
         value(iv_start_column) type i optional
         value(iv_end_row)      type i optional
-        value(iv_end_column)   type i optional .
+        value(iv_end_column)   type i optional.
     methods exclude_function
       importing
         value(iv_ucomm) type sy-ucomm .
@@ -203,15 +203,23 @@ class zcl_falv definition
         value(iv_disabled)  type abap_bool optional
         value(iv_text)      type text40 optional
         value(iv_checked)   type abap_bool optional .
+    "! Don't call it from Toolbar event handler
+    "! as it will cause endless loop
     methods disable_button
       importing
         value(iv_function) type ui_func .
+    "! Don't call it from Toolbar event handler
+    "! as it will cause endless loop
     methods enable_button
       importing
         value(iv_function) type ui_func .
+    "! Don't call it from Toolbar event handler
+    "! as it will cause endless loop
     methods delete_button
       importing
         value(iv_function) type ui_func .
+    "! Don't call it from Toolbar event handler
+    "! as it will cause endless loop
     methods delete_all_buttons
       importing
         value(iv_exceptions) type ttb_button optional.
@@ -554,11 +562,11 @@ class zcl_falv definition
         !ct_table type standard table .
     methods build_columns .
     methods raise_top_of_page .
-endclass.
+ENDCLASS.
 
 
 
-class zcl_falv implementation.
+CLASS ZCL_FALV IMPLEMENTATION.
 
 
   method add_button.
@@ -597,7 +605,6 @@ class zcl_falv implementation.
 
     assign callstack[ 3 ] to field-symbol(<stack>).
     check sy-subrc eq 0.
-
     data(compiler) = cl_abap_compiler=>create(
                     p_name             =  <stack>-mainprogram
                     p_include          =  <stack>-include
@@ -2399,5 +2406,4 @@ class zcl_falv implementation.
         finished       = 0
         others         = 0 ).
   endmethod.
-endclass.
-
+ENDCLASS.
