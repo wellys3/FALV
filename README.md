@@ -2,6 +2,10 @@
 FALV - Fast ALV Grid
 http://abapblog.com/falv
 
+# Changes V 740.1.0.19 
+Refactoring done for create / create_by_copy methods + some others. Added returning parameter wherever possible for chaining methods.
+Bug with not appearing grid while using ZDEMO_FALV13 solved.
+
 # Changes V 740.1.0.18 
 Chain call for setters in COLUMNS and LAYOUT are now possible (ZDEMO_FALV18)
 Creation of FALV that is inherited in local class can be done in short way (ZDEMO_FALV19)
