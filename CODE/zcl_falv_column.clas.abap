@@ -830,31 +830,31 @@ class zcl_falv_column implementation.
 
 
   method set_auto_value.
-    change_setting( iv_value = iv_value iv_setting = 'AUTO_VALUE').
+    change_setting( iv_value = iv_value iv_setting = 'AUTO_VALUE' ).
     r_column = me.
   endmethod.
 
 
   method set_cfieldname.
-    change_setting( iv_value = iv_value iv_setting = 'CFIELDNAME').
+    change_setting( iv_value = iv_value iv_setting = 'CFIELDNAME' ).
     r_column = me.
   endmethod.
 
 
   method set_checkbox.
-    change_setting( iv_value = iv_value iv_setting = 'CHECKBOX').
+    change_setting( iv_value = iv_value iv_setting = 'CHECKBOX' ).
     r_column = me.
   endmethod.
 
 
   method set_checktable.
-    change_setting( iv_value = iv_value iv_setting = 'CHECKTABLE').
+    change_setting( iv_value = iv_value iv_setting = 'CHECKTABLE' ).
     r_column = me.
   endmethod.
 
 
   method set_colddictxt.
-    change_setting( iv_value = iv_value iv_setting = 'COLDDICTXT').
+    change_setting( iv_value = iv_value iv_setting = 'COLDDICTXT' ).
     r_column = me.
   endmethod.
 
@@ -866,319 +866,319 @@ class zcl_falv_column implementation.
 
 
   method set_coltext.
-    change_setting( iv_value = iv_value iv_setting = 'COLTEXT').
+    change_setting( iv_value = iv_value iv_setting = 'COLTEXT' ).
     r_column = me.
   endmethod.
 
 
   method set_col_id.
-    change_setting( iv_value = iv_value iv_setting = 'COL_ID').
+    change_setting( iv_value = iv_value iv_setting = 'COL_ID' ).
     r_column = me.
   endmethod.
 
 
   method set_col_opt.
-    change_setting( iv_value = iv_value iv_setting = 'COL_OPT').
+    change_setting( iv_value = iv_value iv_setting = 'COL_OPT' ).
     r_column = me.
   endmethod.
 
 
   method set_col_pos.
-    change_setting( iv_value = iv_value iv_setting = 'COL_POS').
+    change_setting( iv_value = iv_value iv_setting = 'COL_POS' ).
     r_column = me.
   endmethod.
 
 
   method set_convexit.
-    change_setting( iv_value = iv_value iv_setting = 'CONVEXIT').
+    change_setting( iv_value = iv_value iv_setting = 'CONVEXIT' ).
     r_column = me.
   endmethod.
 
 
   method set_currency.
-    change_setting( iv_value = iv_value iv_setting = 'CURRENCY').
+    change_setting( iv_value = iv_value iv_setting = 'CURRENCY' ).
     r_column = me.
   endmethod.
 
 
   method set_datatype.
-    change_setting( iv_value = iv_value iv_setting = 'DATATYPE').
+    change_setting( iv_value = iv_value iv_setting = 'DATATYPE' ).
     r_column = me.
   endmethod.
 
 
   method set_dd_outlen.
-    change_setting( iv_value = iv_value iv_setting = 'DD_OUTLEN').
+    change_setting( iv_value = iv_value iv_setting = 'DD_OUTLEN' ).
     r_column = me.
   endmethod.
 
 
   method set_dd_roll.
-    change_setting( iv_value = iv_value iv_setting = 'DD_ROLL').
+    change_setting( iv_value = iv_value iv_setting = 'DD_ROLL' ).
     r_column = me.
   endmethod.
 
 
   method set_decfloat_style.
-    change_setting( iv_value = iv_value iv_setting = 'DECFLOAT_STYLE').
+    change_setting( iv_value = iv_value iv_setting = 'DECFLOAT_STYLE' ).
     r_column = me.
   endmethod.
 
 
   method set_decimals.
-    change_setting( iv_value = iv_value iv_setting = 'DECIMALS').
+    change_setting( iv_value = iv_value iv_setting = 'DECIMALS' ).
     r_column = me.
   endmethod.
 
 
   method set_decimals_o.
-    change_setting( iv_value = iv_value iv_setting = 'DECIMALS_O').
+    change_setting( iv_value = iv_value iv_setting = 'DECIMALS_O' ).
     r_column = me.
   endmethod.
 
 
   method set_decmlfield.
-    change_setting( iv_value = iv_value iv_setting = 'DECMLFIELD').
+    change_setting( iv_value = iv_value iv_setting = 'DECMLFIELD' ).
     r_column = me.
   endmethod.
 
 
   method set_dfieldname.
-    change_setting( iv_value = iv_value iv_setting = 'DFIELDNAME').
+    change_setting( iv_value = iv_value iv_setting = 'DFIELDNAME' ).
     r_column = me.
   endmethod.
 
 
   method set_domname.
-    change_setting( iv_value = iv_value iv_setting = 'DOMNAME').
+    change_setting( iv_value = iv_value iv_setting = 'DOMNAME' ).
     r_column = me.
   endmethod.
 
 
   method set_do_sum.
-    change_setting( iv_value = iv_value iv_setting = 'DO_SUM').
+    change_setting( iv_value = iv_value iv_setting = 'DO_SUM' ).
     r_column = me.
   endmethod.
 
 
   method set_dragdropid.
-    change_setting( iv_value = iv_value iv_setting = 'DRAGDROPID').
+    change_setting( iv_value = iv_value iv_setting = 'DRAGDROPID' ).
     r_column = me.
   endmethod.
 
 
   method set_drdn_alias.
-    change_setting( iv_value = iv_value iv_setting = 'DRDN_ALIAS').
+    change_setting( iv_value = iv_value iv_setting = 'DRDN_ALIAS' ).
     r_column = me.
   endmethod.
 
 
   method set_drdn_field.
-    change_setting( iv_value = iv_value iv_setting = 'DRDN_FIELD').
+    change_setting( iv_value = iv_value iv_setting = 'DRDN_FIELD' ).
     r_column = me.
   endmethod.
 
 
   method set_drdn_hndl.
-    change_setting( iv_value = iv_value iv_setting = 'DRDN_HNDL').
+    change_setting( iv_value = iv_value iv_setting = 'DRDN_HNDL' ).
     r_column = me.
   endmethod.
 
 
   method set_edit.
-    change_setting( iv_value = iv_value iv_setting = 'EDIT').
+    change_setting( iv_value = iv_value iv_setting = 'EDIT' ).
     r_column = me.
   endmethod.
 
 
   method set_editable.
-    change_setting( iv_value = abap_true iv_setting = 'EDIT').
+    change_setting( iv_value = abap_true iv_setting = 'EDIT' ).
     r_column = me.
   endmethod.
 
 
   method set_edit_mask.
-    change_setting( iv_value = iv_value iv_setting = 'EDIT_MASK').
+    change_setting( iv_value = iv_value iv_setting = 'EDIT_MASK' ).
     r_column = me.
   endmethod.
 
 
   method set_emphasize.
-    change_setting( iv_value = iv_value iv_setting = 'EMPHASIZE').
+    change_setting( iv_value = iv_value iv_setting = 'EMPHASIZE' ).
     r_column = me.
   endmethod.
 
 
   method set_exponent.
-    change_setting( iv_value = iv_value iv_setting = 'EXPONENT').
+    change_setting( iv_value = iv_value iv_setting = 'EXPONENT' ).
     r_column = me.
   endmethod.
 
 
   method set_f4availabl.
-    change_setting( iv_value = iv_value iv_setting = 'F4AVAILABL').
+    change_setting( iv_value = iv_value iv_setting = 'F4AVAILABL' ).
     r_column = me.
   endmethod.
 
 
   method set_fieldname.
-    change_setting( iv_value = iv_value iv_setting = 'FIELDNAME').
+    change_setting( iv_value = iv_value iv_setting = 'FIELDNAME' ).
     r_column = me.
   endmethod.
 
 
   method set_fix_column.
-    change_setting( iv_value = iv_value iv_setting = 'FIX_COLUMN').
+    change_setting( iv_value = iv_value iv_setting = 'FIX_COLUMN' ).
     r_column = me.
   endmethod.
 
 
   method set_get_style.
-    change_setting( iv_value = iv_value iv_setting = 'GET_STYLE').
+    change_setting( iv_value = iv_value iv_setting = 'GET_STYLE' ).
     r_column = me.
   endmethod.
 
 
   method set_hier_cpos.
-    change_setting( iv_value = iv_value iv_setting = 'HIER_CPOS').
+    change_setting( iv_value = iv_value iv_setting = 'HIER_CPOS' ).
     r_column = me.
   endmethod.
 
 
   method set_hier_level.
-    change_setting( iv_value = iv_value iv_setting = 'HIER_LEVEL').
+    change_setting( iv_value = iv_value iv_setting = 'HIER_LEVEL' ).
     r_column = me.
   endmethod.
 
 
   method set_hotspot.
-    change_setting( iv_value = iv_value iv_setting = 'HOTSPOT').
+    change_setting( iv_value = iv_value iv_setting = 'HOTSPOT' ).
     r_column = me.
   endmethod.
 
 
   method set_href_hndl.
-    change_setting( iv_value = iv_value iv_setting = 'HREF_HNDL').
+    change_setting( iv_value = iv_value iv_setting = 'HREF_HNDL' ).
     r_column = me.
   endmethod.
 
 
   method set_h_col_key.
-    change_setting( iv_value = iv_value iv_setting = 'H_COL_KEY').
+    change_setting( iv_value = iv_value iv_setting = 'H_COL_KEY' ).
     r_column = me.
   endmethod.
 
 
   method set_h_ftype.
-    change_setting( iv_value = iv_value iv_setting = 'H_FTYPE').
+    change_setting( iv_value = iv_value iv_setting = 'H_FTYPE' ).
     r_column = me.
   endmethod.
 
 
   method set_h_select.
-    change_setting( iv_value = iv_value iv_setting = 'H_SELECT').
+    change_setting( iv_value = iv_value iv_setting = 'H_SELECT' ).
     r_column = me.
   endmethod.
 
 
   method set_icon.
-    change_setting( iv_value = iv_value iv_setting = 'ICON').
+    change_setting( iv_value = iv_value iv_setting = 'ICON' ).
     r_column = me.
   endmethod.
 
 
   method set_ifieldname.
-    change_setting( iv_value = iv_value iv_setting = 'IFIELDNAME').
+    change_setting( iv_value = iv_value iv_setting = 'IFIELDNAME' ).
     r_column = me.
   endmethod.
 
 
   method set_indx_cfiel.
-    change_setting( iv_value = iv_value iv_setting = 'INDX_CFIEL').
+    change_setting( iv_value = iv_value iv_setting = 'INDX_CFIEL' ).
     r_column = me.
   endmethod.
 
 
   method set_indx_decml.
-    change_setting( iv_value = iv_value iv_setting = 'INDX_DECML').
+    change_setting( iv_value = iv_value iv_setting = 'INDX_DECML' ).
     r_column = me.
   endmethod.
 
 
   method set_indx_field.
-    change_setting( iv_value = iv_value iv_setting = 'INDX_FIELD').
+    change_setting( iv_value = iv_value iv_setting = 'INDX_FIELD' ).
     r_column = me.
   endmethod.
 
 
   method set_indx_ifiel.
-    change_setting( iv_value = iv_value iv_setting = 'INDX_IFIEL').
+    change_setting( iv_value = iv_value iv_setting = 'INDX_IFIEL' ).
     r_column = me.
   endmethod.
 
 
   method set_indx_qfiel.
-    change_setting( iv_value = iv_value iv_setting = 'INDX_QFIEL').
+    change_setting( iv_value = iv_value iv_setting = 'INDX_QFIEL' ).
     r_column = me.
   endmethod.
 
 
   method set_indx_round.
-    change_setting( iv_value = iv_value iv_setting = 'INDX_ROUND').
+    change_setting( iv_value = iv_value iv_setting = 'INDX_ROUND' ).
     r_column = me.
   endmethod.
 
 
   method set_intlen.
-    change_setting( iv_value = iv_value iv_setting = 'INTLEN').
+    change_setting( iv_value = iv_value iv_setting = 'INTLEN' ).
     r_column = me.
   endmethod.
 
 
   method set_inttype.
-    change_setting( iv_value = iv_value iv_setting = 'INTTYPE').
+    change_setting( iv_value = iv_value iv_setting = 'INTTYPE' ).
     r_column = me.
   endmethod.
 
 
   method set_just.
-    change_setting( iv_value = iv_value iv_setting = 'JUST').
+    change_setting( iv_value = iv_value iv_setting = 'JUST' ).
     r_column = me.
   endmethod.
 
 
   method set_key.
-    change_setting( iv_value = iv_value iv_setting = 'KEY').
+    change_setting( iv_value = iv_value iv_setting = 'KEY' ).
     r_column = me.
   endmethod.
 
 
   method set_key_sel.
-    change_setting( iv_value = iv_value iv_setting = 'KEY_SEL').
+    change_setting( iv_value = iv_value iv_setting = 'KEY_SEL' ).
     r_column = me.
   endmethod.
 
 
   method set_lowercase.
-    change_setting( iv_value = iv_value iv_setting = 'LOWERCASE').
+    change_setting( iv_value = iv_value iv_setting = 'LOWERCASE' ).
     r_column = me.
   endmethod.
 
 
   method set_lzero.
-    change_setting( iv_value = iv_value iv_setting = 'LZERO').
+    change_setting( iv_value = iv_value iv_setting = 'LZERO' ).
     r_column = me.
   endmethod.
 
 
   method set_mac.
-    change_setting( iv_value = iv_value iv_setting = 'MAC').
+    change_setting( iv_value = iv_value iv_setting = 'MAC' ).
     r_column = me.
   endmethod.
 
 
   method set_mark.
-    change_setting( iv_value = iv_value iv_setting = 'MARK').
+    change_setting( iv_value = iv_value iv_setting = 'MARK' ).
     r_column = me.
   endmethod.
 
@@ -1197,301 +1197,301 @@ class zcl_falv_column implementation.
 
 
   method set_no_convext.
-    change_setting( iv_value = iv_value iv_setting = 'NO_CONVEXT').
+    change_setting( iv_value = iv_value iv_setting = 'NO_CONVEXT' ).
     r_column = me.
   endmethod.
 
 
   method set_no_init_ch.
-    change_setting( iv_value = iv_value iv_setting = 'NO_INIT_CH').
+    change_setting( iv_value = iv_value iv_setting = 'NO_INIT_CH' ).
     r_column = me.
   endmethod.
 
 
   method set_no_merging.
-    change_setting( iv_value = iv_value iv_setting = 'NO_MERGING').
+    change_setting( iv_value = iv_value iv_setting = 'NO_MERGING' ).
     r_column = me.
   endmethod.
 
 
   method set_no_out.
-    change_setting( iv_value = iv_value iv_setting = 'NO_OUT').
+    change_setting( iv_value = iv_value iv_setting = 'NO_OUT' ).
     r_column = me.
   endmethod.
 
 
   method set_no_sign.
-    change_setting( iv_value = iv_value iv_setting = 'NO_SIGN').
+    change_setting( iv_value = iv_value iv_setting = 'NO_SIGN' ).
     r_column = me.
   endmethod.
 
 
   method set_no_sum.
-    change_setting( iv_value = iv_value iv_setting = 'NO_SUM').
+    change_setting( iv_value = iv_value iv_setting = 'NO_SUM' ).
     r_column = me.
   endmethod.
 
 
   method set_no_zero.
-    change_setting( iv_value = iv_value iv_setting = 'NO_ZERO').
+    change_setting( iv_value = iv_value iv_setting = 'NO_ZERO' ).
     r_column = me.
   endmethod.
 
 
   method set_outputlen.
-    change_setting( iv_value = iv_value iv_setting = 'OUTPUTLEN').
+    change_setting( iv_value = iv_value iv_setting = 'OUTPUTLEN' ).
     r_column = me.
   endmethod.
 
 
   method set_parameter0.
-    change_setting( iv_value = iv_value iv_setting = 'PARAMETER0').
+    change_setting( iv_value = iv_value iv_setting = 'PARAMETER0' ).
     r_column = me.
   endmethod.
 
 
   method set_parameter1.
-    change_setting( iv_value = iv_value iv_setting = 'PARAMETER1').
+    change_setting( iv_value = iv_value iv_setting = 'PARAMETER1' ).
     r_column = me.
   endmethod.
 
 
   method set_parameter2.
-    change_setting( iv_value = iv_value iv_setting = 'PARAMETER2').
+    change_setting( iv_value = iv_value iv_setting = 'PARAMETER2' ).
     r_column = me.
   endmethod.
 
 
   method set_parameter3.
-    change_setting( iv_value = iv_value iv_setting = 'PARAMETER3').
+    change_setting( iv_value = iv_value iv_setting = 'PARAMETER3' ).
     r_column = me.
   endmethod.
 
 
   method set_parameter4.
-    change_setting( iv_value = iv_value iv_setting = 'PARAMETER4').
+    change_setting( iv_value = iv_value iv_setting = 'PARAMETER4' ).
     r_column = me.
   endmethod.
 
 
   method set_parameter5.
-    change_setting( iv_value = iv_value iv_setting = 'PARAMETER5').
+    change_setting( iv_value = iv_value iv_setting = 'PARAMETER5' ).
     r_column = me.
   endmethod.
 
 
   method set_parameter6.
-    change_setting( iv_value = iv_value iv_setting = 'PARAMETER6').
+    change_setting( iv_value = iv_value iv_setting = 'PARAMETER6' ).
     r_column = me.
   endmethod.
 
 
   method set_parameter7.
-    change_setting( iv_value = iv_value iv_setting = 'PARAMETER7').
+    change_setting( iv_value = iv_value iv_setting = 'PARAMETER7' ).
     r_column = me.
   endmethod.
 
 
   method set_parameter8.
-    change_setting( iv_value = iv_value iv_setting = 'PARAMETER8').
+    change_setting( iv_value = iv_value iv_setting = 'PARAMETER8' ).
     r_column = me.
   endmethod.
 
 
   method set_parameter9.
-    change_setting( iv_value = iv_value iv_setting = 'PARAMETER9').
+    change_setting( iv_value = iv_value iv_setting = 'PARAMETER9' ).
     r_column = me.
   endmethod.
 
 
   method set_qfieldname.
-    change_setting( iv_value = iv_value iv_setting = 'QFIELDNAME').
+    change_setting( iv_value = iv_value iv_setting = 'QFIELDNAME' ).
     r_column = me.
   endmethod.
 
 
   method set_quantity.
-    change_setting( iv_value = iv_value iv_setting = 'QUANTITY').
+    change_setting( iv_value = iv_value iv_setting = 'QUANTITY' ).
     r_column = me.
   endmethod.
 
 
   method set_readonly.
-    change_setting( iv_value = abap_false iv_setting = 'EDIT').
+    change_setting( iv_value = abap_false iv_setting = 'EDIT' ).
     r_column = me.
   endmethod.
 
 
   method set_ref_field.
-    change_setting( iv_value = iv_value iv_setting = 'REF_FIELD').
+    change_setting( iv_value = iv_value iv_setting = 'REF_FIELD' ).
     r_column = me.
   endmethod.
 
 
   method set_ref_table.
-    change_setting( iv_value = iv_value iv_setting = 'REF_TABLE').
+    change_setting( iv_value = iv_value iv_setting = 'REF_TABLE' ).
     r_column = me.
   endmethod.
 
 
   method set_reprep.
-    change_setting( iv_value = iv_value iv_setting = 'REPREP').
+    change_setting( iv_value = iv_value iv_setting = 'REPREP' ).
     r_column = me.
   endmethod.
 
 
   method set_reptext.
-    change_setting( iv_value = iv_value iv_setting = 'REPTEXT').
+    change_setting( iv_value = iv_value iv_setting = 'REPTEXT' ).
     r_column = me.
   endmethod.
 
 
   method set_rollname.
-    change_setting( iv_value = iv_value iv_setting = 'ROLLNAME').
+    change_setting( iv_value = iv_value iv_setting = 'ROLLNAME' ).
     r_column = me.
   endmethod.
 
 
   method set_round.
-    change_setting( iv_value = iv_value iv_setting = 'ROUND').
+    change_setting( iv_value = iv_value iv_setting = 'ROUND' ).
     r_column = me.
   endmethod.
 
 
   method set_roundfield.
-    change_setting( iv_value = iv_value iv_setting = 'ROUNDFIELD').
+    change_setting( iv_value = iv_value iv_setting = 'ROUNDFIELD' ).
     r_column = me.
   endmethod.
 
 
   method set_row_pos.
-    change_setting( iv_value = iv_value iv_setting = 'ROW_POS').
+    change_setting( iv_value = iv_value iv_setting = 'ROW_POS' ).
     r_column = me.
   endmethod.
 
 
   method set_scrtext_l.
-    change_setting( iv_value = iv_value iv_setting = 'SCRTEXT_L').
+    change_setting( iv_value = iv_value iv_setting = 'SCRTEXT_L' ).
     r_column = me.
   endmethod.
 
 
   method set_scrtext_m.
-    change_setting( iv_value = iv_value iv_setting = 'SCRTEXT_M').
+    change_setting( iv_value = iv_value iv_setting = 'SCRTEXT_M' ).
     r_column = me.
   endmethod.
 
 
   method set_scrtext_s.
-    change_setting( iv_value = iv_value iv_setting = 'SCRTEXT_S').
+    change_setting( iv_value = iv_value iv_setting = 'SCRTEXT_S' ).
     r_column = me.
   endmethod.
 
 
   method set_selddictxt.
-    change_setting( iv_value = iv_value iv_setting = 'SELDDICTXT').
+    change_setting( iv_value = iv_value iv_setting = 'SELDDICTXT' ).
     r_column = me.
   endmethod.
 
 
   method set_seltext.
-    change_setting( iv_value = iv_value iv_setting = 'SELTEXT').
+    change_setting( iv_value = iv_value iv_setting = 'SELTEXT' ).
     r_column = me.
   endmethod.
 
 
   method set_sp_group.
-    change_setting( iv_value = iv_value iv_setting = 'SP_GROUP').
+    change_setting( iv_value = iv_value iv_setting = 'SP_GROUP' ).
     r_column = me.
   endmethod.
 
 
   method set_style.
-    change_setting( iv_value = iv_value iv_setting = 'STYLE').
+    change_setting( iv_value = iv_value iv_setting = 'STYLE' ).
     r_column = me.
   endmethod.
 
 
   method set_style2.
-    change_setting( iv_value = iv_value iv_setting = 'STYLE2').
+    change_setting( iv_value = iv_value iv_setting = 'STYLE2' ).
     r_column = me.
   endmethod.
 
 
   method set_style3.
-    change_setting( iv_value = iv_value iv_setting = 'STYLE3').
+    change_setting( iv_value = iv_value iv_setting = 'STYLE3' ).
     r_column = me.
   endmethod.
 
 
   method set_style4.
-    change_setting( iv_value = iv_value iv_setting = 'STYLE4').
+    change_setting( iv_value = iv_value iv_setting = 'STYLE4' ).
     r_column = me.
   endmethod.
 
 
   method set_symbol.
-    change_setting( iv_value = iv_value iv_setting = 'SYMBOL').
+    change_setting( iv_value = iv_value iv_setting = 'SYMBOL' ).
     r_column = me.
   endmethod.
 
 
   method set_tabname.
-    change_setting( iv_value = iv_value iv_setting = 'TABNAME').
+    change_setting( iv_value = iv_value iv_setting = 'TABNAME' ).
     r_column = me.
   endmethod.
 
 
   method set_tech.
-    change_setting( iv_value = iv_value iv_setting = 'TECH').
+    change_setting( iv_value = iv_value iv_setting = 'TECH' ).
     r_column = me.
   endmethod.
 
 
   method set_tech_col.
-    change_setting( iv_value = iv_value iv_setting = 'TECH_COL').
+    change_setting( iv_value = iv_value iv_setting = 'TECH_COL' ).
     r_column = me.
   endmethod.
 
 
   method set_tech_comp.
-    change_setting( iv_value = iv_value iv_setting = 'TECH_COMP').
+    change_setting( iv_value = iv_value iv_setting = 'TECH_COMP' ).
     r_column = me.
   endmethod.
 
 
   method set_tech_form.
-    change_setting( iv_value = iv_value iv_setting = 'TECH_FORM').
+    change_setting( iv_value = iv_value iv_setting = 'TECH_FORM' ).
     r_column = me.
   endmethod.
 
 
   method set_tipddictxt.
-    change_setting( iv_value = iv_value iv_setting = 'TIPDDICTXT').
+    change_setting( iv_value = iv_value iv_setting = 'TIPDDICTXT' ).
     r_column = me.
   endmethod.
 
 
   method set_tooltip.
-    change_setting( iv_value = iv_value iv_setting = 'TOOLTIP').
+    change_setting( iv_value = iv_value iv_setting = 'TOOLTIP' ).
     r_column = me.
   endmethod.
 
 
   method set_txt_field.
-    change_setting( iv_value = iv_value iv_setting = 'TXT_FIELD').
+    change_setting( iv_value = iv_value iv_setting = 'TXT_FIELD' ).
     r_column = me.
   endmethod.
 
 
   method set_valexi.
-    change_setting( iv_value = iv_value iv_setting = 'VALEXI').
+    change_setting( iv_value = iv_value iv_setting = 'VALEXI' ).
     r_column = me.
   endmethod.
 
 
   method set_web_field.
-    change_setting( iv_value = iv_value iv_setting = 'WEB_FIELD').
+    change_setting( iv_value = iv_value iv_setting = 'WEB_FIELD' ).
     r_column = me.
   endmethod.
 
