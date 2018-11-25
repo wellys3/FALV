@@ -2486,7 +2486,7 @@ class zcl_falv implementation.
   method soft_refresh.
     me->refresh_table_display(
       exporting
-        is_stable      =     conv #('XX') " With Stable Rows/Columns
+        is_stable      =     conv #( 'XX' ) " With Stable Rows/Columns
         i_soft_refresh =     abap_true" Without Sort, Filter, etc.
       exceptions
         finished       = 0
