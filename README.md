@@ -1,6 +1,7 @@
 # FALV
 FALV - Fast ALV Grid
 http://abapblog.com/falv
+|docs| |license|
 
 # Changes V 740.1.0.19 
 Refactoring done for create / create_by_copy methods + some others. Added returning parameter wherever possible for chaining methods.
