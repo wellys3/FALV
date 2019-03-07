@@ -190,6 +190,16 @@ class zcl_falv definition
         value(i_popup)        type abap_bool default abap_false
       returning
         value(rv_falv)        type ref to zcl_falv .
+    class-methods create_by_type
+      importing
+        value(i_parent)          type ref to cl_gui_container optional
+        value(i_applogparent)    type ref to cl_gui_container optional
+        value(i_popup)           type abap_bool default abap_false
+        value(i_applog_embedded) type abap_bool default abap_false
+        value(i_subclass)        type ref to cl_abap_typedescr optional
+        !i_type                  type ref to cl_abap_typedescr
+      returning
+        value(rv_falv)           type ref to zcl_falv .        
     class-methods lvc_fcat_from_itab
       importing
         !it_table      type standard table
@@ -376,6 +386,9 @@ class zcl_falv definition
         redefinition .
     methods get_columns
       returning value(rt_columns) type t_columns .
+    methods set_output_table
+      changing
+        !ct_table type standard table .
   protected section.
 
 
@@ -661,9 +674,6 @@ class zcl_falv definition
         error_cntl_init
         error_cntl_link
         error_dp_create .
-    methods set_output_table
-      changing
-        !ct_table type standard table .
     methods build_columns .
     methods raise_top_of_page .
     methods set_handlers
@@ -2531,4 +2541,33 @@ class zcl_falv implementation.
     rt_columns = me->columns.
   endmethod.
 
+  method create_by_type.
+    data:
+      lr_output type ref to data.
+
+    field-symbols:
+      <table> type any table.
+
+    data(lv_type_name) = i_type->absolute_name.
+
+    if i_type->kind <> cl_abap_typedescr=>kind_table.
+      free: rv_falv.
+      return.
+    endif.
+
+    create data lr_output type (lv_type_name).
+    assign lr_output->* to <table>.
+
+    rv_falv = zcl_falv=>create(
+      exporting
+        i_parent          = i_parent
+        i_applogparent    = i_applogparent
+        i_popup           = abap_false
+        i_applog_embedded = abap_false
+        i_subclass        = i_subclass
+      changing
+        ct_table          = <table>
+    ).
+  endmethod.
+  
 endclass.
