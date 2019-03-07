@@ -58,11 +58,9 @@ ENDCLASS.
 
 
 START-OF-SELECTION.
-
   DATA:
     gr_class TYPE REF TO lcl_demo.
 
-  gr_class ?= zcl_falv=>create_by_type( i_subclass = cl_abap_classdescr=>describe_by_name( 'LCL_DEMO' )
-                                        i_type     = cl_abap_typedescr=>describe_by_name( 'TY_T_SFLIGHT' ) ).
+  gr_class ?= lcl_demo=>create_by_type( i_type = cl_abap_typedescr=>describe_by_name( 'TY_T_SFLIGHT' ) ).
   gr_class->get_data( ).
   gr_class->display_data( ).
