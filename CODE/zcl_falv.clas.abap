@@ -735,7 +735,7 @@ class zcl_falv implementation.
 
     compiler->get_single_ref(
       exporting
-        p_full_name       =  '\TY:ZCL_FALV\ME:CREATE'
+        p_full_name       =  |\\TY:ZCL_FALV\\ME:{ callstack[ 2 ]-blockname CASE = UPPER }|
         p_grade           =  1   " Grade of Use
       importing
         p_result          =    data(falv_references) " Where-Used List
