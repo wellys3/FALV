@@ -2558,6 +2558,10 @@ class zcl_falv implementation.
     create data lr_output type (lv_type_name).
     assign lr_output->* to <table>.
 
+    if i_subclass is initial.
+      i_subclass ?= check_if_called_from_subclass( ).
+    endif.
+
     rv_falv = zcl_falv=>create(
       exporting
         i_parent          = i_parent
