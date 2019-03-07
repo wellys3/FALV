@@ -27,6 +27,8 @@ class zcl_falv definition
       end of t_email .
     types:
       tt_email type table of t_email .
+    types t_column type ref to zcl_falv_column .
+    types t_columns type sorted table of t_column with unique key table_line .
     constants: begin of color,
                  blue                         type char4 value 'C100',
                  blue_intensified             type char4 value 'C110',
@@ -372,9 +374,10 @@ class zcl_falv definition
         redefinition .
     methods set_frontend_layout
         redefinition .
+    methods get_columns
+      returning value(rt_columns) type t_columns .
   protected section.
 
-    types t_column type ref to zcl_falv_column .
 
     data: toolbar_added      type ttb_button,
           toolbar_deleted    type ttb_button,
@@ -2522,6 +2525,10 @@ class zcl_falv implementation.
     i_falv->m_batch_mode = me->m_batch_mode.
     i_falv->layout->delete_all_buttons = me->layout->delete_all_buttons.
     i_falv->layout->mark_field = me->layout->mark_field.
+  endmethod.
+
+  method get_columns.
+    rt_columns = me->columns.
   endmethod.
 
 endclass.
