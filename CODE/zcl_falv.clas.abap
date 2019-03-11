@@ -1,7 +1,7 @@
 class zcl_falv definition
   public
   inheriting from cl_gui_alv_grid
-  create private
+  create public
 
   global friends zcl_falv_layout .
 
