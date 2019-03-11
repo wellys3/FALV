@@ -1,7 +1,7 @@
 class zcl_falv definition
   public
   inheriting from cl_gui_alv_grid
-  create private
+  create public
 
   global friends zcl_falv_layout .
 
@@ -27,6 +27,8 @@ class zcl_falv definition
       end of t_email .
     types:
       tt_email type table of t_email .
+    types t_column type ref to zcl_falv_column .
+    types t_columns type sorted table of t_column with unique key table_line .
     constants: begin of color,
                  blue                         type char4 value 'C100',
                  blue_intensified             type char4 value 'C110',
@@ -188,11 +190,37 @@ class zcl_falv definition
         value(i_popup)        type abap_bool default abap_false
       returning
         value(rv_falv)        type ref to zcl_falv .
+    class-methods create_by_type
+      importing
+        value(i_parent)          type ref to cl_gui_container optional
+        value(i_applogparent)    type ref to cl_gui_container optional
+        value(i_popup)           type abap_bool default abap_false
+        value(i_applog_embedded) type abap_bool default abap_false
+        value(i_subclass)        type ref to cl_abap_typedescr optional
+        !i_type                  type ref to cl_abap_typedescr
+      returning
+        value(rv_falv)           type ref to zcl_falv .        
     class-methods lvc_fcat_from_itab
       importing
         !it_table      type standard table
       returning
         value(rt_fcat) type lvc_t_fcat .
+    methods constructor
+      importing
+        value(i_shellstyle)  type i default 0
+        value(i_lifetime)    type i optional
+        value(i_parent)      type ref to cl_gui_container optional
+        value(i_appl_events) type char01 default space
+        !i_parentdbg         type ref to cl_gui_container optional
+        !i_applogparent      type ref to cl_gui_container optional
+        !i_graphicsparent    type ref to cl_gui_container optional
+        value(i_name)        type string optional
+        !i_fcat_complete     type sap_bool default space
+      exceptions
+        error_cntl_create
+        error_cntl_init
+        error_cntl_link
+        error_dp_create .
     methods pbo
       importing
         value(iv_dynnr) type sy-dynnr default sy-dynnr .
@@ -372,9 +400,13 @@ class zcl_falv definition
         redefinition .
     methods set_frontend_layout
         redefinition .
+    methods get_columns
+      returning value(rt_columns) type t_columns .
+    methods set_output_table
+      changing
+        !ct_table type standard table .
   protected section.
 
-    types t_column type ref to zcl_falv_column .
 
     data: toolbar_added      type ttb_button,
           toolbar_deleted    type ttb_button,
@@ -642,25 +674,6 @@ class zcl_falv definition
         !io_parent    type ref to object
       returning
         value(r_falv) type ref to zcl_falv .
-    methods constructor
-      importing
-        value(i_shellstyle)  type i default 0
-        value(i_lifetime)    type i optional
-        value(i_parent)      type ref to cl_gui_container optional
-        value(i_appl_events) type char01 default space
-        !i_parentdbg         type ref to cl_gui_container optional
-        !i_applogparent      type ref to cl_gui_container optional
-        !i_graphicsparent    type ref to cl_gui_container optional
-        value(i_name)        type string optional
-        !i_fcat_complete     type sap_bool default space
-      exceptions
-        error_cntl_create
-        error_cntl_init
-        error_cntl_link
-        error_dp_create .
-    methods set_output_table
-      changing
-        !ct_table type standard table .
     methods build_columns .
     methods raise_top_of_page .
     methods set_handlers
@@ -722,7 +735,7 @@ class zcl_falv implementation.
 
     compiler->get_single_ref(
       exporting
-        p_full_name       =  '\TY:ZCL_FALV\ME:CREATE'
+        p_full_name       =  |\\TY:ZCL_FALV\\ME:{ callstack[ 2 ]-blockname CASE = UPPER }|
         p_grade           =  1   " Grade of Use
       importing
         p_result          =    data(falv_references) " Where-Used List
@@ -2524,4 +2537,41 @@ class zcl_falv implementation.
     i_falv->layout->mark_field = me->layout->mark_field.
   endmethod.
 
+  method get_columns.
+    rt_columns = me->columns.
+  endmethod.
+
+  method create_by_type.
+    data:
+      lr_output type ref to data.
+
+    field-symbols:
+      <table> type any table.
+
+    data(lv_type_name) = i_type->absolute_name.
+
+    if i_type->kind <> cl_abap_typedescr=>kind_table.
+      free: rv_falv.
+      return.
+    endif.
+
+    create data lr_output type (lv_type_name).
+    assign lr_output->* to <table>.
+
+    if i_subclass is initial.
+      i_subclass ?= check_if_called_from_subclass( ).
+    endif.
+
+    rv_falv = zcl_falv=>create(
+      exporting
+        i_parent          = i_parent
+        i_applogparent    = i_applogparent
+        i_popup           = abap_false
+        i_applog_embedded = abap_false
+        i_subclass        = i_subclass
+      changing
+        ct_table          = <table>
+    ).
+  endmethod.
+  
 endclass.

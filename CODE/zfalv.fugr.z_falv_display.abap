@@ -45,6 +45,9 @@ FUNCTION Z_FALV_DISPLAY.
     current_guid = call_stack[ 1 ].
     assign outputs[ table_line->guid = current_guid ] to <out>.
     if sy-subrc eq 0.
+      "! When you reuse FALV sometimes it needs to be refreshed
+      "! in order to show on screen. Like with Error log
+      <out>->falv->set_dummy_function_code( ).    
       <out>->pbo( iv_dynnr = sy-dynnr ).
     endif.
   endif.
