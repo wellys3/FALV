@@ -205,6 +205,22 @@ class zcl_falv definition
         !it_table      type standard table
       returning
         value(rt_fcat) type lvc_t_fcat .
+    methods constructor
+      importing
+        value(i_shellstyle)  type i default 0
+        value(i_lifetime)    type i optional
+        value(i_parent)      type ref to cl_gui_container optional
+        value(i_appl_events) type char01 default space
+        !i_parentdbg         type ref to cl_gui_container optional
+        !i_applogparent      type ref to cl_gui_container optional
+        !i_graphicsparent    type ref to cl_gui_container optional
+        value(i_name)        type string optional
+        !i_fcat_complete     type sap_bool default space
+      exceptions
+        error_cntl_create
+        error_cntl_init
+        error_cntl_link
+        error_dp_create .
     methods pbo
       importing
         value(iv_dynnr) type sy-dynnr default sy-dynnr .
@@ -658,22 +674,6 @@ class zcl_falv definition
         !io_parent    type ref to object
       returning
         value(r_falv) type ref to zcl_falv .
-    methods constructor
-      importing
-        value(i_shellstyle)  type i default 0
-        value(i_lifetime)    type i optional
-        value(i_parent)      type ref to cl_gui_container optional
-        value(i_appl_events) type char01 default space
-        !i_parentdbg         type ref to cl_gui_container optional
-        !i_applogparent      type ref to cl_gui_container optional
-        !i_graphicsparent    type ref to cl_gui_container optional
-        value(i_name)        type string optional
-        !i_fcat_complete     type sap_bool default space
-      exceptions
-        error_cntl_create
-        error_cntl_init
-        error_cntl_link
-        error_dp_create .
     methods build_columns .
     methods raise_top_of_page .
     methods set_handlers
