@@ -577,6 +577,10 @@ class zcl_falv definition
         for event delayed_change_selection of cl_gui_alv_grid .
     methods evf_context_menu
         for event context_menu of cl_gui_alv_grid .
+    METHODS evf_context_menu_request
+          FOR EVENT context_menu_request OF cl_gui_alv_grid
+      IMPORTING
+          !e_object.    
     methods evf_total_click_row_col
           for event total_click_row_col of cl_gui_alv_grid
       importing
@@ -1147,6 +1151,7 @@ class zcl_falv implementation.
     set handler iv_falv->evf_context_menu for iv_falv.
     set handler iv_falv->evf_total_click_row_col for iv_falv.
     set handler iv_falv->evf_context_menu_selected for iv_falv.
+    set handler iv_falv->evf_context_menu_request for iv_falv.
     set handler iv_falv->evf_toolbar_menu_selected for iv_falv.
     set handler iv_falv->evf_request_data for iv_falv.
 
@@ -1407,6 +1412,9 @@ class zcl_falv implementation.
 
   endmethod.
 
+  method evf_context_menu_request. 
+
+  endmethod.
 
   method evf_data_changed.
 
