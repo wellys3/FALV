@@ -47,7 +47,7 @@ FUNCTION Z_FALV_DISPLAY.
     if sy-subrc eq 0.
       "! When you reuse FALV sometimes it needs to be refreshed
       "! in order to show on screen. Like with Error log
-      <out>->falv->set_dummy_function_code( ).    
+      <out>->falv->set_dummy_function_code( ).
       <out>->pbo( iv_dynnr = sy-dynnr ).
     endif.
   endif.

@@ -580,7 +580,7 @@ class zcl_falv definition
     METHODS evf_context_menu_request
           FOR EVENT context_menu_request OF cl_gui_alv_grid
       IMPORTING
-          !e_object.    
+          !e_object.
     methods evf_total_click_row_col
           for event total_click_row_col of cl_gui_alv_grid
       importing
@@ -1412,7 +1412,7 @@ class zcl_falv implementation.
 
   endmethod.
 
-  method evf_context_menu_request. 
+  method evf_context_menu_request.
 
   endmethod.
 
@@ -2582,8 +2582,8 @@ class zcl_falv implementation.
       exporting
         i_parent          = i_parent
         i_applogparent    = i_applogparent
-        i_popup           = abap_false
-        i_applog_embedded = abap_false
+        i_popup           = i_popup
+        i_applog_embedded = i_applog_embedded
         i_subclass        = i_subclass
       changing
         ct_table          = <table>
