@@ -2551,6 +2551,7 @@ class zcl_falv implementation.
     i_falv->m_batch_mode = me->m_batch_mode.
     i_falv->layout->delete_all_buttons = me->layout->delete_all_buttons.
     i_falv->layout->mark_field = me->layout->mark_field.
+    i_falv->register_f4_for_fields( it_f4 = me->grid->mt_f4 ).
   endmethod.
 
   method get_columns.

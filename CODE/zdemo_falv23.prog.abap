@@ -33,4 +33,4 @@ START-OF-SELECTION.
   falv ?=  lcl_test=>create( CHANGING ct_table = sflight ).
 
   falv->register_f4_for_fields( VALUE #( (  fieldname = 'PLANETYPE' register = 'X' getbefore = 'X' ) ) ).
-  falv->display( ).
+  falv->display(  ).
