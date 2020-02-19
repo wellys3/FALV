@@ -26,7 +26,6 @@
       <RSFDO>
        <PARAMETER>IO_FALV</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 001</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -54,17 +53,14 @@
       <RSFDO>
        <PARAMETER>IT_MASS_SEL_COLUMNS</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IT_FCAT_MASS</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>ET_RSPARAMS</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 003</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -103,27 +99,22 @@
       <RSFDO>
        <PARAMETER>IO_FALV</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_START_ROW</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 002</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_START_COLUMN</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 003</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_END_ROW</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 004</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>IV_END_COLUMN</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 005</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -140,7 +131,6 @@
       <RSFDO>
        <PARAMETER>C_TAB</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 001</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
@@ -166,12 +156,10 @@
       <RSFDO>
        <PARAMETER>IO_GRID</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 001</INDEX>
       </RSFDO>
       <RSFDO>
        <PARAMETER>CT_OUTTAB</PARAMETER>
        <KIND>P</KIND>
-       <INDEX> 002</INDEX>
       </RSFDO>
      </DOCUMENTATION>
     </item>
