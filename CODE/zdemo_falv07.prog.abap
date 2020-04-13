@@ -9,7 +9,7 @@ data: sflight type standard table of sflight.
 start-of-selection.
 
 
-  select * up to 100 rows
+  select * up to 10000 rows
   into corresponding fields of table @sflight
   from sflight.
 
@@ -28,11 +28,11 @@ start-of-selection.
   falv->column( 'PLANETYPE' )->set_no_merging( abap_true ).
 
   falv->column( 'PAYMENTSUM' )->set_no_zero( abap_true ).
-
   "or
 
   data(price) = falv->column( 'PRICE' ).
   price->set_no_out( abap_true ).
+  price->set_cfieldname( 'CURRENCY' ).
   data(occup) = falv->column( 'SEATSOCC' ).
   occup->set_no_zero( abap_true ).
   occup->set_no_merging( abap_true  ).

@@ -171,6 +171,8 @@ class zcl_falv definition
     data error_log_height type i value 100 ##NO_TEXT.
     data grid type ref to cl_gui_alv_grid .
     data built_in_screen type abap_bool  read-only.
+    data: buffering_active type abap_bool value abap_true,
+          bypassing_buffer type abap_bool value abap_false.
 
     class-methods create
       importing
@@ -1244,8 +1246,8 @@ class zcl_falv implementation.
       assign outtab->* to <outtab>.
       me->set_table_for_first_display(
         exporting
-*            i_buffer_active               =     " Buffering Active
-*            i_bypassing_buffer            =     " Switch Off Buffer
+             i_buffer_active               =  buffering_active   " Buffering Active
+             i_bypassing_buffer            =  bypassing_buffer   " Switch Off Buffer
 *            i_consistency_check           =     " Starting Consistency Check for Interface Error Recognition
 *            i_structure_name              =     " Internal Output Table Structure Name
           is_variant                     =     variant

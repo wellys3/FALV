@@ -837,6 +837,7 @@ class zcl_falv_column implementation.
 
   method set_cfieldname.
     change_setting( iv_value = iv_value iv_setting = 'CFIELDNAME' ).
+    set_tech_form( 2 ).
     r_column = me.
   endmethod.
 
