@@ -1606,6 +1606,12 @@ class zcl_falv implementation.
         leave to screen 0.
       when fc_mass_replace.
         mass_replace( ).
+      when fc_find.
+        e_ucomm = '%SC'.
+        set_function_code( CHANGING c_ucomm = e_ucomm ).
+      when fc_find_next.
+        e_ucomm = '%SC+'.
+        set_function_code( CHANGING c_ucomm = e_ucomm ).
     endcase.
   endmethod.
 

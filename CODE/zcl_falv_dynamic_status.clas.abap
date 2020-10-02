@@ -193,7 +193,7 @@ class zcl_falv_dynamic_status implementation.
                                 ( b_10 ) ( b_11 ) ( b_12 ) ( b_13 ) ( b_14 ) ( b_15 ) ( b_16 ) ( b_17 ) ( b_18 ) ( b_19 )
                                 ( b_20 ) ( b_21 ) ( b_22 ) ( b_23 ) ( b_24 ) ( b_25 ) ( b_26 ) ( b_27 ) ( b_28 ) ( b_29 )
                                 ( b_30 ) ( b_31 ) ( b_32 ) ( b_33 ) ( b_34 ) ( b_35 )
-                                ( zcl_falv=>mc_fc_data_save ) ( zcl_falv=>fc_find ) ( zcl_falv=>fc_find_next ) ( zcl_falv=>fc_first_page )
+                                ( zcl_falv=>mc_fc_data_save ) ( zcl_falv=>fc_first_page )
                                 ( zcl_falv=>fc_last_page ) ( zcl_falv=>fc_next_page ) ( zcl_falv=>fc_previous_page ) ( zcl_falv=>fc_print ) ).
   endmethod.
 
