@@ -1037,12 +1037,19 @@ class zcl_falv implementation.
 
   method create_main_cont_for_full_scr.
 
-    r_custom_container  = cast cl_gui_container( new cl_gui_custom_container(
-         container_name = cc_name
-         dynnr          = switch #( i_popup when abap_true then c_screen_popup
-                                            when abap_false then c_screen_full )
-         repid          = c_fscr_repid
-         no_autodef_progid_dynnr = abap_true ) ).
+    IF i_popup EQ abap_true.
+
+      CALL FUNCTION 'Z_FALV_CREATE_MAIN_CONTAINER'
+        IMPORTING
+          main_container = r_custom_container.
+    ELSE.
+      r_custom_container  = CAST cl_gui_container( NEW cl_gui_custom_container(
+           container_name = cc_name
+           dynnr          = c_screen_full
+           repid          = c_fscr_repid
+           no_autodef_progid_dynnr =  abap_true  ) ).
+    ENDIF.
+
 
   endmethod.
 
