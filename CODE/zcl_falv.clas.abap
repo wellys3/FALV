@@ -43,7 +43,7 @@ class zcl_falv definition
                  yellow_intensified_inversed  type char4 value 'C311',
                  yellow_inversed              type char4 value 'C301',
                  light_blue                   type char4 value 'C400',
-                 light_blue_itensified        type char4 value '410',
+                 light_blue_itensified        type char4 value 'C410',
                  light_blue_intesified_invers type char4 value 'C411',
                  light_blue_inversed          type char4 value 'C401',
                  green                        type char4 value 'C500',
