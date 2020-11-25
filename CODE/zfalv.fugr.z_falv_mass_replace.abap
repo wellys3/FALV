@@ -147,7 +147,11 @@ FUNCTION Z_FALV_MASS_REPLACE.
   clear f_num.
   loop at fcat assigning <fcat>.
     read table selected_cols[] with key fieldname = <fcat>-fieldname transporting no fields." binary search.
-    if sy-subrc eq 0.
+    " if sy-subrc eq 0. " ATC: Maximum nesting depth is 9 => exceeds limit 8
+    IF sy-subrc <> 0.
+      CONTINUE.
+    ENDIF.
+    
       add 1 to f_num.
       concatenate 'P_PARC' f_num into f_field.
       read table ft_rsparams assigning <paramsc> with key selname = f_field binary search.
@@ -201,7 +205,7 @@ FUNCTION Z_FALV_MASS_REPLACE.
           endloop.
         endif.
       endif.
-    endif.
+    " endif.
   endloop.
 
   if f_changed eq abap_true.
