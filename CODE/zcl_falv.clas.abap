@@ -1810,7 +1810,7 @@ class zcl_falv implementation.
     check i_row is not initial and i_field is not initial.
     get_frontend_layout( importing es_layout =  lvc_layout ).
 
-    if sy-subrc eq 0.
+    " if sy-subrc eq 0. " The value of SY-SUBRC is always set to 0 by CALL METHOD GET_FRONTEND_LAYOUT.
       if lvc_layout-stylefname is not initial.
         assign outtab->* to <outtab>.
         assign <outtab>[ i_row ] to field-symbol(<line>).
@@ -1840,7 +1840,7 @@ class zcl_falv implementation.
           r_enabled = abap_true.
         endif.
       endif.
-    endif.
+    " endif.
   endmethod.
 
 
