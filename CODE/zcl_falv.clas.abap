@@ -2019,6 +2019,7 @@ class zcl_falv implementation.
 
   method refresh_toolbar.
     check cl_gui_alv_grid=>offline( ) is initial.
+    check grid->m_init_toolbar eq space.
     try.
         me->set_toolbar_interactive(  ).
       catch cx_root.
