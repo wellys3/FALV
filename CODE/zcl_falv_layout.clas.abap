@@ -262,11 +262,11 @@ class zcl_falv_layout definition
       importing
         value(iv_value)   type any
         value(iv_setting) type string .
-endclass.
+ENDCLASS.
 
 
 
-class zcl_falv_layout implementation.
+CLASS ZCL_FALV_LAYOUT IMPLEMENTATION.
 
 
   method change_setting.
@@ -643,4 +643,4 @@ class zcl_falv_layout implementation.
     change_setting( iv_value = iv_value iv_setting = 'ZEBRA' ).
     r_layout = me.
   endmethod.
-endclass.
+ENDCLASS.

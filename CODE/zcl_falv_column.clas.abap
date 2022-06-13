@@ -789,11 +789,11 @@ class zcl_falv_column definition
         value(iv_setting) type string
       exporting
         value(e_value)    type any.
-endclass.
+ENDCLASS.
 
 
 
-class zcl_falv_column implementation.
+CLASS ZCL_FALV_COLUMN IMPLEMENTATION.
 
 
   method change_setting.
@@ -809,6 +809,7 @@ class zcl_falv_column implementation.
     endif.
   endmethod.
 
+
   method get_setting.
     falv->get_frontend_fieldcatalog( importing et_fieldcatalog = falv->fcat ).
     assign falv->fcat[ fieldname = fieldname ] to field-symbol(<fcat>).
@@ -820,7 +821,6 @@ class zcl_falv_column implementation.
       endif.
     endif.
   endmethod.
-
 
 
   method constructor.
@@ -1496,6 +1496,7 @@ class zcl_falv_column implementation.
     r_column = me.
   endmethod.
 
+
   method get_auto_value.
     get_setting( exporting  iv_setting = 'AUTO_VALUE' importing e_value = rv_value ).
   endmethod.
@@ -1897,6 +1898,7 @@ class zcl_falv_column implementation.
                                           when abap_false then abap_true ).
   endmethod.
 
+
   method get_ref_field.
     get_setting( exporting  iv_setting = 'REF_FIELD' importing e_value = rv_value ).
   endmethod.
@@ -2040,6 +2042,4 @@ class zcl_falv_column implementation.
   method get_web_field.
     get_setting( exporting  iv_setting = 'WEB_FIELD' importing e_value = rv_value ).
   endmethod.
-
-
-endclass.
+ENDCLASS.

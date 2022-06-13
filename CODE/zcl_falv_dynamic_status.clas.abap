@@ -137,11 +137,11 @@ class zcl_falv_dynamic_status definition
 
     data allowed_buttons type tt_allowed_but .
   private section.
-endclass.
+ENDCLASS.
 
 
 
-class zcl_falv_dynamic_status implementation.
+CLASS ZCL_FALV_DYNAMIC_STATUS IMPLEMENTATION.
 
 
   method add_button.
@@ -243,4 +243,4 @@ class zcl_falv_dynamic_status implementation.
   method show_title.
     set titlebar 'TITLE' of program zcl_falv=>c_fscr_repid with iv_text1 iv_text2 iv_text3 iv_text4 iv_text5.
   endmethod.
-endclass.
+ENDCLASS.

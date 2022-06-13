@@ -8,11 +8,12 @@ class zcl_falv_inheritance_demo definition
     methods evf_hotspot_click redefinition.
     methods evf_top_of_page redefinition.
   private section.
-endclass.
+ENDCLASS.
 
 
 
-class zcl_falv_inheritance_demo implementation.
+CLASS ZCL_FALV_INHERITANCE_DEMO IMPLEMENTATION.
+
 
   method evf_hotspot_click.
     case e_column_id-fieldname.
@@ -26,6 +27,7 @@ class zcl_falv_inheritance_demo implementation.
             msgv1 = 'Yupi!'.
     endcase.
   endmethod.
+
 
   method evf_top_of_page.
 
@@ -43,6 +45,8 @@ class zcl_falv_inheritance_demo implementation.
 
 
   endmethod.
+
+
   method class_call_test.
     "creation of falv with global class redefinition and without passing subclass type
     data falv type ref to zcl_falv_inheritance_demo.
@@ -58,5 +62,4 @@ class zcl_falv_inheritance_demo implementation.
 
     falv->display( ).
   endmethod.
-
-endclass.
+ENDCLASS.
