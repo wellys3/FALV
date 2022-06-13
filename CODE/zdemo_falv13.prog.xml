@@ -60,23 +60,16 @@
        <LINE>PROCESS BEFORE OUTPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>module pbo.</LINE>
+       <LINE> module pbo.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW/>
       <RPY_DYFLOW>
        <LINE>PROCESS AFTER INPUT.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>module pai.</LINE>
+       <LINE> module pai.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>1</item>
-      <item>0</item>
-      <item>0</item>
-      <item>1</item>
-     </SPACES>
     </item>
    </DYNPROS>
    <TPOOL>

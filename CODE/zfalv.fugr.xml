@@ -232,7 +232,7 @@
        <LINE>process before output.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>module pbo.</LINE>
+       <LINE>  module pbo.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>*</LINE>
@@ -241,16 +241,9 @@
        <LINE>process after input.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>module pai.</LINE>
+       <LINE>  module pai.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-     </SPACES>
     </item>
     <item>
      <HEADER>
@@ -301,7 +294,7 @@
        <LINE>process before output.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>module pbo.</LINE>
+       <LINE>  module pbo.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
        <LINE>*</LINE>
@@ -310,16 +303,9 @@
        <LINE>process after input.</LINE>
       </RPY_DYFLOW>
       <RPY_DYFLOW>
-       <LINE>module pai.</LINE>
+       <LINE>  module pai.</LINE>
       </RPY_DYFLOW>
      </FLOW_LOGIC>
-     <SPACES>
-      <item>0</item>
-      <item>2</item>
-      <item>0</item>
-      <item>0</item>
-      <item>2</item>
-     </SPACES>
     </item>
    </DYNPROS>
    <CUA>

@@ -693,11 +693,11 @@ class zcl_falv definition
     methods create_ex_result_falv
       returning
         value(er_result_table) type ref to cl_salv_ex_result_data_table .
-endclass.
+ENDCLASS.
 
 
 
-class zcl_falv implementation.
+CLASS ZCL_FALV IMPLEMENTATION.
 
 
   method add_button.
@@ -904,6 +904,7 @@ class zcl_falv implementation.
     rv_falv->grid = cast #(  rv_falv ).
   endmethod.
 
+
   method link_containers.
 
     iv_falv->main_container ?= i_custom_container.
@@ -934,7 +935,6 @@ class zcl_falv implementation.
   endmethod.
 
 
-
   method create_falv_object.
 
     created_from_factory = abap_true.
@@ -959,7 +959,6 @@ class zcl_falv implementation.
 
 
   endmethod.
-
 
 
   method create_containters.
@@ -1024,6 +1023,7 @@ class zcl_falv implementation.
 
   endmethod.
 
+
   method crate_main_splitter.
 
     r_split_container  = new cl_gui_splitter_container(
@@ -1032,7 +1032,6 @@ class zcl_falv implementation.
                                                  columns                 = 1 ).
 
   endmethod.
-
 
 
   method create_main_cont_for_full_scr.
@@ -1054,7 +1053,6 @@ class zcl_falv implementation.
   endmethod.
 
 
-
   method create_main_split_cotainer.
 
     " Create split container, log at bottom, grid at top.
@@ -1069,10 +1067,6 @@ class zcl_falv implementation.
                                      columns                 = 1 ).
 
   endmethod.
-
-
-
-
 
 
   method create_by_copy.
@@ -1118,6 +1112,7 @@ class zcl_falv implementation.
     endif.
     rv_falv->grid = cast #( rv_falv ).
   endmethod.
+
 
   method set_handlers.
 
@@ -1179,8 +1174,6 @@ class zcl_falv implementation.
         others = 0 ).
 
   endmethod.
-
-
 
 
   method delete_all_buttons.
@@ -1351,6 +1344,7 @@ class zcl_falv implementation.
   method evf_at_set_title.
   endmethod.
 
+
   method set_dummy_function_code.
     call function 'SAPGUI_SET_FUNCTIONCODE'
       exporting
@@ -1360,6 +1354,7 @@ class zcl_falv implementation.
         others                 = 0.
     r_falv = me.
   endmethod.
+
 
   method evf_before_ucommand_internal.
     field-symbols: <outtab> type standard table.
@@ -1421,9 +1416,11 @@ class zcl_falv implementation.
 
   endmethod.
 
+
   method evf_context_menu_request.
 
   endmethod.
+
 
   method evf_data_changed.
 
@@ -1623,9 +1620,6 @@ class zcl_falv implementation.
   endmethod.
 
 
-
-
-
   method exclude_function.
     if not line_exists( exclude_functions[ table_line = iv_ucomm ] ).
       insert iv_ucomm into table exclude_functions.
@@ -1634,7 +1628,6 @@ class zcl_falv implementation.
 
 
   method create_ex_result_falv.
-
     data:
       lt_lvc_row type lvc_t_row.
 
@@ -1670,71 +1663,6 @@ class zcl_falv implementation.
     ls_cur_cell-col_id-fieldname = ls_lvc_col-fieldname.
     ls_cur_cell-row_id-index = ls_lvc_row-index.
 
-    data: ls_hyper_entry    type string,
-          ls_dropdown_entry type string,
-          lt_drdn           type lvc_t_drop.
-
-    if grid->r_salv_adapter is bound.
-      data:
-        lr_display type ref to if_salv_display_adapter.
-
-      lr_display ?= grid->r_salv_adapter.
-
-      data:
-        lr_columns type ref to cl_salv_columns_list.
-
-      lr_columns ?= lr_display->get_columns( ).
-
-      ls_hyper_entry = lr_columns->get_hyperlink_entry_column( ).
-      ls_dropdown_entry = lr_columns->get_dropdown_entry_column( ).
-
-      data:
-        lr_om type ref to cl_salv_table.
-
-      lr_om ?= grid->r_salv_adapter->r_controller->r_model.
-
-      data:
-        lr_functional_settings type ref to cl_salv_functional_settings.
-
-      lr_functional_settings = lr_om->get_functional_settings( ).
-
-      data:
-        lr_dropdowns type ref to cl_salv_dropdowns.
-
-***<<<Y7AK057779
-      try.
-          lr_dropdowns = lr_functional_settings->get_dropdowns( ).
-
-          lt_drdn = cl_salv_controller_metadata=>get_dropdowns( lr_dropdowns ).
-        catch cx_salv_method_not_supported.
-          clear sy-subrc.
-      endtry.
-***>>>Y7AK057779
-
-*>>> Y7AK058143
-      data:
-        lr_tol type ref to cl_salv_form_element,
-        lr_eol type ref to cl_salv_form_element.
-*<<< Y7AK058143
-
-      lr_tol = lr_om->get_top_of_list( ).
-      lr_eol = lr_om->get_end_of_list( ).
-    endif.
-
-*>>> Y7AK058143
-    data:
-      lr_top_of_list type ref to cl_salv_form,
-      lr_end_of_list type ref to cl_salv_form.
-
-    create object lr_top_of_list
-      exporting
-        r_content = lr_tol.
-
-    create object lr_end_of_list
-      exporting
-        r_content = lr_eol.
-*<<< Y7AK058143
-
     er_result_table = cl_salv_ex_util=>factory_result_data_table(
         t_selected_rows             = lt_lvc_row
         t_selected_columns          = lt_sel_cols
@@ -1746,13 +1674,15 @@ class zcl_falv implementation.
         t_filter                    = grid->m_cl_variant->mt_filter
         t_hyperlinks                = grid->mt_hyperlinks
         s_current_cell              = ls_cur_cell
-        hyperlink_entry_column      = ls_hyper_entry
-        dropdown_entry_column       = ls_dropdown_entry
-        r_top_of_list               = lr_top_of_list
-        r_end_of_list               = lr_end_of_list
-        t_dropdown_values           = lt_drdn ).
+*        hyperlink_entry_column      = ls_hyper_entry
+*        dropdown_entry_column       = ls_dropdown_entry
+*        r_top_of_list               = lr_top_of_list
+*        r_end_of_list               = lr_end_of_list
+*        t_dropdown_values           = lt_drdn
+         ).
 
   endmethod.
+
 
   method export_to_excel.
 
@@ -2539,6 +2469,7 @@ class zcl_falv implementation.
     r_falv = me.
   endmethod.
 
+
   method copy_attributes.
     field-symbols: <outtab> type standard table.
     assign me->outtab->* to <outtab>.
@@ -2570,9 +2501,11 @@ class zcl_falv implementation.
     i_falv->register_f4_for_fields( it_f4 = me->grid->mt_f4 ).
   endmethod.
 
+
   method get_columns.
     rt_columns = me->columns.
   endmethod.
+
 
   method create_by_type.
     data:
@@ -2606,5 +2539,4 @@ class zcl_falv implementation.
         ct_table          = <table>
     ).
   endmethod.
-
-endclass.
+ENDCLASS.

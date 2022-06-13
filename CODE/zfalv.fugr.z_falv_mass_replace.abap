@@ -151,7 +151,7 @@ FUNCTION Z_FALV_MASS_REPLACE.
     IF sy-subrc <> 0.
       CONTINUE.
     ENDIF.
-    
+
       add 1 to f_num.
       concatenate 'P_PARC' f_num into f_field.
       read table ft_rsparams assigning <paramsc> with key selname = f_field binary search.
