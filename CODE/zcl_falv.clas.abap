@@ -181,6 +181,7 @@ class zcl_falv definition
         value(i_popup)           type abap_bool default abap_false
         value(i_applog_embedded) type abap_bool default abap_false
         value(i_subclass)        type ref to cl_abap_typedescr optional
+        value(i_handle)          type slis_handl optional
       changing
         !ct_table                type standard table
       returning
