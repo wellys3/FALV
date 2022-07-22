@@ -181,6 +181,7 @@ class zcl_falv definition
         value(i_popup)           type abap_bool default abap_false
         value(i_applog_embedded) type abap_bool default abap_false
         value(i_subclass)        type ref to cl_abap_typedescr optional
+        value(i_handle)          type slis_handl optional
       changing
         !ct_table                type standard table
       returning
@@ -901,6 +902,9 @@ CLASS ZCL_FALV IMPLEMENTATION.
     rv_falv->layout_save = 'A'.
     rv_falv->variant-report = sy-cprog.
     rv_falv->variant-username = sy-uname.
+    if i_handle is not initial.
+       rv_falv->variant-handle   = i_handle.
+    endif.
     rv_falv->grid = cast #(  rv_falv ).
   endmethod.
 
